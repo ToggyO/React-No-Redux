@@ -1,10 +1,10 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import auth from '@ducks/auth/reducer';
-import * as authSagas from '@ducks/auth/sagas';
 
-import { saveUserData, logout } from '../middleware';
+import { saveUserData, clearUserData } from '../middleware';
+
+import auth, { authSagas } from '@ducks/auth';
 
 export default function configureStore() {
   const reducer = combineReducers({ auth });
@@ -12,7 +12,7 @@ export default function configureStore() {
     ...authSagas,
   };
   const sagaMiddleware = createSagaMiddleware();
-  const middlewares = [sagaMiddleware, saveTokens, saveUserData, renewCountryDataOnTokenRefresh, logout];
+  const middlewares = [sagaMiddleware, saveUserData, clearUserData];
   const enhancer = composeWithDevTools(applyMiddleware(...middlewares));
   const store = createStore(reducer, enhancer);
   Object.values(sagas).forEach(saga => sagaMiddleware.run(saga));

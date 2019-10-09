@@ -28,6 +28,7 @@ module.exports = {
     'import/no-unresolved': 2,
     'import/no-webpack-loader-syntax': 0,
     'import/prefer-default-export': 0,
+    'import/order': ['error', { 'newlines-between': 'always-and-inside-groups' }],
     'react/no-unescaped-entities': [2, { forbid: ['>', '}'] }],
     'react/destructuring-assignment': 0,
     indent: [
@@ -78,13 +79,9 @@ module.exports = {
           ['@config', './src/config'],
           ['@ducks', './src/ducks'],
           ['@routes', './src/routes'],
-          ['@scenes', './src/scenes'],
+          ['@pages', './src/pages'],
           ['@services', './src/services'],
           ['@utils', './src/utils'],
-
-          ['assets', './assets/'],
-          ['src', './src/'],
-          ['components', './src/components'],
         ],
         extensions: ['.js'],
       },

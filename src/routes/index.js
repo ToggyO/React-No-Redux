@@ -1,22 +1,22 @@
-/* eslint-disable no-underscore-dangle */
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+
 import AuthRoute from './AuthRoute';
 import UnAuthRoute from './UnAuthRoute';
 
+import { ROUTES } from '@config';
+import { HomePageView } from '@pages/HomePage';
+import { LoginPageView } from '@pages/LoginPage';
+import { NotFoundPageView } from '@pages/NotFoundPage';
+
 const Routes = () => (
   <Switch>
-    <Route path={ROUTES.HOME} exact component={HomePageDisplay} />
+    <AuthRoute path={ROUTES.HOME_PAGE} exact component={HomePageView} />
 
-    <UnAuthRoute path={ROUTES.LOGIN} exact component={LoginContainer} />
-
-    <AuthRoute path={ROUTES.SETTINGS.ROOT} exact component={SettingsContainer} />
-    <AuthRoute path={ROUTES.SETTINGS.EDIT_EMAIL} exact component={EditEmailDisplay} />
-    <AuthRoute path={ROUTES.SETTINGS.EDIT_FULLNAME} exact component={EditFullNameDisplay} />
-    <AuthRoute path={ROUTES.SETTINGS.EDIT_PHONENUMBER} exact component={EditPhoneNumberDisplay} />
+    <UnAuthRoute path={ROUTES.LOGIN_PAGE} exact component={LoginPageView} />
 
     {/* NOT FOUND PAGE */}
-    <Route path="*" component={NotFound} />
+    <Route path="*" component={NotFoundPageView} />
     {/* /NOT FOUND PAGE */}
   </Switch>
 );

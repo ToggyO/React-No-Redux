@@ -8,9 +8,11 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 // css plugins
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+
+const { paths } = require('../bin');
+
 const common = require('./webpack.common.js');
 //
-const { paths } = require('../bin');
 
 module.exports = merge(common, {
   mode: 'production',

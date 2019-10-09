@@ -1,6 +1,5 @@
-// @ts-nocheck
-const path = require('path');
 const webpack = require('webpack');
+
 const { NODE_ENV, API_DOMAIN, API_VERSION, isPROD, isDEV, paths } = require('../bin');
 
 module.exports = {
@@ -26,7 +25,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         include: paths.appSrc,
         exclude: /(node_modules|bower_components)/,
         use: {
@@ -58,5 +57,6 @@ module.exports = {
       '@services': paths.resolveApp('src/services/'),
       '@styles': paths.resolveApp('src/styles/'),
     },
+    extensions: ['.js', '.jsx', 'scss'],
   },
 };
