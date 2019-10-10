@@ -1,0 +1,46 @@
+@mixin margins
+  @for $i from 0 through 50
+    $margin: $i * 4px
+    .m-#{$i}
+      margin: $margin
+    .ml-#{$i}
+      margin-left: $margin
+    .mr-#{$i}
+      margin-right: $margin
+    .mt-#{$i}
+      margin-top: $margin
+    .mb-#{$i}
+      margin-bottom: $margin
+
+
+@mixin paddings
+  @for $i from 0 through 50
+    $padding: $i * 4px
+    .p-#{$i}
+      padding: $padding
+    .pl-#{$i}
+      padding-left: $padding
+    .pr-#{$i}
+      padding-right: $padding
+    .pt-#{$i}
+      padding-top: $padding
+    .pb-#{$i}
+      padding-bottom: $padding
+
+
+@mixin r($class)
+  @if $class ==xs
+    @media (max-width: 535px)
+      @content
+  @else if $class ==sm
+    @media (max-width: 670px)
+      @content
+  @else if $class ==lg
+    @media (max-width: 991px)
+      @content
+  @else if $class ==lgx
+    @media (max-width: 1048px)
+      @content
+  @else if $class ==xl
+    @media (max-width: 1190px)
+      @content
