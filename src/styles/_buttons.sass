@@ -1,0 +1,21 @@
+$className: btn
+
+.#{$className}
+  border: none
+  text-align: center
+  cursor: pointer
+  background: none
+
+
+//Colors
+.#{$className}.green
+  background-color: $sea-green
+  color: $white
+
+.#{$className}.green:disabled
+  background-color: lighten($sea-green, 15%)
+
+
+//Shapes
+.#{$className}.rounded
+  border-radius: 35px

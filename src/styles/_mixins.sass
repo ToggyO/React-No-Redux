@@ -28,6 +28,7 @@
       padding-bottom: $padding
 
 
+// media queries
 @mixin r($class)
   @if $class ==xs
     @media (max-width: 535px)
@@ -44,3 +45,5 @@
   @else if $class ==xl
     @media (max-width: 1190px)
       @content
+
+
