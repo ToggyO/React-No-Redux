@@ -59,7 +59,34 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
+        test: /\.module\.s(a|c)ss$/,
+        loader: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              sourceMap: false,
+            },
+          },
+          'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: false,
+            },
+          },
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: ['./src/styles/_variables.scss', './src/styles/_mixins.scss'],
+            },
+          },
+        ],
+      },
+      {
         test: /\.(scss|sass|css)$/,
+        exclude: /\.module.(s(a|c)ss)$/,
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
