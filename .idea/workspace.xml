@@ -1,29 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="be9f78d3-215c-4dce-82b2-2f1ed5c37ba6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/squad.io-js-front.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/_layout.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/_variables.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/index.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.development" beforeDir="false" afterPath="$PROJECT_DIR$/.env.development" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Root.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Root.js" afterDir="false" />
+    <list default="true" id="be9f78d3-215c-4dce-82b2-2f1ed5c37ba6" name="Default Changelist" comment="Merge branch 'staging' of https://bitbucket.org/mgrsys/squad.io-js-front into staging&#10;&#10;# Conflicts:&#10;#&#9;src/pages/LoginPage/LoginPageView.jsx&#10;#&#9;src/styles/_variables.scss&#10;#&#9;src/styles/index.scss">
+      <change afterPath="$PROJECT_DIR$/src/pages/NotFoundPage/notfound.module.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/_global.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/app-e7501226044cbd249563.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/app-e7501226044cbd249563.js.LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/app-e7501226044cbd249563.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/app.e7501226044cbd249563.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/favicons/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/LoginPage/LoginPageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage/LoginPageView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/LoginPage/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage/style.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/_animations.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_animations.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/_base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_base.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/_flex.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_flex.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/_layout.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_mixins.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/_variables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/index.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/LoginPage/style.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage/style.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/NotFoundPage/NotFoundPageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/NotFoundPage/NotFoundPageView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/index.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/index.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webpack/webpack.development.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack/webpack.development.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webpack/webpack.production.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack/webpack.production.js" afterDir="false" />
     </list>
@@ -83,8 +76,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1570678415539</updated>
-      <workItem from="1570678418468" duration="11788000" />
+      <workItem from="1570678418468" duration="13068000" />
     </task>
+    <task id="LOCAL-00001" summary="Merge branch 'staging' of https://bitbucket.org/mgrsys/squad.io-js-front into staging&#10;&#10;# Conflicts:&#10;#&#9;src/pages/LoginPage/LoginPageView.jsx&#10;#&#9;src/styles/_variables.scss&#10;#&#9;src/styles/index.scss">
+      <created>1570699804211</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1570699804212</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,5 +101,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Merge branch 'staging' of https://bitbucket.org/mgrsys/squad.io-js-front into staging&#10;&#10;# Conflicts:&#10;#&#9;src/pages/LoginPage/LoginPageView.jsx&#10;#&#9;src/styles/_variables.scss&#10;#&#9;src/styles/index.scss" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'staging' of https://bitbucket.org/mgrsys/squad.io-js-front into staging&#10;&#10;# Conflicts:&#10;#&#9;src/pages/LoginPage/LoginPageView.jsx&#10;#&#9;src/styles/_variables.scss&#10;#&#9;src/styles/index.scss" />
   </component>
 </project>
