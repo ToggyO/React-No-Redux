@@ -11,6 +11,7 @@ import { NotFoundPageView } from '@pages/NotFoundPage';
 
 const Routes = () => (
   <Switch>
+    
     <AuthRoute path={ROUTES.HOME_PAGE} exact component={HomePageView} />
 
     <UnAuthRoute path={ROUTES.LOGIN_PAGE} exact component={LoginPageView} />

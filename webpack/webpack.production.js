@@ -2,17 +2,14 @@ const merge = require('webpack-merge');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-// css plugins
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const { paths } = require('../bin');
 
 const common = require('./webpack.common.js');
-//
 
 module.exports = merge(common, {
   mode: 'production',
@@ -56,33 +53,26 @@ module.exports = merge(common, {
       resourceRegExp: /^.\/locale$/,
       contextRegExp: /moment$/,
     }),
-    new CompressionPlugin({
-      algorithm: 'gzip',
-      test: /\.js$|\.css$|\.html$/,
-      threshold: 10240,
-      minRatio: 0.8,
-    }),
+
     new CopyWebpackPlugin([{ from: paths.appAssets, to: paths.appBuildAssets }]),
-    // new BundleAnalyzerPlugin(),
   ],
   module: {
-    // rules: [
-    //   {
-    //     test: /\.(scss|sass|css)$/,
-    //     use: [
-    //       MiniCssExtractPlugin.loader,
-    //       'css-loader',
-    //       'postcss-loader',
-    //       'sass-loader',
-    //       {
-    //         loader: 'sass-resources-loader',
-    //         options: {
-    //           // you can use variables in all sass|scss files without importing
-    //           resources: ['./src/styles/variables.scss', './src/styles/mixins.scss'],
-    //         },
-    //       },
-    //     ],
-    //   },
-    // ],
+    rules: [
+      {
+        test: /\.(scss|sass|css)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: ['./src/styles/_variables.scss', './src/styles/_mixins.scss'],
+            },
+          },
+        ],
+      },
+    ],
   },
 });

@@ -30,23 +30,55 @@ module.exports = merge(common, {
     new webpack.HotModuleReplacementPlugin(),
   ],
   module: {
-    // rules: [
-    //   {
-    //     test: /\.(scss|sass|css)$/,
-    //     use: [
-    //       'style-loader',
-    //       'css-loader',
-    //       'postcss-loader',
-    //       'sass-loader',
-    //       {
-    //         loader: 'sass-resources-loader',
-    //         options: {
-    //           // you can use variables in all sass|scss files without importing
-    //           resources: ['./src/styles/variables.scss', './src/styles/mixins.scss'],
-    //         },
-    //       },
-    //     ],
-    //   },
-    // ],
+    rules: [
+      {
+        test: /\.module\.s(a|c)ss$/,
+        loader: [
+          'style-loader',
+
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              sourceMap: true,
+            },
+          },
+          'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: ['./src/styles/_variables.scss', './src/styles/_mixins.scss'],
+            },
+          },
+        ],
+      },
+      {
+        test: /\.s(a|c)ss$/,
+        exclude: /\.module.(s(a|c)ss)$/,
+        loader: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: ['./src/styles/_variables.scss', './src/styles/_mixins.scss'],
+            },
+          },
+        ],
+      },
+    ],
   },
 });

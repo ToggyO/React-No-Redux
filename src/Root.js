@@ -6,6 +6,7 @@ import history from '@services/history';
 
 import { ErrorBoundary } from '@components/ErrorBoundary';
 import { ScrollToTop } from '@components/ScrollToTop';
+import './styles/index.scss';
 
 const Root = () => (
   <ErrorBoundary>

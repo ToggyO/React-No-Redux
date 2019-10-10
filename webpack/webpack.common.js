@@ -32,6 +32,7 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
+
       {
         test: /\.(woff(2)?|ttf|eot|svg|png|jpg)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
@@ -56,6 +57,7 @@ module.exports = {
       '@routes': paths.resolveApp('src/routes/'),
       '@services': paths.resolveApp('src/services/'),
       '@styles': paths.resolveApp('src/styles/'),
+      '@utils': paths.resolveApp('src/utils/'),
     },
     extensions: ['.js', '.jsx', 'scss'],
   },
