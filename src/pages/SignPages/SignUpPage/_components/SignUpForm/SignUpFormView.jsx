@@ -24,6 +24,7 @@ const SignUpFormView = () => (
             imgbefore="../../assets/login_page/email_icon.png"
             component={TextInput}
             validate={validateField.email}
+            inputstyle={{ paddingTop: 16, paddingBottom: 16 }}
           />
           <ErrorMessage name="google_mail" component="div" className="formik-error error-label" />
           <span style={{ color: '#9398A2', fontSize: 15, lineHeight: '21px', fontWeight: 400 }}>Or</span>
@@ -34,6 +35,7 @@ const SignUpFormView = () => (
             imgbefore="../../assets/login_page/email_icon.png"
             component={TextInput}
             validate={validateField.email}
+            inputstyle={{ paddingTop: 16, paddingBottom: 16 }}
           />
           <ErrorMessage name="user_mail" component="div" className="formik-error error-label" />
           <button

@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be9f78d3-215c-4dce-82b2-2f1ed5c37ba6" name="Default Changelist" comment="Merge branch 'staging' of https://bitbucket.org/mgrsys/squad.io-js-front into staging&#10;&#10;# Conflicts:&#10;#&#9;src/pages/LoginPage/LoginPageView.jsx&#10;#&#9;src/styles/_variables.scss&#10;#&#9;src/styles/index.scss">
-      <change afterPath="$PROJECT_DIR$/src/pages/components/form/SignUpForms/SignUpStepOne/SignUpStepOne.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/components/form/SignUpForms/SignUpStepOne/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/ConfirmEmailInput.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/style.module.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/_components/ConfirmEmailForm/ConfirmEmailFormView.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/_components/ConfirmEmailForm/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/LoginPage/LoginPageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage/LoginPageView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/_global.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_global.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/FormTemplate/FormTemplateView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/FormTemplate/FormTemplateView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/TextInput/TextInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/TextInput/TextInput.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/ConfirmEmailPageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/ConfirmEmailPageView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/_components/SignUpForm/SignUpFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/_components/SignUpForm/SignUpFormView.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +34,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.16.0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../WEB_CFG" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../magora-test-layout2" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -40,11 +45,12 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Projects\squad.io-js-front\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Font" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.1.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\squad.io-js-front\src\pages\SignPages\ConfirmEmailPage" />
       <recent name="C:\Projects\squad.io-js-front\src\assets\login_page" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -85,7 +91,7 @@
       <workItem from="1570787808615" duration="46000" />
       <workItem from="1570787871455" duration="65000" />
       <workItem from="1570787950104" duration="522000" />
-      <workItem from="1570788487854" duration="1716000" />
+      <workItem from="1570788487854" duration="8348000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'staging' of https://bitbucket.org/mgrsys/squad.io-js-front into staging&#10;&#10;# Conflicts:&#10;#&#9;src/pages/LoginPage/LoginPageView.jsx&#10;#&#9;src/styles/_variables.scss&#10;#&#9;src/styles/index.scss">
       <created>1570699804211</created>
