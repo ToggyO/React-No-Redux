@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 
 import style from './style.module.sass';
-import { FormTemplateView } from './FormTemplate';
+import { FormTemplateView } from '../components/form/FormTemplate';
 
 const LoginPageView = () => (
   <div>
@@ -20,7 +20,7 @@ const LoginPageView = () => (
           </div>
         </div>
       </div>
-      <div className={style.login_page__form}>
+      <div className={`${style.login_page__form} flex justify-content-center align-items-center`}>
 
         <FormTemplateView
           titleLarge="Create your account"

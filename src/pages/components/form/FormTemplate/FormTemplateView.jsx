@@ -14,16 +14,16 @@ const FormTemplateView = (props) => {
   return (
     <div className={style.wrapper}>
       <div className={`${style.container} text-align-center`}>
-        <div className={`${style.label_large} text-align-center`}>
+        <div className={`${style.label_large} text-align-center mb-2`}>
           <h2>{titleLarge}</h2>
         </div>
-        <div className={`${style.label_small} text-align-center`}>
+        <div className={`${style.label_small} text-align-center mb-10`}>
           <h4>{titleSmall}</h4>
         </div>
         <div className={style.label_content}>
           {children}
         </div>
-        <div className={`${style.label_small} text-align-center`}>
+        <div className={`${style.label_small} text-align-center mt-8`}>
           <a href="#">{link}</a>
         </div>
       </div>
