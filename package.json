@@ -74,6 +74,7 @@
     "core-js": "^2.6.9",
     "dotenv": "^8.1.0",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "formik": "^1.5.8",
     "history": "^4.10.1",
     "jwt-decode": "^2.2.0",
     "prop-types": "^15.7.2",
