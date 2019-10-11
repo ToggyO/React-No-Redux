@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import styles from './notfound.module.scss';
+import styles from './notfound.module.sass';
 
 const NotFoundPageView = () => (
   <div>
