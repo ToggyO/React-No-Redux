@@ -1,11 +1,12 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 
-import { TextInput } from '../../TextInput';
-import { validateField } from '../../validation';
-import { FormTemplateView } from '../../FormTemplate';
+import { TextInput } from '@components/Form/TextInput';
+import { validateField } from '@components/Form/validations';
+import { FormTemplateView } from '@components/Form/FormTemplate';
 
-const SignUpStepOne = () => (
+const SignUpFormView = () => (
   <FormTemplateView
     titleLarge="Create your account"
     titleSmall="Sign up with your work email or your Google Account."
@@ -24,7 +25,7 @@ const SignUpStepOne = () => (
             component={TextInput}
             validate={validateField.email}
           />
-          <ErrorMessage name="google_mail" component="div" className="formik-error error-label"/>
+          <ErrorMessage name="google_mail" component="div" className="formik-error error-label" />
           <span style={{ color: '#9398A2', fontSize: 15, lineHeight: '21px', fontWeight: 400 }}>Or</span>
           <Field
             type="email"
@@ -34,7 +35,7 @@ const SignUpStepOne = () => (
             component={TextInput}
             validate={validateField.email}
           />
-          <ErrorMessage name="user_mail" component="div" className="formik-error error-label"/>
+          <ErrorMessage name="user_mail" component="div" className="formik-error error-label" />
           <button
             type="submit"
             disabled={isSubmitting}
@@ -53,4 +54,4 @@ const SignUpStepOne = () => (
   </FormTemplateView>
 );
 
-export default SignUpStepOne;
+export default SignUpFormView;

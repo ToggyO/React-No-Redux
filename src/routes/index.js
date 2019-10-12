@@ -9,8 +9,8 @@ import { AuthScreenWrapper } from '@components/AuthScreenWrapper';
 import { HomePageView } from '@pages/HomePage';
 import { NotFoundPageView } from '@pages/NotFoundPage';
 
-import { SignUpPageView } from '@pages/SignUpPage';
-import { ConfirmEmailPageView } from '@pages/ConfirmEmailPage';
+import { SignUpPageView } from '@pages/SignPages/SignUpPage';
+import { ConfirmEmailPageView } from '@pages/SignPages/ConfirmEmailPage';
 
 const Routes = () => (
   <Switch>

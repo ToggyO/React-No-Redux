@@ -2,10 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ImageBefore = ({ src, imageWidth, imageHeight }) => (
-  <div
-    className="flex justify-content-center align-items-center"
-    style={{ width: 55 }}
-  >
+  <div className="flex justify-content-center align-items-center" style={{ width: 55 }}>
     <div
       style={{
         width: `${imageWidth}px`,
@@ -24,7 +21,6 @@ const ImageBefore = ({ src, imageWidth, imageHeight }) => (
     </div>
   </div>
 );
-
 
 export default ImageBefore;
 
