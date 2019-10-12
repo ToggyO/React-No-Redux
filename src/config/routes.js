@@ -1,4 +1,8 @@
 export const ROUTES = {
   HOME_PAGE: '/',
-  LOGIN_PAGE: '/login',
+  AUTH: {
+    ROOT: '/auth',
+    SIGN_UP: '/signup',
+    CONFIRM_EMAIL: '/confirm-email',
+  },
 };

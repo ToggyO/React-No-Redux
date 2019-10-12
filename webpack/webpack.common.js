@@ -9,6 +9,7 @@ module.exports = {
   output: {
     filename: `[name]-[hash]${isPROD ? '.min' : ''}.js`,
     path: paths.appBuild,
+    publicPath: '/',
   },
   target: 'web',
   plugins: [
