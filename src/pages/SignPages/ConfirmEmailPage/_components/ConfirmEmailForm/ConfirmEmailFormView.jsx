@@ -13,7 +13,7 @@ const ConfirmEmailFormView = () => (
     <ConfirmEmailInput
       name="google_mail"
       maxLength={6}
-      inputstyle={{ paddingTop: 16, paddingBottom: 16 }}
+      inputstyle={{ width: 0, height: 0}}
     />
     <button
       type="submit"
