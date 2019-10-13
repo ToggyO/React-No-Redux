@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75b8ae08-203c-40cc-8b24-5a091178944d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/RenderCircles.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthScreenWrapper/style.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthScreenWrapper/style.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/ConfirmEmailInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/ConfirmEmailInput.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/style.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/style.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/_components/ConfirmEmailForm/ConfirmEmailFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/_components/ConfirmEmailForm/ConfirmEmailFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +49,7 @@
       <updated>1570807417212</updated>
       <workItem from="1570807420143" duration="6332000" />
       <workItem from="1570861057368" duration="4589000" />
-      <workItem from="1570962146357" duration="6670000" />
+      <workItem from="1570962146357" duration="6770000" />
     </task>
     <servers />
   </component>
