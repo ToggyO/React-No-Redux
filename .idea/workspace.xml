@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be9f78d3-215c-4dce-82b2-2f1ed5c37ba6" name="Default Changelist" comment="Merge branch 'staging' of https://bitbucket.org/mgrsys/squad.io-js-front into staging&#10;&#10;# Conflicts:&#10;#&#9;src/pages/LoginPage/LoginPageView.jsx&#10;#&#9;src/styles/_variables.scss&#10;#&#9;src/styles/index.scss">
-      <change afterPath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/ConfirmEmailInput.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/style.module.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/_components/ConfirmEmailForm/ConfirmEmailFormView.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/_components/ConfirmEmailForm/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/FormTemplate/FormTemplateView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/FormTemplate/FormTemplateView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/TextInput/TextInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/TextInput/TextInput.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/ConfirmEmailPageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/ConfirmEmailPageView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/_components/SignUpForm/SignUpFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/_components/SignUpForm/SignUpFormView.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +25,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.16.0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../magora-test-layout2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -91,7 +82,8 @@
       <workItem from="1570787808615" duration="46000" />
       <workItem from="1570787871455" duration="65000" />
       <workItem from="1570787950104" duration="522000" />
-      <workItem from="1570788487854" duration="8348000" />
+      <workItem from="1570788487854" duration="8753000" />
+      <workItem from="1571019898575" duration="455000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'staging' of https://bitbucket.org/mgrsys/squad.io-js-front into staging&#10;&#10;# Conflicts:&#10;#&#9;src/pages/LoginPage/LoginPageView.jsx&#10;#&#9;src/styles/_variables.scss&#10;#&#9;src/styles/index.scss">
       <created>1570699804211</created>
