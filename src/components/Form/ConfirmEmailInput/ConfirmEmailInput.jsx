@@ -1,3 +1,4 @@
+import { FormTemplateView } from '@components/Form/FormTemplate';
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
@@ -5,11 +6,9 @@ import RenderCircles from './RenderCircles';
 
 import s from './style.module.sass';
 
-const array = [ '', '', '', '', '', '' ];
-
-
 const ConfirmEmailInput = props => {
-  const { name, maxLength, inputstyle } = props;
+  const { name, maxLength, addClass } = props;
+  const array = [...Array(maxLength)];
 
   const [state, setState] = useState('');
   const inputRef = useRef(null);
@@ -19,24 +18,17 @@ const ConfirmEmailInput = props => {
     return () => window.removeEventListener('keydown', onInputFocus);
   }, []);
 
-  const onInputFocus = () => {
-    return inputRef.current.focus();
-  };
+  const onInputFocus = () => inputRef.current.focus();
 
   const inputId = `input-${name}`;
 
   return (
-    <div className={`${s.container} mt-4 mb-4`}>
-      <label
-        htmlFor={inputId}
-        className={`${s.label} form_border flex p-4`}
-      >
+    <div className={`${s.container} ${addClass}`}>
+      <label htmlFor={inputId} className={`${s.label} form_border flex p-4 mb-4`}>
         <div className={`${s.circles} flex justify-content-space-between`}>
-          {array.map((item, i) => {
-            return (
-              <RenderCircles key={i} item={item} color={ i < state.length ? '#495570' : '#9398A2'}/>
-            )
-          })}
+          {array.map((item, i) => (
+            <RenderCircles key={i} item={item} color={i < state.length ? '#495570' : '#9398A2'} />
+          ))}
         </div>
         <input
           type="text"
@@ -47,9 +39,16 @@ const ConfirmEmailInput = props => {
           value={state}
           onChange={e => setState(e.target.value.replace(/\D/, ''))}
           maxLength={maxLength}
-          style={inputstyle}
+          style={{ width: 0, height: 0 }}
         />
       </label>
+      <button
+        type="submit"
+        disabled={state.length !== maxLength}
+        className="btn green rounded p-4 full_width login-page-button"
+      >
+        Next
+      </button>
     </div>
   );
 };
@@ -57,7 +56,7 @@ const ConfirmEmailInput = props => {
 export default ConfirmEmailInput;
 
 ConfirmEmailInput.propTypes = {
+  addClass: PropTypes.string,
   name: PropTypes.string,
   maxLength: PropTypes.number,
-  inputstyle: PropTypes.object,
 };

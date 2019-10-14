@@ -8,9 +8,9 @@ import { ROUTES } from '@config';
 import { AuthScreenWrapper } from '@components/AuthScreenWrapper';
 import { HomePageView } from '@pages/HomePage';
 import { NotFoundPageView } from '@pages/NotFoundPage';
-
 import { SignUpPageView } from '@pages/SignPages/SignUpPage';
 import { ConfirmEmailPageView } from '@pages/SignPages/ConfirmEmailPage';
+import { PasswordEnterPageView } from '@pages/SignPages/PasswordEnterPage';
 
 const Routes = () => (
   <Switch>
@@ -24,6 +24,11 @@ const Routes = () => (
               path={ROUTES.AUTH.ROOT + ROUTES.AUTH.CONFIRM_EMAIL}
               exact
               component={ConfirmEmailPageView}
+            />
+            <Route
+              path={ROUTES.AUTH.ROOT + ROUTES.AUTH.ENTER_PASSWORD}
+              exact
+              component={PasswordEnterPageView}
             />
           </Switch>
         </AuthScreenWrapper>
