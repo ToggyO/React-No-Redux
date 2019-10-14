@@ -31,6 +31,7 @@ module.exports = {
     'import/order': ['error', { 'newlines-between': 'always-and-inside-groups' }],
     'react/no-unescaped-entities': [2, { forbid: ['>', '}'] }],
     'react/destructuring-assignment': 0,
+    'no-plusplus': 'off',
     indent: [
       2,
       2,

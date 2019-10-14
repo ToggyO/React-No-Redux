@@ -14,6 +14,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="75b8ae08-203c-40cc-8b24-5a091178944d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,28 +26,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="JsFlowSettings">
-    <service-enabled>true</service-enabled>
-    <exe-path />
-    <other-services-enabled>true</other-services-enabled>
-    <auto-save>true</auto-save>
-  </component>
-  <component name="ProjectId" id="1RzmhIYyPeolD3H2X9CRCbLaLV8" />
+  <component name="ProjectId" id="1S40AX1biAOrS8lJYwMrJD9DkXg" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="javascript.nodejs.core.library.configured.version" value="10.16.0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../magora-test-layout2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Projects\squad.io-js-front\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
@@ -61,6 +51,8 @@
       <recent name="C:\Projects\squad.io-js-front\src\styles" />
       <recent name="C:\Projects\squad.io-js-front\src\pages\components\form" />
     </key>
+    <property name="prettierjs.PrettierConfiguration.Package" value="C:\Душа\Web\squad.io-js-front\node_modules\prettier" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -79,31 +71,15 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="be9f78d3-215c-4dce-82b2-2f1ed5c37ba6" name="Default Changelist" comment="" />
-      <created>1570678415539</created>
+      <changelist id="75b8ae08-203c-40cc-8b24-5a091178944d" name="Default Changelist" comment="" />
+      <created>1570807417212</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1570678415539</updated>
-      <workItem from="1570678418468" duration="21731000" />
-      <workItem from="1570756302137" duration="18893000" />
-      <workItem from="1570785165073" duration="39000" />
-      <workItem from="1570785297799" duration="1821000" />
-      <workItem from="1570787406220" duration="114000" />
-      <workItem from="1570787534842" duration="172000" />
-      <workItem from="1570787720620" duration="75000" />
-      <workItem from="1570787808615" duration="46000" />
-      <workItem from="1570787871455" duration="65000" />
-      <workItem from="1570787950104" duration="522000" />
-      <workItem from="1570788487854" duration="8348000" />
+      <updated>1570807417212</updated>
+      <workItem from="1570807420143" duration="6332000" />
+      <workItem from="1570861057368" duration="4589000" />
+      <workItem from="1570962146357" duration="6770000" />
     </task>
-    <task id="LOCAL-00001" summary="Merge branch 'staging' of https://bitbucket.org/mgrsys/squad.io-js-front into staging&#10;&#10;# Conflicts:&#10;#&#9;src/pages/LoginPage/LoginPageView.jsx&#10;#&#9;src/styles/_variables.scss&#10;#&#9;src/styles/index.scss">
-      <created>1570699804211</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1570699804212</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -121,9 +97,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Merge branch 'staging' of https://bitbucket.org/mgrsys/squad.io-js-front into staging&#10;&#10;# Conflicts:&#10;#&#9;src/pages/LoginPage/LoginPageView.jsx&#10;#&#9;src/styles/_variables.scss&#10;#&#9;src/styles/index.scss" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'staging' of https://bitbucket.org/mgrsys/squad.io-js-front into staging&#10;&#10;# Conflicts:&#10;#&#9;src/pages/LoginPage/LoginPageView.jsx&#10;#&#9;src/styles/_variables.scss&#10;#&#9;src/styles/index.scss" />
   </component>
 </project>
