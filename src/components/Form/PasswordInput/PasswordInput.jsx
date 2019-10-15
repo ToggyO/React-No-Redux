@@ -6,8 +6,6 @@ import s from './style.module.sass';
 import { ImageBefore } from '@components/Form/ImgBefore';
 import { LabelWrapper } from '@components/Form/LabelWrapper';
 
-import mail from '@assets/login_page/email_icon.png';
-
 class PasswordInput extends React.Component {
   state = {
     isPwShown: false,
@@ -16,36 +14,35 @@ class PasswordInput extends React.Component {
   showHidePw = () => this.setState(prevState => ({ isPwShown: !prevState.isPwShown }));
 
   render() {
-    const { addClass, field, form, label, imgbefore, inputstyle } = this.props;
+    const { addClassWrapper, addClassInput, field, form, label, imgBefore, inputStyle } = this.props;
     const { touched, errors, values } = form;
     const { isPwShown } = this.state;
     const inputId = `input-${field.name}`;
 
     return (
-      <div className={`${s.wrapper} ${addClass}`}>
+      <div className={`${s.wrapper} ${addClassWrapper}`}>
         <LabelWrapper label={label} errors={errors} touched={touched} inputId={inputId} field={field}>
           <div
             className={`${s.container} form_border ${
-              errors[field.name] && touched[field.name] ? 'error' : null
+              errors[field.name] && touched[field.name] ? 'error' : ''
             } flex`}
           >
-            {imgbefore && <ImageBefore src={imgbefore} imageWidth={18} imageHeight={16} />}
+            {imgBefore && <ImageBefore src={imgBefore} imageWidth={18} imageHeight={16} />}
             <input
               {...field}
               id={inputId}
               type={isPwShown ? 'text' : 'password'}
-              className={`default_input ${errors[field.name] && touched[field.name] ? 'error-label' : null}`}
+              className={`default_input ${
+                errors[field.name] && touched[field.name] ? 'error-label' : ''
+              } ${addClassInput}`}
               value={values[field.name]}
               name={field.name}
-              style={inputstyle}
-              {...this.props}
             />
-            <button type="button" onClick={this.showHidePw}>
-              <img src={mail} alt="" />
-            </button>
-            {/*<button type="button" onClick={this.showHidePw}>*/}
-            {/*  <img src={mail} alt="" />*/}
-            {/*</button>*/}
+            <input
+              type="checkbox"
+              onClick={this.showHidePw}
+              className={`${s.show_password} ${isPwShown ? s.checked : ''}`}
+            />
           </div>
         </LabelWrapper>
       </div>
@@ -56,13 +53,14 @@ class PasswordInput extends React.Component {
 export default PasswordInput;
 
 PasswordInput.propTypes = {
-  addClass: PropTypes.string,
+  addClassWrapper: PropTypes.string,
+  addClassInput: PropTypes.string,
   field: PropTypes.object,
   form: PropTypes.object,
   label: PropTypes.string,
   type: PropTypes.string,
-  imgbefore: PropTypes.string,
-  inputstyle: PropTypes.object,
+  imgBefore: PropTypes.string,
+  inputStyle: PropTypes.object,
   touched: PropTypes.object,
   errors: PropTypes.object,
 };

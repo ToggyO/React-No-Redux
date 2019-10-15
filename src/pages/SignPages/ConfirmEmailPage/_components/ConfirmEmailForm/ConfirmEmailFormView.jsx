@@ -9,7 +9,7 @@ const ConfirmEmailFormView = () => (
     titleSmall="We have sent a confirmation code to name@company.com. Enter this code below:"
     link="Didn’t receive a confirmation code? Click here"
   >
-    <ConfirmEmailInput name="confirmEmail" maxLength={6} addClass="pt-4 pb-4" />
+    <ConfirmEmailInput name="confirmEmail" maxLength={6} addClassWrapper="pt-4 pb-4" />
   </FormTemplateView>
 );
 

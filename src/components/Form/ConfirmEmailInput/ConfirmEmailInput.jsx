@@ -7,7 +7,7 @@ import RenderCircles from './RenderCircles';
 import s from './style.module.sass';
 
 const ConfirmEmailInput = props => {
-  const { name, maxLength, addClass } = props;
+  const { name, maxLength, addClassWrapper } = props;
   const array = [...Array(maxLength)];
 
   const [state, setState] = useState('');
@@ -23,7 +23,7 @@ const ConfirmEmailInput = props => {
   const inputId = `input-${name}`;
 
   return (
-    <div className={`${s.container} ${addClass}`}>
+    <div className={`${s.container} ${addClassWrapper}`}>
       <label htmlFor={inputId} className={`${s.label} form_border flex p-4 mb-4`}>
         <div className={`${s.circles} flex justify-content-space-between`}>
           {array.map((item, i) => (
@@ -56,7 +56,7 @@ const ConfirmEmailInput = props => {
 export default ConfirmEmailInput;
 
 ConfirmEmailInput.propTypes = {
-  addClass: PropTypes.string,
+  addClassWrapper: PropTypes.string,
   name: PropTypes.string,
   maxLength: PropTypes.number,
 };

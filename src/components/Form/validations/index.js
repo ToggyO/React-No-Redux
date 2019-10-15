@@ -24,9 +24,8 @@ export const validateField = {
     } else if (values.password.length < 6) {
       errors.password = 'Min 6 symbols';
     }
-    if (!values.passwordConfirm) {
-      errors.passwordConfirm = 'Required';
-    } else if (values.passwordConfirm !== values.password) {
+
+    if (!values.passwordConfirm || values.passwordConfirm !== values.password) {
       errors.passwordConfirm = 'Passwords, you entered is not the same';
     }
     return errors;

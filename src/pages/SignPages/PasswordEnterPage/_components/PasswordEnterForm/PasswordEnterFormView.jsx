@@ -27,19 +27,19 @@ const PasswordEnterFormView = () => {
             <Field
               name="password"
               placeholder="Password..."
-              imgbefore={key}
+              imgBefore={key}
               component={PasswordInput}
-              inputstyle={{ paddingTop: 16, paddingBottom: 16 }}
-              addClass="pt-4 pb-4"
+              addClassWrapper="pt-4 pb-4"
+              addClassInput="pt-4 pb-4"
             />
             <ErrorMessage name="password" component="div" className="formik-error error-label" />
             <Field
               name="passwordConfirm"
               placeholder="Confirm password..."
-              imgbefore={key}
+              imgBefore={key}
               component={PasswordInput}
-              inputstyle={{ paddingTop: 16, paddingBottom: 16 }}
-              addClass="pt-4 pb-4"
+              addClassWrapper="pt-4 pb-4"
+              addClassInput="pt-4 pb-4"
             />
             <ErrorMessage name="passwordConfirm" component="div" className="formik-error error-label" />
             <button

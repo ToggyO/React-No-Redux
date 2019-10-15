@@ -23,11 +23,11 @@ const SignUpFormView = () => (
             type="email"
             name="google_mail"
             placeholder="Continue with Google"
-            imgbefore={mail}
+            imgBefore={mail}
             component={TextInput}
             // validate={validateField.email}
-            inputstyle={{ paddingTop: 16, paddingBottom: 16 }}
-            addClass="pt-4 pb-4"
+            addClassWrapper="pt-4 pb-4"
+            addClassInput="pt-4 pb-4"
           />
           <ErrorMessage name="google_mail" component="div" className="formik-error error-label" />
           <span style={{ color: '#9398A2', fontSize: 15, lineHeight: '21px', fontWeight: 400 }}>Or</span>
@@ -35,11 +35,11 @@ const SignUpFormView = () => (
             type="email"
             name="user_mail"
             placeholder="name@company.com"
-            imgbefore={mail}
+            imgBefore={mail}
             component={TextInput}
             validate={validateField.email}
-            inputstyle={{ paddingTop: 16, paddingBottom: 16 }}
-            addClass="pt-4 pb-4"
+            addClassWrapper="pt-4 pb-4"
+            addClassInput="pt-4 pb-4"
           />
           <ErrorMessage name="user_mail" component="div" className="formik-error error-label" />
           <button

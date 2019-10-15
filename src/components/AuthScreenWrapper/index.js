@@ -1,4 +1,6 @@
 /* eslint-disable react/prop-types */
+import { Preloader } from '@components/Preloader';
+import { ScrollToTop } from '@components/ScrollToTop';
 import React from 'react';
 
 import style from './style.module.sass';
@@ -17,6 +19,15 @@ export const AuthScreenWrapper = ({ children }) => (
         </div>
       </div>
     </div>
-    <div className={`${style.form} flex justify-content-center align-items-center`}>{children}</div>
+    <div className={`${style.form} ${style.children}`}>
+      <Preloader
+        addClassPreloader="display-none"
+        // addClassPreloader="flex justify-content-center align-items-center"
+        addClassChildren="flex justify-content-center align-items-center"
+      >
+        {children}
+      </Preloader>
+    </div>
   </div>
 );
+// addClassWrapper="flex justify-content-center align-items-center"

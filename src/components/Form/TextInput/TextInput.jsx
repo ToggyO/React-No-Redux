@@ -7,28 +7,29 @@ import { LabelWrapper } from '../LabelWrapper';
 import s from './style.module.sass';
 
 const TextInput = props => {
-  const { addClass, field, form, label, imgbefore, inputstyle } = props;
+  const { addClassWrapper, addClassInput, field, form, label, imgBefore, inputStyle } = props;
   const { touched, errors, values } = form;
 
   const inputId = `input-${field.name}`;
 
   return (
-    <div className={`${s.text_input} ${addClass}`}>
+    <div className={`${s.text_input} ${addClassWrapper}`}>
       <LabelWrapper label={label} errors={errors} touched={touched} inputId={inputId} field={field}>
         <div
           className={`${s.container} form_border ${
             errors[field.name] && touched[field.name] ? 'error' : null
           } flex`}
         >
-          {imgbefore && <ImageBefore src={imgbefore} imageWidth={18} imageHeight={16} />}
+          {imgBefore && <ImageBefore src={imgBefore} imageWidth={18} imageHeight={16} />}
           <input
             {...field}
             id={inputId}
-            className={`default_input ${errors[field.name] && touched[field.name] ? 'error-label' : null}`}
+            className={`default_input ${
+              errors[field.name] && touched[field.name] ? 'error-label' : null
+            } ${addClassInput}`}
             value={values[field.name]}
             name={field.name}
-            style={inputstyle}
-            {...props}
+            style={inputStyle}
           />
         </div>
       </LabelWrapper>
@@ -39,13 +40,14 @@ const TextInput = props => {
 export default TextInput;
 
 TextInput.propTypes = {
-  addClass: PropTypes.string,
+  addClassWrapper: PropTypes.string,
+  addClassInput: PropTypes.string,
   field: PropTypes.object,
   form: PropTypes.object,
   label: PropTypes.string,
   type: PropTypes.string,
-  imgbefore: PropTypes.string,
-  inputstyle: PropTypes.object,
+  imgBefore: PropTypes.string,
+  inputStyle: PropTypes.object,
   touched: PropTypes.object,
   errors: PropTypes.object,
 };
