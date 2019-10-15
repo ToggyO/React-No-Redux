@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
-import { Preloader } from '@components/Preloader';
-import { ScrollToTop } from '@components/ScrollToTop';
 import React from 'react';
 
 import style from './style.module.sass';
 
+import { Preloader } from '@components/Preloader';
 import logo from '@assets/login_page/logo_squad.png';
 
 export const AuthScreenWrapper = ({ children }) => (
@@ -30,4 +29,3 @@ export const AuthScreenWrapper = ({ children }) => (
     </div>
   </div>
 );
-// addClassWrapper="flex justify-content-center align-items-center"

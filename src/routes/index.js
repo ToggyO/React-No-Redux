@@ -11,6 +11,7 @@ import { NotFoundPageView } from '@pages/NotFoundPage';
 import { SignUpPageView } from '@pages/SignPages/SignUpPage';
 import { ConfirmEmailPageView } from '@pages/SignPages/ConfirmEmailPage';
 import { PasswordEnterPageView } from '@pages/SignPages/PasswordEnterPage';
+import { EnterNamePageView } from '@pages/SignPages/EnterNamePage';
 
 const Routes = () => (
   <Switch>
@@ -30,6 +31,7 @@ const Routes = () => (
               exact
               component={PasswordEnterPageView}
             />
+            <Route path={ROUTES.AUTH.ROOT + ROUTES.AUTH.ENTER_NAME} exact component={EnterNamePageView} />
           </Switch>
         </AuthScreenWrapper>
       )}

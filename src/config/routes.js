@@ -5,5 +5,6 @@ export const ROUTES = {
     SIGN_UP: '/signup',
     CONFIRM_EMAIL: '/confirm-email',
     ENTER_PASSWORD: '/enter-password',
+    ENTER_NAME: '/enter-name',
   },
 };

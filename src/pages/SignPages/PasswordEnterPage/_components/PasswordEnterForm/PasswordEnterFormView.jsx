@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 
-import { validateField } from '@components/Form/validations';
+import { validateForm } from '@components/Form/validations';
 import { FormTemplateView } from '@components/Form/FormTemplate';
 import { PasswordInput } from '@components/Form/PasswordInput';
 
@@ -17,7 +17,7 @@ const PasswordEnterFormView = () => {
     >
       <Formik
         initialValues={{ password: '', passwordConfirm: '' }}
-        validate={validateField.confirmPassword}
+        validate={validateForm.confirmPassword}
         onSubmit={values => {
           setFormValues(values);
           console.log(formValues);

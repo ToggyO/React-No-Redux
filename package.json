@@ -9,7 +9,7 @@
     "build:prod": "webpack --config webpack/webpack.production.js --progress --colors",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "lint:style": "stylelint \"src//*.less\" --syntax less",
-    "prettier": "prettier --write src//*.{js,less}"
+    "prettier": "prettier --write src//*.{js,less,sass,scss}"
   },
   "repository": {
     "type": "git",

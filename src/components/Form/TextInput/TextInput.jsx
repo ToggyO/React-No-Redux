@@ -7,9 +7,18 @@ import { LabelWrapper } from '../LabelWrapper';
 import s from './style.module.sass';
 
 const TextInput = props => {
-  const { addClassWrapper, addClassInput, field, form, label, imgBefore, inputStyle } = props;
+  const {
+    addClassWrapper,
+    addClassInput,
+    type,
+    placeholder,
+    field,
+    form,
+    label,
+    imgBefore,
+    inputStyle,
+  } = props;
   const { touched, errors, values } = form;
-
   const inputId = `input-${field.name}`;
 
   return (
@@ -23,12 +32,14 @@ const TextInput = props => {
           {imgBefore && <ImageBefore src={imgBefore} imageWidth={18} imageHeight={16} />}
           <input
             {...field}
+            type={type}
             id={inputId}
             className={`default_input ${
               errors[field.name] && touched[field.name] ? 'error-label' : null
             } ${addClassInput}`}
             value={values[field.name]}
             name={field.name}
+            placeholder={placeholder}
             style={inputStyle}
           />
         </div>
@@ -42,10 +53,11 @@ export default TextInput;
 TextInput.propTypes = {
   addClassWrapper: PropTypes.string,
   addClassInput: PropTypes.string,
+  type: PropTypes.string,
+  placeholder: PropTypes.string,
   field: PropTypes.object,
   form: PropTypes.object,
   label: PropTypes.string,
-  type: PropTypes.string,
   imgBefore: PropTypes.string,
   inputStyle: PropTypes.object,
   touched: PropTypes.object,

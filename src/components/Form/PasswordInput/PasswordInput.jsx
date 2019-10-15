@@ -14,7 +14,7 @@ class PasswordInput extends React.Component {
   showHidePw = () => this.setState(prevState => ({ isPwShown: !prevState.isPwShown }));
 
   render() {
-    const { addClassWrapper, addClassInput, field, form, label, imgBefore, inputStyle } = this.props;
+    const { addClassWrapper, addClassInput, placeholder, field, form, label, imgBefore } = this.props;
     const { touched, errors, values } = form;
     const { isPwShown } = this.state;
     const inputId = `input-${field.name}`;
@@ -37,6 +37,7 @@ class PasswordInput extends React.Component {
               } ${addClassInput}`}
               value={values[field.name]}
               name={field.name}
+              placeholder={placeholder}
             />
             <input
               type="checkbox"
@@ -55,12 +56,12 @@ export default PasswordInput;
 PasswordInput.propTypes = {
   addClassWrapper: PropTypes.string,
   addClassInput: PropTypes.string,
+  placeholder: PropTypes.string,
   field: PropTypes.object,
   form: PropTypes.object,
   label: PropTypes.string,
   type: PropTypes.string,
   imgBefore: PropTypes.string,
-  inputStyle: PropTypes.object,
   touched: PropTypes.object,
   errors: PropTypes.object,
 };
