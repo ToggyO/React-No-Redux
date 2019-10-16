@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c14643f0-600e-4384-bae2-0d92c8acbd51" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/TutorialPageView.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/_components/TutorialPageForm/TutorialPageFormView.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/_components/TutorialPageForm/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/Checkbox/Checkbox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/Checkbox/Checkbox.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/validations/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/validations/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/_components/TutorialPageForm/TutorialPageFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/_components/TutorialPageForm/TutorialPageFormView.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
