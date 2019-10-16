@@ -1,11 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import s from './style.module.sass';
-
 const Checkbox = ({ onClick, addClassCheckbox, addClassTitleWrapper, title, style }) => (
-  <div className={addClassTitleWrapper} style={style.titleWrapper}>
-    <input type="checkbox" onClick={onClick} className={addClassCheckbox} style={style.checkbox} />
+  <div
+    className={addClassTitleWrapper}
+    onClick={onClick}
+    style={{ ...style.titleWrapper, cursor: 'pointer' }}
+  >
+    <input
+      type="checkbox"
+      className={addClassCheckbox}
+      style={{ ...style.checkbox,  cursor: 'pointer' }}
+    />
     {title}
   </div>
 );

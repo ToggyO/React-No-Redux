@@ -2,19 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c14643f0-600e-4384-bae2-0d92c8acbd51" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Form/RadioButton/RadioButtonGroup.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Form/RadioButton/_components/RadioButton.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Form/RadioButton/_components/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Form/RadioButton/_components/style.module.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Form/RadioButton/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/FirstProjectPageView.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/_components/FirstProjectForm/FirstProjectFormView.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/_components/FirstProjectForm/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/_components/FirstProjectForm/radio_button_style.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/TutorialPageView.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/_components/TutorialPageForm/TutorialPageFormView.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/_components/TutorialPageForm/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/Checkbox/style.module.sass" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/Checkbox/Checkbox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/Checkbox/Checkbox.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/validations/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/validations/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
     </list>
@@ -30,7 +24,7 @@
   <component name="ProjectId" id="1SGjGpX9iiCiZSP5SDTz1wkfAhY" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../INFERNAL_PROJECTS/magora-test-layout2" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -73,7 +67,7 @@
       <workItem from="1571196735134" duration="9000" />
       <workItem from="1571196758245" duration="1281000" />
       <workItem from="1571198222331" duration="740000" />
-      <workItem from="1571198979782" duration="7323000" />
+      <workItem from="1571198979782" duration="11375000" />
     </task>
     <servers />
   </component>

@@ -14,6 +14,7 @@ import { PasswordEnterPageView } from '@pages/SignPages/PasswordEnterPage';
 import { EnterNamePageView } from '@pages/SignPages/EnterNamePage';
 import { SetCompanyNamePageView } from '@pages/SignPages/SetCompanyNamePage';
 import { FirstProjectPageView } from '@pages/SignPages/FirstProjectPage';
+import { TutorialPageView } from '@pages/SignPages/TutorialPage';
 
 
 const Routes = () => (
@@ -44,6 +45,11 @@ const Routes = () => (
               path={ROUTES.AUTH.ROOT + ROUTES.AUTH.SET_FIRST_PROJECT}
               exact
               component={FirstProjectPageView}
+            />
+            <Route
+              path={ROUTES.AUTH.ROOT + ROUTES.AUTH.QUICK_TUTORIAL}
+              exact
+              component={TutorialPageView}
             />
           </Switch>
         </AuthScreenWrapper>

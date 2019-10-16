@@ -12,10 +12,19 @@ export const validateField = {
     let error;
     if (!value) {
       error = 'Required';
-    } else if (value.length < 6) {
-      error = 'min 6 symbols';
+    } else if (value.length < 6 || value.length > 30) {
+      error = 'Password should include min 6 max 30 characters';
+    } else if (!/(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/g.test(value)) {
+      error = 'Password should include only digits, latin letters or special characters';
     }
     return error;
+    // let error;
+    // if (!value) {
+    //   error = 'Required';
+    // } else if (value.length < 6) {
+    //   error = 'min 6 symbols';
+    // }
+    // return error;
   },
   name: value => {
     let error;
@@ -33,12 +42,14 @@ export const validateForm = {
     let errors = {};
     if (!values.password) {
       errors.password = 'Required';
-    } else if (values.password.length < 6) {
-      errors.password = 'Min 6 symbols';
+    } else if (values.password.length < 6 || values.password.length > 30) {
+      errors.password = 'Password should include min 6 max 30 characters';
+    } else if (!/^[0-9a-zA-Z~!@#$%^&*_\-+=`|(){}[\]:;"'<>,.?/]+$/g.test(values.password)) {
+      errors.password = 'Password should include only digits, latin letters or special characters';
     }
 
     if (!values.passwordConfirm || values.passwordConfirm !== values.password) {
-      errors.passwordConfirm = 'Passwords, you entered is not the same';
+      errors.passwordConfirm = 'Passwords should match';
     }
     return errors;
   },
