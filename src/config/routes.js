@@ -7,5 +7,6 @@ export const ROUTES = {
     ENTER_PASSWORD: '/enter-password',
     ENTER_NAME: '/enter-name',
     SET_COMPANY_NAME: '/set-company-name',
+    SET_TEAM: '/set-team',
   },
 };

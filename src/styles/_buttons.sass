@@ -7,15 +7,14 @@ $className: btn
   cursor: pointer
   background: none
 
-
 //Colors
 .#{$className}.green
   background-color: $sea-green
   color: $white
 
 .#{$className}.green:disabled
-  background-color: lighten($sea-green, 15%)
-
+  background-color: lighten($sea-green, 25%)
+  cursor: not-allowed
 
 //Shapes
 .#{$className}.full_width
@@ -23,7 +22,6 @@ $className: btn
 
 .#{$className}.rounded
   border-radius: 35px
-
 
 //Other
 .#{$className}.login-page-button
