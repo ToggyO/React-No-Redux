@@ -3,21 +3,34 @@
   max-width: 555px
   min-width: 300px
   width: 100%
+  +r(lg)
+    min-width: 200px
 
 .label
   &_large
+    +r(lg)
+      padding: 0 !important
+
     h2
       color: $primary_color
-      font-size: 32px !important
+      font-size: 32px
       line-height: 38px
-      font-weight: 400 !important
+      font-weight: 400
+      +r(lg)
+        font-size: 24px
 
   &_small
+    +r(lg)
+      padding: 0 !important
+      margin-bottom: 15px !important
+
     h4, a
       color: $secondary_color
       font-size: 15px
       line-height: 18px
       font-weight: 400
+      +r(lg)
+        font-size: 12px
 
     a:hover
       text-decoration: underline

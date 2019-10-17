@@ -3,7 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="c14643f0-600e-4384-bae2-0d92c8acbd51" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/_components/TutorialPageForm/TutorialPageFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/_components/TutorialPageForm/TutorialPageFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthScreenWrapper/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthScreenWrapper/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthScreenWrapper/style.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthScreenWrapper/style.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/FormTemplate/style.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/FormTemplate/style.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/TextInput/style.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/TextInput/style.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Preloader/style.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Preloader/style.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_buttons.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_buttons.sass" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
