@@ -9,5 +9,6 @@ export const ROUTES = {
     SET_COMPANY_NAME: '/set-company-name',
     SET_FIRST_PROJECT: '/set-first-project',
     QUICK_TUTORIAL: '/quick-tutorial',
+    SET_TEAM: '/set-team',
   },
 };

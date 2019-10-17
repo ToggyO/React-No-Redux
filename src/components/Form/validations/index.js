@@ -39,7 +39,7 @@ export const validateField = {
 
 export const validateForm = {
   confirmPassword: values => {
-    let errors = {};
+    const errors = {};
     if (!values.password) {
       errors.password = 'Required';
     } else if (values.password.length < 6 || values.password.length > 30) {

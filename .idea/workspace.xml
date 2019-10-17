@@ -2,13 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c14643f0-600e-4384-bae2-0d92c8acbd51" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.huskyrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.lintstagedrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/SetTeamPage/SetTeamPageView.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/SetTeamPage/_components/SetTeamForm/SetTeamFormView.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/SetTeamPage/_components/SetTeamForm/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/SetTeamPage/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthScreenWrapper/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthScreenWrapper/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthScreenWrapper/style.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthScreenWrapper/style.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/FormTemplate/style.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/FormTemplate/style.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/TextInput/style.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/TextInput/style.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Preloader/style.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Preloader/style.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/validations/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/validations/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ducks/auth/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ducks/auth/sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/sagas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/superaxios.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/superaxios.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/_buttons.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_buttons.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +41,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Projects\squad.io-js-front\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
@@ -66,6 +77,9 @@
       <workItem from="1571196758245" duration="1281000" />
       <workItem from="1571198222331" duration="740000" />
       <workItem from="1571198979782" duration="11375000" />
+      <workItem from="1571277991076" duration="3543000" />
+      <workItem from="1571282052655" duration="535000" />
+      <workItem from="1571282652130" duration="235000" />
     </task>
     <servers />
   </component>

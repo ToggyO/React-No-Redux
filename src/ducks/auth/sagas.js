@@ -1,11 +1,16 @@
 import { takeLatest, put, call } from 'redux-saga/effects';
-import { message } from 'antd';
-import { ROUTES } from '@config/constants';
-import history from '@services/history';
-import api from '@services/api';
-import * as authTypes from './types';
-import { meTypes } from '../me';
 
+import * as authTypes from './types';
+// import { message } from 'antd';
+
+import { ROUTES } from '@config';
+
+// import api from '@services/api';
+
+import history from '@services/history';
+// import { meTypes } from '../me';
+
+const api = {};
 /*
 	function* workerSaga
 	export function* watcherSaga
@@ -40,7 +45,7 @@ function* signIn(action) {
   } catch (error) {
     const { errors } = error.response.data;
     yield put({ type: authTypes.SIGNIN_ERROR, payload: errors });
-    yield call(message.error, 'Incorrect username or password');
+    // yield call(message.error, 'Incorrect username or password');
   }
 }
 
@@ -55,7 +60,7 @@ function* smsCodeRequest(action) {
   try {
     const data = yield call(api.auth.smsCodeRequest, action.payload);
     yield put({ type: authTypes.SMS_CODE_REQUEST_SUCCESS, payload: data });
-    yield call(message.success, 'A text message has been sent to your phone');
+    // yield call(message.success, 'A text message has been sent to your phone');
   } catch (error) {
     yield put({
       type: authTypes.SMS_CODE_REQUEST_ERROR,
@@ -81,13 +86,13 @@ function* twoFactorAuth(action) {
     } else {
       history.push(ROUTES.HOME);
     }
-    yield put({ type: meTypes.GET_PROFILE_REQUEST });
+    // yield put({ type: meTypes.GET_PROFILE_REQUEST });
   } catch (error) {
     yield put({
       type: authTypes.TWO_FACTOR_AUTH_ERROR,
       payload: error.response.data.errors,
     });
-    yield call(message.error, 'Security code is not valid');
+    // yield call(message.error, 'Security code is not valid');
   }
 }
 
@@ -112,7 +117,7 @@ function* forgotPassword(action) {
       type: authTypes.FORGOT_PASSWORD_ERROR,
       payload: error.response.data.errors,
     });
-    yield call(message.error, 'No user registered with this email address');
+    // yield call(message.error, 'No user registered with this email address');
   }
 }
 
@@ -127,14 +132,14 @@ function* resetPassword(action) {
   try {
     const data = yield call(api.auth.resetPassword, action.payload);
     yield put({ type: authTypes.RESET_PASSWORD_SUCCESS, payload: data });
-    yield call(message.success, `Password for ${data.data.userName} has been successfully changed`);
+    // yield call(message.success, `Password for ${data.data.userName} has been successfully changed`);
     history.push(ROUTES.LOGIN);
   } catch (error) {
     yield put({
       type: authTypes.RESET_PASSWORD_ERROR,
       payload: error.response.data.errors,
     });
-    yield call(message.error, 'Looks like the link you have followed has expired');
+    // yield call(message.error, 'Looks like the link you have followed has expired');
   }
 }
 

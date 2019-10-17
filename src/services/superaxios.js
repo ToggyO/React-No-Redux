@@ -2,9 +2,9 @@
 
 import axios from 'axios';
 
-import { globalTypes } from '@ducks/_global';
+// import { globalTypes } from '@ducks/_global';
 
-import { store } from '../store';
+// import { store } from '../store';
 
 import { LOCAL_STORAGE_KEYS, API_URL } from '@config';
 import { getFromLocalState, writeToLocalState } from '@services/ls';
@@ -54,11 +54,11 @@ superaxios.interceptors.response.use(
       if (!isAlreadyFetchingAccessToken) {
         isAlreadyFetchingAccessToken = true;
         const oldRefreshToken = getFromLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN);
-        store.dispatch({ type: globalTypes.REFRESHING_TOKEN_REQUEST });
+        // store.dispatch({ type: globalTypes.REFRESHING_TOKEN_REQUEST });
         superaxios
           .put(API_URL.TOKEN, { refreshToken: oldRefreshToken })
           .then(response => {
-            store.dispatch({ type: globalTypes.REFRESHING_TOKEN_SUCCESS });
+            // store.dispatch({ type: globalTypes.REFRESHING_TOKEN_SUCCESS });
             const { accessToken, refreshToken } = response.data.data;
             writeToLocalState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN, accessToken);
             writeToLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN, refreshToken);
@@ -66,7 +66,7 @@ superaxios.interceptors.response.use(
             onAccessTokenFetched(accessToken);
           })
           .catch(() => {
-            store.dispatch({ type: globalTypes.REFRESHING_TOKEN_ERROR });
+            // store.dispatch({ type: globalTypes.REFRESHING_TOKEN_ERROR });
             // store.dispatch({ type: authTypes.LOGOUT });
           });
       }
@@ -81,7 +81,7 @@ superaxios.interceptors.response.use(
     }
 
     return Promise.reject(error);
-  },
+  }
 );
 
 export default superaxios;

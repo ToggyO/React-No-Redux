@@ -1,5 +1,6 @@
-import { getFromLocalState } from '@services/ls';
 import * as types from './types';
+
+import { getFromLocalState } from '@services/ls';
 /* shape
 
 		data: {
