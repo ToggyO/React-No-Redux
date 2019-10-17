@@ -2,22 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c14643f0-600e-4384-bae2-0d92c8acbd51" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.huskyrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.lintstagedrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/SetTeamPage/SetTeamPageView.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/SetTeamPage/_components/SetTeamForm/SetTeamFormView.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/SetTeamPage/_components/SetTeamForm/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/SetTeamPage/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Form/Checkbox/style.module.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/_components/RenderCircles/RenderCircles.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/_components/RenderCircles/style.module.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/_components/TutorialPageForm/style.module.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/validations/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/validations/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ducks/auth/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ducks/auth/sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/sagas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Root.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Root.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthScreenWrapper/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthScreenWrapper/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthScreenWrapper/style.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthScreenWrapper/style.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/Checkbox/Checkbox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/Checkbox/Checkbox.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/ConfirmEmailInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/ConfirmEmailInput.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/RenderCircles.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/FormTemplate/style.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/FormTemplate/style.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Preloader/style.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Preloader/style.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/_components/ConfirmEmailForm/ConfirmEmailFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/_components/ConfirmEmailForm/ConfirmEmailFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/PasswordEnterPage/_components/PasswordEnterForm/PasswordEnterFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/PasswordEnterPage/_components/PasswordEnterForm/PasswordEnterFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/_components/TutorialPageForm/TutorialPageFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/_components/TutorialPageForm/TutorialPageFormView.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/superaxios.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/superaxios.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/_buttons.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_buttons.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_base.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_base.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,7 +35,7 @@
   <component name="ProjectId" id="1SGjGpX9iiCiZSP5SDTz1wkfAhY" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../INFERNAL_PROJECTS/magora-test-layout2" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -47,6 +50,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\squad.io-js-front\src\components\Form\ConfirmEmailInput\_components\RenderCircles" />
       <recent name="C:\Projects\squad.io-js-front\src\components\Form\RadioButton\_components" />
       <recent name="C:\Projects\squad.io-js-front\src\pages\SignPages\FirstProjectPage\_components\FirstProjectForm" />
     </key>
@@ -79,7 +83,7 @@
       <workItem from="1571198979782" duration="11375000" />
       <workItem from="1571277991076" duration="3543000" />
       <workItem from="1571282052655" duration="535000" />
-      <workItem from="1571282652130" duration="235000" />
+      <workItem from="1571282652130" duration="18838000" />
     </task>
     <servers />
   </component>

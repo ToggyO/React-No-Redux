@@ -1,8 +1,7 @@
-import { FormTemplateView } from '@components/Form/FormTemplate';
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import RenderCircles from './RenderCircles';
+import RenderCircles from './_components/RenderCircles/RenderCircles';
 
 import s from './style.module.sass';
 
@@ -40,6 +39,8 @@ const ConfirmEmailInput = props => {
           onChange={e => setState(e.target.value.replace(/\D/, ''))}
           maxLength={maxLength}
           style={{ width: 0, height: 0 }}
+          pattern="[0-9]*"
+          inputMode="numeric"
         />
       </label>
       <button

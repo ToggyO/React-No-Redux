@@ -4,7 +4,6 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { validateForm } from '@components/Form/validations';
 import { FormTemplateView } from '@components/Form/FormTemplate';
 import { PasswordInput } from '@components/Form/PasswordInput';
-
 import key from '@assets/login_page/key.png';
 
 const PasswordEnterFormView = () => {
@@ -15,6 +14,11 @@ const PasswordEnterFormView = () => {
       titleLarge="Choose your password"
       titleSmall="You’ll use this to log into your Squad account."
     >
+      {/*<div>{window.screen.availWidth}</div>*/}
+      {/*<div>{window.screen.availHeight}</div>*/}
+      {/*<br />*/}
+      {/*<div>{document.documentElement.clientWidth}</div>*/}
+      {/*<div>{document.documentElement.clientHeight}</div>*/}
       <Formik
         initialValues={{ password: '', passwordConfirm: '' }}
         validate={validateForm.confirmPassword}
@@ -22,7 +26,7 @@ const PasswordEnterFormView = () => {
           setFormValues(values);
           console.log(formValues);
         }}
-        render={({ errors, status, touched, isSubmitting, isValid, handleReset, ...props }) => (
+        render={({ isValid }) => (
           <Form>
             <Field
               name="password"
@@ -32,7 +36,7 @@ const PasswordEnterFormView = () => {
               addClassWrapper="pt-4 pb-4"
               addClassInput="pt-4 pb-4"
             />
-            <ErrorMessage name="password" component="div" className="formik-error error-label" />
+            <ErrorMessage name="password" component="div" className="formik-error error-label"/>
             <Field
               name="passwordConfirm"
               placeholder="Confirm password..."
@@ -41,7 +45,9 @@ const PasswordEnterFormView = () => {
               addClassWrapper="pt-4 pb-4"
               addClassInput="pt-4 pb-4"
             />
-            <ErrorMessage name="passwordConfirm" component="div" className="formik-error error-label" />
+            <ErrorMessage
+              name="passwordConfirm" component="div"
+              className="formik-error error-label"/>
             <button
               type="submit"
               disabled={!isValid}

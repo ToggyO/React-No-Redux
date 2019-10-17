@@ -1,5 +1,7 @@
 import React from 'react';
 
+import s from './style.module.sass';
+
 import { FormTemplateView } from '@components/Form/FormTemplate';
 
 const TutorialPageFormView = () => (
@@ -8,7 +10,7 @@ const TutorialPageFormView = () => (
     titleSmall="This short video will help you get started."
   >
     <iframe
-      className="mb-7"
+      className={`${s.iframe} mb-7`}
       title="This is a unique title"
       width="560" height="315" src="https://www.youtube-nocookie.com/embed/nKFDp9Y52-o"
       frameBorder="0"

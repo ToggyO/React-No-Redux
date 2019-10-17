@@ -1,12 +1,12 @@
 .login_page
-  height: 100vh
-  +r(lg)
+  min-height: 100vh
+  +r(lgx)
     flex-direction: column-reverse
 
 .greet_screen
   background-color: $primary_color
   width: 50%
-  +r(lg)
+  +r(lgx)
     width: 100%
     padding: 10px !important
     height: 80px
@@ -15,28 +15,32 @@
     width: 280px
     height: 100%
     margin: 0 auto
-    +r(lg)
+    +r(lgx)
       height: auto
 
 .form
+  display: flex
   width: 50%
-  +r(lg)
+  +r(lgx)
+    align-items: center
     width: 100%
     height: 100%
+    flex-grow: 2
+
 
 .logo
   height: 50%
-  +r(lg)
+  +r(lgx)
     justify-content: center
 
   img
-    +r(lg)
+    +r(lgx)
       align-self: center
       width: 220px
 
 .copyright
   height: 50%
-  +r(lg)
+  +r(lgx)
     display: none !important
 
   h4
