@@ -17,6 +17,7 @@ const TextInput = props => {
     label,
     imgBefore,
     inputStyle,
+    additionalElement,
   } = props;
   const { touched, errors, values } = form;
   const inputId = `input-${field.name}`;
@@ -42,6 +43,7 @@ const TextInput = props => {
             placeholder={placeholder}
             style={inputStyle}
           />
+          {additionalElement}
         </div>
       </LabelWrapper>
     </div>
@@ -62,4 +64,5 @@ TextInput.propTypes = {
   inputStyle: PropTypes.object,
   touched: PropTypes.object,
   errors: PropTypes.object,
+  additionalElement: PropTypes.element,
 };

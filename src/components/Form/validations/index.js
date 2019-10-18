@@ -30,6 +30,8 @@ export const validateField = {
     let error;
     if (!value) {
       error = 'Required';
+    } else if (value.length > 60) {
+      error = 'Name is more than 60 characters';
     } else if (!/^[a-zA-Z0-9]+$/i.test(value)) {
       error = 'Eng symbols only';
     }
