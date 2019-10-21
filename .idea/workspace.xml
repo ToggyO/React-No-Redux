@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c14643f0-600e-4384-bae2-0d92c8acbd51" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/login_page/done_mini.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Form/Dropdown/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Form/Dropdown/style.module.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/_components/ColorSelect/ColorSelect.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/_components/ColorSelect/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/_components/ColorSelect/style.module.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/TextInput/TextInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/TextInput/TextInput.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/validations/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/validations/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/_components/FirstProjectForm/FirstProjectFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/_components/FirstProjectForm/FirstProjectFormView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/_flex.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_flex.sass" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

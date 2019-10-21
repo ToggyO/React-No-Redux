@@ -8,7 +8,7 @@ import { ROUTES } from '@config';
 import { AuthScreenWrapper } from '@components/AuthScreenWrapper';
 import { HomePageView } from '@pages/HomePage';
 import { NotFoundPageView } from '@pages/NotFoundPage';
-import { SignUpPageView } from '@pages/SignPages/SignUpPage';
+import { SignUpPageContainer } from '@pages/SignPages/SignUpPage';
 import { ConfirmEmailPageView } from '@pages/SignPages/ConfirmEmailPage';
 import { PasswordEnterPageView } from '@pages/SignPages/PasswordEnterPage';
 import { EnterNamePageView } from '@pages/SignPages/EnterNamePage';
@@ -25,7 +25,7 @@ const Routes = () => (
       component={props => (
         <AuthScreenWrapper {...props}>
           <Switch>
-            <Route path={ROUTES.AUTH.ROOT + ROUTES.AUTH.SIGN_UP} exact component={SignUpPageView} />
+            <Route path={ROUTES.AUTH.ROOT + ROUTES.AUTH.SIGN_UP} exact component={SignUpPageContainer} />
             <Route
               path={ROUTES.AUTH.ROOT + ROUTES.AUTH.CONFIRM_EMAIL}
               exact

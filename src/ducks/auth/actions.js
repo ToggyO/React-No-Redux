@@ -1,13 +1,8 @@
 import * as types from './types';
 
-export const signUpRequest = credentials => ({
-  type: types.SIGNUP_REQUEST,
-  payload: credentials,
-});
-
-export const signInRequest = credentials => ({
-  type: types.SIGNIN_REQUEST,
-  payload: credentials,
+export const signUpWithEmailRequest = email => ({
+  type: types.SIGNUP_WITH_EMAIL_REQUEST,
+  payload: email,
 });
 
 export const logoutRequest = () => ({

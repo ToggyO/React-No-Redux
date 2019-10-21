@@ -31,24 +31,24 @@ const initialState = {
   },
   loading: false,
   errors: {},
-  code: null,
 };
 
 export default function auth(state = initialState, action) {
   switch (action.type) {
-    case types.SIGNUP_REQUEST:
-    case types.SIGNIN_REQUEST:
-      return { ...state, loading: true, code: null };
+    case types.SIGNUP_WITH_EMAIL_REQUEST:
+      return { ...state, loading: true };
 
-    case types.SIGNUP_SUCCESS:
-    case types.SIGNIN_SUCCESS: {
-      const { data, code } = action.payload;
-      return { ...state, data, loading: false, code };
+      // case types.SIGNUP_WITH_EMAIL_SUCCESS: {
+      //   const { data } = action.payload;
+      //   return { ...state, data, loading: false };
+      // }
+
+      // case types.SIGNUP_WITH_EMAIL_ERROR:
+      //   return { ...state, loading: false, errors: action.payload };
+
+    case types.SIGNUP_WITH_EMAIL_SUCCESS: {
+      return { ...state, errors: action.payload, loading: false };
     }
-
-    case types.SIGNUP_ERROR:
-    case types.SIGNIN_ERROR:
-      return { ...state, loading: false, errors: action.payload };
 
     default:
       return state;

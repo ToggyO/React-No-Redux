@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 import { Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
+
+import { store } from './store';
 
 import Routes from '@routes';
 import history from '@services/history';
@@ -16,13 +19,15 @@ const Root = () => {
   }, []);
 
   return (
-    <ErrorBoundary>
-      <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
-        <ScrollToTop>
-          <Routes />
-        </ScrollToTop>
-      </Router>
-    </ErrorBoundary>
+    <Provider store={store}>
+      <ErrorBoundary>
+        <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
+          <ScrollToTop>
+            <Routes />
+          </ScrollToTop>
+        </Router>
+      </ErrorBoundary>
+    </Provider>
   );
 };
 

@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import PT from 'prop-types';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 
 import { TextInput } from '@components/Form/TextInput';
@@ -8,51 +9,61 @@ import { FormTemplateView } from '@components/Form/FormTemplate';
 
 import mail from '@assets/login_page/email_icon.png';
 
-const SignUpFormView = () => (
-  <FormTemplateView
-    titleLarge="Create your account"
-    titleSmall="Sign up with your work email or your Google Account."
-    link="Already have a Squad account? Log in here."
-  >
-    <Formik
-      initialValues={{ google_mail: '', user_mail: '' }}
-      onSubmit={() => {}}
-      render={({ errors, status, touched, isSubmitting, isValid }) => (
-        <Form>
-          <Field
-            type="email"
-            name="google_mail"
-            placeholder="Continue with Google"
-            imgBefore={mail}
-            component={TextInput}
-            // validate={validateField.email}
-            addClassWrapper="pt-4 pb-4"
-            addClassInput="pt-4 pb-4"
-          />
-          <ErrorMessage name="google_mail" component="div" className="formik-error error-label" />
-          <span style={{ color: '#9398A2', fontSize: 15, lineHeight: '21px', fontWeight: 400 }}>Or</span>
-          <Field
-            type="email"
-            name="user_mail"
-            placeholder="name@company.com"
-            imgBefore={mail}
-            component={TextInput}
-            validate={validateField.email}
-            addClassWrapper="pt-4 pb-4"
-            addClassInput="pt-4 pb-4"
-          />
-          <ErrorMessage name="user_mail" component="div" className="formik-error error-label" />
-          <button
-            type="submit"
-            disabled={!isValid}
-            className="btn green rounded p-4 full_width login-page-button"
-          >
-            Continue with email
-          </button>
-        </Form>
-      )}
-    />
-  </FormTemplateView>
-);
+// eslint-disable-next-line react/prop-types
+const SignUpFormView = ({ errorsFromBackend, signUpWithEmailRequest }) => {
+  const formikRef = useRef(null);
+
+  useEffect(() => {
+    formikRef.current.setErrors({
+      email: errorsFromBackend.message,
+    });
+  }, [errorsFromBackend]);
+
+  return (
+    <FormTemplateView
+      titleLarge="Create your account"
+      titleSmall="Sign up with your work email or your Google Account."
+      link="Already have a Squad account? Log in here."
+    >
+      <Formik
+        ref={formikRef}
+        initialValues={{ email: '' }}
+        onSubmit={values => {
+          signUpWithEmailRequest(values);
+        }}
+        render={({ errors, status, touched, isSubmitting, isValid }) => (
+          <Form>
+            <div style={{ width: 555, height: 52, background: 'gray', marginBottom: 16 }} />
+            <span style={{ color: '#9398A2', fontSize: 15, lineHeight: '21px', fontWeight: 400 }}>Or</span>
+            <Field
+              type="email"
+              name="email"
+              placeholder="name@company.com"
+              imgBefore={mail}
+              component={TextInput}
+              validate={validateField.email}
+              addClassWrapper="pt-4 pb-4"
+              addClassInput="pt-4 pb-4"
+            />
+            {errors.email && <div className="formik-error error-label">{errors.email}</div>}
+            <button
+              type="submit"
+              disabled={!isValid}
+              className="btn green rounded p-4 full_width login-page-button"
+            >
+              Continue with email
+            </button>
+          </Form>
+        )}
+      />
+    </FormTemplateView>
+  );
+};
+
+SignUpFormView.propTypes = {
+  errorsFromBackend: PT.shape({
+    message: PT.string,
+  }),
+};
 
 export default SignUpFormView;
