@@ -1,15 +1,20 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import PT from 'prop-types';
 
-import { SignUpFormView } from './_components/SignUpForm';
+import { SignUpFormContainer } from './_components/SignUpForm';
 
-const SignUpPageView = () => (
+const SignUpPageView = ({ loading }) => (
   <>
     <Helmet defaultTitle="Squad.io - Creat account">
       <meta name="description" content="Sign up page" />
     </Helmet>
-    <SignUpFormView />
+    {loading ? <div>LOADING...</div> : <SignUpFormContainer />}
   </>
 );
+
+SignUpPageView.propTypes = {
+  loading: PT.bool,
+};
 
 export default SignUpPageView;

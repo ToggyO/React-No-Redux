@@ -6,7 +6,7 @@ import axios from 'axios';
 
 // import { store } from '../store';
 
-import { LOCAL_STORAGE_KEYS, API_URL } from '@config';
+import { LOCAL_STORAGE_KEYS, API_DOMAIN, API_URL } from '@config';
 import { getFromLocalState, writeToLocalState } from '@services/ls';
 
 let isAlreadyFetchingAccessToken = false;
@@ -21,7 +21,7 @@ function addSubscriber(callback) {
 }
 
 const superaxios = axios.create({
-  baseURL: process.env.API_URL,
+  baseURL: `${API_DOMAIN}/api`,
 });
 
 superaxios.interceptors.request.use(config => {
