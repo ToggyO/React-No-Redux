@@ -5,7 +5,7 @@ import AuthRoute from './AuthRoute';
 import UnAuthRoute from './UnAuthRoute';
 
 import { ROUTES } from '@config';
-import { AuthScreenWrapper } from '@components/AuthScreenWrapper';
+import { AuthScreenWrapperContainer } from '@components/AuthScreenWrapper';
 import { HomePageView } from '@pages/HomePage';
 import { NotFoundPageView } from '@pages/NotFoundPage';
 import { SignUpPageContainer } from '@pages/SignPages/SignUpPage';
@@ -23,7 +23,7 @@ const Routes = () => (
     <UnAuthRoute
       path={ROUTES.AUTH.ROOT}
       component={props => (
-        <AuthScreenWrapper {...props}>
+        <AuthScreenWrapperContainer {...props}>
           <Switch>
             <Route path={ROUTES.AUTH.ROOT + ROUTES.AUTH.SIGN_UP} exact component={SignUpPageContainer} />
             <Route
@@ -50,7 +50,7 @@ const Routes = () => (
             />
             <Route path={ROUTES.AUTH.ROOT + ROUTES.AUTH.QUICK_TUTORIAL} exact component={TutorialPageView} />
           </Switch>
-        </AuthScreenWrapper>
+        </AuthScreenWrapperContainer>
       )}
     />
 

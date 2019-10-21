@@ -2,7 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c14643f0-600e-4384-bae2-0d92c8acbd51" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/AuthScreenWrapper/AuthScreenWrapper.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/AuthScreenWrapper/AuthScreenWrapperContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.development" beforeDir="false" afterPath="$PROJECT_DIR$/.env.development" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/env.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Root.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Root.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthScreenWrapper/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthScreenWrapper/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/apiUrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/apiUrl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ducks/auth/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ducks/auth/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ducks/auth/sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/sagas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ducks/auth/selectors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/selectors.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ducks/auth/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/types.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/ConfirmEmailPageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/ConfirmEmailPageView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/_components/ConfirmEmailForm/ConfirmEmailFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/_components/ConfirmEmailForm/ConfirmEmailFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/EnterNamePage/EnterNamePageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/EnterNamePage/EnterNamePageView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/EnterNamePage/_components/EnterNameForm/EnterNameFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/EnterNamePage/_components/EnterNameForm/EnterNameFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/FirstProjectPageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/FirstProjectPageView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/_components/FirstProjectForm/FirstProjectFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/_components/FirstProjectForm/FirstProjectFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/PasswordEnterPage/PasswordEnterPageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/PasswordEnterPage/PasswordEnterPageView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/PasswordEnterPage/_components/PasswordEnterForm/PasswordEnterFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/PasswordEnterPage/_components/PasswordEnterForm/PasswordEnterFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SetCompanyNamePage/SetCompanyNamePageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SetCompanyNamePage/SetCompanyNamePageView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SetCompanyNamePage/_components/SetCompanyNameForm/SetCompanyNameFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SetCompanyNamePage/_components/SetCompanyNameForm/SetCompanyNameFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SetTeamPage/SetTeamPageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SetTeamPage/SetTeamPageView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SetTeamPage/_components/SetTeamForm/SetTeamFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SetTeamPage/_components/SetTeamForm/SetTeamFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/SignUpPageContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/SignUpPageContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/SignUpPageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/SignUpPageView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/_components/SignUpForm/SignUpFormContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/_components/SignUpForm/SignUpFormContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/_components/SignUpForm/SignUpFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/_components/SignUpForm/SignUpFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/_components/SignUpForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/_components/SignUpForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/TutorialPageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/TutorialPageView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/_components/TutorialPageForm/TutorialPageFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/_components/TutorialPageForm/TutorialPageFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/superaxios.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/superaxios.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,15 +65,15 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Projects\squad.io-js-front\src\assets\login_page" />
-      <recent name="C:\Projects\squad.io-js-front\src\components\Form" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Projects\squad.io-js-front\src\pages\SignPages\FirstProjectPage\_components\ColorSelect" />
       <recent name="C:\Projects\squad.io-js-front\src\components\Form\ConfirmEmailInput\_components\RenderCircles" />
       <recent name="C:\Projects\squad.io-js-front\src\components\Form\RadioButton\_components" />
       <recent name="C:\Projects\squad.io-js-front\src\pages\SignPages\FirstProjectPage\_components\FirstProjectForm" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\squad.io-js-front\src\assets\login_page" />
+      <recent name="C:\Projects\squad.io-js-front\src\components\Form" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -89,5 +124,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/pages/SignPages/EnterNamePage/_components/EnterNameForm/EnterNameFormView.jsx</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -2,13 +2,8 @@ import React from 'react';
 
 import s from './style.module.sass';
 
-import { FormTemplateView } from '@components/Form/FormTemplate';
-
 const TutorialPageFormView = () => (
-  <FormTemplateView
-    titleLarge="Great! Here’s a quick tutorial"
-    titleSmall="This short video will help you get started."
-  >
+  <>
     <iframe
       className={`${s.iframe} mb-7`}
       title="This is a unique title"
@@ -25,7 +20,7 @@ const TutorialPageFormView = () => (
     >
         I'm ready!
     </button>
-  </FormTemplateView>
+  </>
 );
 
 export default TutorialPageFormView;
