@@ -1,2 +1,2 @@
-export { default as AuthScreenWrapper } from './AuthScreenWrapper';
+export { default as AuthScreenWrapperView } from './AuthScreenWrapperView';
 export { default as AuthScreenWrapperContainer } from './AuthScreenWrapperContainer';

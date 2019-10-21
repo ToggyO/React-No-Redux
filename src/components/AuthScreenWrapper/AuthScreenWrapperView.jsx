@@ -7,7 +7,7 @@ import { Preloader } from '@components/Preloader';
 import { getWindowDimensions } from '@utils/index';
 import logo from '@assets/login_page/logo_squad.png';
 
-const AuthScreenWrapper = ({ children, loading }) => {
+const AuthScreenWrapperView = ({ children, loading }) => {
   useEffect(() => {
     document.getElementById('test').style.minHeight = `${getWindowDimensions().height - 80}px`;
   }, []);
@@ -36,4 +36,4 @@ const AuthScreenWrapper = ({ children, loading }) => {
   );
 };
 
-export default AuthScreenWrapper;
+export default AuthScreenWrapperView;

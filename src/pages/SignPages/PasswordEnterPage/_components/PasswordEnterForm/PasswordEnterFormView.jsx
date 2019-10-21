@@ -10,13 +10,13 @@ const PasswordEnterFormView = () => {
 
   return (
     <Formik
-      initialValues={{ password: '', passwordConfirm: '' }}
+      initialValues={{ password: undefined, passwordConfirm: undefined }}
       validate={validateForm.confirmPassword}
       onSubmit={values => {
         setFormValues(values);
         console.log(formValues);
       }}
-      render={({ isValid }) => (
+      render={({ errors, touched, isValid }) => (
         <Form>
           <Field
             name="password"
@@ -26,7 +26,7 @@ const PasswordEnterFormView = () => {
             addClassWrapper="pt-4 pb-4"
             addClassInput="pt-4 pb-4"
           />
-          <ErrorMessage name="password" component="div" className="formik-error error-label"/>
+          {errors.password && touched.password && <div className="formik-error error-label">{errors.password}</div>}
           <Field
             name="passwordConfirm"
             placeholder="Confirm password..."
@@ -35,9 +35,7 @@ const PasswordEnterFormView = () => {
             addClassWrapper="pt-4 pb-4"
             addClassInput="pt-4 pb-4"
           />
-          <ErrorMessage
-            name="passwordConfirm" component="div"
-            className="formik-error error-label"/>
+          {errors.passwordConfirm && touched.passwordConfirm && <div className="formik-error error-label">{errors.passwordConfirm}</div>}
           <button
             type="submit"
             disabled={!isValid}

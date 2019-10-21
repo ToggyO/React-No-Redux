@@ -32,7 +32,7 @@ function* signUpWithEmail(action) {
 }
 
 export function* signUpWithEmailSaga() {
-  yield takeLatest('auth/SIGNUP_WITH_EMAIL_REQUEST', signUpWithEmail);
+  yield takeLatest(authTypes.SIGNUP_WITH_EMAIL_REQUEST, signUpWithEmail);
 }
 
 /*---------------------------------------------------------------------------*/

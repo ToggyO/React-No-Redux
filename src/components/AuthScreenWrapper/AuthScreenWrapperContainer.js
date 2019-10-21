@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import AuthScreenWrapper from './AuthScreenWrapper';
+import AuthScreenWrapperView from './AuthScreenWrapperView';
 
 import { authSelectors } from '@ducks/auth';
 
@@ -8,4 +8,4 @@ function mapStateToProps(state) {
   return { loading: authSelectors.loadingSelector(state) };
 }
 
-export default connect(mapStateToProps)(AuthScreenWrapper);
+export default connect(mapStateToProps)(AuthScreenWrapperView);
