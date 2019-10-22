@@ -26,7 +26,7 @@ const SignUpFormView = ({ errorsFromBackend, signUpWithEmailRequest }) => {
       onSubmit={values => {
         signUpWithEmailRequest(values);
       }}
-      render={({ errors, status, touched, isSubmitting, isValid }) => (
+      render={({ errors, touched, isValid }) => (
         <Form>
           <div style={{ width: 555, height: 52, background: 'gray', marginBottom: 16 }} />
           <span style={{ color: '#9398A2', fontSize: 15, lineHeight: '21px', fontWeight: 400 }}>Or</span>
@@ -40,7 +40,7 @@ const SignUpFormView = ({ errorsFromBackend, signUpWithEmailRequest }) => {
             addClassWrapper="pt-4 pb-4"
             addClassInput="pt-4 pb-4"
           />
-          {errors.email && <div className="formik-error error-label">{errors.email}</div>}
+          {errors.email && touched.email && <div className="formik-error error-label">{errors.email}</div>}
           <button
             type="submit"
             disabled={!isValid}

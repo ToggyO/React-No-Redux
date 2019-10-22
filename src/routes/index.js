@@ -15,8 +15,8 @@ import { EnterNamePageView } from '@pages/SignPages/EnterNamePage';
 import { SetCompanyNamePageView } from '@pages/SignPages/SetCompanyNamePage';
 import { FirstProjectPageView } from '@pages/SignPages/FirstProjectPage';
 import { TutorialPageView } from '@pages/SignPages/TutorialPage';
-
 import { SetTeamPageView } from '@pages/SignPages/SetTeamPage';
+import { LoginPageView } from '@pages/LoginPages/LoginPage';
 
 const Routes = () => (
   <Switch>
@@ -49,6 +49,7 @@ const Routes = () => (
               component={FirstProjectPageView}
             />
             <Route path={ROUTES.AUTH.ROOT + ROUTES.AUTH.QUICK_TUTORIAL} exact component={TutorialPageView} />
+            <Route path={ROUTES.AUTH.ROOT + ROUTES.AUTH.LOGIN_IN} exact component={LoginPageView} />
           </Switch>
         </AuthScreenWrapperContainer>
       )}

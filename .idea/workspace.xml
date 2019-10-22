@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c14643f0-600e-4384-bae2-0d92c8acbd51" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/pages/LoginPages/LoginPage/LoginPageView.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/LoginPages/LoginPage/_components/LoginPageForm/LoginPageFormView.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/LoginPages/LoginPage/_components/LoginPageForm/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/LoginPages/LoginPage/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthScreenWrapper/AuthScreenWrapper.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthScreenWrapper/AuthScreenWrapperView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthScreenWrapper/AuthScreenWrapperContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthScreenWrapper/AuthScreenWrapperContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthScreenWrapper/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthScreenWrapper/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/ConfirmEmailInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/ConfirmEmailInput.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/validations/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/validations/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ducks/auth/sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/sagas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/PasswordEnterPage/_components/PasswordEnterForm/PasswordEnterFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/PasswordEnterPage/_components/PasswordEnterForm/PasswordEnterFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/SignUpPageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/SignUpPageView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/_components/SignUpForm/SignUpFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/_components/SignUpForm/SignUpFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -80,6 +80,7 @@
       <workItem from="1571282052655" duration="535000" />
       <workItem from="1571282652130" duration="20881000" />
       <workItem from="1571364977692" duration="20071000" />
+      <workItem from="1571709567104" duration="1233000" />
     </task>
     <servers />
   </component>
@@ -104,7 +105,6 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/pages/SignPages/EnterNamePage/_components/EnterNameForm/EnterNameFormView.jsx</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

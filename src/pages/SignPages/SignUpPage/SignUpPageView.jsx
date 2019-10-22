@@ -17,7 +17,6 @@ const SignUpPageView = () => (
       link="Already have a Squad account? Log in here."
     >
       <SignUpFormContainer />
-      {/* {loading ? <div>LOADING...</div> : <SignUpFormContainer />} */}
     </FormTemplateView>
   </>
 );

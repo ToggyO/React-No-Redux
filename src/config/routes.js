@@ -10,5 +10,6 @@ export const ROUTES = {
     SET_FIRST_PROJECT: '/set-first-project',
     QUICK_TUTORIAL: '/quick-tutorial',
     SET_TEAM: '/set-team',
+    LOGIN_IN: '/login-in',
   },
 };
