@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 
+import history from '@services/history';
+
 export const isEmptyObject = obj => {
   let flag = false;
   Object.keys(obj).forEach(key => {
@@ -41,3 +43,17 @@ export function useWindowDimensions() {
 
   return windowDimensions;
 }
+
+export const responseFormikError = errors => {
+  const errorObj = {};
+  errors.forEach(item => {
+    if (item.field) {
+      errorObj[item.field] = item.message;
+    }
+  });
+  return errorObj;
+};
+
+export const historyRedirect = route => {
+  history.replace(route);
+};

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import SignUpFormView from './SignUpFormView';
+import LoginPageFormView from './LoginPageFormView';
 
 import { authActions, authSelectors } from '@ducks/auth';
 
@@ -12,11 +12,11 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    signUpWithEmailRequest(emailObj) {
-      dispatch(authActions.signUpWithEmailRequest(emailObj));
+    loginInWithEmailRequest(emailObj) {
+      dispatch(authActions.loginInWithEmailRequest(emailObj));
     },
-    signUpWithGoogleRequest(emailObj) {
-      dispatch(authActions.signUpWithGoogleRequest(emailObj));
+    loginInWithGoogleRequest(emailObj) {
+      dispatch(authActions.loginInWithGoogleRequest(emailObj));
     },
   };
 }
@@ -24,4 +24,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SignUpFormView);
+)(LoginPageFormView);

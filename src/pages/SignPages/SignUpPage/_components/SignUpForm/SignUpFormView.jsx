@@ -1,22 +1,21 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useRef } from 'react';
 import PT from 'prop-types';
-import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { Field, Form, Formik } from 'formik';
 
+import { responseFormikError } from '@utils/index';
 import { TextInput } from '@components/Form/TextInput';
 import { validateField } from '@components/Form/validations';
-import { FormTemplateView } from '@components/Form/FormTemplate';
+import { GoogleButton } from '@components/Form/GoogleButton';
 
 import mail from '@assets/login_page/email_icon.png';
 
+
 // eslint-disable-next-line react/prop-types
-const SignUpFormView = ({ errorsFromBackend, signUpWithEmailRequest }) => {
+const SignUpFormView = ({ errorsFromBackend, signUpWithEmailRequest, signUpWithGoogleRequest }) => {
   const formikRef = useRef(null);
 
   useEffect(() => {
-    formikRef.current.setErrors({
-      email: errorsFromBackend.message,
-    });
+    formikRef.current.setErrors(responseFormikError(errorsFromBackend));
   }, [errorsFromBackend]);
 
   return (
@@ -28,7 +27,12 @@ const SignUpFormView = ({ errorsFromBackend, signUpWithEmailRequest }) => {
       }}
       render={({ errors, touched, isValid }) => (
         <Form>
-          <div style={{ width: 555, height: 52, background: 'gray', marginBottom: 16 }} />
+          <Field
+            name="googleEmail"
+            component={GoogleButton}
+            actionCreator={signUpWithGoogleRequest}
+          />
+          {errors.googleEmail && <div className="formik-error error-label">{errors.googleEmail}</div>}
           <span style={{ color: '#9398A2', fontSize: 15, lineHeight: '21px', fontWeight: 400 }}>Or</span>
           <Field
             type="email"
@@ -55,9 +59,7 @@ const SignUpFormView = ({ errorsFromBackend, signUpWithEmailRequest }) => {
 };
 
 SignUpFormView.propTypes = {
-  errorsFromBackend: PT.shape({
-    message: PT.string,
-  }),
+  errorsFromBackend: PT.arrayOf(PT.object),
 };
 
 export default SignUpFormView;

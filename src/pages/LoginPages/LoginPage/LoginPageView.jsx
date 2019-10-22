@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import LoginPageViewForm from './_components/LoginPageForm/LoginPageFormView';
+import { LoginPageFormContainer } from './_components/LoginPageForm';
 
 import { FormTemplateView } from '@components/Form/FormTemplate';
 
@@ -14,7 +14,7 @@ const LoginPageView = () => (
       titleLarge="Sign in"
       titleSmall="Are you new to squad? Create your account here"
     >
-      <LoginPageViewForm />
+      <LoginPageFormContainer />
     </FormTemplateView>
   </>
 );
