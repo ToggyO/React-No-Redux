@@ -6,7 +6,7 @@ import RenderCircles from './_components/RenderCircles/RenderCircles';
 import s from './style.module.sass';
 
 const ConfirmEmailInput = props => {
-  const { name, maxLength, addClassWrapper } = props;
+  const { name, maxLength, addClassWrapper, onClick } = props;
   const array = [...Array(maxLength)];
 
   const [state, setState] = useState('');
@@ -47,6 +47,7 @@ const ConfirmEmailInput = props => {
         type="submit"
         disabled={state.length !== maxLength}
         className="btn green rounded p-4 full_width login-page-button"
+        onClick={() => onClick({ code: state })}
       >
         Next
       </button>
@@ -60,6 +61,7 @@ ConfirmEmailInput.propTypes = {
   addClassWrapper: PropTypes.string,
   name: PropTypes.string,
   maxLength: PropTypes.number,
+  onClick: PropTypes.func,
 };
 
 

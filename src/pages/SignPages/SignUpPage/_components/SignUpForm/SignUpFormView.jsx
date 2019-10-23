@@ -1,3 +1,5 @@
+import key from '@assets/login_page/key.png';
+import { PasswordInput } from '@components/Form/PasswordInput';
 import React, { useEffect, useRef } from 'react';
 import PT from 'prop-types';
 import { Field, Form, Formik } from 'formik';
@@ -5,7 +7,7 @@ import { Field, Form, Formik } from 'formik';
 import { ERROR_CODES } from '@config/errorCodes';
 import { responseFormikError } from '@utils/index';
 import { TextInput } from '@components/Form/TextInput';
-import { validateField } from '@components/Form/validations';
+import { validateForm } from '@components/Form/validations';
 import { GoogleButton } from '@components/Form/GoogleButton';
 
 import mail from '@assets/login_page/email_icon.png';
@@ -22,7 +24,8 @@ const SignUpFormView = ({ errorsFromBackend, signUpWithEmailRequest, signUpWithG
   return (
     <Formik
       ref={formikRef}
-      initialValues={{ email: '' }}
+      initialValues={{ email: '', password: '', passwordConfirm: '' }}
+      validate={validateForm.confirmSignUp}
       onSubmit={values => {
         signUpWithEmailRequest(values);
       }}
@@ -31,23 +34,33 @@ const SignUpFormView = ({ errorsFromBackend, signUpWithEmailRequest, signUpWithG
           {errors.global &&
           <div className="formik-error error-label">{errors.global}</div>}
           <Field
-            name="googleEmail"
-            component={GoogleButton}
-            actionCreator={signUpWithGoogleRequest}
-          />
-          {errors.googleEmail && <div className="formik-error error-label">{errors.googleEmail}</div>}
-          <span style={{ color: '#9398A2', fontSize: 15, lineHeight: '21px', fontWeight: 400 }}>Or</span>
-          <Field
             type="email"
             name="email"
             placeholder="name@company.com"
             imgBefore={mail}
             component={TextInput}
-            validate={validateField.email}
-            addClassWrapper="pt-4 pb-4"
+            addClassWrapper="pt-4 pb-2"
             addClassInput="pt-4 pb-4"
           />
           {errors.email && touched.email && <div className="formik-error error-label">{errors.email}</div>}
+          <Field
+            name="password"
+            placeholder="Password..."
+            imgBefore={key}
+            component={PasswordInput}
+            addClassWrapper="pt-2 pb-2"
+            addClassInput="pt-4 pb-4"
+          />
+          {errors.password && touched.password && <div className="formik-error error-label">{errors.password}</div>}
+          <Field
+            name="passwordConfirm"
+            placeholder="Confirm password..."
+            imgBefore={key}
+            component={PasswordInput}
+            addClassWrapper="pt-2 pb-4"
+            addClassInput="pt-4 pb-4"
+          />
+          {errors.passwordConfirm && touched.passwordConfirm && <div className="formik-error error-label">{errors.passwordConfirm}</div>}
           <button
             type="submit"
             disabled={!isValid}
@@ -55,6 +68,16 @@ const SignUpFormView = ({ errorsFromBackend, signUpWithEmailRequest, signUpWithG
           >
               Continue with email
           </button>
+          <div
+            className="p-4"
+            style={{ color: '#9398A2', fontSize: 15, lineHeight: '21px', fontWeight: 400 }}>Or
+          </div>
+          <Field
+            name="googleEmail"
+            component={GoogleButton}
+            actionCreator={signUpWithGoogleRequest}
+          />
+          {errors.googleEmail && <div className="formik-error error-label">{errors.googleEmail}</div>}
         </Form>
       )}
     />

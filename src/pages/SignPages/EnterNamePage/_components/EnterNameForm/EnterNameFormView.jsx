@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 
 import { style } from './checkbox_style';
@@ -7,13 +8,13 @@ import { validateField } from '@components/Form/validations';
 import { TextInput } from '@components/Form/TextInput';
 import { Checkbox } from '@components/Form/Checkbox';
 
-const EnterNameFormView = () => {
+const EnterNameFormView = ({ confirmUserName }) => {
   const [state, setState] = useState(false);
 
   return (
     <Formik
       initialValues={{ name: '', privacy: state }}
-      onSubmit={(values) => console.log(values, state)}
+      onSubmit={confirmUserName}
       render={({ isValid, values }) => (
         <Form>
           <Field
@@ -44,6 +45,10 @@ const EnterNameFormView = () => {
       )}
     />
   );
+};
+
+EnterNameFormView.propTypes = {
+  confirmUserName: PropTypes.func,
 };
 
 export default EnterNameFormView;

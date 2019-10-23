@@ -18,7 +18,11 @@ import api from '@services/api';
 function* signUpWithEmail(action) {
   try {
     // {
-    //   "httpStatusCode": 200,
+    //   "data": {
+    //    "user": {},
+    //    "token":{},
+    //   },
+    //   "httpStatusCode": 100,
     //   "isSuccess": true,
     //   "code": "success"
     // }
@@ -27,9 +31,10 @@ function* signUpWithEmail(action) {
     yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.CONFIRM_EMAIL);
   } catch (error) {
     // {
-    //   "Message": "The specified string is not in the form required for an e-mail address.",
-    //   "Errors": [],
-    //   "Code": "fatal"
+    //   "message": "Business Conflic",
+    //   "errors": [],
+    //   "data": null
+    //   "code": "business_conflict"
     // }
     const { errors } = error.response.data;
     yield put({ type: authTypes.SIGNUP_WITH_EMAIL_ERROR, payload: errors });
@@ -43,7 +48,11 @@ export function* signUpWithEmailSaga() {
 function* signUpWithGoogle(action) {
   try {
     // {
-    //   "httpStatusCode": 200,
+    //   "data": {
+    //    "user": {},
+    //    "token":{},
+    //   },
+    //   "httpStatusCode": 100,
     //   "isSuccess": true,
     //   "code": "success"
     // }
@@ -52,9 +61,10 @@ function* signUpWithGoogle(action) {
     yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.ENTER_NAME);
   } catch (error) {
     // {
-    //   "Message": "The specified string is not in the form required for an e-mail address.",
-    //   "Errors": [],
-    //   "Code": "fatal"
+    //   "message": "Forbidden",
+    //   "errors": [],
+    //   "data": null
+    //   "code": "sec.forbidden"
     // }
     const { errors } = error.response.data;
     yield put({ type: authTypes.SIGNUP_WITH_EMAIL_ERROR, payload: errors });
@@ -68,7 +78,11 @@ export function* signUpWithGoogleSaga() {
 function* LoginWithEmail(action) {
   try {
     // {
-    //   "httpStatusCode": 200,
+    //   "data": {
+    //    "user": {},
+    //    "token":{},
+    //   },
+    //   "httpStatusCode": 100,
     //   "isSuccess": true,
     //   "code": "success"
     // }
@@ -77,9 +91,10 @@ function* LoginWithEmail(action) {
     yield call(historyRedirect, ROUTES.HOME_PAGE);
   } catch (error) {
     // {
-    //   "Message": "The specified string is not in the form required for an e-mail address.",
-    //   "Errors": [],
-    //   "Code": "fatal"
+    //   "message": "Unauthorized",
+    //   "errors": [],
+    //   "data": null
+    //   "code": "sec.security_error"
     // }
     const { errors } = error.response.data;
     yield put({ type: authTypes.LOGIN_IN_WITH_EMAIL_ERROR, payload: errors });
@@ -93,7 +108,11 @@ export function* loginWithEmailSaga() {
 function* LoginWithGoogle(action) {
   try {
     // {
-    //   "httpStatusCode": 200,
+    //   "data": {
+    //    "user": {},
+    //    "token":{},
+    //   },
+    //   "httpStatusCode": 100,
     //   "isSuccess": true,
     //   "code": "success"
     // }
@@ -102,9 +121,10 @@ function* LoginWithGoogle(action) {
     yield call(historyRedirect, ROUTES.HOME_PAGE);
   } catch (error) {
     // {
-    //   "Message": "The specified string is not in the form required for an e-mail address.",
-    //   "Errors": [],
-    //   "Code": "fatal"
+    //   "message": "Unauthorized",
+    //   "errors": [],
+    //   "data": null
+    //   "code": "sec.security_error"
     // }
     const { errors } = error.response.data;
     yield put({ type: authTypes.LOGIN_IN_WITH_GOOGLE_ERROR, payload: errors });
@@ -113,6 +133,63 @@ function* LoginWithGoogle(action) {
 
 export function* loginWithGoogleSaga() {
   yield takeLatest(authTypes.LOGIN_IN_WITH_GOOGLE_REQUEST, LoginWithGoogle);
+}
+
+function* confirmEmail(action) {
+  try {
+    // {
+    //   "httpStatusCode": 100,
+    //   "isSuccess": true,
+    //   "code": "success"
+    // }
+    yield call(api.auth.confirmEmail, action.payload);
+    yield put({ type: authTypes.CONFIRM_EMAIL_SUCCESS });
+    yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.ENTER_NAME);
+  } catch (error) {
+    // {
+    //   "message": "Unauthorized",
+    //   "errors": [],
+    //   "data": null
+    //   "code": "sec.security_error"
+    // }
+    const { errors } = error.response.data;
+    yield put({ type: authTypes.CONFIRM_EMAIL_ERROR, payload: errors });
+  }
+}
+
+export function* confirmEmailSaga() {
+  yield takeLatest(authTypes.CONFIRM_EMAIL_REQUEST, confirmEmail);
+}
+
+function* confirmUserName(action) {
+  try {
+    // {
+    //   "data": {
+    //    "id": "string",
+    //    "name": "string",
+    //    "email": "string",
+    //   },
+    //   "httpStatusCode": 100,
+    //   "isSuccess": true,
+    //   "code": "success"
+    // }
+    yield call(api.auth.confirmEmail, action.payload);
+    yield put({ type: authTypes.CONFIRM_USER_NAME_SUCCESS });
+    yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.ENTER_NAME);
+  } catch (error) {
+    // {
+    //   "message": "Unauthorized",
+    //   "errors": [],
+    //   "data": null
+    //   "code": "sec.security_error"
+    // }
+    const { errors } = error.response.data;
+    yield put({ type: authTypes.CONFIRM_USER_NAME_ERROR, payload: errors });
+  }
+}
+
+export function* confirmUserNameSaga() {
+  yield takeLatest(authTypes.CONFIRM_USER_NAME_REQUEST, confirmUserName);
 }
 
 /*---------------------------------------------------------------------------*/

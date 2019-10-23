@@ -8,3 +8,7 @@ export const loadingSelector = createSelector(
   state => state.auth.loading,
   loading => loading
 );
+export const registerStepSelector = createSelector(
+  state => state.auth.step,
+  errors => errors
+);

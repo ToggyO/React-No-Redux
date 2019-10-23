@@ -20,6 +20,16 @@ export const loginInWithGoogleRequest = data => ({
   payload: data,
 });
 
+export const confirmEmail = data => ({
+  type: types.CONFIRM_EMAIL_REQUEST,
+  payload: data,
+});
+
+export const confirmUserName = data => ({
+  type: types.CONFIRM_USER_NAME_REQUEST,
+  payload: data,
+});
+
 export const logoutRequest = () => ({
   type: types.LOGOUT_REQUEST,
 });

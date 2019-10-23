@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import AuthRoute from './AuthRoute';
 import UnAuthRoute from './UnAuthRoute';
@@ -58,21 +58,21 @@ const Routes = () => (
     <AuthRoute path={ROUTES.HOME_PAGE} exact component={HomePageView} />
 
     {/* REDIRECTS */}
-    <UnAuthRoute
-      path={ROUTES.AUTH.ROOT + ROUTES.AUTH.SIGN_UP}
-      exact
-      component={() => <Redirect to={ROUTES.AUTH.ROOT + ROUTES.AUTH.SIGN_UP} />}
-    />
-    <UnAuthRoute
-      path={ROUTES.AUTH.ROOT + ROUTES.AUTH.LOGIN_IN}
-      exact
-      component={() => <Redirect to={ROUTES.AUTH.ROOT + ROUTES.AUTH.LOGIN_IN} />}
-    />
-    <UnAuthRoute
-      path={ROUTES.AUTH.ROOT + ROUTES.AUTH.CONFIRM_EMAIL}
-      exact
-      component={() => <Redirect to={ROUTES.AUTH.ROOT + ROUTES.AUTH.CONFIRM_EMAIL} />}
-    />
+    {/* <UnAuthRoute */}
+    {/*  path={ROUTES.AUTH.ROOT + ROUTES.AUTH.SIGN_UP} */}
+    {/*  exact */}
+    {/*  component={() => <Redirect to={ROUTES.AUTH.ROOT + ROUTES.AUTH.SIGN_UP} />} */}
+    {/* /> */}
+    {/* <UnAuthRoute */}
+    {/*  path={ROUTES.AUTH.ROOT + ROUTES.AUTH.LOGIN_IN} */}
+    {/*  exact */}
+    {/*  component={() => <Redirect to={ROUTES.AUTH.ROOT + ROUTES.AUTH.LOGIN_IN} />} */}
+    {/* /> */}
+    {/* <UnAuthRoute */}
+    {/*  path={ROUTES.AUTH.ROOT + ROUTES.AUTH.CONFIRM_EMAIL} */}
+    {/*  exact */}
+    {/*  component={() => <Redirect to={ROUTES.AUTH.ROOT + ROUTES.AUTH.CONFIRM_EMAIL} />} */}
+    {/* /> */}
     {/* /REDIRECTS */}
 
     {/* NOT FOUND PAGE */}

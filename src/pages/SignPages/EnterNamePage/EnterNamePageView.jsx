@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { EnterNameFormView } from './_components/EnterNameForm';
+import { EnterNameFormContainer } from './_components/EnterNameForm';
 
 import { FormTemplateView } from '@components/Form/FormTemplate';
 
@@ -14,7 +14,7 @@ const EnterNamePageView = () => (
       titleLarge="Welcome to Squad!"
       titleSmall="Thanks for signing up, please tell us your name."
     >
-      <EnterNameFormView />
+      <EnterNameFormContainer />
     </FormTemplateView>
   </>
 );

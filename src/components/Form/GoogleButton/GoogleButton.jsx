@@ -24,7 +24,7 @@ const GoogleButton = ({ actionCreator }) => (
       render={renderProps => (
         <button
           type="button"
-          className="btn google-button login-page-button full_width p-4 flex justify-content-center align-items-center"
+          className="btn google-button rounded login-page-button full_width p-4 flex justify-content-center align-items-center"
           onClick={renderProps.onClick}
           disabled={renderProps.disabled}
         >

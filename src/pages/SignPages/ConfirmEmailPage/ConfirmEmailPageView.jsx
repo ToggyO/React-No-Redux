@@ -1,7 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { ConfirmEmailFormView } from './_components/ConfirmEmailForm';
+// import { ConfirmEmailFormView } from './_components/ConfirmEmailForm';
+
+import { ConfirmEmailFormContainer } from './_components/ConfirmEmailForm';
 
 import { FormTemplateView } from '@components/Form/FormTemplate';
 
@@ -15,7 +17,7 @@ const ConfirmEmailPageView = () => (
       titleSmall="We have sent a confirmation code to name@company.com. Enter this code below:"
       link="Didn’t receive a confirmation code? Click here"
     >
-      <ConfirmEmailFormView />
+      <ConfirmEmailFormContainer />
     </FormTemplateView>
   </>
 );
