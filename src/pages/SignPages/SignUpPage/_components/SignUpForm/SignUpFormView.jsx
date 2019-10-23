@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import PT from 'prop-types';
 import { Field, Form, Formik } from 'formik';
 
+import { ERROR_CODES } from '@config/errorCodes';
 import { responseFormikError } from '@utils/index';
 import { TextInput } from '@components/Form/TextInput';
 import { validateField } from '@components/Form/validations';
@@ -15,7 +16,7 @@ const SignUpFormView = ({ errorsFromBackend, signUpWithEmailRequest, signUpWithG
   const formikRef = useRef(null);
 
   useEffect(() => {
-    formikRef.current.setErrors(responseFormikError(errorsFromBackend));
+    formikRef.current.setErrors(responseFormikError(errorsFromBackend, ERROR_CODES));
   }, [errorsFromBackend]);
 
   return (
@@ -27,6 +28,8 @@ const SignUpFormView = ({ errorsFromBackend, signUpWithEmailRequest, signUpWithG
       }}
       render={({ errors, touched, isValid }) => (
         <Form>
+          {errors.global &&
+          <div className="formik-error error-label">{errors.global}</div>}
           <Field
             name="googleEmail"
             component={GoogleButton}

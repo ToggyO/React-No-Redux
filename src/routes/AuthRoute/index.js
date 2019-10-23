@@ -8,7 +8,9 @@ import { checkTokens } from '@services/auth';
 const AuthRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
-    render={props => (checkTokens() ? <Component {...props} /> : <Redirect to={ROUTES.LOGIN_PAGE} />)}
+    render={props =>
+      checkTokens() ? <Component {...props} /> : <Redirect to={ROUTES.AUTH.ROOT + ROUTES.AUTH.LOGIN_IN} />
+    }
   />
 );
 

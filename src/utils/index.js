@@ -44,11 +44,15 @@ export function useWindowDimensions() {
   return windowDimensions;
 }
 
-export const responseFormikError = errors => {
+export const responseFormikError = (errors, errorCodes) => {
   const errorObj = {};
   errors.forEach(item => {
     if (item.field) {
       errorObj[item.field] = item.message;
+    } else if (errorCodes[item.code]) {
+      errorObj.global = errorCodes[item.code];
+    } else {
+      errorObj.global = item.message;
     }
   });
   return errorObj;

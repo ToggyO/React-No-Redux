@@ -64,6 +64,5 @@ const ColorSelect = ({ values = {} }) => {
 export default ColorSelect;
 
 ColorSelect.propTypes = {
-  form: PropTypes.object,
   values: PropTypes.object,
 };

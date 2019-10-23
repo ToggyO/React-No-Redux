@@ -14,7 +14,7 @@ export const validateField = {
       error = 'Required';
     } else if (value.length < 6 || value.length > 30) {
       error = 'Password should include min 6 max 30 characters';
-    } else if (!/(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/g.test(value)) {
+    } else if (!/^[0-9a-zA-Z~!@#$%^&*_\-+=`|(){}[\]:;"'<>,.?/]+$/g.test(value)) {
       error = 'Password should include only digits, latin letters or special characters';
     }
     return error;

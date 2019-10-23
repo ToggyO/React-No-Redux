@@ -59,12 +59,17 @@ const Routes = () => (
 
     {/* REDIRECTS */}
     <UnAuthRoute
-      path={ROUTES.AUTH.SIGN_UP}
+      path={ROUTES.AUTH.ROOT + ROUTES.AUTH.SIGN_UP}
       exact
       component={() => <Redirect to={ROUTES.AUTH.ROOT + ROUTES.AUTH.SIGN_UP} />}
     />
     <UnAuthRoute
-      path={ROUTES.AUTH.CONFIRM_EMAIL}
+      path={ROUTES.AUTH.ROOT + ROUTES.AUTH.LOGIN_IN}
+      exact
+      component={() => <Redirect to={ROUTES.AUTH.ROOT + ROUTES.AUTH.LOGIN_IN} />}
+    />
+    <UnAuthRoute
+      path={ROUTES.AUTH.ROOT + ROUTES.AUTH.CONFIRM_EMAIL}
       exact
       component={() => <Redirect to={ROUTES.AUTH.ROOT + ROUTES.AUTH.CONFIRM_EMAIL} />}
     />

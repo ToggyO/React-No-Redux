@@ -12,9 +12,9 @@ const EnterNameFormView = () => {
 
   return (
     <Formik
-      initialValues={{ name: '' }}
-      onSubmit={() => {}}
-      render={({ errors, status, touched, isSubmitting, isValid, handleReset, ...props }) => (
+      initialValues={{ name: '', privacy: state }}
+      onSubmit={(values) => console.log(values, state)}
+      render={({ isValid, values }) => (
         <Form>
           <Field
             type="text"
@@ -31,11 +31,11 @@ const EnterNameFormView = () => {
             addClassCheckbox={`checkbox ${state ? 'checkmark_checked' : ''}`}
             title="I agree with Squad’s terms and privacy policy"
             style={style}
-            onClick={() => setState(!state)}
+            onClick={() => {setState(!state); values.privacy = !state}}
           />
           <button
             type="submit"
-            disabled={!isValid}
+            disabled={!isValid || !values.privacy}
             className="btn green rounded p-4 full_width login-page-button"
           >
             Next

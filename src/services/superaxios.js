@@ -1,9 +1,6 @@
 // gist https://gist.github.com/mkjiau/650013a99c341c9f23ca00ccb213db1c
-
 import axios from 'axios';
-
 // import { globalTypes } from '@ducks/_global';
-
 // import { store } from '../store';
 
 import { LOCAL_STORAGE_KEYS, API_DOMAIN, API_URL } from '@config';
@@ -46,17 +43,19 @@ superaxios.interceptors.response.use(
   error => {
     const {
       config,
-      response: { status },
+      response: { status, data = {} },
     } = error;
+    const { errors } = data;
+    const code = errors.filter(item => item.code === 'sec.access_token_invalid');
     const originalRequest = config;
 
-    if (status === 401) {
+    if (status === 401 && code.length > 0) {
       if (!isAlreadyFetchingAccessToken) {
         isAlreadyFetchingAccessToken = true;
         const oldRefreshToken = getFromLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN);
         // store.dispatch({ type: globalTypes.REFRESHING_TOKEN_REQUEST });
         superaxios
-          .put(API_URL.TOKEN, { refreshToken: oldRefreshToken })
+          .put(API_URL.REFRESH_TOKEN, { refreshToken: oldRefreshToken })
           .then(response => {
             // store.dispatch({ type: globalTypes.REFRESHING_TOKEN_SUCCESS });
             const { accessToken, refreshToken } = response.data.data;

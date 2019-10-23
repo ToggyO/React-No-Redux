@@ -2,6 +2,8 @@ import PT from 'prop-types';
 import React, { useEffect, useRef } from 'react';
 import { Field, Form, Formik } from 'formik';
 
+import { ERROR_CODES } from '@config/errorCodes';
+
 import { GoogleButton } from '@components/Form/GoogleButton';
 import key from '@assets/login_page/key.png';
 import { PasswordInput } from '@components/Form/PasswordInput';
@@ -16,7 +18,7 @@ const LoginPageViewForm = ({ errorsFromBackend, loginInWithEmailRequest, loginIn
   const formikRef = useRef(null);
 
   useEffect(() => {
-    formikRef.current.setErrors(responseFormikError(errorsFromBackend));
+    formikRef.current.setErrors(responseFormikError(errorsFromBackend, ERROR_CODES));
   }, [errorsFromBackend]);
 
   return (
@@ -28,6 +30,8 @@ const LoginPageViewForm = ({ errorsFromBackend, loginInWithEmailRequest, loginIn
       }}
       render={({ errors, touched, isValid }) => (
         <Form>
+          {errors.global &&
+          <div className="formik-error error-label">{errors.global}</div>}
           <Field
             type="email"
             name="email"
@@ -67,11 +71,12 @@ const LoginPageViewForm = ({ errorsFromBackend, loginInWithEmailRequest, loginIn
             component={GoogleButton}
             actionCreator={loginInWithGoogleRequest}
           />
-          {errors.emailGoogle && <div className="formik-error error-label">{errors.emailGoogle}</div>}
+          {errors.emailGoogle &&
+          <div className="formik-error error-label">{errors.emailGoogle}</div>}
         </Form>
       )}
     />
-  )
+  );
 };
 
 LoginPageViewForm.propTypes = {

@@ -6,7 +6,7 @@ import s from './style.module.sass';
 const Checkbox = ({ onClick, addClassCheckbox, addClassTitleWrapper, title, style }) => (
   <div
     className={`${s.container} ${addClassTitleWrapper}`}
-    onClick={onClick}
+    onChange={onClick}
     style={{ ...style.titleWrapper, cursor: 'pointer' }}
   >
     <input

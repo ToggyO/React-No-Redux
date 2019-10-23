@@ -5,7 +5,12 @@ import { userLogout } from '@services/auth';
 import { LOCAL_STORAGE_KEYS } from '@config';
 
 export const saveUserData = store => next => action => {
-  if (action.type === authTypes.LOGIN_IN_WITH_GOOGLE_SUCCESS) {
+  if (
+    action.type === authTypes.SIGNUP_WITH_EMAIL_REQUEST ||
+    action.type === authTypes.SIGNUP_WITH_GOOGLE_REQUEST ||
+    action.type === authTypes.LOGIN_IN_WITH_EMAIL_SUCCESS ||
+    action.type === authTypes.LOGIN_IN_WITH_GOOGLE_SUCCESS
+  ) {
     const { user } = action.payload.data;
     const { accessToken, refreshToken } = action.payload.data.token;
     writeToLocalState(LOCAL_STORAGE_KEYS.USER, user);
