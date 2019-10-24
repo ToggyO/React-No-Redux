@@ -1,16 +1,16 @@
 import React from 'react';
+import PT from 'prop-types';
 
-const AddButton = ({ values, inputRef, emails, setEmails }) => {
+const AddButton = ({ values, emails, fieldName, setEmails, setFieldValue, setFieldError }) => {
   const addToList = () => {
-    if (values.email) {
-      // values.emails.push(values.email);
-      // values.email = '';
-      // inputRef.current.value = '';
-      // console.log(values);
-      setEmails(oldArray => [...oldArray, values.email]);
-      inputRef.current.value = '';
-      console.log(values);
-      console.log(emails);
+    if (values[fieldName]) {
+      const duplicatedValue = emails.filter(item => item === values[fieldName]);
+      if (duplicatedValue.length === 0) {
+        setEmails(oldArray => [...oldArray, values[fieldName]]);
+        setFieldValue(fieldName, '', false);
+      } else {
+        setFieldError(fieldName, 'Email has already been entered');
+      }
     }
   };
 
@@ -21,6 +21,15 @@ const AddButton = ({ values, inputRef, emails, setEmails }) => {
       </button>
     </div>
   )
+};
+
+AddButton.propTypes = {
+  values: PT.object,
+  emails: PT.array,
+  fieldName: PT.string,
+  setEmails: PT.func,
+  setFieldValue: PT.func,
+  setFieldError: PT.func,
 };
 
 export default AddButton;

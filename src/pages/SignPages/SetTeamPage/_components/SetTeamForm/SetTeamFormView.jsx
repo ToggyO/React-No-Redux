@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import PT from 'prop-types';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
-import { AddButton } from '@components/Form/AddButton';
 import { responseFormikError } from '@utils/index';
 import { ERROR_CODES } from '@config/errorCodes';
 import { ColorSelect } from '@components/Form/Dropdown/ColorSelect';
@@ -26,7 +25,6 @@ const SetTeamFormView = ({ errorsFromBackend, setTeam }) => {
       onSubmit={values => setTeam({...values, emails})}
       render={({ isValid, values }) => (
         <>
-          {/* {JSON.stringify(props, null, 2)} */}
           <Form>
             <Field
               type="text"
@@ -44,7 +42,7 @@ const SetTeamFormView = ({ errorsFromBackend, setTeam }) => {
               name="email"
               placeholder="Enter email to send invite"
               component={MultipleTextInput}
-              validate={validateField.email}
+              validate={validateField.multipleEmail}
               addClassWrapper="pt-4 pb-4"
               addClassInput="pt-4 pb-4 pl-5 pr-5"
               emails={emails}

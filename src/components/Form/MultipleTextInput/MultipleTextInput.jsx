@@ -22,7 +22,7 @@ const MultipleTextInput = props => {
     additionalElement,
     ...rest
   } = props;
-  const { touched, errors, values } = form;
+  const { touched, errors, values, setFieldValue, setFieldError } = form;
   const inputId = `input-${field.name}`;
 
   const inputRef = useRef(null);
@@ -50,11 +50,27 @@ const MultipleTextInput = props => {
             style={inputStyle}
             multiple
           />
-          <AddButton values={values} inputRef={inputRef} {...rest}/>
+          <AddButton
+            values={values}
+            fieldName={field.name}
+            inputRef={inputRef}
+            setFieldValue={setFieldValue}
+            setFieldError={setFieldError}
+            {...rest}
+          />
           {additionalElement}
         </div>
       </LabelWrapper>
-      {rest.emails.map((item, i) => <RenderList key={i}/>)}
+      <div className={s.mapped_emails}>
+        {rest.emails.map((item, i) =>
+          <RenderList
+            key={i}
+            email={item}
+            addContainerClass="flex"
+            {...rest}
+          />
+        )}
+      </div>
     </div>
   );
 };
