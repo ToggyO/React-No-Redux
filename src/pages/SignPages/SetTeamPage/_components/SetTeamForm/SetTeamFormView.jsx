@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PT from 'prop-types';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
+import { AddButton } from '@components/Form/AddButton';
 import { responseFormikError } from '@utils/index';
 import { ERROR_CODES } from '@config/errorCodes';
 import { ColorSelect } from '@components/Form/Dropdown/ColorSelect';
@@ -11,6 +12,7 @@ import { validateField } from '@components/Form/validations';
 
 
 const SetTeamFormView = ({ errorsFromBackend, setTeam }) => {
+  const [emails, setEmails] = useState([]);
   const formikRef = useRef(null);
 
   useEffect(() => {
@@ -20,15 +22,15 @@ const SetTeamFormView = ({ errorsFromBackend, setTeam }) => {
   return (
     <Formik
       ref={formikRef}
-      initialValues={{ teamName: '', email: '', color: '#82ABFB' }}
-      onSubmit={setTeam}
+      initialValues={{ name: '', colorHex: '#82ABFB', email: '' }}
+      onSubmit={values => setTeam({...values, emails})}
       render={({ isValid, values }) => (
         <>
           {/* {JSON.stringify(props, null, 2)} */}
           <Form>
             <Field
               type="text"
-              name="teamName"
+              name="name"
               placeholder="Enter a team name"
               component={TextInput}
               validate={validateField.name}
@@ -36,7 +38,7 @@ const SetTeamFormView = ({ errorsFromBackend, setTeam }) => {
               addClassInput="pt-4 pb-4 pl-5 pr-5"
               additionalElement={<ColorSelect values={values}/>}
             />
-            <ErrorMessage name="teamName" component="div" className="formik-error error-label" />
+            <ErrorMessage name="name" component="div" className="formik-error error-label" />
             <Field
               type="email"
               name="email"
@@ -45,7 +47,8 @@ const SetTeamFormView = ({ errorsFromBackend, setTeam }) => {
               validate={validateField.email}
               addClassWrapper="pt-4 pb-4"
               addClassInput="pt-4 pb-4 pl-5 pr-5"
-              multiple
+              emails={emails}
+              setEmails={setEmails}
             />
             <ErrorMessage name="email" component="div" className="formik-error error-label" />
             <button
