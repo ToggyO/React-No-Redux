@@ -6,15 +6,65 @@ $className: btn
   text-align: center
   cursor: pointer
   background: none
+  transition: all .2s ease-in-out
 
 //Colors
+.#{$className}.green-filled
+  background-color: $sea-green
+  color: $white
+
+//remove this guy
 .#{$className}.green
   background-color: $sea-green
   color: $white
 
+//and this
 .#{$className}.green:disabled
   background-color: lighten($sea-green, 25%)
   cursor: not-allowed
+
+.#{$className}.green-filled:disabled
+  background-color: $sea-green-disabled
+  cursor: not-allowed
+
+.#{$className}.green-filled:hover:enabled
+  background-color: $sea-green-hover
+
+.#{$className}.green-filled:active:enabled
+  background-color: $sea-green-active
+
+.#{$className}.primary-filled
+  background-color: $primary_color
+  color: $white
+
+.#{$className}.primary-filled:disabled
+  background-color: $primary_color-disabled
+  cursor: not-allowed
+
+.#{$className}.primary-filled:hover:enabled
+  background-color: $primary_color-hover
+
+.#{$className}.primary-filled:active:enabled
+  background-color: $primary_color-active
+
+.#{$className}.primary-outlined
+  border: 1px solid $primary_color
+  color: $primary_color
+
+.#{$className}.primary-outlined:disabled
+  border: 1px solid $primary_color-disabled
+  color: $primary_color-disabled
+  cursor: not-allowed
+
+.#{$className}.primary-outlined:hover:enabled
+  border: 1px solid $primary_color-hover
+  background-color: $primary_color-hover
+  color: $white
+
+.#{$className}.primary-outlined:active:enabled
+  border: 1px solid $primary_color
+  background-color: $lightest-gray
+  color: $primary-color
 
 //Shapes
 .#{$className}.full_width
