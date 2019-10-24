@@ -23,10 +23,20 @@ export const CONFIRM_EMAIL_REQUEST = 'auth/CONFIRM_EMAIL_REQUEST';
 export const CONFIRM_EMAIL_SUCCESS = 'auth/CONFIRM_EMAIL_SUCCESS';
 export const CONFIRM_EMAIL_ERROR = 'auth/CONFIRM_EMAIL_ERROR';
 
-/* Confirm email */
-export const CONFIRM_USER_NAME_REQUEST = 'auth/CONFIRM_USER_NAME_REQUEST';
-export const CONFIRM_USER_NAME_SUCCESS = 'auth/CONFIRM_USER_NAME_SUCCESS';
-export const CONFIRM_USER_NAME_ERROR = 'auth/CONFIRM_USER_NAME_ERROR';
+/* Set user name */
+export const SET_USER_NAME_REQUEST = 'auth/SET_USER_NAME_REQUEST';
+export const SET_USER_NAME_SUCCESS = 'auth/SET_USER_NAME_SUCCESS';
+export const SET_USER_NAME_ERROR = 'auth/SET_USER_NAME_ERROR';
+
+/* Set company name */
+export const SET_COMPANY_NAME_REQUEST = 'auth/SET_COMPANY_NAME_REQUEST';
+export const SET_COMPANY_NAME_SUCCESS = 'auth/SET_COMPANY_NAME_SUCCESS';
+export const SET_COMPANY_NAME_ERROR = 'auth/SET_COMPANY_NAME_ERROR';
+
+/* Set company name */
+export const SET_TEAM_REQUEST = 'auth/SET_TEAM_REQUEST';
+export const SET_TEAM_SUCCESS = 'auth/SET_TEAM_SUCCESS';
+export const SET_TEAM_ERROR = 'auth/SET_TEAM_ERROR';
 
 /* Logout */
 export const LOGOUT_REQUEST = 'auth/LOGOUT_REQUEST';

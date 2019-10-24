@@ -5,5 +5,7 @@ export const API_URL = {
   LOGIN_WITH_EMAIL: 'auth/token',
   LOGIN_WITH_GOOGLE: 'auth/token/google',
   CONFIRM_EMAIL: 'signup/admin/confirm',
-  CONFIRM_USER_NAME: 'signup/admin/username',
+  SET_USER_NAME: 'signup/admin/username',
+  SET_COMPANY_NAME: 'signup/admin/company',
+  SET_TEAM: 'signup/admin/team',
 };

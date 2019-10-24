@@ -25,8 +25,18 @@ export const confirmEmail = data => ({
   payload: data,
 });
 
-export const confirmUserName = data => ({
-  type: types.CONFIRM_USER_NAME_REQUEST,
+export const setUserName = data => ({
+  type: types.SET_USER_NAME_REQUEST,
+  payload: data,
+});
+
+export const setCompanyName = data => ({
+  type: types.SET_COMPANY_NAME_REQUEST,
+  payload: data,
+});
+
+export const setTeam = data => ({
+  type: types.SET_TEAM_REQUEST,
   payload: data,
 });
 

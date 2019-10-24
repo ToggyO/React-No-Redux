@@ -24,8 +24,16 @@ export default {
       const response = await superaxios.put(API_URL.CONFIRM_EMAIL, code);
       return response.data;
     },
-    confirmUserName: async user => {
-      const response = await superaxios.put(API_URL.CONFIRM_USER_NAME, user);
+    setUserName: async name => {
+      const response = await superaxios.put(API_URL.SET_USER_NAME, name);
+      return response.data;
+    },
+    setCompanyName: async name => {
+      const response = await superaxios.post(API_URL.SET_COMPANY_NAME, name);
+      return response.data;
+    },
+    setTeam: async data => {
+      const response = await superaxios.post(API_URL.SET_TEAM, data);
       return response.data;
     },
   },

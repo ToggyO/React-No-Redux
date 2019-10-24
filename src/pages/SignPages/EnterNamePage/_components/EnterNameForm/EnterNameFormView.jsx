@@ -8,14 +8,14 @@ import { validateField } from '@components/Form/validations';
 import { TextInput } from '@components/Form/TextInput';
 import { Checkbox } from '@components/Form/Checkbox';
 
-const EnterNameFormView = ({ confirmUserName }) => {
+const EnterNameFormView = ({ setUserName }) => {
   const [state, setState] = useState(false);
 
   return (
     <Formik
-      initialValues={{ name: '', privacy: state }}
-      onSubmit={confirmUserName}
-      render={({ isValid, values }) => (
+      initialValues={{ name: '' }}
+      onSubmit={setUserName}
+      render={({ isValid }) => (
         <Form>
           <Field
             type="text"
@@ -32,11 +32,11 @@ const EnterNameFormView = ({ confirmUserName }) => {
             addClassCheckbox={`checkbox ${state ? 'checkmark_checked' : ''}`}
             title="I agree with Squad’s terms and privacy policy"
             style={style}
-            onClick={() => {setState(!state); values.privacy = !state}}
+            onClick={() => setState(!state)}
           />
           <button
             type="submit"
-            disabled={!isValid || !values.privacy}
+            disabled={!isValid || !state}
             className="btn green rounded p-4 full_width login-page-button"
           >
             Next
@@ -48,7 +48,7 @@ const EnterNameFormView = ({ confirmUserName }) => {
 };
 
 EnterNameFormView.propTypes = {
-  confirmUserName: PropTypes.func,
+  setUserName: PropTypes.func,
 };
 
 export default EnterNameFormView;

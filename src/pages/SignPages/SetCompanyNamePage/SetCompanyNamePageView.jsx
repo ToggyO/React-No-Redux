@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { SetCompanyNameFormView } from './_components/SetCompanyNameForm';
+import { SetCompanyNameFormContainer }  from './_components/SetCompanyNameForm';
 
 import { FormTemplateView } from '@components/Form/FormTemplate';
 
@@ -14,7 +14,7 @@ const SetCompanyNamePageView = () => (
       titleLarge="What's the name of your company?"
       titleSmall="You can split up the company into teams later."
     >
-      <SetCompanyNameFormView />
+      <SetCompanyNameFormContainer />
     </FormTemplateView>
   </>
 );

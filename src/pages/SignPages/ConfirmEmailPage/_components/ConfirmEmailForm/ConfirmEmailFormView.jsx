@@ -1,7 +1,7 @@
-import { ERROR_CODES } from '@config/errorCodes';
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { ERROR_CODES } from '@config/errorCodes';
 import { responseFormikError } from '@utils/index';
 import { ConfirmEmailInput } from '@components/Form/ConfirmEmailInput';
 
@@ -10,6 +10,7 @@ const ConfirmEmailFormView = ({ errorsFromBackend, confirmEmail }) => {
 
   return (
     <>
+      {setErrors(errorsFromBackend).token && <div className="formik-error error-label">{setErrors(errorsFromBackend).token}</div>}
       <ConfirmEmailInput
         name="token"
         maxLength={6}
@@ -17,7 +18,6 @@ const ConfirmEmailFormView = ({ errorsFromBackend, confirmEmail }) => {
         errorsFromBackend={errorsFromBackend}
         onClick={confirmEmail}
       />
-      {setErrors(errorsFromBackend).token && <div className="formik-error error-label">{setErrors(errorsFromBackend).token}</div>}
     </>
   );
 };

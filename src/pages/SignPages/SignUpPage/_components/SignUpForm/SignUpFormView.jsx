@@ -1,9 +1,9 @@
-import key from '@assets/login_page/key.png';
-import { PasswordInput } from '@components/Form/PasswordInput';
 import React, { useEffect, useRef } from 'react';
 import PT from 'prop-types';
 import { Field, Form, Formik } from 'formik';
 
+import { PasswordInput } from '@components/Form/PasswordInput';
+import key from '@assets/login_page/key.png';
 import { ERROR_CODES } from '@config/errorCodes';
 import { responseFormikError } from '@utils/index';
 import { TextInput } from '@components/Form/TextInput';
@@ -26,9 +26,7 @@ const SignUpFormView = ({ errorsFromBackend, signUpWithEmailRequest, signUpWithG
       ref={formikRef}
       initialValues={{ email: '', password: '', passwordConfirm: '' }}
       validate={validateForm.confirmSignUp}
-      onSubmit={values => {
-        signUpWithEmailRequest(values);
-      }}
+      onSubmit={values => signUpWithEmailRequest(values)}
       render={({ errors, touched, isValid }) => (
         <Form>
           {errors.global &&

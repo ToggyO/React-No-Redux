@@ -5,8 +5,8 @@ import EnterNameFormView from './EnterNameFormView';
 import { authActions } from '@ducks/auth';
 
 const mapDispatchToProps = dispatch => ({
-  confirmUserName(name) {
-    dispatch(authActions.confirmUserName(name));
+  setUserName(name) {
+    dispatch(authActions.setUserName(name));
   },
 });
 

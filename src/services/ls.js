@@ -13,7 +13,7 @@ export function getFromLocalState(key) {
   let state;
 
   try {
-    state = localStorage.getItem(`${APP_PREFIX}_${key}`);
+    state = JSON.parse(localStorage.getItem(`${APP_PREFIX}_${key}`));
   } catch (e) {
     throw e;
   }

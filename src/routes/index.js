@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import AuthRoute from './AuthRoute';
-import UnAuthRoute from './UnAuthRoute';
+// import UnAuthRoute from './UnAuthRoute';
 
 import { ROUTES } from '@config';
 import { AuthScreenWrapperContainer } from '@components/AuthScreenWrapper';
@@ -20,7 +20,8 @@ import { LoginPageView } from '@pages/LoginPages/LoginPage';
 
 const Routes = () => (
   <Switch>
-    <UnAuthRoute
+    {/* UnAuthRoute */}
+    <Route
       path={ROUTES.AUTH.ROOT}
       component={props => (
         <AuthScreenWrapperContainer {...props}>

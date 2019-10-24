@@ -161,7 +161,7 @@ export function* confirmEmailSaga() {
   yield takeLatest(authTypes.CONFIRM_EMAIL_REQUEST, confirmEmail);
 }
 
-function* confirmUserName(action) {
+function* setUserName(action) {
   try {
     // {
     //   "data": {
@@ -173,9 +173,9 @@ function* confirmUserName(action) {
     //   "isSuccess": true,
     //   "code": "success"
     // }
-    yield call(api.auth.confirmEmail, action.payload);
-    yield put({ type: authTypes.CONFIRM_USER_NAME_SUCCESS });
-    yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.ENTER_NAME);
+    yield call(api.auth.setUserName, action.payload);
+    yield put({ type: authTypes.SET_USER_NAME_SUCCESS });
+    yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.SET_COMPANY_NAME);
   } catch (error) {
     // {
     //   "message": "Unauthorized",
@@ -184,12 +184,76 @@ function* confirmUserName(action) {
     //   "code": "sec.security_error"
     // }
     const { errors } = error.response.data;
-    yield put({ type: authTypes.CONFIRM_USER_NAME_ERROR, payload: errors });
+    yield put({ type: authTypes.SET_USER_NAME_ERROR, payload: errors });
   }
 }
 
-export function* confirmUserNameSaga() {
-  yield takeLatest(authTypes.CONFIRM_USER_NAME_REQUEST, confirmUserName);
+export function* setUserNameSaga() {
+  yield takeLatest(authTypes.SET_USER_NAME_REQUEST, setUserName);
+}
+
+function* setCompanyName(action) {
+  try {
+    // {
+    //   "data": {
+    //    "id": "string",
+    //    "name": "string",
+    //   },
+    //   "httpStatusCode": 100,
+    //   "isSuccess": true,
+    //   "code": "success"
+    // }
+    yield call(api.auth.setCompanyName, action.payload);
+    yield put({ type: authTypes.SET_COMPANY_NAME_SUCCESS });
+    yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.SET_TEAM);
+  } catch (error) {
+    // {
+    //   "message": "Unauthorized",
+    //   "errors": [],
+    //   "data": null
+    //   "code": "sec.security_error"
+    // }
+    const { errors } = error.response.data;
+    yield put({ type: authTypes.SET_COMPANY_NAME_ERROR, payload: errors });
+  }
+}
+
+export function* setCompanyNameSaga() {
+  yield takeLatest(authTypes.SET_COMPANY_NAME_REQUEST, setCompanyName);
+}
+
+function* setTeam(action) {
+  try {
+    // {
+    //   "data": {
+    //   "stepName": "string",
+    //     "step": "number",
+    //     "data": {
+    //     "id": "string",
+    //       "name": "string"
+    //   }
+    // },
+    //   "httpStatusCode": 100,
+    //   "isSuccess": true,
+    //   "code": "success"
+    // }
+    yield call(api.auth.setTeam, action.payload);
+    yield put({ type: authTypes.SET_TEAM_SUCCESS });
+    yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.SET_FIRST_PROJECT);
+  } catch (error) {
+    // {
+    //   "message": "Unauthorized",
+    //   "errors": [],
+    //   "data": null
+    //   "code": "sec.security_error"
+    // }
+    const { errors } = error.response.data;
+    yield put({ type: authTypes.SET_TEAM_ERROR, payload: errors });
+  }
+}
+
+export function* setTeamSaga() {
+  yield takeLatest(authTypes.SET_TEAM_REQUEST, setTeam);
 }
 
 /*---------------------------------------------------------------------------*/

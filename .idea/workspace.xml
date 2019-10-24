@@ -2,33 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c14643f0-600e-4384-bae2-0d92c8acbd51" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/_components/ConfirmEmailForm/ConfirmEmailFormContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/EnterNamePage/_components/EnterNameForm/EnterNameFormContainer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Form/MultipleTextInput/MultipleTextInput.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Form/MultipleTextInput/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/SetCompanyNamePage/_components/SetCompanyNameForm/SetCompanyNameFormContainer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/SetTeamPage/_components/SetTeamForm/SetTeamFormContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/ConfirmEmailInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/ConfirmEmailInput.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/FormTemplate/FormTemplateView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/FormTemplate/FormTemplateView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/FormTemplate/style.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/FormTemplate/style.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/GoogleButton/GoogleButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/GoogleButton/GoogleButton.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/validations/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/validations/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/TextInput/TextInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/TextInput/TextInput.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config/apiUrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/apiUrl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/common.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ducks/auth/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/actions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ducks/auth/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/reducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ducks/auth/sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/sagas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ducks/auth/selectors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/selectors.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ducks/auth/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/types.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/ConfirmEmailPageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/ConfirmEmailPageView.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/_components/ConfirmEmailForm/ConfirmEmailFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/_components/ConfirmEmailForm/ConfirmEmailFormView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/_components/ConfirmEmailForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/_components/ConfirmEmailForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/EnterNamePage/EnterNamePageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/EnterNamePage/EnterNamePageView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/EnterNamePage/_components/EnterNameForm/EnterNameFormContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/EnterNamePage/_components/EnterNameForm/EnterNameFormContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/SignPages/EnterNamePage/_components/EnterNameForm/EnterNameFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/EnterNamePage/_components/EnterNameForm/EnterNameFormView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/EnterNamePage/_components/EnterNameForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/EnterNamePage/_components/EnterNameForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/_components/ColorSelect/ColorSelect.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/Dropdown/ColorSelect/ColorSelect.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/_components/ColorSelect/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/Dropdown/ColorSelect/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/_components/ColorSelect/style.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/Dropdown/ColorSelect/style.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/_components/FirstProjectForm/FirstProjectFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/_components/FirstProjectForm/FirstProjectFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SetCompanyNamePage/SetCompanyNamePageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SetCompanyNamePage/SetCompanyNamePageView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SetCompanyNamePage/_components/SetCompanyNameForm/SetCompanyNameFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SetCompanyNamePage/_components/SetCompanyNameForm/SetCompanyNameFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SetCompanyNamePage/_components/SetCompanyNameForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SetCompanyNamePage/_components/SetCompanyNameForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SetTeamPage/SetTeamPageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SetTeamPage/SetTeamPageView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SetTeamPage/_components/SetTeamForm/SetTeamFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SetTeamPage/_components/SetTeamForm/SetTeamFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SetTeamPage/_components/SetTeamForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SetTeamPage/_components/SetTeamForm/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/_components/SignUpForm/SignUpFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/_components/SignUpForm/SignUpFormView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/UnAuthRoute/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/UnAuthRoute/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/ls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ls.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,17 +59,18 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.1.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\squad.io-js-front\src\components\Form\Dropdown" />
+      <recent name="C:\Projects\squad.io-js-front\src\pages\SignPages\FirstProjectPage\_components\ColorSelect" />
+      <recent name="C:\Projects\squad.io-js-front\src\components\Form\ConfirmEmailInput\_components\RenderCircles" />
+      <recent name="C:\Projects\squad.io-js-front\src\components\Form\RadioButton\_components" />
+      <recent name="C:\Projects\squad.io-js-front\src\pages\SignPages\FirstProjectPage\_components\FirstProjectForm" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Projects\squad.io-js-front\src\components\Icon" />
       <recent name="C:\Projects\squad.io-js-front\src\components\Form\ConfirmEmailInput" />
       <recent name="C:\Projects\squad.io-js-front\src\assets\login_page" />
       <recent name="C:\Projects\squad.io-js-front\src\components\Form" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Projects\squad.io-js-front\src\pages\SignPages\FirstProjectPage\_components\ColorSelect" />
-      <recent name="C:\Projects\squad.io-js-front\src\components\Form\ConfirmEmailInput\_components\RenderCircles" />
-      <recent name="C:\Projects\squad.io-js-front\src\components\Form\RadioButton\_components" />
-      <recent name="C:\Projects\squad.io-js-front\src\pages\SignPages\FirstProjectPage\_components\FirstProjectForm" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -101,7 +104,8 @@
       <workItem from="1571282652130" duration="20881000" />
       <workItem from="1571364977692" duration="20071000" />
       <workItem from="1571709567104" duration="1233000" />
-      <workItem from="1571796487327" duration="27107000" />
+      <workItem from="1571796487327" duration="27198000" />
+      <workItem from="1571882120519" duration="11844000" />
     </task>
     <servers />
   </component>

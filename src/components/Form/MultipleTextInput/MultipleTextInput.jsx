@@ -1,12 +1,13 @@
-import React from 'react';
+import TextInput from '@components/Form/TextInput/TextInput';
 import PropTypes from 'prop-types';
+import React from 'react';
 
-import { ImageBefore } from '../ImgBefore';
-import { LabelWrapper } from '../LabelWrapper';
+import { ImageBefore } from '@components/Form/ImgBefore';
+import { LabelWrapper } from '@components/Form/LabelWrapper';
+import s from '@components/Form/TextInput/style.module.sass';
 
-import s from './style.module.sass';
 
-const TextInput = props => {
+const MultipleTextInput = props => {
   const {
     addClassWrapper,
     addClassInput,
@@ -42,6 +43,7 @@ const TextInput = props => {
             name={field.name}
             placeholder={placeholder}
             style={inputStyle}
+            multiple
           />
           {additionalElement}
         </div>
@@ -50,9 +52,7 @@ const TextInput = props => {
   );
 };
 
-export default TextInput;
-
-TextInput.propTypes = {
+MultipleTextInput.propTypes = {
   addClassWrapper: PropTypes.string,
   addClassInput: PropTypes.string,
   type: PropTypes.string,
@@ -67,3 +67,5 @@ TextInput.propTypes = {
   additionalElement: PropTypes.element,
   multiple: PropTypes.bool,
 };
+
+export default MultipleTextInput;
