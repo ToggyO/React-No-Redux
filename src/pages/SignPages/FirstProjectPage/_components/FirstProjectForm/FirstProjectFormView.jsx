@@ -13,6 +13,14 @@ import { validateField } from '@components/Form/validations';
 import { RadioButtonGroup } from '@components/Form/RadioButton';
 import { RadioButton } from '@components/Form/RadioButton/_components';
 
+const YourTeamRadioButton = props => (
+  <RadioButton {...props} withExtra={{ icon: 'team', text: 'Your team' }} />
+);
+
+const PeopleRadioButton = props => (
+  <RadioButton {...props} withExtra={{ icon: 'people', text: 'Select people' }} />
+);
+
 const FirstProjectFormView = () => (
   // const formikRef = useRef(null);
   //
@@ -34,7 +42,7 @@ const FirstProjectFormView = () => (
             placeholder="Enter project name"
             component={TextInput}
             validate={validateField.name}
-            addClassWrapper="pt-4 pb-4"
+            addClassWrapper="pt-4 pb-4 mb-3"
             addClassInput="pt-4 pb-4 pl-5"
             additionalElement={<ColorSelect values={values} />}
           />
@@ -43,11 +51,11 @@ const FirstProjectFormView = () => (
         <RadioButtonGroup
           label="Share the project with"
           labelStyle={{ fontSize: 15, lineHeight: '21px', fontWeight: 400, color: '#495570' }}
-          addLabelClass="text-align-left"
-          addChildrenContainerClass="flex"
+          addLabelClass="text-align-left mb-1"
+          addChildrenContainerClass="flex justify-content-space-between"
         >
-          <Field name="radioGroup" id="projectTeam" component={RadioButton} style={style} />
-          <Field name="radioGroup" id="projectPeople" component={RadioButton} style={style} />
+          <Field name="radioGroup" id="projectTeam" component={YourTeamRadioButton} style={style} />
+          <Field name="radioGroup" id="projectPeople" component={PeopleRadioButton} style={style} />
         </RadioButtonGroup>
         <button
           type="submit"

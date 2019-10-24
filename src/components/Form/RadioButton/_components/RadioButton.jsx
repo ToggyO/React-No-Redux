@@ -1,13 +1,13 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable jsx-a11y/label-has-for */
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import s from './style.module.sass';
 
-const RadioButton = ({
-  field: { name, value, onChange, onBlur },
-  style = {},
-  id,
-}) => (
+import { Icon } from '@components/Icon';
+
+const RadioButton = ({ field: { name, value, onChange, onBlur }, style = {}, id, withExtra }) => (
   <div style={style.container}>
     <input
       name={name}
@@ -18,8 +18,20 @@ const RadioButton = ({
       onChange={onChange}
       onBlur={onBlur}
       className={s.radio}
-      style={{...style.radioButton, ...id === value && style.checked}}
+      style={{ ...style.radioButton, ...(id === value && style.checked) }}
     />
+    {withExtra && (
+      <div style={style.extra}>
+        {withExtra.text && (
+          <label htmlFor={id} style={{ ...style.label, ...(id === value && style.checked) }}>
+            {withExtra.icon && (
+              <Icon iconName={withExtra.icon} className="mb-3" fill={id === value ? 'white' : '#495570'} />
+            )}
+            {withExtra.text}
+          </label>
+        )}
+      </div>
+    )}
   </div>
 );
 
@@ -33,4 +45,8 @@ RadioButton.propTypes = {
   onBlur: PropTypes.func,
   style: PropTypes.object,
   id: PropTypes.string,
+  withExtra: PropTypes.shape({
+    icon: PropTypes.string,
+    text: PropTypes.string,
+  }),
 };
