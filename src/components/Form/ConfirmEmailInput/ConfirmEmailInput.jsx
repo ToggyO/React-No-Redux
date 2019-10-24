@@ -46,7 +46,7 @@ const ConfirmEmailInput = props => {
       <button
         type="submit"
         disabled={state.length !== maxLength}
-        className="btn green rounded p-4 full_width login-page-button"
+        className="btn green-filled rounded p-4 full_width login-page-button"
         onClick={() => onClick({ code: state })}
       >
         Next

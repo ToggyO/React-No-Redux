@@ -15,7 +15,7 @@ const TutorialPageFormView = () => (
     <button
       type="button"
       // disabled={!props.isValid}
-      className="btn green rounded p-4 full_width login-page-button"
+      className="btn green-filled rounded p-4 full_width login-page-button"
       style={{ maxWidth: 438 }}
     >
         I'm ready!

@@ -37,7 +37,7 @@ const SetCompanyNameForm = ({ errorsFromBackend, setCompanyName }) => {
             <button
               type="submit"
               disabled={!props.isValid}
-              className="btn green rounded p-4 full_width login-page-button"
+              className="btn green-filled rounded p-4 full_width login-page-button"
             >
               Next
             </button>

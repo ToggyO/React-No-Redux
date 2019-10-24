@@ -58,7 +58,7 @@ const LoginPageViewForm = ({ errorsFromBackend, loginInWithEmailRequest, loginIn
           <button
             type="submit"
             disabled={!isValid}
-            className="btn green rounded p-4 full_width login-page-button"
+            className="btn green-filled rounded p-4 full_width login-page-button"
           >
             Sign in
           </button>
