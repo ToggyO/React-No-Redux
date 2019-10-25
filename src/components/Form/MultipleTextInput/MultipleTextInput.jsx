@@ -1,7 +1,8 @@
-import TextInput from '@components/Form/TextInput/TextInput';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import React from 'react';
 
+import { AddButton } from '@components/Form/AddButton';
+import { RenderList } from '@components/Form/RenderList';
 import { ImageBefore } from '@components/Form/ImgBefore';
 import { LabelWrapper } from '@components/Form/LabelWrapper';
 import s from '@components/Form/TextInput/style.module.sass';
@@ -19,9 +20,12 @@ const MultipleTextInput = props => {
     imgBefore,
     inputStyle,
     additionalElement,
+    ...rest
   } = props;
-  const { touched, errors, values } = form;
+  const { touched, errors, values, setFieldValue, setFieldError } = form;
   const inputId = `input-${field.name}`;
+
+  const inputRef = useRef(null);
 
   return (
     <div className={`${s.text_input} ${addClassWrapper}`}>
@@ -31,9 +35,10 @@ const MultipleTextInput = props => {
             errors[field.name] && touched[field.name] ? 'error' : null
           } flex`}
         >
-          {imgBefore && <ImageBefore src={imgBefore} imageWidth={18} imageHeight={16} />}
+          {imgBefore && <ImageBefore src={imgBefore} imageWidth={18} imageHeight={16}/>}
           <input
             {...field}
+            ref={inputRef}
             type={type}
             id={inputId}
             className={`default_input ${
@@ -45,9 +50,27 @@ const MultipleTextInput = props => {
             style={inputStyle}
             multiple
           />
+          <AddButton
+            values={values}
+            fieldName={field.name}
+            inputRef={inputRef}
+            setFieldValue={setFieldValue}
+            setFieldError={setFieldError}
+            {...rest}
+          />
           {additionalElement}
         </div>
       </LabelWrapper>
+      <div className={s.mapped_emails}>
+        {rest.emails.map((item, i) =>
+          <RenderList
+            key={i}
+            email={item}
+            addContainerClass="flex"
+            {...rest}
+          />
+        )}
+      </div>
     </div>
   );
 };
