@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c14643f0-600e-4384-bae2-0d92c8acbd51" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Form/RenderList/style.module.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/AddButton/AddButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/AddButton/AddButton.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/FormTemplate/style.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/FormTemplate/style.module.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Form/MultipleTextInput/MultipleTextInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/MultipleTextInput/MultipleTextInput.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Form/RenderList/RenderList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/RenderList/RenderList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/TextInput/style.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/TextInput/style.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/validations/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/validations/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ducks/auth/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SetTeamPage/_components/SetTeamForm/SetTeamFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SetTeamPage/_components/SetTeamForm/SetTeamFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ducks/auth/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ducks/auth/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/types.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/superaxios.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/superaxios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +25,7 @@
   <component name="ProjectId" id="1SGjGpX9iiCiZSP5SDTz1wkfAhY" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../INFERNAL_PROJECTS/magora-test-layout2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -86,6 +87,7 @@
       <workItem from="1571709567104" duration="1233000" />
       <workItem from="1571796487327" duration="27198000" />
       <workItem from="1571882120519" duration="22769000" />
+      <workItem from="1571975517321" duration="9146000" />
     </task>
     <servers />
   </component>

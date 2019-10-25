@@ -40,6 +40,6 @@ export const setTeam = data => ({
   payload: data,
 });
 
-export const logoutRequest = () => ({
-  type: types.LOGOUT_REQUEST,
-});
+// export const logoutRequest = () => ({
+//   type: types.LOGOUT,
+// });

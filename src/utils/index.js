@@ -61,3 +61,5 @@ export const responseFormikError = (errors, errorCodes) => {
 export const historyRedirect = route => {
   history.replace(route);
 };
+
+export const getUniqueKey = () => Math.ceil(Math.random() * 100000000);

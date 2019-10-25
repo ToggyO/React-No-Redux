@@ -4,7 +4,7 @@ import PT from 'prop-types';
 import s from './style.module.sass';
 
 const RenderList = ({
-
+  arrayIndex,
   email,
   addWrapperClass,
   addContainerClass,
@@ -13,7 +13,9 @@ const RenderList = ({
   setEmails,
 }) => {
   const removeEmailFromArray = () => {
-    // const
+    const emailsCopy = [...emails];
+    emailsCopy.splice(arrayIndex, 1);
+    setEmails(emailsCopy);
   };
 
   return (
@@ -27,11 +29,13 @@ const RenderList = ({
 };
 
 RenderList.propTypes = {
-  key: PT.number,
+  arrayIndex: PT.any,
   email: PT.string,
   addWrapperClass: PT.string,
   addContainerClass: PT.string,
   addTextClass: PT.string,
+  emails: PT.array,
+  setEmails: PT.func,
 };
 
 export default RenderList;

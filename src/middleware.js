@@ -21,18 +21,8 @@ export const saveUserData = store => next => action => {
   return next(action);
 };
 
-// ДОПИСАТЬ
-// export const updateUserData = store => next => action => {
-//   if (action.type === authTypes.SET_USER_NAME_SUCCESS) {
-//     const { data } = action.payload;
-//     writeToLocalState(LOCAL_STORAGE_KEYS.USER, data);
-//
-//   }
-//   return next(action);
-// };
-
 export const clearUserData = store => next => action => {
-  if (action.type === authTypes.LOGOUT_REQUEST) {
+  if (action.type === authTypes.LOGOUT) {
     userLogout();
   }
   return next(action);

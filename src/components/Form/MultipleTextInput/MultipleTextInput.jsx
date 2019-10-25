@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 
+import { getUniqueKey } from '@utils/index';
 import { AddButton } from '@components/Form/AddButton';
 import { RenderList } from '@components/Form/RenderList';
 import { ImageBefore } from '@components/Form/ImgBefore';
@@ -64,7 +65,8 @@ const MultipleTextInput = props => {
       <div className={s.mapped_emails}>
         {rest.emails.map((item, i) =>
           <RenderList
-            key={i}
+            key={getUniqueKey()}
+            arrayIndex={i}
             email={item}
             addContainerClass="flex"
             {...rest}

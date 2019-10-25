@@ -33,10 +33,15 @@ export const SET_COMPANY_NAME_REQUEST = 'auth/SET_COMPANY_NAME_REQUEST';
 export const SET_COMPANY_NAME_SUCCESS = 'auth/SET_COMPANY_NAME_SUCCESS';
 export const SET_COMPANY_NAME_ERROR = 'auth/SET_COMPANY_NAME_ERROR';
 
-/* Set company name */
+/* Set team */
 export const SET_TEAM_REQUEST = 'auth/SET_TEAM_REQUEST';
 export const SET_TEAM_SUCCESS = 'auth/SET_TEAM_SUCCESS';
 export const SET_TEAM_ERROR = 'auth/SET_TEAM_ERROR';
 
+/* Refreshing token */
+export const REFRESHING_TOKEN_REQUEST = 'auth/REFRESHING_TOKEN_REQUEST';
+export const REFRESHING_TOKEN_SUCCESS = 'auth/REFRESH_TOKEN_SUCCESS';
+export const REFRESHING_TOKEN_ERROR = 'auth/REFRESH_TOKEN_ERROR';
+
 /* Logout */
-export const LOGOUT_REQUEST = 'auth/LOGOUT_REQUEST';
+export const LOGOUT = 'auth/LOGOUT';
