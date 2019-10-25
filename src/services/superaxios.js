@@ -55,7 +55,7 @@ superaxios.interceptors.response.use(
     if (status === 401) {
       if (!isAlreadyFetchingAccessToken) {
         isAlreadyFetchingAccessToken = true;
-        const oldRefreshToken = `${getFromLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN)}QQQ`;
+        const oldRefreshToken = `${getFromLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN)}`;
         store.dispatch({ type: authTypes.REFRESHING_TOKEN_REQUEST });
         superaxios
           .put(API_URL.REFRESH_TOKEN, { refreshToken: oldRefreshToken })

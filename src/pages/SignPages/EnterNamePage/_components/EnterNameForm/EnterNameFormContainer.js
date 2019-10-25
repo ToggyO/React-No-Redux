@@ -2,7 +2,13 @@ import { connect } from 'react-redux';
 
 import EnterNameFormView from './EnterNameFormView';
 
-import { authActions } from '@ducks/auth';
+import { authActions, authSelectors } from '@ducks/auth';
+
+function mapStateToProps(state) {
+  return {
+    errorsFromBackend: authSelectors.errorsSelector(state),
+  };
+}
 
 const mapDispatchToProps = dispatch => ({
   setUserName(name) {
@@ -11,6 +17,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(EnterNameFormView);

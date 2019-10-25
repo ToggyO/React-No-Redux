@@ -1,22 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 
 import { style } from './checkbox_style';
 
+import { responseFormikError } from '@utils/index';
+import { ERROR_CODES } from '@config/errorCodes';
 import { validateField } from '@components/Form/validations';
 import { TextInput } from '@components/Form/TextInput';
 import { Checkbox } from '@components/Form/Checkbox';
 
-const EnterNameFormView = ({ setUserName }) => {
+const EnterNameFormView = ({ errorsFromBackend, setUserName }) => {
   const [state, setState] = useState(false);
+  const formikRef = useRef(null);
+
+  useEffect(() => {
+    formikRef.current.setErrors(responseFormikError(errorsFromBackend, ERROR_CODES));
+  }, [errorsFromBackend]);
 
   return (
     <Formik
+      ref={formikRef}
       initialValues={{ name: '' }}
       onSubmit={setUserName}
-      render={({ isValid }) => (
+      render={({ isValid, errors }) => (
         <Form>
+          {errors.global &&
+          <div className="formik-error error-label">{errors.global}</div>}
           <Field
             type="text"
             name="name"
@@ -48,6 +58,7 @@ const EnterNameFormView = ({ setUserName }) => {
 };
 
 EnterNameFormView.propTypes = {
+  errorsFromBackend: PropTypes.array,
   setUserName: PropTypes.func,
 };
 

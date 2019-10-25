@@ -75,7 +75,7 @@ const SignUpFormView = ({ errorsFromBackend, signUpWithEmailRequest, signUpWithG
             component={GoogleButton}
             actionCreator={signUpWithGoogleRequest}
           />
-          {errors.googleEmail && <div className="formik-error error-label">{errors.googleEmail}</div>}
+          {errors.googleToken && <div className="formik-error error-label">{errors.googleToken}</div>}
         </Form>
       )}
     />

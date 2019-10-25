@@ -6,11 +6,11 @@ import { responseFormikError } from '@utils/index';
 import { ConfirmEmailInput } from '@components/Form/ConfirmEmailInput';
 
 const ConfirmEmailFormView = ({ errorsFromBackend, confirmEmail }) => {
-  const setErrors = (errors) => responseFormikError(errors, ERROR_CODES);
+  const setErrors = errors => responseFormikError(errors, ERROR_CODES);
 
   return (
     <>
-      {setErrors(errorsFromBackend).token && <div className="formik-error error-label">{setErrors(errorsFromBackend).token}</div>}
+      {setErrors(errorsFromBackend).global && <div className="formik-error error-label">{setErrors(errorsFromBackend).global}</div>}
       <ConfirmEmailInput
         name="token"
         maxLength={6}

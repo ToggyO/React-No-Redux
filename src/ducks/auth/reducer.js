@@ -28,10 +28,10 @@ const initialState = {
       accessToken: getFromLocalState('ACCESS_TOKEN'),
       refreshToken: getFromLocalState('REFRESH_TOKEN'),
     },
+    registrationStep: getFromLocalState('REGISTER_STEP'),
   },
   loading: false,
   errors: [],
-  registrationStep: getFromLocalState('REGISTER_STEP'),
 };
 
 export default function auth(state = initialState, action) {
@@ -57,8 +57,10 @@ export default function auth(state = initialState, action) {
     case types.SET_USER_NAME_SUCCESS:
     case types.SET_COMPANY_NAME_SUCCESS:
     case types.SET_TEAM_SUCCESS:
-    case types.REFRESHING_TOKEN_SUCCESS:
-      return { ...state, loading: false };
+    case types.REFRESHING_TOKEN_SUCCESS: {
+      const { data } = action.payload;
+      return { ...state, loading: false, data: { ...state.data, registrationStep: data } };
+    }
     case types.SIGNUP_WITH_EMAIL_ERROR:
     case types.SIGNUP_WITH_GOOGLE_ERROR:
     case types.LOGIN_IN_WITH_EMAIL_ERROR:

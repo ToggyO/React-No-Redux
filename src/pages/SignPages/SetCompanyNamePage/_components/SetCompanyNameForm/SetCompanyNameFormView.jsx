@@ -22,7 +22,8 @@ const SetCompanyNameForm = ({ errorsFromBackend, setCompanyName }) => {
       onSubmit={setCompanyName}
       render={props => (
         <>
-          {/* {JSON.stringify(props, null, 2)} */}
+          {props.errors.global &&
+          <div className="formik-error error-label">{props.errors.global}</div>}
           <Form>
             <Field
               type="text"

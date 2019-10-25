@@ -9,6 +9,6 @@ export const loadingSelector = createSelector(
   loading => loading
 );
 export const registerStepSelector = createSelector(
-  state => state.auth.step,
+  state => state.auth.data.registrationStep.step,
   errors => errors
 );

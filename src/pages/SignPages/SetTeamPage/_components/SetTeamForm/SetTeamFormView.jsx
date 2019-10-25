@@ -23,9 +23,11 @@ const SetTeamFormView = ({ errorsFromBackend, setTeam }) => {
       ref={formikRef}
       initialValues={{ name: '', colorHex: '#82ABFB', email: '' }}
       onSubmit={values => setTeam({...values, emails})}
-      render={({ isValid, values }) => (
+      render={({ isValid, values, errors }) => (
         <>
           <Form>
+            {errors.global &&
+            <div className="formik-error error-label">{errors.global}</div>}
             <Field
               type="text"
               name="name"

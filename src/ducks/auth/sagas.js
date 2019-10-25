@@ -142,8 +142,8 @@ function* confirmEmail(action) {
     //   "isSuccess": true,
     //   "code": "success"
     // }
-    yield call(api.auth.confirmEmail, action.payload);
-    yield put({ type: authTypes.CONFIRM_EMAIL_SUCCESS });
+    const data = yield call(api.auth.confirmEmail, action.payload);
+    yield put({ type: authTypes.CONFIRM_EMAIL_SUCCESS, payload: data });
     yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.ENTER_NAME);
   } catch (error) {
     // {
@@ -173,8 +173,8 @@ function* setUserName(action) {
     //   "isSuccess": true,
     //   "code": "success"
     // }
-    yield call(api.auth.setUserName, action.payload);
-    yield put({ type: authTypes.SET_USER_NAME_SUCCESS });
+    const data = yield call(api.auth.setUserName, action.payload);
+    yield put({ type: authTypes.SET_USER_NAME_SUCCESS, payload: data });
     yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.SET_COMPANY_NAME);
   } catch (error) {
     // {
@@ -203,8 +203,8 @@ function* setCompanyName(action) {
     //   "isSuccess": true,
     //   "code": "success"
     // }
-    yield call(api.auth.setCompanyName, action.payload);
-    yield put({ type: authTypes.SET_COMPANY_NAME_SUCCESS });
+    const data = yield call(api.auth.setCompanyName, action.payload);
+    yield put({ type: authTypes.SET_COMPANY_NAME_SUCCESS, payload: data });
     yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.SET_TEAM);
   } catch (error) {
     // {
@@ -237,8 +237,8 @@ function* setTeam(action) {
     //   "isSuccess": true,
     //   "code": "success"
     // }
-    yield call(api.auth.setTeam, action.payload);
-    yield put({ type: authTypes.SET_TEAM_SUCCESS });
+    const data = yield call(api.auth.setTeam, action.payload);
+    yield put({ type: authTypes.SET_TEAM_SUCCESS, payload: data });
     yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.SET_FIRST_PROJECT);
   } catch (error) {
     // {

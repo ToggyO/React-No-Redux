@@ -71,8 +71,8 @@ const LoginPageViewForm = ({ errorsFromBackend, loginInWithEmailRequest, loginIn
             component={GoogleButton}
             actionCreator={loginInWithGoogleRequest}
           />
-          {errors.emailGoogle &&
-          <div className="formik-error error-label">{errors.emailGoogle}</div>}
+          {errors.googleToken &&
+          <div className="formik-error error-label">{errors.googleToken}</div>}
         </Form>
       )}
     />

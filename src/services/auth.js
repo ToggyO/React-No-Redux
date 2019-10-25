@@ -10,6 +10,7 @@ export const userLogout = () => {
   clearLocalState(LOCAL_STORAGE_KEYS.USER);
   clearLocalState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN);
   clearLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN);
+  clearLocalState(LOCAL_STORAGE_KEYS.REGISTER_STEP);
 };
 
 export const checkTokens = () => {
@@ -20,6 +21,8 @@ export const checkTokens = () => {
     clearLocalState(LOCAL_STORAGE_KEYS.USER);
     clearLocalState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN);
     clearLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN);
+    clearLocalState(LOCAL_STORAGE_KEYS.REGISTER_STEP);
+
     return false;
   }
 
