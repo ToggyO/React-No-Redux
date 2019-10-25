@@ -36,5 +36,15 @@ export default {
       const response = await superaxios.post(API_URL.SET_TEAM, data);
       return response.data;
     },
+    setFirstProject: async data => {
+      const response = await superaxios.post(API_URL.SET_FIRST_PROJECT, data);
+      return response.data;
+    },
+  },
+  other: {
+    getTeamEmails: async () => {
+      const response = await superaxios.get(API_URL.GET_TEAM_EMAILS);
+      return response.data;
+    },
   },
 };

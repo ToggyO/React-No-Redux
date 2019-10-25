@@ -8,4 +8,6 @@ export const API_URL = {
   SET_USER_NAME: 'signup/admin/username',
   SET_COMPANY_NAME: 'signup/admin/company',
   SET_TEAM: 'signup/admin/team',
+  GET_TEAM_EMAILS: 'signup/admin/team/invites',
+  SET_FIRST_PROJECT: 'signup/admin/project',
 };

@@ -259,6 +259,23 @@ export function* setTeamSaga() {
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 
+function* setFirstProject(action) {
+  try {
+    const data = yield call(api.auth.setFirstProject, action.payload);
+    yield put({ type: authTypes.SET_FIRST_PROJECT_SUCCESS, payload: data });
+    yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.QUICK_TUTORIAL);
+  } catch (error) {
+    const { errors } = error.response.data;
+    yield put({ type: authTypes.SET_FIRST_PROJECT_ERROR, payload: errors });
+  }
+}
+
+export function* setFirstProjectSaga() {
+  yield takeLatest(authTypes.SET_FIRST_PROJECT_REQUEST, setFirstProject);
+}
+/*---------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------*/
+
 function* logout() {
   yield call(api.auth.logout);
 }
