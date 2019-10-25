@@ -256,9 +256,6 @@ export function* setTeamSaga() {
   yield takeLatest(authTypes.SET_TEAM_REQUEST, setTeam);
 }
 
-/*---------------------------------------------------------------------------*/
-/*---------------------------------------------------------------------------*/
-
 function* setFirstProject(action) {
   try {
     const data = yield call(api.auth.setFirstProject, action.payload);
@@ -273,6 +270,21 @@ function* setFirstProject(action) {
 export function* setFirstProjectSaga() {
   yield takeLatest(authTypes.SET_FIRST_PROJECT_REQUEST, setFirstProject);
 }
+
+function* registrationDone(action) {
+  try {
+    const data = yield call(api.auth.registrationDone, action.payload);
+    yield put({ type: authTypes.REGISTRATION_DONE_SUCCESS, payload: data });
+  } catch (error) {
+    const { errors } = error.response.data;
+    yield put({ type: authTypes.REGISTRATION_DONE_ERROR, payload: errors });
+  }
+}
+
+export function* registrationDoneSaga() {
+  yield takeLatest(authTypes.REGISTRATION_DONE_REQUEST, registrationDone);
+}
+
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 

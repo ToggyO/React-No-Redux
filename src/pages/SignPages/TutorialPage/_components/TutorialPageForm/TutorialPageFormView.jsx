@@ -2,7 +2,7 @@ import React from 'react';
 
 import s from './style.module.sass';
 
-const TutorialPageFormView = () => (
+const TutorialPageFormView = ({ errorsFromBackend, registrationDone }) => (
   <>
     <iframe
       className={`${s.iframe} mb-7`}
@@ -19,6 +19,7 @@ const TutorialPageFormView = () => (
       // disabled={!props.isValid}
       className="btn green-filled rounded p-4 full_width login-page-button"
       style={{ maxWidth: 438 }}
+      onClick={registrationDone}
     >
       I'm ready!
     </button>

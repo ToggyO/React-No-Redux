@@ -42,7 +42,9 @@ export const saveRegistrationStep = store => next => action => {
     action.type === authTypes.CONFIRM_EMAIL_SUCCESS ||
     action.type === authTypes.SET_USER_NAME_SUCCESS ||
     action.type === authTypes.SET_COMPANY_NAME_SUCCESS ||
-    action.type === authTypes.SET_TEAM_SUCCESS
+    action.type === authTypes.SET_TEAM_SUCCESS ||
+    action.type === authTypes.SET_FIRST_PROJECT_SUCCESS ||
+    action.type === authTypes.REGISTRATION_DONE_SUCCESS
   ) {
     const { registrationStep } = action.payload.data;
     writeToLocalState(LOCAL_STORAGE_KEYS.REGISTER_STEP, registrationStep);

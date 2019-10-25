@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { TutorialPageFormView } from './_components/TutorialPageForm';
+import { TutorialPageFormContainer } from './_components/TutorialPageForm';
 
 import { FormTemplateView } from '@components/Form/FormTemplate';
 
@@ -14,7 +14,7 @@ const TutorialPageView = () => (
       titleLarge="Great! Here’s a quick tutorial"
       titleSmall="This short video will help you get started."
     >
-      <TutorialPageFormView />
+      <TutorialPageFormContainer />
     </FormTemplateView>
   </>
 );

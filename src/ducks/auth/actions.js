@@ -45,6 +45,11 @@ export const setFirstProjectRequest = data => ({
   payload: data,
 });
 
+export const registrationDone = data => ({
+  type: types.REGISTRATION_DONE_REQUEST,
+  payload: data,
+});
+
 export const clearStoreErrors = () => ({
   type: types.CLEAR_STORE_ERRORS,
 });

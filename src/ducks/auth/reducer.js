@@ -28,7 +28,7 @@ const initialState = {
       accessToken: getFromLocalState('ACCESS_TOKEN'),
       refreshToken: getFromLocalState('REFRESH_TOKEN'),
     },
-    registrationStep: getFromLocalState('REGISTER_STEP'),
+    registrationStep: getFromLocalState('REGISTER_STEP') || { step: 0, stepName: '' },
   },
   loading: false,
   errors: [],
@@ -45,6 +45,7 @@ export default function auth(state = initialState, action) {
     case types.SET_COMPANY_NAME_REQUEST:
     case types.SET_TEAM_REQUEST:
     case types.SET_FIRST_PROJECT_REQUEST:
+    case types.REGISTRATION_DONE_REQUEST:
     case types.REFRESHING_TOKEN_REQUEST:
       return { ...state, loading: true };
     case types.SIGNUP_WITH_EMAIL_SUCCESS:
@@ -59,10 +60,12 @@ export default function auth(state = initialState, action) {
     case types.SET_COMPANY_NAME_SUCCESS:
     case types.SET_TEAM_SUCCESS:
     case types.SET_FIRST_PROJECT_SUCCESS:
-    case types.REFRESHING_TOKEN_SUCCESS: {
+    case types.REGISTRATION_DONE_SUCCESS: {
       const { data } = action.payload;
-      return { ...state, loading: false, data: { ...state.data, registrationStep: data } };
+      return { ...state, loading: false, data: { ...state.data, registrationStep: data.registrationStep } };
     }
+    case types.REFRESHING_TOKEN_SUCCESS:
+      return { ...state, loading: false };
     case types.SIGNUP_WITH_EMAIL_ERROR:
     case types.SIGNUP_WITH_GOOGLE_ERROR:
     case types.LOGIN_IN_WITH_EMAIL_ERROR:
@@ -72,6 +75,7 @@ export default function auth(state = initialState, action) {
     case types.SET_COMPANY_NAME_ERROR:
     case types.SET_TEAM_ERROR:
     case types.SET_FIRST_PROJECT_ERROR:
+    case types.REGISTRATION_DONE_ERROR:
     case types.REFRESHING_TOKEN_ERROR:
       return { ...state, loading: false, errors: action.payload };
     case types.CLEAR_STORE_ERRORS:
