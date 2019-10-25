@@ -71,8 +71,8 @@ export default function auth(state = initialState, action) {
     case types.SET_TEAM_ERROR:
     case types.REFRESHING_TOKEN_ERROR:
       return { ...state, loading: false, errors: action.payload };
-    // case types.LOGOUT_REQUEST:
-    //   return { ...state, loading: false, errors: action.payload };
+    case types.CLEAR_STORE_ERRORS:
+      return { ...state, errors: [] };
     default:
       return state;
   }

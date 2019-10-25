@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { ERROR_CODES } from '@config/errorCodes';
 import { responseFormikError } from '@utils/index';
 import { ConfirmEmailInput } from '@components/Form/ConfirmEmailInput';
 
-const ConfirmEmailFormView = ({ errorsFromBackend, confirmEmail }) => {
+const ConfirmEmailFormView = ({ errorsFromBackend, confirmEmail, clearStoreErrors }) => {
   const setErrors = errors => responseFormikError(errors, ERROR_CODES);
+
+  useEffect(() => () => clearStoreErrors(),[]);
 
   return (
     <>

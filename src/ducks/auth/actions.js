@@ -40,6 +40,10 @@ export const setTeam = data => ({
   payload: data,
 });
 
+export const clearStoreErrors = () => ({
+  type: types.CLEAR_STORE_ERRORS,
+});
+
 // export const logoutRequest = () => ({
 //   type: types.LOGOUT,
 // });

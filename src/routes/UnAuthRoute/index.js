@@ -8,17 +8,21 @@ import { authSelectors } from '@ducks/auth';
 import { checkTokens } from '@services/auth';
 import { ROUTES } from '@config';
 
-const UnAuthRoute = ({ component: Component, registerStep, ...rest }) => (
+const UnAuthRoute = ({ component: Component, registrationStep, ...rest }) => (
   <Route
     {...rest}
     render={props =>
-      !checkTokens() || registerStep < 8 ? <Component {...props} /> : <Redirect to={ROUTES.HOME_PAGE} />
+      !checkTokens() || (registrationStep && registrationStep < 8) ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to={ROUTES.HOME_PAGE} />
+      )
     }
   />
 );
 
 const mapStateToProps = state => ({
-  registerStep: authSelectors.registerStepSelector(state),
+  registrationStep: authSelectors.registerStepSelector(state),
 });
 
 export default connect(

@@ -43,5 +43,8 @@ export const REFRESHING_TOKEN_REQUEST = 'auth/REFRESHING_TOKEN_REQUEST';
 export const REFRESHING_TOKEN_SUCCESS = 'auth/REFRESH_TOKEN_SUCCESS';
 export const REFRESHING_TOKEN_ERROR = 'auth/REFRESH_TOKEN_ERROR';
 
+/* Clear store errors */
+export const CLEAR_STORE_ERRORS = 'auth/CLEAR_STORE_ERRORS';
+
 /* Logout */
 export const LOGOUT = 'auth/LOGOUT';

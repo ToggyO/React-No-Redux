@@ -15,6 +15,9 @@ function mapDispatchToProps(dispatch) {
     confirmEmail(code) {
       dispatch(authActions.confirmEmail(code));
     },
+    clearStoreErrors() {
+      dispatch(authActions.clearStoreErrors());
+    },
   };
 }
 
