@@ -38,6 +38,11 @@ export const SET_TEAM_REQUEST = 'auth/SET_TEAM_REQUEST';
 export const SET_TEAM_SUCCESS = 'auth/SET_TEAM_SUCCESS';
 export const SET_TEAM_ERROR = 'auth/SET_TEAM_ERROR';
 
+/* Set first project */
+export const SET_FIRST_PROJECT_REQUEST = 'auth/SET_FIRST_PROJECT_REQUEST';
+export const SET_FIRST_PROJECT_SUCCESS = 'auth/SET_FIRST_PROJECT_SUCCESS';
+export const SET_FIRST_PROJECT_ERROR = 'auth/SET_FIRST_PROJECT_ERROR';
+
 /* Refreshing token */
 export const REFRESHING_TOKEN_REQUEST = 'auth/REFRESHING_TOKEN_REQUEST';
 export const REFRESHING_TOKEN_SUCCESS = 'auth/REFRESH_TOKEN_SUCCESS';

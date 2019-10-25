@@ -44,6 +44,7 @@ export default function auth(state = initialState, action) {
     case types.SET_USER_NAME_REQUEST:
     case types.SET_COMPANY_NAME_REQUEST:
     case types.SET_TEAM_REQUEST:
+    case types.SET_FIRST_PROJECT_REQUEST:
     case types.REFRESHING_TOKEN_REQUEST:
       return { ...state, loading: true };
     case types.SIGNUP_WITH_EMAIL_SUCCESS:
@@ -57,6 +58,7 @@ export default function auth(state = initialState, action) {
     case types.SET_USER_NAME_SUCCESS:
     case types.SET_COMPANY_NAME_SUCCESS:
     case types.SET_TEAM_SUCCESS:
+    case types.SET_FIRST_PROJECT_SUCCESS:
     case types.REFRESHING_TOKEN_SUCCESS: {
       const { data } = action.payload;
       return { ...state, loading: false, data: { ...state.data, registrationStep: data } };
@@ -69,6 +71,7 @@ export default function auth(state = initialState, action) {
     case types.SET_USER_NAME_ERROR:
     case types.SET_COMPANY_NAME_ERROR:
     case types.SET_TEAM_ERROR:
+    case types.SET_FIRST_PROJECT_ERROR:
     case types.REFRESHING_TOKEN_ERROR:
       return { ...state, loading: false, errors: action.payload };
     case types.CLEAR_STORE_ERRORS:
