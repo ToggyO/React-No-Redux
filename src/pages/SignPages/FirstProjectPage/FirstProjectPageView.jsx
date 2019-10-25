@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { FirstProjectFormView } from './_components/FirstProjectForm';
+import { FirstProjectFormContainer } from './_components/FirstProjectForm';
 
 import { FormTemplateView } from '@components/Form/FormTemplate';
 
@@ -14,7 +14,7 @@ const FirstProjectPageView = () => (
       titleLarge="Let’s set up your first project"
       titleSmall="Projects will contain your folders, board and tasks."
     >
-      <FirstProjectFormView />
+      <FirstProjectFormContainer />
     </FormTemplateView>
   </>
 );

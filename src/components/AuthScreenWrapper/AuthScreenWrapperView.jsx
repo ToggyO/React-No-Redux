@@ -5,6 +5,7 @@ import style from './style.module.sass';
 
 import { Preloader } from '@components/Preloader';
 import { getWindowDimensions } from '@utils/index';
+
 import logo from '@assets/login_page/logo_squad.png';
 
 const AuthScreenWrapperView = ({ children, loading }) => {

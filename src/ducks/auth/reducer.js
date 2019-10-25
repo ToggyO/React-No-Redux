@@ -23,6 +23,7 @@ import { getFromLocalState } from '@services/ls';
 
 const initialState = {
   data: {
+    emails: [],
     user: getFromLocalState('USER'),
     token: {
       accessToken: getFromLocalState('ACCESS_TOKEN'),
@@ -44,6 +45,7 @@ export default function auth(state = initialState, action) {
     case types.SET_USER_NAME_REQUEST:
     case types.SET_COMPANY_NAME_REQUEST:
     case types.SET_TEAM_REQUEST:
+    case types.SET_FIRST_PROJECT_REQUEST:
       return { ...state, loading: true };
     case types.SIGNUP_WITH_EMAIL_SUCCESS:
     case types.SIGNUP_WITH_GOOGLE_SUCCESS:
@@ -56,6 +58,7 @@ export default function auth(state = initialState, action) {
     case types.SET_USER_NAME_SUCCESS:
     case types.SET_COMPANY_NAME_SUCCESS:
     case types.SET_TEAM_SUCCESS:
+    case types.SET_FIRST_PROJECT_SUCCESS:
       return { ...state, loading: false };
     case types.SIGNUP_WITH_EMAIL_ERROR:
     case types.SIGNUP_WITH_GOOGLE_ERROR:
@@ -65,6 +68,7 @@ export default function auth(state = initialState, action) {
     case types.SET_USER_NAME_ERROR:
     case types.SET_COMPANY_NAME_ERROR:
     case types.SET_TEAM_ERROR:
+    case types.SET_FIRST_PROJECT_ERROR:
       return { ...state, loading: false, errors: action.payload };
     // case types.LOGOUT_REQUEST:
     //   return { ...state, loading: false, errors: action.payload };

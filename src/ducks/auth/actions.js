@@ -40,6 +40,11 @@ export const setTeam = data => ({
   payload: data,
 });
 
+export const setFirstProjectRequest = data => ({
+  type: types.SET_FIRST_PROJECT_REQUEST,
+  payload: data,
+});
+
 export const logoutRequest = () => ({
   type: types.LOGOUT_REQUEST,
 });
