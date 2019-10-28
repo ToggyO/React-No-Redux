@@ -1,0 +1,41 @@
+.overlay
+  position: fixed
+  background-color: rgb(59, 57, 58)
+  //background-color: rgba(59, 57, 58, 0.7)
+  opacity: 0
+  z-index: 100
+  height: 100%
+  width: 100%
+  top: 0
+  left: 0
+  padding-right: 17px
+  //overflow: scroll
+  transition: opacity 0.2s ease-in-out
+  +r(lg)
+    padding-left: 17px
+
+  &_shown
+    opacity: 0.3
+
+.modalWindow
+  position: fixed
+  z-index: 120
+  top: 50%
+  left: 50%
+  transform: translateX(-50%) translateY(-50%) scale(0.2, 0.2)
+  opacity: 0
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out
+
+  &_shown
+    opacity: 1
+    transform: translateX(-50%) translateY(-50%) scale(1, 1)
+
+.modalWrapper
+  margin: auto
+  max-width: 590px
+
+.modalContainer
+  background-color: transparent
+  width: 100%
+  height: 100%
+

@@ -5,9 +5,10 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { saveUserData, updateUsersData, clearUserData, saveRegistrationStep } from '../middleware';
 
 import auth, { authSagas } from '@ducks/auth';
+import modal from '@ducks/modal';
 
 export default function configureStore() {
-  const reducer = combineReducers({ auth });
+  const reducer = combineReducers({ auth, modal });
   const sagas = {
     ...authSagas,
   };

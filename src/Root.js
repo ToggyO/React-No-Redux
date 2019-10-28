@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { Router } from 'react-router-dom';
 
 import { store } from './store';
 
@@ -16,6 +16,7 @@ import './styles/index.sass';
 const Root = () => {
   useEffect(() => {
     document.getElementById('root').style.minHeight = `${getWindowDimensions().height}px`;
+    // superaxios.delete('/users/12eab851-840d-4efb-b332-43e302e55d2c').then(res => console.log(res), err => console.log(err))
   }, []);
 
   return (

@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import { store } from '../store';
 
+import { modalOpen } from '@ducks/modal/actions';
+
 import { authTypes } from '@ducks/auth';
 import { LOCAL_STORAGE_KEYS, API_DOMAIN, API_URL } from '@config';
 import { getFromLocalState, writeToLocalState } from '@services/ls';
@@ -45,13 +47,9 @@ superaxios.interceptors.response.use(
     const {
       config,
       response: { status },
-      // response: { status, data = {} },
     } = error;
-    // const { errors } = data;
-    // const code = errors.filter(item => item.code === 'sec.access_token_invalid');
     const originalRequest = config;
 
-    // if (status === 401 && code.length > 0) {
     if (status === 401) {
       if (!isAlreadyFetchingAccessToken) {
         isAlreadyFetchingAccessToken = true;
@@ -80,6 +78,10 @@ superaxios.interceptors.response.use(
         });
       });
       return retryOriginalRequest;
+    }
+
+    if (status === 500) {
+      store.dispatch(modalOpen('Handler500'));
     }
 
     return Promise.reject(error);

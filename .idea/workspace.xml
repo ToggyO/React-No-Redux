@@ -2,19 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c14643f0-600e-4384-bae2-0d92c8acbd51" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/_components/TutorialPageForm/TutorialPageFormContainer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/HOC/withModal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Modal/Modal.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Modal/Modal.module.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Modal/ModalContainer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Modal/_components/Handler500/Handler500.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Modal/_components/Handler500/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Modal/_components/Handler500/style.module.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Modal/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ducks/modal/actions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ducks/modal/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ducks/modal/reducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ducks/modal/selectors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ducks/modal/types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/HomePage/HomePageContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/apiUrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/apiUrl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ducks/auth/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ducks/auth/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ducks/auth/sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/sagas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ducks/auth/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/TutorialPageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/TutorialPageView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/_components/TutorialPageForm/TutorialPageFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/_components/TutorialPageForm/TutorialPageFormView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/_components/TutorialPageForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/_components/TutorialPageForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/UnAuthRoute/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/UnAuthRoute/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Root.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Root.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/HomePage/HomePageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomePage/HomePageView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/HomePage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomePage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/configureStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/configureStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/superaxios.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/superaxios.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,12 +32,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="staging" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1SGjGpX9iiCiZSP5SDTz1wkfAhY" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -43,18 +57,19 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.1.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\squad.io-js-front\src\components" />
+      <recent name="C:\Projects\squad.io-js-front\src\components\Icon" />
+      <recent name="C:\Projects\squad.io-js-front\src\components\Form\ConfirmEmailInput" />
+      <recent name="C:\Projects\squad.io-js-front\src\assets\login_page" />
+      <recent name="C:\Projects\squad.io-js-front\src\components\Form" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Projects\squad.io-js-front\src\components\Form\Dropdown" />
       <recent name="C:\Projects\squad.io-js-front\src\pages\SignPages\FirstProjectPage\_components\ColorSelect" />
       <recent name="C:\Projects\squad.io-js-front\src\components\Form\ConfirmEmailInput\_components\RenderCircles" />
       <recent name="C:\Projects\squad.io-js-front\src\components\Form\RadioButton\_components" />
       <recent name="C:\Projects\squad.io-js-front\src\pages\SignPages\FirstProjectPage\_components\FirstProjectForm" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Projects\squad.io-js-front\src\components\Icon" />
-      <recent name="C:\Projects\squad.io-js-front\src\components\Form\ConfirmEmailInput" />
-      <recent name="C:\Projects\squad.io-js-front\src\assets\login_page" />
-      <recent name="C:\Projects\squad.io-js-front\src\components\Form" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -90,7 +105,8 @@
       <workItem from="1571709567104" duration="1233000" />
       <workItem from="1571796487327" duration="27198000" />
       <workItem from="1571882120519" duration="22769000" />
-      <workItem from="1571975517321" duration="24572000" />
+      <workItem from="1571975517321" duration="25215000" />
+      <workItem from="1572228710124" duration="22937000" />
     </task>
     <servers />
   </component>
