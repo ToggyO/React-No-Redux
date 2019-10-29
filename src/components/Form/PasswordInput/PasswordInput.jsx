@@ -17,6 +17,11 @@ class PasswordInput extends React.Component {
 
   showHidePw = () => this.setState(prevState => ({ isPwShown: !prevState.isPwShown }));
 
+  customHandleBlur = (e) => {
+    this.props.field.onBlur(e);
+    this.inputRef.current.classList.remove('form_border_focus')
+  };
+
   render() {
     const { addClassWrapper, addClassInput, placeholder, field, form, label, imgBefore } = this.props;
     const { touched, errors, values } = form;
@@ -44,7 +49,7 @@ class PasswordInput extends React.Component {
               name={field.name}
               placeholder={placeholder}
               onFocus={() => this.inputRef.current.classList.add('form_border_focus')}
-              onBlur={() => this.inputRef.current.classList.remove('form_border_focus')}
+              onBlur={this.customHandleBlur}
             />
             <Checkbox
               addClassTitleWrapper="flex justify-content-center align-items-center pr-5"

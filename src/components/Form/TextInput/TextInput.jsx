@@ -23,6 +23,11 @@ const TextInput = props => {
   const inputId = `input-${field.name}`;
   const inputRef = useRef(null);
 
+  const customHandleBlur = (e) => {
+    field.onBlur(e);
+    inputRef.current.classList.remove('form_border_focus')
+  };
+
   return (
     <div className={`${s.text_input} ${addClassWrapper}`}>
       <LabelWrapper label={label} errors={errors} touched={touched} inputId={inputId} field={field}>
@@ -45,7 +50,7 @@ const TextInput = props => {
             placeholder={placeholder}
             style={inputStyle}
             onFocus={() => inputRef.current.classList.add('form_border_focus')}
-            onBlur={() => inputRef.current.classList.remove('form_border_focus')}
+            onBlur={customHandleBlur}
           />
           {additionalElement}
         </div>
