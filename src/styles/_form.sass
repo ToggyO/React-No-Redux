@@ -4,7 +4,8 @@
   color: $primary_color
   font-size: 15px
   font-weight: 400
-  line-height: 18px
+  line-height: 22px
+  letter-spacing: normal
   width: 100%
 
 .default_input::placeholder
@@ -18,23 +19,37 @@
   border: 1px solid $light-gray
   background-color: $dirty-white
 
+.form_border_focus
+  border-color: rgba(73,85,112,0.6)
+
+.form_link
+  text-decoration: underline
+  color: $primary_color
+
 .error
   border-color: $scarlet !important
 
 .error-label
   color: $scarlet !important
-  letter-spacing: 2px
 
 .formik-error
   font-size: 15px
+  line-height: 18px
 
 .checkbox
   appearance: none
 
+.checkbox:hover
+  border-color: $secondary_color !important
+  color: $primary_color !important
+
 .checkmark_checked
-  background: 50% 50% url('/assets/login_page/checkmark.png') no-repeat !important
-  background-size: 18px 19px
-  transition: all 2s
+  background: 50% 50% url('/assets/login_page/checkmark.svg') no-repeat !important
+  //background-size: 8px 9px
+
+.fill_green
+  fill: $sea-green
+  opacity: 1
 
 
 

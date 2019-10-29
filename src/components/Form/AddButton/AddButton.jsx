@@ -1,7 +1,22 @@
 import React from 'react';
 import PT from 'prop-types';
 
-const AddButton = ({ values, emails, fieldName, setEmails, setFieldValue, setFieldError }) => {
+import s from './style.module.sass';
+
+import { Icon } from '@components/Icon';
+
+const AddButton = ({
+  values,
+  emails,
+  fieldName,
+  setEmails,
+  setFieldValue,
+  setFieldError,
+  addContainerClass = '',
+  addButtonClass = '',
+  addIconClass = '',
+  errors,
+}) => {
   const addToList = () => {
     if (values[fieldName]) {
       const duplicatedValue = emails.filter(item => item === values[fieldName]);
@@ -15,9 +30,17 @@ const AddButton = ({ values, emails, fieldName, setEmails, setFieldValue, setFie
   };
 
   return (
-    <div onClick={addToList}>
-      <button type="button">
-        <div style={{ width: 10, height: 10 , backgroundColor: 'red'}}/>
+    <div className={`${s.container} ${addContainerClass}`} onClick={addToList}>
+      <button
+        type="button"
+        className={`${s.button} ${addButtonClass}`}
+      >
+        <Icon
+          iconName="add_email"
+          className={`${s.icon} ${addIconClass} ${!errors[fieldName] && values[fieldName].length > 0
+            ? 'fill_green'
+            : ''}`}
+        />
       </button>
     </div>
   )
@@ -25,11 +48,15 @@ const AddButton = ({ values, emails, fieldName, setEmails, setFieldValue, setFie
 
 AddButton.propTypes = {
   values: PT.object,
+  errors: PT.object,
   emails: PT.array,
   fieldName: PT.string,
   setEmails: PT.func,
   setFieldValue: PT.func,
   setFieldError: PT.func,
+  addContainerClass: PT.string,
+  addButtonClass: PT.string,
+  addIconClass: PT.string,
 };
 
 export default AddButton;

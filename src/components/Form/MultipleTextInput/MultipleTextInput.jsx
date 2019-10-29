@@ -27,11 +27,13 @@ const MultipleTextInput = props => {
   const inputId = `input-${field.name}`;
 
   const inputRef = useRef(null);
+  const divRef = useRef(null);
 
   return (
     <div className={`${s.text_input} ${addClassWrapper}`}>
       <LabelWrapper label={label} errors={errors} touched={touched} inputId={inputId} field={field}>
         <div
+          ref={divRef}
           className={`${s.container} form_border ${
             errors[field.name] && touched[field.name] ? 'error' : null
           } flex`}
@@ -50,13 +52,17 @@ const MultipleTextInput = props => {
             placeholder={placeholder}
             style={inputStyle}
             multiple
+            onFocus={() => divRef.current.classList.add('form_border_focus')}
+            onBlur={() => divRef.current.classList.remove('form_border_focus')}
           />
           <AddButton
             values={values}
             fieldName={field.name}
-            inputRef={inputRef}
             setFieldValue={setFieldValue}
             setFieldError={setFieldError}
+            addButtonClass="btn mr-3"
+            errors={errors}
+            touched={touched}
             {...rest}
           />
           {additionalElement}

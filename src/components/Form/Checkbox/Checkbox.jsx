@@ -6,7 +6,7 @@ import s from './style.module.sass';
 const Checkbox = ({ onClick, addClassCheckbox, addClassTitleWrapper, title, style }) => (
   <div
     className={`${s.container} ${addClassTitleWrapper}`}
-    onChange={onClick}
+    onClick={onClick}
     style={{ ...style.titleWrapper, cursor: 'pointer' }}
   >
     <input
@@ -25,5 +25,8 @@ Checkbox.propTypes = {
   addClassCheckbox: PropTypes.string,
   addClassTitleWrapper: PropTypes.string,
   style: PropTypes.object,
-  title: PropTypes.string,
+  title: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node,
+  ]),
 };

@@ -15,7 +15,11 @@ const ConfirmEmailPageView = () => (
     <FormTemplateView
       titleLarge="Confirm your email"
       titleSmall="We have sent a confirmation code to name@company.com. Enter this code below:"
-      link="Didn’t receive a confirmation code? Click here"
+      addTitleSmallClass="pl-20 pr-20"
+      link={<p>
+        Didn’t receive a confirmation code?&nbsp;
+        <a className="form_link" href="#">Click here</a>
+      </p>}
     >
       <ConfirmEmailFormContainer />
     </FormTemplateView>

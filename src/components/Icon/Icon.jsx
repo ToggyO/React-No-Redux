@@ -63,6 +63,7 @@ function Icon({ iconName, className, fill }) {
           </svg>
         </div>
       );
+
     case 'team':
       return (
         <svg
@@ -147,6 +148,18 @@ function Icon({ iconName, className, fill }) {
                     ></path>
                   </g>
                 </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      );
+    case 'add_email':
+      return (
+        <svg className={className} fill="#495570" opacity="0.303706" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <g id="Styles" stroke="none" strokeWidth="1" fillRule="evenodd" >
+            <g transform="translate(-459.000000, -651.000000)"  id="Icon-/-Add-Copy-Icon-/-Add">
+              <g transform="translate(459.000000, 651.000000)">
+                <path d="M12,0 C18.627417,0 24,5.372583 24,12 C24,18.627417 18.627417,24 12,24 C5.372583,24 0,18.627417 0,12 C0,5.372583 5.372583,0 12,0 Z M13,6 L11,6 L11,11 L6,11 L6,13 L11,13 L11,18 L13,18 L13,13 L18,13 L18,11 L13,11 L13,6 Z" id="Combined-Shape"></path>
               </g>
             </g>
           </g>

@@ -40,7 +40,11 @@ const EnterNameFormView = ({ errorsFromBackend, setUserName }) => {
           <Checkbox
             addClassTitleWrapper="flex pt-2 pb-6 pl-1 pr-1"
             addClassCheckbox={`checkbox ${state ? 'checkmark_checked' : ''}`}
-            title="I agree with Squad’s terms and privacy policy"
+            title={<p>I agree with Squad’s&nbsp;
+              <a className="form_link" href="#">terms</a>
+              &nbsp;and&nbsp;
+              <a className="form_link" href="#">privacy policy</a>
+            </p>}
             style={style}
             onClick={() => setState(!state)}
           />

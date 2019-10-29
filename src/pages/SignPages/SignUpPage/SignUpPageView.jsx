@@ -14,7 +14,10 @@ const SignUpPageView = () => (
     <FormTemplateView
       titleLarge="Create your account"
       titleSmall="Sign up with your work email or your Google Account."
-      link="Already have a Squad account? Log in here."
+      link={<p>
+        Already have a Squad account?&nbsp;
+        <a className="form_link" href="#">Log in here.</a>
+      </p>}
     >
       <SignUpFormContainer />
     </FormTemplateView>

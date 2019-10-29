@@ -1,7 +1,6 @@
 export const style = {
   checkbox: {
-    // backgroundColor: '#fff',
-    backgroundColor: '50% 50% url(`/assets/login_page/checkmark.png`) no-repeat !important',
+    // backgroundColor: '50% 50% url(`/assets/login_page/checkmark.svg`) no-repeat !important',
     width: 20,
     height: 21,
     border: '1px solid #CACACA',

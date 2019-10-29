@@ -2,12 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c14643f0-600e-4384-bae2-0d92c8acbd51" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/assets/login_page/add_email.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/login_page/checkmark.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Form/AddButton/style.module.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ducks/auth/sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/sagas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/HomePage/HomePageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomePage/HomePageView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/_components/ConfirmEmailForm/ConfirmEmailFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/_components/ConfirmEmailForm/ConfirmEmailFormView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/AuthRoute/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/AuthRoute/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/login_page/checkmark.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/login_page/checkmark.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/AddButton/AddButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/AddButton/AddButton.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/Checkbox/Checkbox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/Checkbox/Checkbox.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/ConfirmEmailInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/ConfirmEmailInput.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/FormTemplate/FormTemplateView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/FormTemplate/FormTemplateView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/FormTemplate/style.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/FormTemplate/style.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/MultipleTextInput/MultipleTextInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/MultipleTextInput/MultipleTextInput.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/PasswordInput/PasswordInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/PasswordInput/PasswordInput.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/PasswordInput/style.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/PasswordInput/style.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/TextInput/TextInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/TextInput/TextInput.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Icon/Icon.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Icon/Icon.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/ConfirmEmailPageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/ConfirmEmailPageView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/EnterNamePage/_components/EnterNameForm/EnterNameFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/EnterNamePage/_components/EnterNameForm/EnterNameFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/EnterNamePage/_components/EnterNameForm/checkbox_style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/EnterNamePage/_components/EnterNameForm/checkbox_style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/SignUpPageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/SignUpPageView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_buttons.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_buttons.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_form.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_form.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_global.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_global.sass" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +42,7 @@
   <component name="ProjectId" id="1SGjGpX9iiCiZSP5SDTz1wkfAhY" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../INFERNAL_PROJECTS/magora-test-layout2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/login_page" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -41,19 +57,19 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.1.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Projects\squad.io-js-front\src\components" />
-      <recent name="C:\Projects\squad.io-js-front\src\components\Icon" />
-      <recent name="C:\Projects\squad.io-js-front\src\components\Form\ConfirmEmailInput" />
-      <recent name="C:\Projects\squad.io-js-front\src\assets\login_page" />
-      <recent name="C:\Projects\squad.io-js-front\src\components\Form" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Projects\squad.io-js-front\src\components\Form\Dropdown" />
       <recent name="C:\Projects\squad.io-js-front\src\pages\SignPages\FirstProjectPage\_components\ColorSelect" />
       <recent name="C:\Projects\squad.io-js-front\src\components\Form\ConfirmEmailInput\_components\RenderCircles" />
       <recent name="C:\Projects\squad.io-js-front\src\components\Form\RadioButton\_components" />
       <recent name="C:\Projects\squad.io-js-front\src\pages\SignPages\FirstProjectPage\_components\FirstProjectForm" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\squad.io-js-front\src\assets\login_page" />
+      <recent name="C:\Projects\squad.io-js-front\src\components" />
+      <recent name="C:\Projects\squad.io-js-front\src\components\Icon" />
+      <recent name="C:\Projects\squad.io-js-front\src\components\Form\ConfirmEmailInput" />
+      <recent name="C:\Projects\squad.io-js-front\src\components\Form" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -91,7 +107,7 @@
       <workItem from="1571882120519" duration="22769000" />
       <workItem from="1571975517321" duration="25215000" />
       <workItem from="1572228710124" duration="22937000" />
-      <workItem from="1572314515998" duration="9677000" />
+      <workItem from="1572314515998" duration="24964000" />
     </task>
     <servers />
   </component>
@@ -110,5 +126,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Form/TextInput/TextInput.jsx</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

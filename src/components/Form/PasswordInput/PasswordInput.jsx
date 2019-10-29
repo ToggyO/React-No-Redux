@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import s from './style.module.sass';
@@ -13,6 +13,8 @@ class PasswordInput extends React.Component {
     isPwShown: false,
   };
 
+  inputRef = React.createRef();
+
   showHidePw = () => this.setState(prevState => ({ isPwShown: !prevState.isPwShown }));
 
   render() {
@@ -25,6 +27,7 @@ class PasswordInput extends React.Component {
       <div className={`${s.wrapper} ${addClassWrapper}`}>
         <LabelWrapper label={label} errors={errors} touched={touched} inputId={inputId} field={field}>
           <div
+            ref={this.inputRef}
             className={`${s.container} form_border ${
               errors[field.name] && touched[field.name] ? 'error' : ''
             } flex`}
@@ -40,6 +43,8 @@ class PasswordInput extends React.Component {
               value={values[field.name]}
               name={field.name}
               placeholder={placeholder}
+              onFocus={() => this.inputRef.current.classList.add('form_border_focus')}
+              onBlur={() => this.inputRef.current.classList.remove('form_border_focus')}
             />
             <Checkbox
               addClassTitleWrapper="flex justify-content-center align-items-center pr-5"
@@ -48,11 +53,6 @@ class PasswordInput extends React.Component {
               style={style}
               onClick={this.showHidePw}
             />
-            {/*<input*/}
-            {/*  type="checkbox"*/}
-            {/*  onClick={this.showHidePw}*/}
-            {/*  className={`${s.show_password} ${isPwShown ? 'checkmark_checked' : ''}`}*/}
-            {/*/>*/}
           </div>
         </LabelWrapper>
       </div>

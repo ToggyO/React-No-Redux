@@ -11,6 +11,7 @@ const ConfirmEmailInput = props => {
 
   const [state, setState] = useState('');
   const inputRef = useRef(null);
+  const divRef = useRef(null);
 
   useEffect(() => {
     window.addEventListener('keydown', onInputFocus);
@@ -23,7 +24,7 @@ const ConfirmEmailInput = props => {
 
   return (
     <div className={`${s.container} ${addClassWrapper}`}>
-      <label htmlFor={inputId} className={`${s.label} form_border flex p-4 mb-4`}>
+      <label htmlFor={inputId} className={`${s.label} form_border flex p-4 mb-4`} ref={divRef}>
         <div className={`${s.circles} flex justify-content-space-between`}>
           {array.map((item, i) => (
             <RenderCircles key={i} item={item} color={i < state.length ? '#495570' : '#9398A2'} />
@@ -37,6 +38,8 @@ const ConfirmEmailInput = props => {
           ref={inputRef}
           value={state}
           onChange={e => setState(e.target.value.replace(/\D/, ''))}
+          onFocus={() => divRef.current.classList.add('form_border_focus')}
+          onBlur={() => divRef.current.classList.remove('form_border_focus')}
           maxLength={maxLength}
           style={{ width: 0, height: 0 }}
           pattern="[0-9]*"
