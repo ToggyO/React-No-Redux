@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import history from '@services/history';
+import { ROUTES } from '@config/routes';
 
 export const isEmptyObject = obj => {
   let flag = false;
@@ -58,8 +59,27 @@ export const responseFormikError = (errors, errorCodes) => {
   return errorObj;
 };
 
-export const historyRedirect = route => {
-  history.replace(route);
-};
+export const historyRedirect = route => history.replace(route);
 
 export const getUniqueKey = () => Math.ceil(Math.random() * 100000000);
+
+export const redirectToStep = step => {
+  switch (step) {
+    case 1:
+      return ROUTES.AUTH.ROOT + ROUTES.AUTH.CONFIRM_EMAIL;
+    case 2:
+      return ROUTES.AUTH.ROOT + ROUTES.AUTH.ENTER_NAME;
+    case 3:
+      return ROUTES.AUTH.ROOT + ROUTES.AUTH.SET_COMPANY_NAME;
+    case 5:
+      return ROUTES.AUTH.ROOT + ROUTES.AUTH.SET_TEAM;
+    case 6:
+      return ROUTES.AUTH.ROOT + ROUTES.AUTH.SET_FIRST_PROJECT;
+    case 7:
+      return ROUTES.AUTH.ROOT + ROUTES.AUTH.QUICK_TUTORIAL;
+    case 8:
+      return ROUTES.HOME_PAGE;
+    default:
+      return ROUTES.AUTH.ROOT + ROUTES.AUTH.LOGIN_IN;
+  }
+};

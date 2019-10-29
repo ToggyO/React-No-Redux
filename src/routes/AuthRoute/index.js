@@ -1,17 +1,30 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 
-import { ROUTES } from '@config';
+import { redirectToStep } from '@utils/index';
+import { authSelectors } from '@ducks/auth';
 import { checkTokens } from '@services/auth';
 
-const AuthRoute = ({ component: Component, ...rest }) => (
+const AuthRoute = ({ component: Component, registrationStep, ...rest }) => (
   <Route
     {...rest}
     render={props =>
-      checkTokens() ? <Component {...props} /> : <Redirect to={ROUTES.AUTH.ROOT + ROUTES.AUTH.LOGIN_IN} />
+      checkTokens() && (registrationStep && registrationStep === 8) ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to={redirectToStep(registrationStep)} />
+      )
     }
   />
 );
 
-export default AuthRoute;
+const mapStateToProps = state => ({
+  registrationStep: authSelectors.registerStepSelector(state),
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(AuthRoute);

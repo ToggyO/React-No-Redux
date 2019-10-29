@@ -2,28 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c14643f0-600e-4384-bae2-0d92c8acbd51" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/HOC/withModal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Modal/Modal.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Modal/Modal.module.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Modal/ModalContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Modal/_components/Handler500/Handler500.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Modal/_components/Handler500/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Modal/_components/Handler500/style.module.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Modal/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ducks/modal/actions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ducks/modal/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ducks/modal/reducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ducks/modal/selectors.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ducks/modal/types.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/HomePage/HomePageContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Root.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Root.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ducks/auth/sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/sagas.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/HomePage/HomePageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomePage/HomePageView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/HomePage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomePage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/configureStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/configureStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/superaxios.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/superaxios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/_components/ConfirmEmailForm/ConfirmEmailFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/_components/ConfirmEmailForm/ConfirmEmailFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/AuthRoute/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/AuthRoute/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +26,7 @@
   <component name="ProjectId" id="1SGjGpX9iiCiZSP5SDTz1wkfAhY" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../INFERNAL_PROJECTS/magora-test-layout2" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -107,6 +91,7 @@
       <workItem from="1571882120519" duration="22769000" />
       <workItem from="1571975517321" duration="25215000" />
       <workItem from="1572228710124" duration="22937000" />
+      <workItem from="1572314515998" duration="9677000" />
     </task>
     <servers />
   </component>

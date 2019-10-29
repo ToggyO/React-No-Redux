@@ -27,6 +27,7 @@ const ConfirmEmailFormView = ({ errorsFromBackend, confirmEmail, clearStoreError
 ConfirmEmailFormView.propTypes = {
   errorsFromBackend: PropTypes.arrayOf(PropTypes.object),
   confirmEmail: PropTypes.func,
+  clearStoreErrors: PropTypes.func,
 };
 
 export default ConfirmEmailFormView;
