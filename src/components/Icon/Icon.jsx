@@ -165,6 +165,20 @@ function Icon({ iconName, className, fill }) {
           </g>
         </svg>
       );
+    case 'delete':
+      return (
+        <svg className={className} fill="#E76A7D" width="20px" height="20px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <g id="Styles" stroke="none" strokeWidth="1" fillRule="evenodd">
+            <g transform="translate(-297.000000, -742.000000)" id="Icon-/-delete">
+              <g transform="translate(297.000000, 742.000000)">
+                <g id="Group-2-Copy-2">
+                  <path d="M14,0 C21.7319865,0 28,6.2680135 28,14 C28,21.7319865 21.7319865,28 14,28 C6.2680135,28 0,21.7319865 0,14 C0,6.2680135 6.2680135,0 14,0 Z M18.0592929,8.15979797 L14.0994949,12.1195959 L10.139697,8.15979797 L8.15979797,10.139697 L12.1203031,14.0987878 L8.15979797,18.0592929 L10.139697,20.0391919 L14.100202,16.0786868 L18.0592929,20.0391919 L20.0391919,18.0592929 L16.0793939,14.0994949 L20.0391919,10.139697 L18.0592929,8.15979797 Z" id="Combined-Shape"></path>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      );
     default:
       return <svg src="../img/registration/hello.svg" className={className} />;
   }

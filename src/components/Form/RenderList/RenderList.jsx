@@ -3,14 +3,19 @@ import PT from 'prop-types';
 
 import s from './style.module.sass';
 
+import { Icon } from '@components/Icon';
+
 const RenderList = ({
   arrayIndex,
   email,
-  addWrapperClass,
-  addContainerClass,
-  addTextClass,
+  addContainerClass = '',
+  addTextClass = '',
+  addDeleteButtonClass = '',
+  addIconClass = '',
   emails,
   setEmails,
+  style = {},
+  icon,
 }) => {
   const removeEmailFromArray = () => {
     const emailsCopy = [...emails];
@@ -19,23 +24,32 @@ const RenderList = ({
   };
 
   return (
-    <div className={`${s.wrapper} ${addWrapperClass}`}>
-      <div className={`${s.container} ${addContainerClass}`}>
-        <div className={`${s.email} ${addTextClass}`}>{email}</div>
-        <div className="pl-2 pr-2" onClick={removeEmailFromArray}>X</div>
+    <div className={`${s.container} ${addContainerClass}`} style={style.container}>
+      <div className={`${s.email} ${addTextClass}`} style={style.email}>
+        {email}
+      </div>
+      <div
+        className={`${s.deleteButton} ${addDeleteButtonClass}`}
+        onClick={removeEmailFromArray}
+        style={style.deleteButton}
+      >
+        <Icon iconName={icon} className={addIconClass}/>
       </div>
     </div>
-  )
+  );
 };
 
 RenderList.propTypes = {
   arrayIndex: PT.any,
   email: PT.string,
-  addWrapperClass: PT.string,
   addContainerClass: PT.string,
   addTextClass: PT.string,
+  addDeleteButtonClass: PT.string,
+  addIconClass: PT.string,
   emails: PT.array,
   setEmails: PT.func,
+  style: PT.object,
+  icon: PT.string,
 };
 
 export default RenderList;

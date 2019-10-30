@@ -65,24 +65,8 @@ const Routes = ({ modal: { modalKey } }) => (
         )}
       />
 
-      <AuthRoute path={ROUTES.HOME_PAGE} exact component={HomePageContainer} />
-
       {/* REDIRECTS */}
-      {/* <UnAuthRoute */}
-      {/*  path={ROUTES.AUTH.ROOT + ROUTES.AUTH.SIGN_UP} */}
-      {/*  exact */}
-      {/*  component={() => <Redirect to={ROUTES.AUTH.ROOT + ROUTES.AUTH.SIGN_UP} />} */}
-      {/* /> */}
-      {/* <UnAuthRoute */}
-      {/*  path={ROUTES.AUTH.ROOT + ROUTES.AUTH.LOGIN_IN} */}
-      {/*  exact */}
-      {/*  component={() => <Redirect to={ROUTES.AUTH.ROOT + ROUTES.AUTH.LOGIN_IN} />} */}
-      {/* /> */}
-      {/* <UnAuthRoute */}
-      {/*  path={ROUTES.AUTH.ROOT + ROUTES.AUTH.CONFIRM_EMAIL} */}
-      {/*  exact */}
-      {/*  component={() => <Redirect to={ROUTES.AUTH.ROOT + ROUTES.AUTH.CONFIRM_EMAIL} />} */}
-      {/* /> */}
+      <AuthRoute path={ROUTES.HOME_PAGE} exact component={HomePageContainer} />
       {/* /REDIRECTS */}
 
       {/* NOT FOUND PAGE */}

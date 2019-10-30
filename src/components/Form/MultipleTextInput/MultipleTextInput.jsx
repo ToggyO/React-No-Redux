@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { getUniqueKey } from '@utils/index';
@@ -27,14 +27,20 @@ const MultipleTextInput = props => {
   const inputId = `input-${field.name}`;
 
   const inputRef = useRef(null);
-  const divRef = useRef(null);
+  const [isFocused, setFocus] = useState(false);
+
+  const customHandleFocus = () => setFocus(true);
+
+  const customHandleBlur = e => {
+    field.onBlur(e);
+    setFocus(false);
+  };
 
   return (
     <div className={`${s.text_input} ${addClassWrapper}`}>
       <LabelWrapper label={label} errors={errors} touched={touched} inputId={inputId} field={field}>
         <div
-          ref={divRef}
-          className={`${s.container} form_border ${
+          className={`${s.container} form_background ${isFocused ? 'form_border_focus' : 'form_border'} ${
             errors[field.name] && touched[field.name] ? 'error' : null
           } flex`}
         >
@@ -52,8 +58,8 @@ const MultipleTextInput = props => {
             placeholder={placeholder}
             style={inputStyle}
             multiple
-            onFocus={() => divRef.current.classList.add('form_border_focus')}
-            onBlur={() => divRef.current.classList.remove('form_border_focus')}
+            onFocus={customHandleFocus}
+            onBlur={customHandleBlur}
           />
           <AddButton
             values={values}
@@ -68,13 +74,17 @@ const MultipleTextInput = props => {
           {additionalElement}
         </div>
       </LabelWrapper>
-      <div className={s.mapped_emails}>
+      <div className={`${s.mapped_emails} mt-3`}>
         {rest.emails.map((item, i) =>
           <RenderList
             key={getUniqueKey()}
             arrayIndex={i}
             email={item}
-            addContainerClass="flex"
+            addContainerClass="flex pt-2 pb-2"
+            addDeleteButtonClass="pl-2 pr-2"
+            addIconClass="fill-secondary"
+            style={rest.renderListStyle}
+            icon={rest.renderListIcon}
             {...rest}
           />
         )}

@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import PT from 'prop-types';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
+import { style } from './emails_list_style'
+
 import { responseFormikError } from '@utils/index';
 import { ERROR_CODES } from '@config/errorCodes';
 import { ColorSelect } from '@components/Form/Dropdown/ColorSelect';
@@ -49,6 +51,8 @@ const SetTeamFormView = ({ errorsFromBackend, setTeam }) => {
               addClassInput="pt-4 pb-4 pl-5 pr-5"
               emails={emails}
               setEmails={setEmails}
+              renderListStyle={style}
+              renderListIcon="delete"
             />
             <ErrorMessage name="email" component="div" className="formik-error error-label" />
             <button

@@ -1,12 +1,12 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import PT from 'prop-types';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 
 import { style } from './radio_button_style';
 
-import { responseFormikError } from '@utils/index';
-
-import { ERROR_CODES } from '@config/errorCodes';
+// import { responseFormikError } from '@utils/index';
+//
+// import { ERROR_CODES } from '@config/errorCodes';
 
 import { ColorSelect } from '@components/Form/Dropdown/ColorSelect';
 import { TextInput } from '@components/Form/TextInput';

@@ -7,16 +7,30 @@ import { redirectToStep } from '@utils/index';
 import { authSelectors } from '@ducks/auth';
 import { checkTokens } from '@services/auth';
 
+// const AuthRoute = ({ component: Component, registrationStep, ...rest }) => (
+//   <Route
+//     {...rest}
+//     render={props =>
+//       checkTokens() && (registrationStep && registrationStep === 8) ? (
+//         <Component {...props} />
+//       ) : (
+//         <Redirect to={redirectToStep(registrationStep)} />
+//       )
+//     }
+//   />
+// );
+
 const AuthRoute = ({ component: Component, registrationStep, ...rest }) => (
   <Route
     {...rest}
-    render={props =>
-      checkTokens() && (registrationStep && registrationStep === 8) ? (
-        <Component {...props} />
-      ) : (
-        <Redirect to={redirectToStep(registrationStep)} />
-      )
-    }
+    render={props => {
+      if (checkTokens() && (registrationStep && registrationStep === 8)) {
+        // debugger;
+        return <Component {...props} />;
+      }
+      // debugger;
+      return <Redirect to={redirectToStep(registrationStep)} />;
+    }}
   />
 );
 

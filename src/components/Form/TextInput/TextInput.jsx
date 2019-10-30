@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { ImageBefore } from '../ImgBefore';
@@ -20,20 +20,22 @@ const TextInput = props => {
     additionalElement,
   } = props;
   const { touched, errors, values } = form;
-  const inputId = `input-${field.name}`;
-  const inputRef = useRef(null);
+  const [isFocused, setFocus] = useState(false);
 
-  const customHandleBlur = (e) => {
+  const inputId = `input-${field.name}`;
+
+  const customHandleFocus = () => setFocus(true);
+
+  const customHandleBlur = e => {
     field.onBlur(e);
-    inputRef.current.classList.remove('form_border_focus')
+    setFocus(false);
   };
 
   return (
     <div className={`${s.text_input} ${addClassWrapper}`}>
       <LabelWrapper label={label} errors={errors} touched={touched} inputId={inputId} field={field}>
         <div
-          ref={inputRef}
-          className={`${s.container} form_border ${
+          className={`${s.container} form_background ${isFocused ? 'form_border_focus' : 'form_border'} ${
             errors[field.name] && touched[field.name] ? 'error' : null
           } flex`}
         >
@@ -49,7 +51,7 @@ const TextInput = props => {
             name={field.name}
             placeholder={placeholder}
             style={inputStyle}
-            onFocus={() => inputRef.current.classList.add('form_border_focus')}
+            onFocus={customHandleFocus}
             onBlur={customHandleBlur}
           />
           {additionalElement}

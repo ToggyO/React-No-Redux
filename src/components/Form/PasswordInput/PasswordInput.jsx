@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import s from './style.module.sass';
@@ -8,32 +8,33 @@ import { LabelWrapper } from '@components/Form/LabelWrapper';
 import { Checkbox } from '@components/Form/Checkbox';
 import { style } from '@pages/SignPages/EnterNamePage/_components/EnterNameForm/checkbox_style';
 
+
 class PasswordInput extends React.Component {
   state = {
     isPwShown: false,
+    isFocused: false,
   };
 
-  inputRef = React.createRef();
+  showHidePw = () => this.setState(prevState => ({ ...prevState, isPwShown: !prevState.isPwShown }));
 
-  showHidePw = () => this.setState(prevState => ({ isPwShown: !prevState.isPwShown }));
+  customHandleFocus = () => this.setState(prevState => ({ ...prevState, isFocused: true }));
 
-  customHandleBlur = (e) => {
+  customHandleBlur = e => {
     this.props.field.onBlur(e);
-    this.inputRef.current.classList.remove('form_border_focus')
+    this.setState(prevState => ({ ...prevState, isFocused: false }));
   };
 
   render() {
     const { addClassWrapper, addClassInput, placeholder, field, form, label, imgBefore } = this.props;
     const { touched, errors, values } = form;
-    const { isPwShown } = this.state;
+    const { isPwShown, isFocused } = this.state;
     const inputId = `input-${field.name}`;
 
     return (
       <div className={`${s.wrapper} ${addClassWrapper}`}>
         <LabelWrapper label={label} errors={errors} touched={touched} inputId={inputId} field={field}>
           <div
-            ref={this.inputRef}
-            className={`${s.container} form_border ${
+            className={`${s.container} form_background ${isFocused ? 'form_border_focus' : 'form_border'}  ${
               errors[field.name] && touched[field.name] ? 'error' : ''
             } flex`}
           >
@@ -48,7 +49,7 @@ class PasswordInput extends React.Component {
               value={values[field.name]}
               name={field.name}
               placeholder={placeholder}
-              onFocus={() => this.inputRef.current.classList.add('form_border_focus')}
+              onFocus={this.customHandleFocus}
               onBlur={this.customHandleBlur}
             />
             <Checkbox

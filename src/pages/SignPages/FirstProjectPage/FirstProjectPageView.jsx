@@ -13,6 +13,7 @@ const FirstProjectPageView = () => (
     <FormTemplateView
       titleLarge="Let’s set up your first project"
       titleSmall="Projects will contain your folders, board and tasks."
+      link={<p>We’ll load in some demo content to get you started.</p>}
     >
       <FirstProjectFormContainer />
     </FormTemplateView>
