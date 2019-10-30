@@ -194,18 +194,6 @@ function Icon({ iconName, className, fill }) {
           </g>
         </svg>
       );
-    case 'point':
-      return (
-        <svg className={className} fill="#CACACA" width="20px" height="20px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg">
-          <g id="Styles" stroke="none" strokeWidth="1" fillRule="evenodd">
-            <g transform="translate(-241.000000, -741.000000)" id="Accept">
-              <g transform="translate(241.000000, 741.000000)">
-                <circle id="Oval" cx="14" cy="14" r="14"></circle>
-              </g>
-            </g>
-          </g>
-        </svg>
-      );
     default:
       return <svg src="../img/registration/hello.svg" className={className} />;
   }

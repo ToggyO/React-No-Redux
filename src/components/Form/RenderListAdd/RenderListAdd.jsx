@@ -15,18 +15,14 @@ const RenderListDelete = ({
   addIconClass = '',
   onClick,
   style = {},
-  iconSelected,
-  iconNoSelected,
+  icon,
+  addIconFillClass,
 }) => {
   const [innerState, setInnerState] = useState(false);
 
-  useEffect(() => console.log(innerState),[innerState]);
   useEffect(() => setInnerState(state),[state]);
 
-  const handleSubmit = () => {
-    setInnerState(!state);
-    return onClick();
-  };
+  const handleSubmit = () => onClick();
 
   return (
     <div
@@ -37,12 +33,7 @@ const RenderListDelete = ({
         className={`${s.deleteButton} ${addDeleteButtonClass}`}
         style={style.deleteButton}
       >
-        <Icon iconName={iconSelected} className={`${!innerState ? 'fill-light-gray' : ''} ${addIconClass}`}/>
-
-        {/*{innerState*/}
-        {/*  ? <Icon iconName={iconSelected} className={addIconClass}/>*/}
-        {/*  : <Icon iconName={iconNoSelected} className={addIconClass}/>*/}
-        {/*}*/}
+        <Icon iconName={icon} className={`${!innerState ? addIconFillClass : ''} ${addIconClass}`}/>
       </div>
       <div className={`${s.email} ${addTextClass}`} style={style.email}>
         {email}
@@ -54,14 +45,15 @@ const RenderListDelete = ({
 RenderListDelete.propTypes = {
   arrayIndex: PT.any,
   email: PT.string,
+  state: PT.bool,
   addContainerClass: PT.string,
   addTextClass: PT.string,
   addDeleteButtonClass: PT.string,
   addIconClass: PT.string,
+  addIconFillClass: PT.string,
   onClick: PT.func,
   style: PT.object,
-  iconSelected: PT.string,
-  iconNoSelected: PT.string,
+  icon: PT.string,
 };
 
 export default RenderListDelete;

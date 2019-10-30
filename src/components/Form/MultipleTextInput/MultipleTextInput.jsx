@@ -77,7 +77,7 @@ const MultipleTextInput = props => {
       <div className={`${s.mapped_emails} mt-3`}>
         {rest.emails.map((item, i) =>
           <RenderListDelete
-            key={getUniqueKey()}
+            key={item}
             arrayIndex={i}
             email={item}
             addContainerClass="flex pt-2 pb-2"

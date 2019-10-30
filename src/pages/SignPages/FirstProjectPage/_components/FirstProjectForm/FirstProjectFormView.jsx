@@ -35,8 +35,6 @@ const FirstProjectFormView = ({ setFirstProjectRequest, ...rest }) => {
   const [emails, setEmails] = useState([]);
   const [selectedEmails, setSelectedEmails] = useState([]);
 
-  useEffect(() => console.log(selectedEmails),[selectedEmails])
-
   const fetchTeamEmails = async () => {
     setFetching(true);
     const { data } = await api.other.getTeamEmails();
@@ -111,38 +109,24 @@ const FirstProjectFormView = ({ setFirstProjectRequest, ...rest }) => {
           </RadioButtonGroup>
 
           <div className={`${s.mapped_emails} mt-3`}>
-            {emails.map((item, i) =>
-              <RenderListAdd
-                key={getUniqueKey()}
-                arrayIndex={i}
-                email={item}
-                state={selectedEmails.includes(item)}
-                addContainerClass="flex pt-2 pb-2"
-                addDeleteButtonClass="pl-2 pr-2"
-                // addIconClass="fill-secondary"
-                onClick={() => handleSelectEmail(item)}
-                style={renderListStyle}
-                iconSelected="accept"
-                iconNoSelected="point"
-                {...rest}
-              />
-            )}
+            {values.radioGroup === 'projectPeople' &&
+              emails.map((item, i) =>
+                <RenderListAdd
+                  key={item}
+                  arrayIndex={i}
+                  email={item}
+                  state={selectedEmails.includes(item)}
+                  addContainerClass="flex pt-2 pb-2"
+                  addDeleteButtonClass="pl-2 pr-2"
+                  addIconFillClass="fill-light-gray"
+                  onClick={() => handleSelectEmail(item)}
+                  style={renderListStyle}
+                  icon="accept"
+                  {...rest}
+                />
+              )
+            }
           </div>
-
-          {/* {values.radioGroup === 'projectPeople' && ( */}
-          {/*  <ul style={{ textAlign: 'left', cursor: 'pointer' }}> */}
-          {/*    {emails.map(email => ( */}
-          {/*      // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
-          {/*      <li */}
-          {/*        key={email} */}
-          {/*        style={{ padding: '4px 0', color: selectedEmails.includes(email) && '#52EACF' }} */}
-          {/*        onClick={() => handleSelectEmail(email)} */}
-          {/*      > */}
-          {/*        {email} */}
-          {/*      </li> */}
-          {/*    ))} */}
-          {/*  </ul> */}
-          {/* )} */}
 
           <button
             type="submit"
