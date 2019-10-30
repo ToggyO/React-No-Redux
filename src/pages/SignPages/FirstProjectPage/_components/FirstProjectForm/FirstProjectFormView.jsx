@@ -2,7 +2,13 @@ import React, { useEffect, useState } from 'react';
 import PT from 'prop-types';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 
+import { style as renderListStyle } from '../../../SetTeamPage/_components/SetTeamForm/emails_list_style';
+
 import { style } from './radio_button_style';
+
+import s from '@components/Form/TextInput/style.module.sass';
+import { getUniqueKey } from '@utils/index';
+import { RenderListAdd } from '@components/Form/RenderListAdd';
 
 // import { responseFormikError } from '@utils/index';
 //
@@ -24,10 +30,12 @@ const PeopleRadioButton = props => (
   <RadioButton {...props} withExtra={{ icon: 'people', text: 'Select people' }} />
 );
 
-const FirstProjectFormView = ({ setFirstProjectRequest }) => {
+const FirstProjectFormView = ({ setFirstProjectRequest, ...rest }) => {
   const [fetching, setFetching] = useState(false);
   const [emails, setEmails] = useState([]);
   const [selectedEmails, setSelectedEmails] = useState([]);
+
+  useEffect(() => console.log(selectedEmails),[selectedEmails])
 
   const fetchTeamEmails = async () => {
     setFetching(true);
@@ -102,20 +110,39 @@ const FirstProjectFormView = ({ setFirstProjectRequest }) => {
             <Field name="radioGroup" id="projectPeople" component={PeopleRadioButton} style={style} />
           </RadioButtonGroup>
 
-          {values.radioGroup === 'projectPeople' && (
-            <ul style={{ textAlign: 'left', cursor: 'pointer' }}>
-              {emails.map(email => (
-                // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-                <li
-                  key={email}
-                  style={{ padding: '4px 0', color: selectedEmails.includes(email) && '#52EACF' }}
-                  onClick={() => handleSelectEmail(email)}
-                >
-                  {email}
-                </li>
-              ))}
-            </ul>
-          )}
+          <div className={`${s.mapped_emails} mt-3`}>
+            {emails.map((item, i) =>
+              <RenderListAdd
+                key={getUniqueKey()}
+                arrayIndex={i}
+                email={item}
+                state={selectedEmails.includes(item)}
+                addContainerClass="flex pt-2 pb-2"
+                addDeleteButtonClass="pl-2 pr-2"
+                // addIconClass="fill-secondary"
+                onClick={() => handleSelectEmail(item)}
+                style={renderListStyle}
+                iconSelected="accept"
+                iconNoSelected="point"
+                {...rest}
+              />
+            )}
+          </div>
+
+          {/* {values.radioGroup === 'projectPeople' && ( */}
+          {/*  <ul style={{ textAlign: 'left', cursor: 'pointer' }}> */}
+          {/*    {emails.map(email => ( */}
+          {/*      // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
+          {/*      <li */}
+          {/*        key={email} */}
+          {/*        style={{ padding: '4px 0', color: selectedEmails.includes(email) && '#52EACF' }} */}
+          {/*        onClick={() => handleSelectEmail(email)} */}
+          {/*      > */}
+          {/*        {email} */}
+          {/*      </li> */}
+          {/*    ))} */}
+          {/*  </ul> */}
+          {/* )} */}
 
           <button
             type="submit"

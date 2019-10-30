@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { getUniqueKey } from '@utils/index';
 import { AddButton } from '@components/Form/AddButton';
-import { RenderList } from '@components/Form/RenderList';
+import { RenderListDelete } from '@components/Form/RenderListDelete';
 import { ImageBefore } from '@components/Form/ImgBefore';
 import { LabelWrapper } from '@components/Form/LabelWrapper';
 import s from '@components/Form/TextInput/style.module.sass';
@@ -76,7 +76,7 @@ const MultipleTextInput = props => {
       </LabelWrapper>
       <div className={`${s.mapped_emails} mt-3`}>
         {rest.emails.map((item, i) =>
-          <RenderList
+          <RenderListDelete
             key={getUniqueKey()}
             arrayIndex={i}
             email={item}

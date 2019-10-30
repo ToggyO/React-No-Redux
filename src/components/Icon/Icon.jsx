@@ -179,6 +179,33 @@ function Icon({ iconName, className, fill }) {
           </g>
         </svg>
       );
+    case 'accept':
+      return (
+        <svg className={className} fill="#53D0BA" width="20px" height="20px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <g id="Styles" stroke="none" strokeWidth="1" fillRule="evenodd">
+            <g transform="translate(-241.000000, -741.000000)" id="Accept">
+              <g transform="translate(241.000000, 741.000000)">
+                <circle id="Oval" cx="14" cy="14" r="14"></circle>
+                <g className={className} id="Icon-/-check" transform="translate(8.000000, 8.000000)" fill="#FFFFFF">
+                  <polygon id="done_mini-[#1484]" points="12 2.92 4.6164 10.6 4.6152 10.5988 4.6152 10.6 0 5.8 1.8456 3.88 4.6152 6.76 10.1544 1"></polygon>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      );
+    case 'point':
+      return (
+        <svg className={className} fill="#CACACA" width="20px" height="20px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <g id="Styles" stroke="none" strokeWidth="1" fillRule="evenodd">
+            <g transform="translate(-241.000000, -741.000000)" id="Accept">
+              <g transform="translate(241.000000, 741.000000)">
+                <circle id="Oval" cx="14" cy="14" r="14"></circle>
+              </g>
+            </g>
+          </g>
+        </svg>
+      );
     default:
       return <svg src="../img/registration/hello.svg" className={className} />;
   }

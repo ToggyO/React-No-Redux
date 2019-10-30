@@ -5,7 +5,7 @@ import s from './style.module.sass';
 
 import { Icon } from '@components/Icon';
 
-const RenderList = ({
+const RenderListDelete = ({
   arrayIndex,
   email,
   addContainerClass = '',
@@ -39,7 +39,7 @@ const RenderList = ({
   );
 };
 
-RenderList.propTypes = {
+RenderListDelete.propTypes = {
   arrayIndex: PT.any,
   email: PT.string,
   addContainerClass: PT.string,
@@ -52,4 +52,4 @@ RenderList.propTypes = {
   icon: PT.string,
 };
 
-export default RenderList;
+export default RenderListDelete;
