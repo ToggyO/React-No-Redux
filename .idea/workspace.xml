@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c14643f0-600e-4384-bae2-0d92c8acbd51" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/assets/login_page/hide_password.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/login_page/show_password.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/MultipleTextInput/MultipleTextInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/MultipleTextInput/MultipleTextInput.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/RenderListAdd/RenderListAdd.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/RenderListAdd/RenderListAdd.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Icon/Icon.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Icon/Icon.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/FormTemplate/FormTemplateView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/FormTemplate/FormTemplateView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/PasswordInput/PasswordInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/PasswordInput/PasswordInput.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Icon/iconsStyle.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Icon/iconsStyle.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Preloader/style.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Preloader/style.module.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/_components/FirstProjectForm/FirstProjectFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/_components/FirstProjectForm/FirstProjectFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/PasswordEnterPage/_components/PasswordEnterForm/checkbox_style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/PasswordEnterPage/_components/PasswordEnterForm/checkbox_style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_form.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_form.sass" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +45,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Projects\squad.io-js-front\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.XML" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.1.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
@@ -95,6 +100,7 @@
       <workItem from="1571975517321" duration="25215000" />
       <workItem from="1572228710124" duration="22937000" />
       <workItem from="1572314515998" duration="24964000" />
+      <workItem from="1572486795729" duration="4790000" />
     </task>
     <servers />
   </component>

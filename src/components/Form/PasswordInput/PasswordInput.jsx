@@ -6,7 +6,7 @@ import s from './style.module.sass';
 import { ImageBefore } from '@components/Form/ImgBefore';
 import { LabelWrapper } from '@components/Form/LabelWrapper';
 import { Checkbox } from '@components/Form/Checkbox';
-import { style } from '@pages/SignPages/EnterNamePage/_components/EnterNameForm/checkbox_style';
+import { style } from '@pages/SignPages/PasswordEnterPage/_components/PasswordEnterForm/checkbox_style';
 
 
 class PasswordInput extends React.Component {
@@ -54,8 +54,7 @@ class PasswordInput extends React.Component {
             />
             <Checkbox
               addClassTitleWrapper="flex justify-content-center align-items-center pr-5"
-              addClassCheckbox={`checkbox ${isPwShown ? 'checkmark_checked' : ''}`}
-              title="Show"
+              addClassCheckbox={`checkbox ${isPwShown ? 'hide-password' : 'show-password'}`}
               style={style}
               onClick={this.showHidePw}
             />
