@@ -53,11 +53,20 @@ class PasswordInput extends React.Component {
               onBlur={this.customHandleBlur}
             />
             <Checkbox
+              state={isPwShown}
               addClassTitleWrapper="flex justify-content-center align-items-center pr-5"
-              addClassCheckbox={`checkbox ${isPwShown ? 'hide-password' : 'show-password'}`}
+              addClassCheckbox="checkbox"
+              icon="show-password"
+              iconChecked="hide-password"
               style={style}
               onClick={this.showHidePw}
             />
+            {/* <Checkbox */}
+            {/*  addClassTitleWrapper="flex justify-content-center align-items-center pr-5" */}
+            {/*  addClassCheckbox={`checkbox ${isPwShown ? 'hide-password' : 'show-password'}`} */}
+            {/*  style={style} */}
+            {/*  onClick={this.showHidePw} */}
+            {/* /> */}
           </div>
         </LabelWrapper>
       </div>

@@ -1,6 +1,6 @@
 export const style = {
   checkbox: {
-    width: 20,
-    height: 21,
+    width: 0,
+    height: 0,
   },
 };
