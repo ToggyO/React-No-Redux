@@ -2,20 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c14643f0-600e-4384-bae2-0d92c8acbd51" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Form/SwitchButton/SwitchButton.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Form/SwitchButton/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Form/SwitchButton/style.module.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/LoginPages/LoginPage/_components/LoginPageForm/switch_button_style.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ducks/auth/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/ConfirmEmailInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/ConfirmEmailInput.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/GoogleButton/GoogleButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/GoogleButton/GoogleButton.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/PasswordInput/PasswordInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/PasswordInput/PasswordInput.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/SwitchButton/SwitchButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/SwitchButton/SwitchButton.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/TextInput/TextInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/TextInput/TextInput.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ducks/auth/sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/sagas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ducks/auth/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/types.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/LoginPages/LoginPage/_components/LoginPageForm/LoginPageFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPages/LoginPage/_components/LoginPageForm/LoginPageFormView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/_components/FirstProjectForm/FirstProjectFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/_components/FirstProjectForm/FirstProjectFormView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/AuthRoute/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/AuthRoute/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/UnAuthRoute/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/UnAuthRoute/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/LoginPages/LoginPage/_components/LoginPageForm/switch_button_style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPages/LoginPage/_components/LoginPageForm/switch_button_style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/_components/ConfirmEmailForm/ConfirmEmailFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/_components/ConfirmEmailForm/ConfirmEmailFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/_components/SignUpForm/SignUpFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/_components/SignUpForm/SignUpFormView.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +104,7 @@
       <workItem from="1572314515998" duration="24964000" />
       <workItem from="1572486795729" duration="4790000" />
       <workItem from="1572494542456" duration="4891000" />
-      <workItem from="1572570696239" duration="4883000" />
+      <workItem from="1572570696239" duration="9818000" />
     </task>
     <servers />
   </component>

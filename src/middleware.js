@@ -9,12 +9,12 @@ export const saveUserData = store => next => action => {
   if (
     action.type === authTypes.SIGNUP_WITH_EMAIL_SUCCESS ||
     action.type === authTypes.SIGNUP_WITH_GOOGLE_SUCCESS ||
-    action.type === authTypes.LOGIN_IN_WITH_EMAIL_SUCCESS ||
-    action.type === authTypes.LOGIN_IN_WITH_GOOGLE_SUCCESS
+    action.type === authTypes.LOGIN_IN_WITH_EMAIL_REMEMBER_ME_SUCCESS ||
+    action.type === authTypes.LOGIN_IN_WITH_GOOGLE_REMEMBER_ME_SUCCESS
   ) {
     const { user, token, registrationStep } = action.payload.data;
     const { accessToken, refreshToken } = token;
-
+    // debugger;
     writeToLocalState(LOCAL_STORAGE_KEYS.USER, user);
     writeToLocalState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN, accessToken);
     writeToLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN, refreshToken);
@@ -22,12 +22,12 @@ export const saveUserData = store => next => action => {
   }
 
   if (
-    action.type === authTypes.LOGIN_IN_WITH_EMAIL_REMEMBER_ME_SUCCESS ||
-    action.type === authTypes.LOGIN_IN_WITH_GOOGLE_REMEMBER_ME_SUCCESS
+    action.type === authTypes.LOGIN_IN_WITH_EMAIL_SUCCESS ||
+    action.type === authTypes.LOGIN_IN_WITH_GOOGLE_SUCCESS
   ) {
     const { user, token, registrationStep } = action.payload.data;
     const { accessToken, refreshToken } = token;
-
+    // debugger;
     writeToSessionState(LOCAL_STORAGE_KEYS.USER, user);
     writeToSessionState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN, accessToken);
     writeToSessionState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN, refreshToken);

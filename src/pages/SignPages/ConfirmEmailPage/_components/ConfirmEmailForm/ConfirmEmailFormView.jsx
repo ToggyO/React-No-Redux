@@ -12,12 +12,11 @@ const ConfirmEmailFormView = ({ errorsFromBackend, confirmEmail, clearStoreError
 
   return (
     <>
-      {setErrors(errorsFromBackend).global && <div className="formik-error error-label">{setErrors(errorsFromBackend).global}</div>}
       <ConfirmEmailInput
         name="token"
         maxLength={6}
         addClassWrapper="pt-4 pb-4"
-        errorsFromBackend={errorsFromBackend}
+        errorsFromBackend={setErrors(errorsFromBackend)}
         onClick={confirmEmail}
       />
     </>

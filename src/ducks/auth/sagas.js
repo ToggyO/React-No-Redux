@@ -89,8 +89,8 @@ function* LoginWithEmail(action) {
     // }
     const data = yield call(api.auth.loginWithEmail, action.payload);
     yield action.payload.rememberMe
-      ? put({ type: authTypes.LOGIN_IN_WITH_EMAIL_SUCCESS, payload: data })
-      : put({ type: authTypes.LOGIN_IN_WITH_EMAIL_REMEMBER_ME_SUCCESS, payload: data });
+      ? put({ type: authTypes.LOGIN_IN_WITH_EMAIL_REMEMBER_ME_SUCCESS, payload: data })
+      : put({ type: authTypes.LOGIN_IN_WITH_EMAIL_SUCCESS, payload: data });
     yield call(historyRedirect, ROUTES.HOME_PAGE);
   } catch (error) {
     // {
@@ -121,8 +121,8 @@ function* LoginWithGoogle(action) {
     // }
     const data = yield call(api.auth.loginWithGoogle, action.payload);
     yield action.payload.rememberMe
-      ? put({ type: authTypes.LOGIN_IN_WITH_GOOGLE_SUCCESS, payload: data })
-      : put({ type: authTypes.LOGIN_IN_WITH_GOOGLE_REMEMBER_ME_SUCCESS, payload: data });
+      ? put({ type: authTypes.LOGIN_IN_WITH_GOOGLE_REMEMBER_ME_SUCCESS, payload: data })
+      : put({ type: authTypes.LOGIN_IN_WITH_GOOGLE_SUCCESS, payload: data });
     yield put({ type: authTypes.CLEAR_STORE_ERRORS });
     yield call(historyRedirect, ROUTES.HOME_PAGE);
   } catch (error) {

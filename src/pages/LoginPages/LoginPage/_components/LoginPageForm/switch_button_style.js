@@ -1,6 +1,7 @@
 export const style = {
   container: {
     height: 20,
+    marginTop: 8,
   },
   switch: {
     width: 32,

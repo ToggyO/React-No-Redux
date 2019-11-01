@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import { Icon } from '@components/Icon';
 
 
-const responseGoogle = (response, actionCreator) => {
+const responseGoogle = (response, actionCreator, rest) => {
   if (response) {
-    actionCreator({ token: response.tokenId });
+    actionCreator({ token: response.tokenId, ...rest });
   }
 };
 
@@ -17,7 +17,7 @@ const errorGoogle = (error) => {
 };
 
 
-const GoogleButton = ({ actionCreator }) => (
+const GoogleButton = ({ actionCreator, form: { values } }) => (
   <>
     <GoogleLogin
       clientId="63806648351-k2ebqg66tab5760qa4i3mmomfslbmuvd.apps.googleusercontent.com"
@@ -31,7 +31,7 @@ const GoogleButton = ({ actionCreator }) => (
           <Icon iconName="google-logo" className="mr-4"/>Continue with Google
         </button>
       )}
-      onSuccess={res => responseGoogle(res, actionCreator)}
+      onSuccess={res => responseGoogle(res, actionCreator, values)}
       onFailure={errorGoogle}
       uxMode="popup"
     />
@@ -42,5 +42,6 @@ export default GoogleButton;
 
 GoogleButton.propTypes = {
   actionCreator: PropTypes.func,
+  form: PropTypes.object,
 };
 

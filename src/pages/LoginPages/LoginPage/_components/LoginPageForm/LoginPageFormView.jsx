@@ -35,6 +35,8 @@ const LoginPageViewForm = ({ errorsFromBackend, loginInWithEmailRequest, loginIn
         <Form>
           {errors.global &&
           <div className="formik-error error-label">{errors.global}</div>}
+          {errors.googleToken &&
+          <div className="formik-error error-label">{errors.googleToken}</div>}
           <Field
             type="email"
             name="email"
@@ -53,7 +55,7 @@ const LoginPageViewForm = ({ errorsFromBackend, loginInWithEmailRequest, loginIn
             imgBefore={key}
             component={PasswordInput}
             validate={validateField.password}
-            addClassWrapper="pt-4 pb-4 mb-4"
+            addClassWrapper="pt-4 pb-4"
             addClassInput="pt-4 pb-4"
           />
           {errors.password && touched.password &&
@@ -79,8 +81,6 @@ const LoginPageViewForm = ({ errorsFromBackend, loginInWithEmailRequest, loginIn
             component={GoogleButton}
             actionCreator={loginInWithGoogleRequest}
           />
-          {errors.googleToken &&
-          <div className="formik-error error-label">{errors.googleToken}</div>}
         </Form>
       )}
     />

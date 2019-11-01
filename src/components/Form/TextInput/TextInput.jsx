@@ -36,7 +36,7 @@ const TextInput = props => {
       <LabelWrapper label={label} errors={errors} touched={touched} inputId={inputId} field={field}>
         <div
           className={`${s.container} form_background ${isFocused ? 'form_border_focus' : 'form_border'} ${
-            errors[field.name] && touched[field.name] ? 'error' : null
+            errors.global || (errors[field.name] && touched[field.name]) ? 'error' : null
           } flex`}
         >
           {imgBefore && <ImageBefore src={imgBefore} imageWidth={18} imageHeight={16} />}
@@ -45,7 +45,7 @@ const TextInput = props => {
             type={type}
             id={inputId}
             className={`default_input ${
-              errors[field.name] && touched[field.name] ? 'error-label' : null
+              errors.global || (errors[field.name] && touched[field.name]) ? 'error-label' : null
             } ${addClassInput}`}
             value={values[field.name]}
             name={field.name}

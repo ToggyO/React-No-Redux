@@ -35,7 +35,7 @@ class PasswordInput extends React.Component {
         <LabelWrapper label={label} errors={errors} touched={touched} inputId={inputId} field={field}>
           <div
             className={`${s.container} form_background ${isFocused ? 'form_border_focus' : 'form_border'}  ${
-              errors[field.name] && touched[field.name] ? 'error' : ''
+              errors.global || (errors[field.name] && touched[field.name]) ? 'error' : ''
             } flex`}
           >
             {imgBefore && <ImageBefore src={imgBefore} imageWidth={18} imageHeight={16} />}
@@ -44,7 +44,7 @@ class PasswordInput extends React.Component {
               id={inputId}
               type={isPwShown ? 'text' : 'password'}
               className={`default_input ${
-                errors[field.name] && touched[field.name] ? 'error-label' : ''
+                errors.global || (errors[field.name] && touched[field.name]) ? 'error-label' : ''
               } ${addClassInput}`}
               value={values[field.name]}
               name={field.name}

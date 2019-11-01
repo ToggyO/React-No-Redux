@@ -31,6 +31,8 @@ const SignUpFormView = ({ errorsFromBackend, signUpWithEmailRequest, signUpWithG
         <Form>
           {errors.global &&
           <div className="formik-error error-label">{errors.global}</div>}
+          {errors.googleToken &&
+          <div className="formik-error error-label">{errors.googleToken}</div>}
           <Field
             type="email"
             name="email"
@@ -40,7 +42,8 @@ const SignUpFormView = ({ errorsFromBackend, signUpWithEmailRequest, signUpWithG
             addClassWrapper="pt-4 pb-2"
             addClassInput="pt-4 pb-4"
           />
-          {errors.email && touched.email && <div className="formik-error error-label">{errors.email}</div>}
+          {errors.email && touched.email &&
+          <div className="formik-error error-label">{errors.email}</div>}
           <Field
             name="password"
             placeholder="Password..."
@@ -49,7 +52,8 @@ const SignUpFormView = ({ errorsFromBackend, signUpWithEmailRequest, signUpWithG
             addClassWrapper="pt-2 pb-2"
             addClassInput="pt-4 pb-4"
           />
-          {errors.password && touched.password && <div className="formik-error error-label">{errors.password}</div>}
+          {errors.password && touched.password &&
+          <div className="formik-error error-label">{errors.password}</div>}
           <Field
             name="passwordConfirm"
             placeholder="Confirm password..."
@@ -58,13 +62,14 @@ const SignUpFormView = ({ errorsFromBackend, signUpWithEmailRequest, signUpWithG
             addClassWrapper="pt-2 pb-4"
             addClassInput="pt-4 pb-4"
           />
-          {errors.passwordConfirm && touched.passwordConfirm && <div className="formik-error error-label">{errors.passwordConfirm}</div>}
+          {errors.passwordConfirm && touched.passwordConfirm &&
+          <div className="formik-error error-label">{errors.passwordConfirm}</div>}
           <button
             type="submit"
             disabled={!isValid}
             className="btn green-filled rounded p-4 full_width login-page-button"
           >
-              Continue with email
+            Continue with email
           </button>
           <div
             className="p-4"
@@ -75,7 +80,6 @@ const SignUpFormView = ({ errorsFromBackend, signUpWithEmailRequest, signUpWithG
             component={GoogleButton}
             actionCreator={signUpWithGoogleRequest}
           />
-          {errors.googleToken && <div className="formik-error error-label">{errors.googleToken}</div>}
         </Form>
       )}
     />

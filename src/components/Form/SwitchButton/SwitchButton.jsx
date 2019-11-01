@@ -45,32 +45,3 @@ SwitchButton.propTypes = {
 
 export default SwitchButton;
 
-// const SwitchButton = ({
-//   field: { name, value, onChange, onBlur },
-//   // form: { errors, touched, setFieldValue },
-//   id,
-//   style = {},
-// }) => {
-//   const inputRef = useRef(null);
-//
-//   return (
-//     <div className={s.container} style={style.container}>
-//       <div className={s.switch} style={style.switch}>
-//         <input
-//           ref={inputRef}
-//           name={name}
-//           id={id}
-//           type="checkbox"
-//           value={value}
-//           checked={value}
-//           onChange={onChange}
-//           onBlur={onBlur}
-//           className={s.input}
-//           style={style.input}
-//         />
-//         <span className={`${s.slider} ${s.round}`} style={style.slider}/>
-//       </div>
-//       <div className={s.title} style={style.title}>Remember Me</div>
-//     </div>
-//   )
-// };

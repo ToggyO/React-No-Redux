@@ -6,7 +6,7 @@ import RenderCircles from './_components/RenderCircles/RenderCircles';
 import s from './style.module.sass';
 
 const ConfirmEmailInput = props => {
-  const { name, maxLength, addClassWrapper, onClick } = props;
+  const { name, maxLength, addClassWrapper, errorsFromBackend = {}, onClick } = props;
   const array = [...Array(maxLength)];
 
   const [state, setState] = useState('');
@@ -32,11 +32,11 @@ const ConfirmEmailInput = props => {
         htmlFor={inputId}
         className={`${s.label} form_background ${
           isFocused ? 'form_border_focus' : 'form_border'
-        } flex p-4 mb-4`}
+        } ${errorsFromBackend.global ? 'error' : null} flex p-4 mb-4`}
       >
         <div className={`${s.circles} flex justify-content-space-between`}>
           {array.map((item, i) => (
-            <RenderCircles key={i} item={item} color={i < state.length ? '#495570' : '#9398A2'} />
+            <RenderCircles key={i} item={item} color={i < state.length ? '#495570' : '#9398A2'}/>
           ))}
         </div>
         <input
@@ -55,6 +55,7 @@ const ConfirmEmailInput = props => {
           inputMode="numeric"
         />
       </label>
+      {errorsFromBackend.global && <div className="formik-error error-label">{errorsFromBackend.global}</div>}
       <button
         type="submit"
         disabled={state.length !== maxLength}
@@ -73,5 +74,6 @@ ConfirmEmailInput.propTypes = {
   addClassWrapper: PropTypes.string,
   name: PropTypes.string,
   maxLength: PropTypes.number,
+  errorsFromBackend: PropTypes.object,
   onClick: PropTypes.func,
 };
