@@ -8,7 +8,7 @@ import { FormTemplateView } from '@components/Form/FormTemplate';
 
 const SignUpPageView = () => (
   <>
-    <Helmet defaultTitle="Squad.io - Creat account">
+    <Helmet defaultTitle="Squad.io - Create account">
       <meta name="description" content="Sign up page" />
     </Helmet>
     <FormTemplateView

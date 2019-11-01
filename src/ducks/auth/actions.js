@@ -50,6 +50,11 @@ export const registrationDone = data => ({
   payload: data,
 });
 
+export const restorePassword = data => ({
+  type: types.REGISTRATION_DONE_REQUEST,
+  payload: data,
+});
+
 export const clearStoreErrors = () => ({
   type: types.CLEAR_STORE_ERRORS,
 });

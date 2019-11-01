@@ -61,4 +61,20 @@ export const validateForm = {
     }
     return errors;
   },
+  // confirmPassword:  values => {
+  //   const errors = {};
+  //
+  //   if (!values.password) {
+  //     errors.password = 'Required';
+  //   } else if (values.password.length < 6 || values.password.length > 30) {
+  //     errors.password = 'Password should include min 6 max 30 characters';
+  //   } else if (!/^[0-9a-zA-Z~!@#$%^&*_\-+=`|(){}[\]:;"'<>,.?/]+$/g.test(values.password)) {
+  //     errors.password = 'Password should include only digits, latin letters or special characters';
+  //   }
+  //
+  //   if (!values.passwordConfirm || values.passwordConfirm !== values.password) {
+  //     errors.passwordConfirm = 'Passwords should match';
+  //   }
+  //   return errors;
+  // },
 };

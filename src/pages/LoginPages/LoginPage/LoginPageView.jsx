@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
+import { NavLink } from 'react-router-dom';
 
 import { LoginPageFormContainer } from './_components/LoginPageForm';
 
@@ -17,13 +18,18 @@ const LoginPageView = () => {
 
   return (
     <>
-      <Helmet defaultTitle="Squad.io - Login in">
+      <Helmet defaultTitle="Squad.io - Sign in">
         <meta name="description" content="login in page" />
       </Helmet>
       <FormTemplateView
         titleLarge="Sign in"
         titleSmall="Are you new to squad? Create your account here"
-        link={<a className="form_link" href="#">I forgot my password</a>}
+        link={<NavLink
+          className="form_link"
+          to={ROUTES.AUTH.ROOT + ROUTES.AUTH.RESTORE_PASSWORD}
+        >
+          I forgot my password
+        </NavLink>}
       >
         <LoginPageFormContainer />
       </FormTemplateView>

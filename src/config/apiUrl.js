@@ -11,4 +11,5 @@ export const API_URL = {
   GET_TEAM_EMAILS: 'signup/admin/team/invites',
   SET_FIRST_PROJECT: 'signup/admin/project',
   REGISTRATION_DONE: 'signup/admin/done',
+  RESTORE_PASSWORD: 'users/passwords/request',
 };

@@ -21,7 +21,7 @@ const FormTemplateView = props => {
       <div className={`${style.label_large} ${addTitleLargeClass} text-align-center mb-2`}>
         <h2>{titleLarge}</h2>
       </div>
-      <div className={`${style.label_small} ${addTitleSmallClass} text-align-center mb-10`}>
+      <div className={`${style.label_small} ${addTitleSmallClass} text-align-center mb-6`}>
         <h4>{titleSmall}</h4>
       </div>
       <div className={`${style.label_content} ${addChildrenClass}`}>{children}</div>

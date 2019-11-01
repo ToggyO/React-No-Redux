@@ -44,6 +44,10 @@ export default {
       const response = await superaxios.put(API_URL.REGISTRATION_DONE);
       return response.data;
     },
+    // registrationDone: async () => {
+    //   const response = await superaxios.put(API_URL.REGISTRATION_DONE);
+    //   return response.data;
+    // },
   },
   other: {
     getTeamEmails: async () => {
