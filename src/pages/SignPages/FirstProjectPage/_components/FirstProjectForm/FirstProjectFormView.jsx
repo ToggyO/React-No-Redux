@@ -39,7 +39,6 @@ const FirstProjectFormView = ({ setFirstProjectRequest, ...rest }) => {
     setFetching(true);
     const { data } = await api.other.getTeamEmails();
     setEmails(data);
-    debugger;
     setFetching(false);
   };
 

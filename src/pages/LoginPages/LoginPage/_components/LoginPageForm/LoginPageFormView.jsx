@@ -2,8 +2,10 @@ import PT from 'prop-types';
 import React, { useEffect, useRef } from 'react';
 import { Field, Form, Formik } from 'formik';
 
-import { ERROR_CODES } from '@config/errorCodes';
+import { style as SwitchButtonStyle } from './switch_button_style';
 
+import { SwitchButton } from '@components/Form/SwitchButton';
+import { ERROR_CODES } from '@config/errorCodes';
 import { GoogleButton } from '@components/Form/GoogleButton';
 import key from '@assets/login_page/key.png';
 import { PasswordInput } from '@components/Form/PasswordInput';
@@ -24,9 +26,10 @@ const LoginPageViewForm = ({ errorsFromBackend, loginInWithEmailRequest, loginIn
   return (
     <Formik
       ref={formikRef}
-      initialValues={{ email: '', password: '' }}
+      initialValues={{ email: '', password: '', rememberMe: true }}
       onSubmit={values => {
         loginInWithEmailRequest(values);
+        // console.log(values);
       }}
       render={({ errors, touched, isValid }) => (
         <Form>
@@ -50,15 +53,20 @@ const LoginPageViewForm = ({ errorsFromBackend, loginInWithEmailRequest, loginIn
             imgBefore={key}
             component={PasswordInput}
             validate={validateField.password}
-            addClassWrapper="pt-4 pb-4"
+            addClassWrapper="pt-4 pb-4 mb-4"
             addClassInput="pt-4 pb-4"
           />
           {errors.password && touched.password &&
           <div className="formik-error error-label">{errors.password}</div>}
+          <Field
+            name="rememberMe"
+            component={SwitchButton}
+            style={SwitchButtonStyle}
+          />
           <button
             type="submit"
             disabled={!isValid}
-            className="btn green-filled rounded p-4 full_width login-page-button"
+            className="btn green-filled rounded p-4 full_width login-page-button mt-10"
           >
             Sign in
           </button>

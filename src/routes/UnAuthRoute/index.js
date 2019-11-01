@@ -25,6 +25,7 @@ const UnAuthRoute = ({ component: Component, registrationStep, ...rest }) => (
   <Route
     {...rest}
     render={props => {
+      // debugger;
       if (!checkTokens() || (registrationStep && registrationStep < 8)) {
         // debugger;
         return <Component {...props} />;

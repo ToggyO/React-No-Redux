@@ -1,5 +1,7 @@
 import * as types from './types';
 
+import { getFromSessionState } from '@services/ss';
+
 import { getFromLocalState } from '@services/ls';
 /* shape
 
@@ -23,12 +25,13 @@ import { getFromLocalState } from '@services/ls';
 
 const initialState = {
   data: {
-    user: getFromLocalState('USER'),
+    user: getFromLocalState('USER') || getFromSessionState('USER'),
     token: {
-      accessToken: getFromLocalState('ACCESS_TOKEN'),
-      refreshToken: getFromLocalState('REFRESH_TOKEN'),
+      accessToken: getFromLocalState('ACCESS_TOKEN') || getFromSessionState('ACCESS_TOKEN'),
+      refreshToken: getFromLocalState('REFRESH_TOKEN') || getFromSessionState('REFRESH_TOKEN'),
     },
-    registrationStep: getFromLocalState('REGISTER_STEP') || { step: 0, stepName: '' },
+    registrationStep: getFromLocalState('REGISTER_STEP') ||
+      getFromSessionState('REGISTER_STEP') || { step: 0, stepName: '' },
   },
   loading: false,
   errors: [],
@@ -51,7 +54,9 @@ export default function auth(state = initialState, action) {
     case types.SIGNUP_WITH_EMAIL_SUCCESS:
     case types.SIGNUP_WITH_GOOGLE_SUCCESS:
     case types.LOGIN_IN_WITH_EMAIL_SUCCESS:
-    case types.LOGIN_IN_WITH_GOOGLE_SUCCESS: {
+    case types.LOGIN_IN_WITH_EMAIL_REMEMBER_ME_SUCCESS:
+    case types.LOGIN_IN_WITH_GOOGLE_SUCCESS:
+    case types.LOGIN_IN_WITH_GOOGLE_REMEMBER_ME_SUCCESS: {
       const { data } = action.payload;
       return { ...state, data, loading: false };
     }
