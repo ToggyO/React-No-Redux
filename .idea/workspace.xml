@@ -2,33 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c14643f0-600e-4384-bae2-0d92c8acbd51" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/LoginPages/RestorePassword/RestorePasswordView.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/LoginPages/RestorePassword/_components/RestorePasswordForm/RestorePasswordFormContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/LoginPages/RestorePassword/_components/RestorePasswordForm/RestorePasswordFormView.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/LoginPages/RestorePassword/_components/RestorePasswordForm/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/LoginPages/RestorePassword/_components/RestorePasswordForm/style.module.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/LoginPages/RestorePassword/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/LoginPages/RestorePassword/style.module.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/LoginPages/SetPasswordPage/_components/SetPasswordForm/SetPasswordFormContainer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.development" beforeDir="false" afterPath="$PROJECT_DIR$/.env.development" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/.env.production" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Root.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Root.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/FormTemplate/FormTemplateView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/FormTemplate/FormTemplateView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/PasswordInput/PasswordInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/PasswordInput/PasswordInput.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form/validations/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/validations/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/apiUrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/apiUrl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ducks/auth/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ducks/auth/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ducks/auth/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/auth/types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/LoginPages/LoginPage/LoginPageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPages/LoginPage/LoginPageView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/PasswordEnterPage/PasswordEnterPageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPages/SetPasswordPage/SetPasswordPageView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/PasswordEnterPage/_components/PasswordEnterForm/PasswordEnterFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPages/SetPasswordPage/_components/SetPasswordForm/SetPasswordFormView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/PasswordEnterPage/_components/PasswordEnterForm/checkbox_style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPages/SetPasswordPage/_components/SetPasswordForm/checkbox_style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/PasswordEnterPage/_components/PasswordEnterForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPages/SetPasswordPage/_components/SetPasswordForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/PasswordEnterPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPages/SetPasswordPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/SignUpPageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/SignUpPageView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

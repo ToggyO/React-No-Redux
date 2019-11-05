@@ -4,11 +4,12 @@
   "description": "Squad.io Frontend",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=development webpack-dev-server  --config webpack/webpack.development.js --port 3005  --host 0.0.0.0 --allowed-hosts myDevServerMachine",
-    "build": "NODE_ENV=production webpack --config webpack/webpack.production.js --progress --colors",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server  --config webpack/webpack.development.js --allowed-hosts myDevServerMachine",
+    "build": "cross-env NODE_ENV=production webpack --config webpack/webpack.production.js --progress --colors",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "lint:style": "stylelint \"src//*.less\" --syntax less",
-    "prettier": "prettier --write src//*.{js,less}"
+    "prettier": "prettier --write src//*.{js,less}",
+    "server:dev": "cross-env NODE_ENV=development nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -74,11 +75,14 @@
     "axios": "^0.19.0",
     "classnames": "^2.2.6",
     "core-js": "^2.6.9",
+    "cross-env": "^6.0.3",
     "dotenv": "^8.1.0",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "express": "^4.17.1",
     "formik": "^1.5.8",
     "history": "^4.10.1",
     "jwt-decode": "^2.2.0",
+    "nodemon": "^1.19.4",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
