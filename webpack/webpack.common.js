@@ -1,8 +1,13 @@
 const webpack = require('webpack');
+const WebpackBar = require('webpackbar');
 
 const { NODE_ENV, API_DOMAIN, API_VERSION, isPROD, isDEV, paths } = require('../bin');
 
 module.exports = {
+  stats: {
+    children: false,
+    modules: false,
+  },
   entry: {
     app: paths.appIndexJs,
   },
@@ -21,6 +26,9 @@ module.exports = {
         API_DOMAIN: JSON.stringify(API_DOMAIN),
         API_VERSION: JSON.stringify(API_VERSION),
       },
+    }),
+    new WebpackBar({
+      color: '#1fffa2',
     }),
   ],
   module: {

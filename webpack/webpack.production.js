@@ -6,6 +6,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const WebpackBar = require('webpackbar');
 
 const { paths } = require('../bin');
 
@@ -55,6 +56,9 @@ module.exports = merge(common, {
     }),
 
     new CopyWebpackPlugin([{ from: paths.appAssets, to: paths.appBuildAssets }]),
+    new WebpackBar({
+      color: '#1fffa2',
+    }),
   ],
   module: {
     rules: [
