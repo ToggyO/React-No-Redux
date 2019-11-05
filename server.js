@@ -19,6 +19,6 @@ app.get('/*', function (req, res) {
 
 app.listen({host: process.env.HOST, port: process.env.PORT}, () => {
   console.log(`Server is running on:
-   host: ${process.env.HOST}
-   port: ${process.env.PORT}`);
+     host: ${process.env.HOST}
+     port: ${process.env.PORT}`);
 });

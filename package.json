@@ -4,14 +4,12 @@
   "description": "Squad.io Frontend",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server  --config webpack/webpack.development.js ",
-    "build:dev": "webpack --config webpack/webpack.production.js --progress --colors",
-    "build:prod": "webpack --config webpack/webpack.production.js --progress --colors",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server  --config webpack/webpack.development.js --allowed-hosts myDevServerMachine",
+    "build": "cross-env NODE_ENV=production webpack --config webpack/webpack.production.js --progress --colors",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
-    "lint:js": "eslint --ext .js src --fix",
-    "prettier": "prettier --write src/**/*.{js}",
-    "server:dev": "cross-env NODE_ENV=development nodemon server.js",
-    "server:prod": "cross-env NODE_ENV=production nodemon server.js"
+    "lint:style": "stylelint \"src//*.less\" --syntax less",
+    "prettier": "prettier --write src//*.{js,less}",
+    "server:dev": "cross-env NODE_ENV=development nodemon server.js"
   },
   "repository": {
     "type": "git",
