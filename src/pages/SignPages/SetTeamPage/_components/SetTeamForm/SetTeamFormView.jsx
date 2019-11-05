@@ -24,8 +24,11 @@ const SetTeamFormView = ({ errorsFromBackend, setTeam }) => {
     <Formik
       ref={formikRef}
       initialValues={{ name: '', colorHex: '#82ABFB', email: '' }}
-      onSubmit={values => setTeam({...values, emails})}
-      render={({ isValid, values, errors }) => (
+      onSubmit={values => {
+        setTeam({...values, emails});
+        // console.log({...values, emails});
+      }}
+      render={({ isValid, errors, setFieldValue }) => (
         <>
           <Form>
             {errors.global &&
@@ -38,7 +41,7 @@ const SetTeamFormView = ({ errorsFromBackend, setTeam }) => {
               validate={validateField.name}
               addClassWrapper="pt-4 pb-4"
               addClassInput="pt-4 pb-4 pl-5 pr-5"
-              additionalElement={<ColorSelect values={values}/>}
+              additionalElement={<ColorSelect setFieldValue={setFieldValue}/>}
             />
             <ErrorMessage name="name" component="div" className="formik-error error-label" />
             <Field

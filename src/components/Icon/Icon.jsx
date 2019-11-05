@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PT from 'prop-types';
 import './iconsStyle.sass';
 
 /* eslint-disable */
@@ -225,8 +225,8 @@ function Icon({ iconName, className, fill }) {
 }
 
 Icon.propTypes = {
-  iconName: PropTypes.string,
-  className: PropTypes.string,
+  iconName: PT.string,
+  className: PT.string,
 };
 
 export default Icon;

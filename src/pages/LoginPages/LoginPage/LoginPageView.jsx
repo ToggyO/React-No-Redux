@@ -23,7 +23,15 @@ const LoginPageView = () => {
       </Helmet>
       <FormTemplateView
         titleLarge="Sign in"
-        titleSmall="Are you new to squad? Create your account here"
+        titleSmall={<p>
+          Are you new to squad? Create your account&ensp;
+          <NavLink
+            className="form_link"
+            to={ROUTES.AUTH.ROOT + ROUTES.AUTH.SIGN_UP}
+          >
+            here.
+          </NavLink>
+        </p>}
         link={<NavLink
           className="form_link"
           to={ROUTES.AUTH.ROOT + ROUTES.AUTH.RESTORE_PASSWORD}

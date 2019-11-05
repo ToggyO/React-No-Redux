@@ -13,7 +13,7 @@ const SetPasswordFormView = () => {
       initialValues={{ password: undefined, passwordConfirm: undefined }}
       validate={validateForm.confirmSignUp}
       onSubmit={values => {
-        // setFormValues(values);
+        setFormValues(values);
         console.log(formValues);
       }}
       render={({ errors, touched, isValid }) => (

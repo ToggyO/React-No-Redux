@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
+import PT from 'prop-types';
 
 import { ERROR_CODES } from '@config/errorCodes';
 import { responseFormikError } from '@utils/index';
@@ -24,9 +24,9 @@ const ConfirmEmailFormView = ({ errorsFromBackend, confirmEmail, clearStoreError
 };
 
 ConfirmEmailFormView.propTypes = {
-  errorsFromBackend: PropTypes.arrayOf(PropTypes.object),
-  confirmEmail: PropTypes.func,
-  clearStoreErrors: PropTypes.func,
+  errorsFromBackend: PT.arrayOf(PT.object),
+  confirmEmail: PT.func,
+  clearStoreErrors: PT.func,
 };
 
 export default ConfirmEmailFormView;

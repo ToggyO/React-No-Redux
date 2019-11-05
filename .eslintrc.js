@@ -32,6 +32,8 @@ module.exports = {
     'react/no-unescaped-entities': [2, { forbid: ['>', '}'] }],
     'react/destructuring-assignment': 0,
     'no-plusplus': 'off',
+    'react/no-array-index-key': 'off',
+    'jsx-a11y/no-noninteractive-element-interactions': 'off',
     indent: [
       2,
       2,

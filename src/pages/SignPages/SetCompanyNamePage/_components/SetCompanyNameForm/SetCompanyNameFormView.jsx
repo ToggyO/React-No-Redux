@@ -52,6 +52,8 @@ const SetCompanyNameForm = ({ errorsFromBackend, setCompanyName }) => {
 SetCompanyNameForm.propTypes = {
   errorsFromBackend: PT.arrayOf(PT.object),
   setCompanyName: PT.func,
+  errors: PT.object,
+  isValid: PT.bool,
 };
 
 export default SetCompanyNameForm;

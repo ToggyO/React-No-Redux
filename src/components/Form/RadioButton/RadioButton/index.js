@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/label-has-for */
 import React from 'react';
-import PropTypes from 'prop-types';
+import PT from 'prop-types';
 
 import s from './style.module.sass';
 
 import { Icon } from '@components/Icon';
 
-const RadioButton = ({ field: { name, value, onChange, onBlur }, style = {}, id, withExtra }) => (
+export const RadioButton = ({ field: { name, value, onChange, onBlur }, style = {}, id, withExtra }) => (
   <div style={style.container}>
     <input
       name={name}
@@ -35,18 +35,16 @@ const RadioButton = ({ field: { name, value, onChange, onBlur }, style = {}, id,
   </div>
 );
 
-export default RadioButton;
-
 RadioButton.propTypes = {
-  field: PropTypes.object,
-  name: PropTypes.string,
-  value: PropTypes.string,
-  onChange: PropTypes.func,
-  onBlur: PropTypes.func,
-  style: PropTypes.object,
-  id: PropTypes.string,
-  withExtra: PropTypes.shape({
-    icon: PropTypes.string,
-    text: PropTypes.string,
+  field: PT.object,
+  name: PT.string,
+  value: PT.string,
+  onChange: PT.func,
+  onBlur: PT.func,
+  style: PT.object,
+  id: PT.string,
+  withExtra: PT.shape({
+    icon: PT.string,
+    text: PT.string,
   }),
 };

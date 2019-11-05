@@ -1,8 +1,9 @@
 import React from 'react';
+import PT from 'prop-types';
 
 import s from './style.module.sass';
 
-const TutorialPageFormView = ({ errorsFromBackend, registrationDone }) => (
+const TutorialPageFormView = ({ registrationDone }) => (
   <>
     <iframe
       className={`${s.iframe} mb-7`}
@@ -25,5 +26,10 @@ const TutorialPageFormView = ({ errorsFromBackend, registrationDone }) => (
     </button>
   </>
 );
+
+TutorialPageFormView.propTypes = {
+  // errorsFromBackend: PT.arrayOf(PT.object),
+  registrationDone: PT.func,
+}
 
 export default TutorialPageFormView;

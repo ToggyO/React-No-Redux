@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
+import PT from 'prop-types';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 
 import { style } from './checkbox_style';
@@ -62,8 +62,8 @@ const EnterNameFormView = ({ errorsFromBackend, setUserName }) => {
 };
 
 EnterNameFormView.propTypes = {
-  errorsFromBackend: PropTypes.array,
-  setUserName: PropTypes.func,
+  errorsFromBackend: PT.array,
+  setUserName: PT.func,
 };
 
 export default EnterNameFormView;

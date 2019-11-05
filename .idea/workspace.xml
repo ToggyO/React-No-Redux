@@ -2,12 +2,63 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c14643f0-600e-4384-bae2-0d92c8acbd51" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Form/RadioButton/RadioButtonGroup/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/LogoutButton/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env.development" beforeDir="false" afterPath="$PROJECT_DIR$/.env.development" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/.env.production" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.lintstagedrc" beforeDir="false" afterPath="$PROJECT_DIR$/.lintstagedrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/AddButton/AddButton.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/AddButton/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/AddButton/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/Checkbox/Checkbox.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/Checkbox/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/Checkbox/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/ConfirmEmailInput.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/_components/RenderCircles/RenderCircles.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/_components/RenderCircles/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/ConfirmEmailInput/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/Dropdown/ColorSelect/ColorSelect.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/Dropdown/ColorSelect/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/Dropdown/ColorSelect/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/Dropdown/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/Dropdown/Dropdown.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/FormTemplate/FormTemplateView.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/FormTemplate/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/FormTemplate/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/GoogleButton/GoogleButton.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/GoogleButton/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/GoogleButton/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/ImgBefore/ImageBefore.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/ImgBefore/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/ImgBefore/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/LabelWrapper/LabelWrapper.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/LabelWrapper/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/LabelWrapper/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/MultipleTextInput/MultipleTextInput.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/MultipleTextInput/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/MultipleTextInput/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/PasswordInput/PasswordInput.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/PasswordInput/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/PasswordInput/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/RadioButton/RadioButtonGroup.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/RadioButton/_components/RadioButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/RadioButton/RadioButton/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/RadioButton/_components/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/RadioButton/_components/style.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/RadioButton/RadioButton/style.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/RadioButton/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/RenderListAdd/RenderListAdd.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/RenderListAdd/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/RenderListAdd/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/RenderListDelete/RenderListDelete.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/RenderListDelete/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/RenderListDelete/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/SwitchButton/SwitchButton.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/SwitchButton/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/SwitchButton/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/TextInput/TextInput.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/TextInput/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/TextInput/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Icon/Icon.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Icon/Icon.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Preloader/Preloader.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Preloader/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Preloader/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/HomePage/HomePageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomePage/HomePageView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/LoginPages/LoginPage/LoginPageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPages/LoginPage/LoginPageView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/LoginPages/SetPasswordPage/_components/SetPasswordForm/SetPasswordFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPages/SetPasswordPage/_components/SetPasswordForm/SetPasswordFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/_components/ConfirmEmailForm/ConfirmEmailFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/ConfirmEmailPage/_components/ConfirmEmailForm/ConfirmEmailFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/EnterNamePage/_components/EnterNameForm/EnterNameFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/EnterNamePage/_components/EnterNameForm/EnterNameFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/FirstProjectPageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/FirstProjectPageView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/_components/FirstProjectForm/FirstProjectFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/FirstProjectPage/_components/FirstProjectForm/FirstProjectFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SetCompanyNamePage/SetCompanyNamePageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SetCompanyNamePage/SetCompanyNamePageView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SetCompanyNamePage/_components/SetCompanyNameForm/SetCompanyNameFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SetCompanyNamePage/_components/SetCompanyNameForm/SetCompanyNameFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SetTeamPage/SetTeamPageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SetTeamPage/SetTeamPageView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SetTeamPage/_components/SetTeamForm/SetTeamFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SetTeamPage/_components/SetTeamForm/SetTeamFormView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/SignUpPageView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/SignUpPage/SignUpPageView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/_components/TutorialPageForm/TutorialPageFormView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignPages/TutorialPage/_components/TutorialPageForm/TutorialPageFormView.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,22 +92,22 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Projects\squad.io-js-front\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.XML" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.1.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\squad.io-js-front\src\components\Form\RadioButton\RadioButtonGroup" />
+      <recent name="C:\Projects\squad.io-js-front\src\components\Form\RadioButton" />
+      <recent name="C:\Projects\squad.io-js-front\src\components\Form\RadioButton\_components\RadioButton" />
+      <recent name="C:\Projects\squad.io-js-front\src\pages\LoginPages\SetPasswordPage\_components" />
+      <recent name="C:\Projects\squad.io-js-front\src\pages\LoginPages\SetPasswordPage" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Projects\squad.io-js-front\src\assets\login_page" />
       <recent name="C:\Projects\squad.io-js-front\src\components" />
       <recent name="C:\Projects\squad.io-js-front\src\components\Icon" />
       <recent name="C:\Projects\squad.io-js-front\src\components\Form\ConfirmEmailInput" />
-      <recent name="C:\Projects\squad.io-js-front\src\components\Form" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Projects\squad.io-js-front\src\pages\LoginPages\SetPasswordPage\_components" />
-      <recent name="C:\Projects\squad.io-js-front\src\pages\LoginPages\SetPasswordPage" />
-      <recent name="C:\Projects\squad.io-js-front\src\pages\LoginPages" />
-      <recent name="C:\Projects\squad.io-js-front\src\pages\LoginPages\RestorePassword\_components\RestorePasswordForm" />
       <recent name="C:\Projects\squad.io-js-front\src\components\Form" />
     </key>
   </component>

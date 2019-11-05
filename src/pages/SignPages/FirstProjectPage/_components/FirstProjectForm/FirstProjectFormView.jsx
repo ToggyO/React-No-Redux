@@ -7,7 +7,6 @@ import { style as renderListStyle } from '../../../SetTeamPage/_components/SetTe
 import { style } from './radio_button_style';
 
 import s from '@components/Form/TextInput/style.module.sass';
-import { getUniqueKey } from '@utils/index';
 import { RenderListAdd } from '@components/Form/RenderListAdd';
 
 // import { responseFormikError } from '@utils/index';
@@ -17,8 +16,8 @@ import { RenderListAdd } from '@components/Form/RenderListAdd';
 import { ColorSelect } from '@components/Form/Dropdown/ColorSelect';
 import { TextInput } from '@components/Form/TextInput';
 import { validateField } from '@components/Form/validations';
-import { RadioButtonGroup } from '@components/Form/RadioButton';
-import { RadioButton } from '@components/Form/RadioButton/_components';
+import { RadioButtonGroup } from '@components/Form/RadioButton/RadioButtonGroup';
+import { RadioButton } from '@components/Form/RadioButton/RadioButton';
 import { Preloader } from '@components/Preloader';
 import api from '@services/api';
 
@@ -75,9 +74,12 @@ const FirstProjectFormView = ({ setFirstProjectRequest, ...rest }) => {
   // }, [errorsFromBackend]);
 
     <Formik
-      initialValues={{ name: '', radioGroup: 'projectTeam', hexColor: '#82ABFB' }}
-      onSubmit={handleSubmit}
-      render={({ isValid, values }) => (
+      initialValues={{ name: '', radioGroup: 'projectTeam', colorHex: '#82ABFB' }}
+      onSubmit={values => {
+        handleSubmit(values);
+        console.log(values);
+      }}
+      render={({ isValid, values, setFieldValue }) => (
         <Form>
           <div>
             <Field
@@ -88,7 +90,7 @@ const FirstProjectFormView = ({ setFirstProjectRequest, ...rest }) => {
               validate={validateField.name}
               addClassWrapper="pt-4 pb-4 mb-3"
               addClassInput="pt-4 pb-4 pl-5"
-              additionalElement={<ColorSelect values={values} />}
+              additionalElement={<ColorSelect setFieldValue={setFieldValue}/>}
             />
             <ErrorMessage name="project" component="div" className="formik-error error-label" />
           </div>
@@ -110,10 +112,9 @@ const FirstProjectFormView = ({ setFirstProjectRequest, ...rest }) => {
 
           <div className={`${s.mapped_emails} mt-3`}>
             {values.radioGroup === 'projectPeople' &&
-              emails.map((item, i) =>
+              emails.map(item =>
                 <RenderListAdd
                   key={item}
-                  arrayIndex={i}
                   email={item}
                   state={selectedEmails.includes(item)}
                   addContainerClass="flex pt-2 pb-2"

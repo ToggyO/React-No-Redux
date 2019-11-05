@@ -1,7 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { userLogout } from '@services/auth';
+import { LogoutButton } from '@components/LogoutButton';
+
 
 const HomePageView = () => (
   <div>
@@ -9,7 +10,7 @@ const HomePageView = () => (
       <meta name="description" content="Home page" />
     </Helmet>
     <h1>Protected Home Page</h1>
-    <button type="button" onClick={userLogout}>Log Out</button>
+    <LogoutButton addButtonClass="btn form_link" />
     {/* <button type="button" onClick={() => modalOpen('Handler500')}>Open modal</button> */}
   </div>
 );
