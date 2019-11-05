@@ -10,6 +10,6 @@ module.exports = {
   appHtml: resolveApp('src/index.html'), // html template
   appIndexJs: resolveApp('src/index.js'), // Main entry point
   appFavicon: resolveApp('src/assets/favicons/favicon.ico'), // Main favicon
-  appBuild: resolveApp('public'), // Prod built client files end up here
-  appBuildAssets: resolveApp('public/assets'), // Prod built client files end up here
+  appBuild: resolveApp('build'), // Prod built client files end up here
+  appBuildAssets: resolveApp('build/assets'), // Prod built client files end up here
 };
