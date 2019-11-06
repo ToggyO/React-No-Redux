@@ -5,4 +5,4 @@ services:
     hostname: squad-front
     build: .
     ports:
-      - '3010:80'
+      - '80:80'
