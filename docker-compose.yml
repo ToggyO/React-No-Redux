@@ -1,0 +1,8 @@
+version: '3'
+services:
+  nginx:
+    container_name: squad-front
+    hostname: squad-front
+    build: .
+    ports:
+      - '3010:80'
