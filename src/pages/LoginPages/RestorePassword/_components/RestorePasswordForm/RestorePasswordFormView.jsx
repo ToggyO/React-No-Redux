@@ -10,8 +10,7 @@ import { validateField } from '@components/Form/validations';
 import mail from '@assets/login_page/email_icon.png';
 
 
-// eslint-disable-next-line react/prop-types
-const RestorePasswordFormView = ({ errorsFromBackend }) => {
+const RestorePasswordFormView = ({ errorsFromBackend, restorePassword }) => {
   const formikRef = useRef(null);
 
   useEffect(() => {
@@ -22,7 +21,10 @@ const RestorePasswordFormView = ({ errorsFromBackend }) => {
     <Formik
       ref={formikRef}
       initialValues={{ email: '' }}
-      onSubmit={values => console.log(values)}
+      onSubmit={values => {
+        restorePassword(values);
+        console.log(values)
+      }}
       render={({ errors, touched, isValid }) => (
         <Form>
           {errors.global &&
@@ -54,6 +56,7 @@ const RestorePasswordFormView = ({ errorsFromBackend }) => {
 
 RestorePasswordFormView.propTypes = {
   errorsFromBackend: PT.arrayOf(PT.object),
+  restorePassword: PT.func,
 };
 
 export default RestorePasswordFormView;

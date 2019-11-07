@@ -11,7 +11,7 @@ import { AuthScreenWrapperContainer } from '@components/AuthScreenWrapper';
 import { HomePageContainer } from '@pages/HomePage';
 import { NotFoundPageView } from '@pages/NotFoundPage';
 import { SignUpPageContainer } from '@pages/SignPages/SignUpPage';
-import { ConfirmEmailPageView } from '@pages/SignPages/ConfirmEmailPage';
+import { ConfirmEmailPageContainer } from '@pages/SignPages/ConfirmEmailPage';
 import { SetPasswordPageView } from '@pages/LoginPages/SetPasswordPage';
 import { EnterNamePageView } from '@pages/SignPages/EnterNamePage';
 import { SetCompanyNamePageView } from '@pages/SignPages/SetCompanyNamePage';
@@ -19,7 +19,7 @@ import { FirstProjectPageView } from '@pages/SignPages/FirstProjectPage';
 import { TutorialPageView } from '@pages/SignPages/TutorialPage';
 import { SetTeamPageView } from '@pages/SignPages/SetTeamPage';
 import { LoginPageView } from '@pages/LoginPages/LoginPage';
-import { RestorePasswordView } from '@pages/LoginPages/RestorePassword';
+import { RestorePasswordContainer } from '@pages/LoginPages/RestorePassword';
 
 // eslint-disable-next-line react/prop-types
 const Routes = ({ modal: { modalKey } }) => (
@@ -36,7 +36,7 @@ const Routes = ({ modal: { modalKey } }) => (
               <Route
                 path={ROUTES.AUTH.ROOT + ROUTES.AUTH.CONFIRM_EMAIL}
                 exact
-                component={ConfirmEmailPageView}
+                component={ConfirmEmailPageContainer}
               />
               <Route path={ROUTES.AUTH.ROOT + ROUTES.AUTH.ENTER_NAME} exact component={EnterNamePageView} />
               <Route
@@ -59,7 +59,7 @@ const Routes = ({ modal: { modalKey } }) => (
               <Route
                 path={ROUTES.AUTH.ROOT + ROUTES.AUTH.RESTORE_PASSWORD}
                 exact
-                component={RestorePasswordView}
+                component={RestorePasswordContainer}
               />
               <Route
                 path={ROUTES.AUTH.ROOT + ROUTES.AUTH.SET_PASSWORD}

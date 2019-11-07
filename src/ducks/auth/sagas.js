@@ -291,6 +291,20 @@ export function* registrationDoneSaga() {
   yield takeLatest(authTypes.REGISTRATION_DONE_REQUEST, registrationDone);
 }
 
+function* restorePassword(action) {
+  try {
+    yield call(api.auth.restorePassword, action.payload);
+    yield put({ type: authTypes.RESTORE_PASSWORD_SUCCESS, payload: action.payload.email });
+  } catch (error) {
+    const { errors } = error.response.data;
+    yield put({ type: authTypes.RESTORE_PASSWORD_ERROR, payload: errors });
+  }
+}
+
+export function* restorePasswordSaga() {
+  yield takeLatest(authTypes.RESTORE_PASSWORD_REQUEST, restorePassword);
+}
+
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 

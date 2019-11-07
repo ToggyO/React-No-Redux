@@ -35,6 +35,7 @@ const initialState = {
   },
   loading: false,
   errors: [],
+  extra: '',
 };
 
 export default function auth(state = initialState, action) {
@@ -61,6 +62,8 @@ export default function auth(state = initialState, action) {
       const { data } = action.payload;
       return { ...state, data, loading: false };
     }
+    case types.RESTORE_PASSWORD_SUCCESS:
+      return { ...state, loading: false, extra: action.payload };
     case types.CONFIRM_EMAIL_SUCCESS:
     case types.SET_USER_NAME_SUCCESS:
     case types.SET_COMPANY_NAME_SUCCESS:
@@ -70,7 +73,6 @@ export default function auth(state = initialState, action) {
       const { data } = action.payload;
       return { ...state, loading: false, data: { ...state.data, registrationStep: data.registrationStep } };
     }
-    case types.RESTORE_PASSWORD_SUCCESS:
     case types.REFRESHING_TOKEN_SUCCESS:
       return { ...state, loading: false };
     case types.SIGNUP_WITH_EMAIL_ERROR:
@@ -88,6 +90,8 @@ export default function auth(state = initialState, action) {
       return { ...state, loading: false, errors: action.payload };
     case types.CLEAR_STORE_ERRORS:
       return { ...state, errors: [] };
+    case types.CLEAR_EXTRA:
+      return { ...state, extra: '' };
     default:
       return state;
   }

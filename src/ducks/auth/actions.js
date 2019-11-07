@@ -51,7 +51,7 @@ export const registrationDone = data => ({
 });
 
 export const restorePassword = data => ({
-  type: types.REGISTRATION_DONE_REQUEST,
+  type: types.RESTORE_PASSWORD_REQUEST,
   payload: data,
 });
 

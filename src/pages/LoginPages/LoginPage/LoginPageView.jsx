@@ -24,7 +24,7 @@ const LoginPageView = () => {
       <FormTemplateView
         titleLarge="Sign in"
         titleSmall={<p>
-          Are you new to squad? Create your account&ensp;
+          Are you new to squad? Create your account&nbsp;
           <NavLink
             className="form_link"
             to={ROUTES.AUTH.ROOT + ROUTES.AUTH.SIGN_UP}

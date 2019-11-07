@@ -1,9 +1,10 @@
 import React from 'react';
 import PT from 'prop-types';
 
-import Icon from '@components/Icon/Icon';
-
 import s from './style.module.sass';
+
+import { Icon } from '@components/Icon';
+
 
 
 const Handler500 = ({ onClose }) => (

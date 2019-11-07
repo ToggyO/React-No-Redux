@@ -1,20 +1,20 @@
 import React from 'react';
+import PT from 'prop-types';
 import { Helmet } from 'react-helmet';
-
-// import { ConfirmEmailFormView } from './_components/ConfirmEmailForm';
 
 import { ConfirmEmailFormContainer } from './_components/ConfirmEmailForm';
 
 import { FormTemplateView } from '@components/Form/FormTemplate';
 
-const ConfirmEmailPageView = () => (
+
+const ConfirmEmailPageView = ({ userInfo = {} }) => (
   <>
     <Helmet defaultTitle="Squad.io - Confirm email">
       <meta name="description" content="Confirm email page" />
     </Helmet>
     <FormTemplateView
       titleLarge="Confirm your email"
-      titleSmall="We have sent a confirmation code to name@company.com. Enter this code below:"
+      titleSmall={`We have sent a confirmation code to ${userInfo.email}. Enter this code below:`}
       addTitleSmallClass="pl-20 pr-20"
       link={<p>
         Didn’t receive a confirmation code?&nbsp;
@@ -25,5 +25,9 @@ const ConfirmEmailPageView = () => (
     </FormTemplateView>
   </>
 );
+
+ConfirmEmailPageView.propTypes = {
+  userInfo: PT.object,
+};
 
 export default ConfirmEmailPageView;
