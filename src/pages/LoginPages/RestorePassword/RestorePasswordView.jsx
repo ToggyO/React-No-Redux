@@ -28,7 +28,8 @@ const RestorePasswordView = ({ withExtra = '' }) => (
             <p className="pt-6">or&nbsp;
               <Link
                 className="form_link"
-                to={ROUTES.AUTH.ROOT + ROUTES.AUTH.LOGIN_IN}>
+                to={ROUTES.AUTH.ROOT + ROUTES.AUTH.LOGIN_IN}
+              >
                 Log In
               </Link>
             </p>
