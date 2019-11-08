@@ -5,17 +5,18 @@ import { Link } from 'react-router-dom';
 
 import { RestorePasswordFormContainer } from './_components/RestorePasswordForm';
 
-import { MessageSuccess } from '@components/MessageSuccess';
+import MessageSuccess from '@components/MessageSuccess';
 import { ROUTES } from '@config/routes';
 import { FormTemplateView } from '@components/Form/FormTemplate';
+
 
 const RestorePasswordView = ({ withExtra = '' }) => (
   <>
     <Helmet defaultTitle="Squad.io - Restore password">
       <meta name="description" content="Sign in page" />
     </Helmet>
-    <div className="flex flex-column">
-      {withExtra && <MessageSuccess message={`Recovery link is sent to ${withExtra}`}/> }
+    <div className="flex flex-column relative">
+      {withExtra && <MessageSuccess message={`Recovery link is sent to ${withExtra}`} />}
       <FormTemplateView
         titleLarge="Restore password"
         titleSmall="Enter the email you used to sign up and we'll send you a link to reset your password."

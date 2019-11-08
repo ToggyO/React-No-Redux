@@ -59,6 +59,10 @@ export const clearStoreErrors = () => ({
   type: types.CLEAR_STORE_ERRORS,
 });
 
+export const clearExtra = () => ({
+  type: types.CLEAR_EXTRA,
+});
+
 // export const logoutRequest = () => ({
 //   type: types.LOGOUT,
 // });

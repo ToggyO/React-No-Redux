@@ -1,5 +1,14 @@
 .wrapper
+  position: absolute
+  width: 100%
   padding-bottom: 60px
+  opacity: 0
+  transform: translateY(-100%)
+  transition: all .5s ease-in-out
+
+.shown
+  opacity: 1
+  transform: translateY(-80%)
 
 .container
   padding: 26px

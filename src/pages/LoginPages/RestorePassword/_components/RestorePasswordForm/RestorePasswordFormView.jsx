@@ -10,7 +10,7 @@ import { validateField } from '@components/Form/validations';
 import mail from '@assets/login_page/email_icon.png';
 
 
-const RestorePasswordFormView = ({ errorsFromBackend, restorePassword }) => {
+const RestorePasswordFormView = ({ errorsFromBackend, restorePassword, clearExtra}) => {
   const formikRef = useRef(null);
 
   useEffect(() => {
@@ -22,8 +22,8 @@ const RestorePasswordFormView = ({ errorsFromBackend, restorePassword }) => {
       ref={formikRef}
       initialValues={{ email: '' }}
       onSubmit={values => {
+        clearExtra();
         restorePassword(values);
-        console.log(values)
       }}
       render={({ errors, touched, isValid }) => (
         <Form>
@@ -45,6 +45,7 @@ const RestorePasswordFormView = ({ errorsFromBackend, restorePassword }) => {
             type="submit"
             disabled={!isValid}
             className="btn green-filled rounded p-4 full_width login-page-button"
+
           >
             Send me a link
           </button>
@@ -57,6 +58,7 @@ const RestorePasswordFormView = ({ errorsFromBackend, restorePassword }) => {
 RestorePasswordFormView.propTypes = {
   errorsFromBackend: PT.arrayOf(PT.object),
   restorePassword: PT.func,
+  clearExtra: PT.func,
 };
 
 export default RestorePasswordFormView;

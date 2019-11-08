@@ -12,11 +12,8 @@ function mapStateToProps(state) {
 
 // function mapDispatchToProps(dispatch) {
 //   return {
-//     signUpWithEmailRequest(emailObj) {
-//       dispatch(authActions.signUpWithEmailRequest(emailObj));
-//     },
-//     signUpWithGoogleRequest(emailObj) {
-//       dispatch(authActions.signUpWithGoogleRequest(emailObj));
+//     clearExtra(emailObj) {
+//       dispatch(authActions.clearExtra(emailObj));
 //     },
 //   };
 // }

@@ -15,6 +15,9 @@ function mapDispatchToProps(dispatch) {
     restorePassword(email) {
       dispatch(authActions.restorePassword(email));
     },
+    clearExtra(emailObj) {
+      dispatch(authActions.clearExtra(emailObj));
+    },
   };
 }
 
