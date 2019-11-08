@@ -1,8 +1,11 @@
+import React from 'react';
 import { connect } from 'react-redux';
 
 import ConfirmEmailFormView from './ConfirmEmailFormView';
 
 import { authActions, authSelectors } from '@ducks/auth';
+
+const ConfirmEmailFormContainer = props => <ConfirmEmailFormView {...props} />;
 
 function mapStateToProps(state) {
   return {
@@ -24,4 +27,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ConfirmEmailFormView);
+)(ConfirmEmailFormContainer);

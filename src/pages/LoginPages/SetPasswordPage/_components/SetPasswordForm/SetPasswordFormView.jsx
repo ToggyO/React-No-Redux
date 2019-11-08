@@ -1,20 +1,34 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PT from 'prop-types';
 import { Field, Form, Formik } from 'formik';
+import { withRouter } from 'react-router-dom';
 
+import { parseQueryString } from '@utils/index';
 import { validateForm } from '@components/Form/validations';
 import { PasswordInput } from '@components/Form/PasswordInput';
 import key from '@assets/login_page/key.png';
 
-const SetPasswordFormView = () => {
-  const [formValues, setFormValues] = useState({});
+
+const SetPasswordFormView = ({ location = {}, errorsFromBackend = {}, setNewPassword }) => {
+  const queries = parseQueryString(location.search);
+  console.log(errorsFromBackend);
 
   return (
     <Formik
-      initialValues={{ password: undefined, passwordConfirm: undefined }}
-      validate={validateForm.confirmSignUp}
+      initialValues={{ password: '', passwordConfirm: '' }}
+      validate={validateForm.confirmPassword}
       onSubmit={values => {
-        setFormValues(values);
-        console.log(formValues);
+        setNewPassword({
+          code: queries.code,
+          password: values.password,
+          email: 'yocopa@dmail1.net', // todo HARDCODE
+        });
+        console.log({
+          code: queries.code,
+          password: values.password,
+          email: 'yocopa@dmail1.net',
+
+        })
       }}
       render={({ errors, touched, isValid }) => (
         <Form>
@@ -49,4 +63,10 @@ const SetPasswordFormView = () => {
   );
 };
 
-export default SetPasswordFormView;
+SetPasswordFormView.propTypes = {
+  location: PT.object,
+  errorsFromBackend: PT.arrayOf(PT.object),
+  setNewPassword: PT.func,
+};
+
+export default withRouter(SetPasswordFormView);

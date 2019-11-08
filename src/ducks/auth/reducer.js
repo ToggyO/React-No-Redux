@@ -51,6 +51,7 @@ export default function auth(state = initialState, action) {
     case types.SET_FIRST_PROJECT_REQUEST:
     case types.REGISTRATION_DONE_REQUEST:
     case types.RESTORE_PASSWORD_REQUEST:
+    case types.SET_NEW_PASSWORD_REQUEST:
     case types.REFRESHING_TOKEN_REQUEST:
       return { ...state, loading: true };
     case types.SIGNUP_WITH_EMAIL_SUCCESS:
@@ -73,6 +74,7 @@ export default function auth(state = initialState, action) {
       const { data } = action.payload;
       return { ...state, loading: false, data: { ...state.data, registrationStep: data.registrationStep } };
     }
+    case types.SET_NEW_PASSWORD_SUCCESS:
     case types.REFRESHING_TOKEN_SUCCESS:
       return { ...state, loading: false };
     case types.SIGNUP_WITH_EMAIL_ERROR:
@@ -86,6 +88,7 @@ export default function auth(state = initialState, action) {
     case types.SET_FIRST_PROJECT_ERROR:
     case types.REGISTRATION_DONE_ERROR:
     case types.RESTORE_PASSWORD_ERROR:
+    case types.SET_NEW_PASSWORD_ERROR:
     case types.REFRESHING_TOKEN_ERROR:
       return { ...state, loading: false, errors: action.payload };
     case types.CLEAR_STORE_ERRORS:

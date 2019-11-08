@@ -8,11 +8,6 @@ import { style } from './radio_button_style';
 
 import s from '@components/Form/TextInput/style.module.sass';
 import { RenderListAdd } from '@components/Form/RenderListAdd';
-
-// import { responseFormikError } from '@utils/index';
-//
-// import { ERROR_CODES } from '@config/errorCodes';
-
 import { ColorSelect } from '@components/Form/Dropdown/ColorSelect';
 import { TextInput } from '@components/Form/TextInput';
 import { validateField } from '@components/Form/validations';

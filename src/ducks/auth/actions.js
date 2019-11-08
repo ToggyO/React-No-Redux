@@ -55,6 +55,11 @@ export const restorePassword = data => ({
   payload: data,
 });
 
+export const setNewPassword = data => ({
+  type: types.SET_NEW_PASSWORD_REQUEST,
+  payload: data,
+});
+
 export const clearStoreErrors = () => ({
   type: types.CLEAR_STORE_ERRORS,
 });

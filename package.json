@@ -85,6 +85,7 @@
     "jwt-decode": "^2.2.0",
     "nodemon": "^1.19.4",
     "prop-types": "^15.7.2",
+    "qs": "^6.9.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-google-login": "^5.0.5",

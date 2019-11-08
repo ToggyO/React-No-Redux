@@ -8,9 +8,13 @@ import { Icon } from '@components/Icon';
 
 const MessageSuccess = ({ message, clearExtra, style = {} }) => {
   const [flag, setFlag] = useState(false);
+
   useEffect(() => {
     setTimeout(() => setFlag(true), 0);
-    return () => clearExtra();
+    return () => {
+      setFlag(false);
+      setTimeout(() => clearExtra(), 500);
+    };
   }, []);
 
   return (
