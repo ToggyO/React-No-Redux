@@ -24,6 +24,10 @@ export default {
       const response = await superaxios.put(API_URL.CONFIRM_EMAIL, code);
       return response.data;
     },
+    sendNewCode: async email => {
+      const response = await superaxios.post(API_URL.SEND_NEW_CODE, email);
+      return response.data;
+    },
     setUserName: async name => {
       const response = await superaxios.put(API_URL.SET_USER_NAME, name);
       return response.data;
@@ -56,10 +60,6 @@ export default {
   other: {
     getTeamEmails: async () => {
       const response = await superaxios.get(API_URL.GET_TEAM_EMAILS);
-      return response.data;
-    },
-    sendNewConfirmationCode: async email => {
-      const response = await superaxios.post(API_URL.SEND_NEW_CODE, email);
       return response.data;
     },
   },

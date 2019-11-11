@@ -25,6 +25,11 @@ export const CONFIRM_EMAIL_REQUEST = 'auth/CONFIRM_EMAIL_REQUEST';
 export const CONFIRM_EMAIL_SUCCESS = 'auth/CONFIRM_EMAIL_SUCCESS';
 export const CONFIRM_EMAIL_ERROR = 'auth/CONFIRM_EMAIL_ERROR';
 
+/* Send new code */
+export const SEND_NEW_CODE_REQUEST = 'auth/SEND_NEW_CODE_REQUEST';
+export const SEND_NEW_CODE_SUCCESS = 'auth/SEND_NEW_CODE_SUCCESS';
+export const SEND_NEW_CODE_ERROR = 'auth/SEND_NEW_CODE_ERROR';
+
 /* Set user name */
 export const SET_USER_NAME_REQUEST = 'auth/SET_USER_NAME_REQUEST';
 export const SET_USER_NAME_SUCCESS = 'auth/SET_USER_NAME_SUCCESS';

@@ -1,6 +1,8 @@
 import React from 'react';
 import PT from 'prop-types';
 
+import { style as imgBeforeStyle } from '../TextInput/img_before_style';
+
 import s from './style.module.sass';
 
 import { ImageBefore } from '@components/Form/ImgBefore';
@@ -37,7 +39,15 @@ export class PasswordInput extends React.Component {
               errors.global || (errors[field.name] && touched[field.name]) ? 'error' : ''
             } flex`}
           >
-            {imgBefore && <ImageBefore src={imgBefore} imageWidth={18} imageHeight={16} />}
+            {imgBefore && (
+              <ImageBefore
+                src={imgBefore}
+                imageWidth={18}
+                imageHeight={16}
+                addWrapperClass="flex justify-content-center align-items-center absolute"
+                style={imgBeforeStyle}
+              />
+            )}
             <input
               {...field}
               id={inputId}

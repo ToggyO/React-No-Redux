@@ -21,6 +21,9 @@ function mapDispatchToProps(dispatch) {
     clearStoreErrors() {
       dispatch(authActions.clearStoreErrors());
     },
+    clearExtra() {
+      dispatch(authActions.clearExtra());
+    },
   };
 }
 

@@ -167,6 +167,20 @@ export function* confirmEmailSaga() {
   yield takeLatest(authTypes.CONFIRM_EMAIL_REQUEST, confirmEmail);
 }
 
+function* sendNewCode(action) {
+  try {
+    const data = yield call(api.auth.sendNewCode, action.payload);
+    yield put({ type: authTypes.SEND_NEW_CODE_SUCCESS, payload: data.data.registrationStep.stepName });
+  } catch (error) {
+    const { errors } = error.response.data;
+    yield put({ type: authTypes.SEND_NEW_CODE_ERROR, payload: errors });
+  }
+}
+
+export function* sendNewCodeSaga() {
+  yield takeLatest(authTypes.SEND_NEW_CODE_REQUEST, sendNewCode);
+}
+
 function* setUserName(action) {
   try {
     // {

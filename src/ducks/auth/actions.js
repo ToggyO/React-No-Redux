@@ -25,6 +25,11 @@ export const confirmEmail = data => ({
   payload: data,
 });
 
+export const sendNewCode = data => ({
+  type: types.SEND_NEW_CODE_REQUEST,
+  payload: data,
+});
+
 export const setUserName = data => ({
   type: types.SET_USER_NAME_REQUEST,
   payload: data,

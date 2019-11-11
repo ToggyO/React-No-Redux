@@ -43,7 +43,7 @@ export const ConfirmEmailInput = props => {
           type="text"
           name={name}
           id={inputId}
-          className="default_input"
+          className="default_input pl-0"
           ref={inputRef}
           value={state}
           onChange={e => setState(e.target.value.replace(/\D/, ''))}
@@ -62,7 +62,7 @@ export const ConfirmEmailInput = props => {
         className="btn green-filled rounded p-4 full_width login-page-button"
         onClick={() => {
           onClick({ code: state });
-          rest.setFlag(false);
+          rest.clearExtra();
         }}
       >
         Next

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PT from 'prop-types';
 import { Helmet } from 'react-helmet';
 
@@ -6,16 +6,12 @@ import { ConfirmEmailFormContainer } from './_components/ConfirmEmailForm';
 
 import MessageSuccess from '@components/MessageSuccess';
 import { FormTemplateView } from '@components/Form/FormTemplate';
-import api from '@services/api';
 
 
-const ConfirmEmailPageView = ({ userInfo = {} }) => {
-  const [flag, setFlag] = useState(false);
-
+const ConfirmEmailPageView = ({ userInfo = {}, sendNewCode, withExtra, clearExtra }) => {
   const sendNewConfirmationCode = async () => {
-    setFlag(false);
-    await api.other.sendNewConfirmationCode(userInfo.email);
-    setFlag(true);
+    await clearExtra();
+    await sendNewCode(userInfo.email);
   };
 
   return (
@@ -24,7 +20,7 @@ const ConfirmEmailPageView = ({ userInfo = {} }) => {
         <meta name="description" content="Confirm email page" />
       </Helmet>
       <div className="flex flex-column relative">
-        {flag && <MessageSuccess message={`Confirmation code is sent to ${userInfo.email}`}/>}
+        {withExtra && <MessageSuccess message={`Confirmation code is sent to ${userInfo.email}`}/>}
         <FormTemplateView
           titleLarge="Confirm your email"
           titleSmall={`We have sent a confirmation code to ${userInfo.email}. Enter this code below:`}
@@ -40,7 +36,7 @@ const ConfirmEmailPageView = ({ userInfo = {} }) => {
             </button>
           </p>}
         >
-          <ConfirmEmailFormContainer setFlag={setFlag}/>
+          <ConfirmEmailFormContainer />
         </FormTemplateView>
       </div>
     </>
@@ -49,6 +45,11 @@ const ConfirmEmailPageView = ({ userInfo = {} }) => {
 
 ConfirmEmailPageView.propTypes = {
   userInfo: PT.object,
+  sendNewCode: PT.func,
+  withExtra: PT.oneOfType([
+    PT.string,
+  ]),
+  clearExtra: PT.func,
 };
 
 export default ConfirmEmailPageView;

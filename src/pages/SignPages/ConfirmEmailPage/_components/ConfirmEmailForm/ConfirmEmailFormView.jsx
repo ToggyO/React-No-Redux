@@ -5,7 +5,7 @@ import { ERROR_CODES } from '@config/errorCodes';
 import { responseFormikError } from '@utils/index';
 import { ConfirmEmailInput } from '@components/Form/ConfirmEmailInput';
 
-const ConfirmEmailFormView = ({ errorsFromBackend, confirmEmail, clearStoreErrors, setFlag }) => {
+const ConfirmEmailFormView = ({ errorsFromBackend, confirmEmail, clearStoreErrors, clearExtra }) => {
   const setErrors = errors => responseFormikError(errors, ERROR_CODES);
 
   useEffect(() => () => clearStoreErrors(),[]);
@@ -18,7 +18,7 @@ const ConfirmEmailFormView = ({ errorsFromBackend, confirmEmail, clearStoreError
         addClassWrapper="pt-4 pb-4"
         errorsFromBackend={setErrors(errorsFromBackend)}
         onClick={confirmEmail}
-        setFlag={setFlag}
+        clearExtra={clearExtra}
       />
     </>
   );
@@ -28,7 +28,7 @@ ConfirmEmailFormView.propTypes = {
   errorsFromBackend: PT.arrayOf(PT.object),
   confirmEmail: PT.func,
   clearStoreErrors: PT.func,
-  setFlag: PT.func,
+  clearExtra: PT.func,
 };
 
 export default ConfirmEmailFormView;

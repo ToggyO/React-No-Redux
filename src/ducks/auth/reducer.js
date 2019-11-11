@@ -45,6 +45,7 @@ export default function auth(state = initialState, action) {
     case types.LOGIN_IN_WITH_EMAIL_REQUEST:
     case types.LOGIN_IN_WITH_GOOGLE_REQUEST:
     case types.CONFIRM_EMAIL_REQUEST:
+    case types.SEND_NEW_CODE_REQUEST:
     case types.SET_USER_NAME_REQUEST:
     case types.SET_COMPANY_NAME_REQUEST:
     case types.SET_TEAM_REQUEST:
@@ -63,6 +64,7 @@ export default function auth(state = initialState, action) {
       const { data } = action.payload;
       return { ...state, data, loading: false };
     }
+    case types.SEND_NEW_CODE_SUCCESS:
     case types.RESTORE_PASSWORD_SUCCESS:
       return { ...state, loading: false, extra: action.payload };
     case types.CONFIRM_EMAIL_SUCCESS:
@@ -82,6 +84,7 @@ export default function auth(state = initialState, action) {
     case types.LOGIN_IN_WITH_EMAIL_ERROR:
     case types.LOGIN_IN_WITH_GOOGLE_ERROR:
     case types.CONFIRM_EMAIL_ERROR:
+    case types.SEND_NEW_CODE_ERROR:
     case types.SET_USER_NAME_ERROR:
     case types.SET_COMPANY_NAME_ERROR:
     case types.SET_TEAM_ERROR:

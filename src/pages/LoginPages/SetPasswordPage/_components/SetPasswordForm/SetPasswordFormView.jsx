@@ -1,37 +1,46 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import PT from 'prop-types';
 import { Field, Form, Formik } from 'formik';
 import { withRouter } from 'react-router-dom';
 
-import { parseQueryString } from '@utils/index';
+import { ERROR_CODES } from '@config/errorCodes';
+import { parseQueryString, responseFormikError } from '@utils/index';
 import { validateForm } from '@components/Form/validations';
 import { PasswordInput } from '@components/Form/PasswordInput';
 import key from '@assets/login_page/key.png';
 
 
 const SetPasswordFormView = ({ location = {}, errorsFromBackend = {}, setNewPassword }) => {
+  const formikRef = useRef(null);
+
+  useEffect(() => {
+    formikRef.current.setErrors(responseFormikError(errorsFromBackend, ERROR_CODES));
+  }, [errorsFromBackend]);
+
   const queries = parseQueryString(location.search);
-  console.log(errorsFromBackend);
 
   return (
     <Formik
+      ref={formikRef}
       initialValues={{ password: '', passwordConfirm: '' }}
       validate={validateForm.confirmPassword}
       onSubmit={values => {
         setNewPassword({
           code: queries.code,
           password: values.password,
-          email: 'yocopa@dmail1.net', // todo HARDCODE
+          email: 'gihofon952@hide-mail.net', // todo HARDCODE
         });
         console.log({
           code: queries.code,
           password: values.password,
-          email: 'yocopa@dmail1.net',
+          email: 'gihofon952@hide-mail.net',
 
         })
       }}
       render={({ errors, touched, isValid }) => (
         <Form>
+          {errors.global &&
+          <div className="formik-error error-label">{errors.global}</div>}
           <Field
             name="password"
             placeholder="Enter password"
