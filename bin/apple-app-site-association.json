@@ -1,0 +1,16 @@
+{
+    "webcredentials": {
+        "apps": [
+            "65B5B68C2U.com.magora-team.squad.stage"
+        ]
+    },
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "65B5B68C2U.com.magora-team.squad.stage",
+                "paths": [ "/auth/set-password" ]
+            }
+        ]
+    }
+}

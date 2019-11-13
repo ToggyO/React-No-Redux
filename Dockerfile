@@ -9,5 +9,6 @@ RUN npm run build
 FROM nginx:1.12-alpine
 COPY --from=build-stage /usr/src/app/build /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY /bin/apple-app-site-association.json /usr/share/nginx/html/ios/apple-app-site-association.json
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
