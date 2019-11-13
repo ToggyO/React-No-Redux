@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { parse } from 'qs';
 
 import history from '@services/history';
 import { ROUTES } from '@config/routes';
@@ -83,3 +84,5 @@ export const redirectToStep = step => {
       return ROUTES.AUTH.ROOT + ROUTES.AUTH.LOGIN_IN;
   }
 };
+
+export const parseQueryString = queries => parse(queries, { ignoreQueryPrefix: true });

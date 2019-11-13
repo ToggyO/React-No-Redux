@@ -25,6 +25,11 @@ export const CONFIRM_EMAIL_REQUEST = 'auth/CONFIRM_EMAIL_REQUEST';
 export const CONFIRM_EMAIL_SUCCESS = 'auth/CONFIRM_EMAIL_SUCCESS';
 export const CONFIRM_EMAIL_ERROR = 'auth/CONFIRM_EMAIL_ERROR';
 
+/* Send new code */
+export const SEND_NEW_CODE_REQUEST = 'auth/SEND_NEW_CODE_REQUEST';
+export const SEND_NEW_CODE_SUCCESS = 'auth/SEND_NEW_CODE_SUCCESS';
+export const SEND_NEW_CODE_ERROR = 'auth/SEND_NEW_CODE_ERROR';
+
 /* Set user name */
 export const SET_USER_NAME_REQUEST = 'auth/SET_USER_NAME_REQUEST';
 export const SET_USER_NAME_SUCCESS = 'auth/SET_USER_NAME_SUCCESS';
@@ -55,13 +60,19 @@ export const RESTORE_PASSWORD_REQUEST = 'auth/RESTORE_PASSWORD_REQUEST';
 export const RESTORE_PASSWORD_SUCCESS = 'auth/RESTORE_PASSWORD_SUCCESS';
 export const RESTORE_PASSWORD_ERROR = 'auth/RESTORE_PASSWORD_ERROR';
 
+/* Set new password */
+export const SET_NEW_PASSWORD_REQUEST = 'auth/SET_NEW_PASSWORD_REQUEST';
+export const SET_NEW_PASSWORD_SUCCESS = 'auth/SET_NEW_PASSWORD_SUCCESS';
+export const SET_NEW_PASSWORD_ERROR = 'auth/SET_NEW_PASSWORD_ERROR';
+
 /* Refreshing token */
 export const REFRESHING_TOKEN_REQUEST = 'auth/REFRESHING_TOKEN_REQUEST';
 export const REFRESHING_TOKEN_SUCCESS = 'auth/REFRESH_TOKEN_SUCCESS';
 export const REFRESHING_TOKEN_ERROR = 'auth/REFRESH_TOKEN_ERROR';
 
-/* Clear store errors */
+/* Clear store */
 export const CLEAR_STORE_ERRORS = 'auth/CLEAR_STORE_ERRORS';
+export const CLEAR_EXTRA = 'auth/CLEAR_EXTRA';
 
 /* Logout */
 export const LOGOUT = 'auth/LOGOUT';

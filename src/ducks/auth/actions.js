@@ -25,6 +25,11 @@ export const confirmEmail = data => ({
   payload: data,
 });
 
+export const sendNewCode = data => ({
+  type: types.SEND_NEW_CODE_REQUEST,
+  payload: data,
+});
+
 export const setUserName = data => ({
   type: types.SET_USER_NAME_REQUEST,
   payload: data,
@@ -51,12 +56,21 @@ export const registrationDone = data => ({
 });
 
 export const restorePassword = data => ({
-  type: types.REGISTRATION_DONE_REQUEST,
+  type: types.RESTORE_PASSWORD_REQUEST,
+  payload: data,
+});
+
+export const setNewPassword = data => ({
+  type: types.SET_NEW_PASSWORD_REQUEST,
   payload: data,
 });
 
 export const clearStoreErrors = () => ({
   type: types.CLEAR_STORE_ERRORS,
+});
+
+export const clearExtra = () => ({
+  type: types.CLEAR_EXTRA,
 });
 
 // export const logoutRequest = () => ({

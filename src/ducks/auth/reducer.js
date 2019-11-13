@@ -35,6 +35,7 @@ const initialState = {
   },
   loading: false,
   errors: [],
+  extra: '',
 };
 
 export default function auth(state = initialState, action) {
@@ -44,12 +45,14 @@ export default function auth(state = initialState, action) {
     case types.LOGIN_IN_WITH_EMAIL_REQUEST:
     case types.LOGIN_IN_WITH_GOOGLE_REQUEST:
     case types.CONFIRM_EMAIL_REQUEST:
+    case types.SEND_NEW_CODE_REQUEST:
     case types.SET_USER_NAME_REQUEST:
     case types.SET_COMPANY_NAME_REQUEST:
     case types.SET_TEAM_REQUEST:
     case types.SET_FIRST_PROJECT_REQUEST:
     case types.REGISTRATION_DONE_REQUEST:
     case types.RESTORE_PASSWORD_REQUEST:
+    case types.SET_NEW_PASSWORD_REQUEST:
     case types.REFRESHING_TOKEN_REQUEST:
       return { ...state, loading: true };
     case types.SIGNUP_WITH_EMAIL_SUCCESS:
@@ -61,6 +64,9 @@ export default function auth(state = initialState, action) {
       const { data } = action.payload;
       return { ...state, data, loading: false };
     }
+    case types.SEND_NEW_CODE_SUCCESS:
+    case types.RESTORE_PASSWORD_SUCCESS:
+      return { ...state, loading: false, extra: action.payload };
     case types.CONFIRM_EMAIL_SUCCESS:
     case types.SET_USER_NAME_SUCCESS:
     case types.SET_COMPANY_NAME_SUCCESS:
@@ -70,7 +76,7 @@ export default function auth(state = initialState, action) {
       const { data } = action.payload;
       return { ...state, loading: false, data: { ...state.data, registrationStep: data.registrationStep } };
     }
-    case types.RESTORE_PASSWORD_SUCCESS:
+    case types.SET_NEW_PASSWORD_SUCCESS:
     case types.REFRESHING_TOKEN_SUCCESS:
       return { ...state, loading: false };
     case types.SIGNUP_WITH_EMAIL_ERROR:
@@ -78,16 +84,20 @@ export default function auth(state = initialState, action) {
     case types.LOGIN_IN_WITH_EMAIL_ERROR:
     case types.LOGIN_IN_WITH_GOOGLE_ERROR:
     case types.CONFIRM_EMAIL_ERROR:
+    case types.SEND_NEW_CODE_ERROR:
     case types.SET_USER_NAME_ERROR:
     case types.SET_COMPANY_NAME_ERROR:
     case types.SET_TEAM_ERROR:
     case types.SET_FIRST_PROJECT_ERROR:
     case types.REGISTRATION_DONE_ERROR:
     case types.RESTORE_PASSWORD_ERROR:
+    case types.SET_NEW_PASSWORD_ERROR:
     case types.REFRESHING_TOKEN_ERROR:
       return { ...state, loading: false, errors: action.payload };
     case types.CLEAR_STORE_ERRORS:
       return { ...state, errors: [] };
+    case types.CLEAR_EXTRA:
+      return { ...state, extra: '' };
     default:
       return state;
   }

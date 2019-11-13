@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import SetPasswordFormView from './SetPasswordFormView';
 
-import { authSelectors } from '@ducks/auth';
+import { authSelectors, authActions } from '@ducks/auth';
 
 function mapStateToProps(state) {
   return {
@@ -10,18 +10,15 @@ function mapStateToProps(state) {
   };
 }
 
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     signUpWithEmailRequest(emailObj) {
-//       dispatch(authActions.signUpWithEmailRequest(emailObj));
-//     },
-//     signUpWithGoogleRequest(emailObj) {
-//       dispatch(authActions.signUpWithGoogleRequest(emailObj));
-//     },
-//   };
-// }
+function mapDispatchToProps(dispatch) {
+  return {
+    setNewPassword(data) {
+      dispatch(authActions.setNewPassword(data));
+    },
+  };
+}
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(SetPasswordFormView);

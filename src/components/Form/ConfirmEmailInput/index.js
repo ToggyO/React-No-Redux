@@ -6,7 +6,7 @@ import { RenderCircles } from './_components/RenderCircles';
 import s from './style.module.sass';
 
 export const ConfirmEmailInput = props => {
-  const { name, maxLength, addClassWrapper, errorsFromBackend = {}, onClick } = props;
+  const { name, maxLength, addClassWrapper, errorsFromBackend = {}, onClick, ...rest } = props;
   const array = [...Array(maxLength)];
 
   const [state, setState] = useState('');
@@ -43,7 +43,7 @@ export const ConfirmEmailInput = props => {
           type="text"
           name={name}
           id={inputId}
-          className="default_input"
+          className="default_input pl-0"
           ref={inputRef}
           value={state}
           onChange={e => setState(e.target.value.replace(/\D/, ''))}
@@ -60,7 +60,10 @@ export const ConfirmEmailInput = props => {
         type="submit"
         disabled={state.length !== maxLength}
         className="btn green-filled rounded p-4 full_width login-page-button"
-        onClick={() => onClick({ code: state })}
+        onClick={() => {
+          onClick({ code: state });
+          rest.clearExtra();
+        }}
       >
         Next
       </button>

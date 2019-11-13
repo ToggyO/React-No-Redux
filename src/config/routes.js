@@ -13,4 +13,5 @@ export const ROUTES = {
     RESTORE_PASSWORD: '/restore-password',
     SET_PASSWORD: '/set-password',
   },
+  SOME_PAGE: '/some-page',
 };

@@ -10,8 +10,7 @@ import { validateField } from '@components/Form/validations';
 import mail from '@assets/login_page/email_icon.png';
 
 
-// eslint-disable-next-line react/prop-types
-const RestorePasswordFormView = ({ errorsFromBackend }) => {
+const RestorePasswordFormView = ({ errorsFromBackend, restorePassword, clearExtra}) => {
   const formikRef = useRef(null);
 
   useEffect(() => {
@@ -22,7 +21,10 @@ const RestorePasswordFormView = ({ errorsFromBackend }) => {
     <Formik
       ref={formikRef}
       initialValues={{ email: '' }}
-      onSubmit={values => console.log(values)}
+      onSubmit={values => {
+        clearExtra();
+        restorePassword(values);
+      }}
       render={({ errors, touched, isValid }) => (
         <Form>
           {errors.global &&
@@ -43,6 +45,7 @@ const RestorePasswordFormView = ({ errorsFromBackend }) => {
             type="submit"
             disabled={!isValid}
             className="btn green-filled rounded p-4 full_width login-page-button"
+
           >
             Send me a link
           </button>
@@ -54,6 +57,8 @@ const RestorePasswordFormView = ({ errorsFromBackend }) => {
 
 RestorePasswordFormView.propTypes = {
   errorsFromBackend: PT.arrayOf(PT.object),
+  restorePassword: PT.func,
+  clearExtra: PT.func,
 };
 
 export default RestorePasswordFormView;

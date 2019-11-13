@@ -5,6 +5,7 @@ export const API_URL = {
   LOGIN_WITH_EMAIL: 'auth/token',
   LOGIN_WITH_GOOGLE: 'auth/token/google',
   CONFIRM_EMAIL: 'signup/admin/confirm',
+  SEND_NEW_CODE: 'signup/admin/send-new-code',
   SET_USER_NAME: 'signup/admin/username',
   SET_COMPANY_NAME: 'signup/admin/company',
   SET_TEAM: 'signup/admin/team',
@@ -12,4 +13,5 @@ export const API_URL = {
   SET_FIRST_PROJECT: 'signup/admin/project',
   REGISTRATION_DONE: 'signup/admin/done',
   RESTORE_PASSWORD: 'users/passwords/request',
+  SET_NEW_PASSWORD: 'users/passwords/set',
 };

@@ -5,6 +5,7 @@ import { ImageBefore } from '../ImgBefore';
 import { LabelWrapper } from '../LabelWrapper';
 
 import s from './style.module.sass';
+import { style as imgBeforeStyle } from './img_before_style';
 
 export const TextInput = props => {
   const {
@@ -39,7 +40,15 @@ export const TextInput = props => {
             errors.global || (errors[field.name] && touched[field.name]) ? 'error' : null
           } flex`}
         >
-          {imgBefore && <ImageBefore src={imgBefore} imageWidth={18} imageHeight={16} />}
+          {imgBefore && (
+            <ImageBefore
+              src={imgBefore}
+              imageWidth={18}
+              imageHeight={16}
+              addWrapperClass="flex justify-content-center align-items-center absolute"
+              style={imgBeforeStyle}
+            />
+          )}
           <input
             {...field}
             type={type}

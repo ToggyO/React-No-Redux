@@ -167,6 +167,20 @@ export function* confirmEmailSaga() {
   yield takeLatest(authTypes.CONFIRM_EMAIL_REQUEST, confirmEmail);
 }
 
+function* sendNewCode(action) {
+  try {
+    const data = yield call(api.auth.sendNewCode, action.payload);
+    yield put({ type: authTypes.SEND_NEW_CODE_SUCCESS, payload: data.data.registrationStep.stepName });
+  } catch (error) {
+    const { errors } = error.response.data;
+    yield put({ type: authTypes.SEND_NEW_CODE_ERROR, payload: errors });
+  }
+}
+
+export function* sendNewCodeSaga() {
+  yield takeLatest(authTypes.SEND_NEW_CODE_REQUEST, sendNewCode);
+}
+
 function* setUserName(action) {
   try {
     // {
@@ -289,6 +303,35 @@ function* registrationDone(action) {
 
 export function* registrationDoneSaga() {
   yield takeLatest(authTypes.REGISTRATION_DONE_REQUEST, registrationDone);
+}
+
+function* restorePassword(action) {
+  try {
+    yield call(api.auth.restorePassword, action.payload);
+    yield put({ type: authTypes.RESTORE_PASSWORD_SUCCESS, payload: action.payload.email });
+  } catch (error) {
+    const { errors } = error.response.data;
+    yield put({ type: authTypes.RESTORE_PASSWORD_ERROR, payload: errors });
+  }
+}
+
+export function* restorePasswordSaga() {
+  yield takeLatest(authTypes.RESTORE_PASSWORD_REQUEST, restorePassword);
+}
+
+function* setNewPassword(action) {
+  try {
+    yield call(api.auth.setNewPassword, action.payload);
+    yield put({ type: authTypes.SET_NEW_PASSWORD_SUCCESS });
+    yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.LOGIN_IN);
+  } catch (error) {
+    const { errors } = error.response.data;
+    yield put({ type: authTypes.SET_NEW_PASSWORD_ERROR, payload: errors });
+  }
+}
+
+export function* setNewPasswordSaga() {
+  yield takeLatest(authTypes.SET_NEW_PASSWORD_REQUEST, setNewPassword);
 }
 
 /*---------------------------------------------------------------------------*/

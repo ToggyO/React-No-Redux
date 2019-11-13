@@ -24,6 +24,10 @@ export default {
       const response = await superaxios.put(API_URL.CONFIRM_EMAIL, code);
       return response.data;
     },
+    sendNewCode: async email => {
+      const response = await superaxios.post(API_URL.SEND_NEW_CODE, email);
+      return response.data;
+    },
     setUserName: async name => {
       const response = await superaxios.put(API_URL.SET_USER_NAME, name);
       return response.data;
@@ -44,10 +48,14 @@ export default {
       const response = await superaxios.put(API_URL.REGISTRATION_DONE);
       return response.data;
     },
-    // registrationDone: async () => {
-    //   const response = await superaxios.put(API_URL.REGISTRATION_DONE);
-    //   return response.data;
-    // },
+    restorePassword: async data => {
+      const response = await superaxios.post(API_URL.RESTORE_PASSWORD, data);
+      return response.data;
+    },
+    setNewPassword: async data => {
+      const response = await superaxios.put(API_URL.SET_NEW_PASSWORD, data);
+      return response.data;
+    },
   },
   other: {
     getTeamEmails: async () => {
