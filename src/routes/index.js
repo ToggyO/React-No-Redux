@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import AuthRoute from './AuthRoute';
 import UnAuthRoute from './UnAuthRoute';
 
+import { SidebarWrapper } from '@components/SidebarWrapper';
 import { ModalContainer } from '@components/Modal';
 import { ROUTES } from '@config';
 import { AuthScreenWrapperContainer } from '@components/AuthScreenWrapper';
@@ -70,9 +71,19 @@ const Routes = ({ modal: { modalKey } }) => (
           </AuthScreenWrapperContainer>
         )}
       />
+      <AuthRoute
+        path={ROUTES.HOME_PAGE}
+        component={props => (
+          <SidebarWrapper {...props}>
+            <Switch>
+              <AuthRoute path={ROUTES.SOME_PAGE} exact component={HomePageContainer} />
+            </Switch>
+          </SidebarWrapper>
+        )}
+      />
 
       {/* REDIRECTS */}
-      <AuthRoute path={ROUTES.HOME_PAGE} exact component={HomePageContainer} />
+      {/* <AuthRoute path={ROUTES.HOME_PAGE} exact component={HomePageContainer} /> */}
       {/* /REDIRECTS */}
 
       {/* NOT FOUND PAGE */}
