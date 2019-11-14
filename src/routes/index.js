@@ -76,7 +76,7 @@ const Routes = ({ modal: { modalKey } }) => (
         component={props => (
           <SidebarWrapper {...props}>
             <Switch>
-              <AuthRoute path={ROUTES.SOME_PAGE} exact component={HomePageContainer} />
+              <AuthRoute path={ROUTES.HOME_PAGE} exact component={HomePageContainer} />
             </Switch>
           </SidebarWrapper>
         )}

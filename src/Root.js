@@ -9,13 +9,13 @@ import history from '@services/history';
 
 import { ErrorBoundary } from '@components/ErrorBoundary';
 import { ScrollToTop } from '@components/ScrollToTop';
-import { getWindowDimensions } from '@utils/index';
+// import { getWindowDimensions } from '@utils/index';
 
 import './styles/index.sass';
 
 const Root = () => {
   useEffect(() => {
-    document.getElementById('root').style.minHeight = `${getWindowDimensions().height}px`;
+    // document.getElementById('root').style.minHeight = `${getWindowDimensions().height}px`;
     // superaxios.delete('/users/12eab851-840d-4efb-b332-43e302e55d2c').then(res => console.log(res), err => console.log(err))
   }, []);
 
