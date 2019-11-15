@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.magora.squad.dev",
+      "sha256_cert_fingerprints": [
+        "37:45:D0:9D:81:DA:86:CC:41:44:3E:5C:5A:39:30:36:4D:8D:93:E8:C9:75:F7:0A:82:24:18:21:44:34:6D:9C"
+      ]
+    }
+  }
+]
