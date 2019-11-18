@@ -1,0 +1,96 @@
+.wrapper
+  min-height: 100vh
+  position: relative
+
+.sidebar
+  width: 88px
+  background-color: $primary_color
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.44)
+  z-index: 10
+  transition: width 0.8s ease
+
+.sidebar_shown
+  width: 270px
+
+.logo_container
+  height: 80px
+  border-bottom: 1px solid rgba(147, 152, 162, 0.2)
+  position: relative
+
+.logo
+  overflow: hidden
+
+.logo_large
+  width: 124px
+  height: 26px
+  transition: width 0.8s ease
+
+.logo_small
+  width: 31px
+  height: 26px
+  transition: width 0.8s ease
+
+.image
+  width: 124px
+  height: 26px
+
+.toggle_button
+  width: 24px
+  height: 100%
+  position: absolute
+  top: 5%
+  right: 0
+  background: none
+  border: none
+  cursor: pointer
+
+.links
+  overflow: hidden
+  //transition: width 0.8s ease-in-out, translate 0.8s ease-in-out
+  padding: 18px
+
+.links_horizontal
+  width: 237px
+
+.links_vertical
+  width: 80px
+  //animation-name: sidebarSlideButtons
+  //animation-duration: 3s
+  //animation-iteration-count: 1
+  animation: sidebarSlideButtons 2s forwards
+  //animation-name: sidebarSlideButtons
+  //animation-duration: 3s
+  //animation-iteration-count: 1
+  flex-direction: column
+
+@keyframes sidebarSlideButtons
+  0%
+    transform: translateX(-100%)
+  50%
+    flex-direction: column
+  100%
+    transform: translateX(30%)
+
+
+//.links_vertical
+//  a:nth-child(2), a:nth-child(3)
+//   margin-top: 28px
+
+//.links_horizontal
+//  padding: 24px
+//  flex-direction: row
+//  justify-content: space-between
+//
+//.links_vertical
+//  padding: 24px 18px
+//  flex-direction: column
+//
+//.links_vertical
+//  a:nth-child(2), a:nth-child(3)
+//    margin-top: 28px
+
+.children
+  width: 100%
+
+
+

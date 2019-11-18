@@ -2,8 +2,28 @@
 import React, { useState } from 'react';
 
 import s from './style.module.sass';
+import { style as LinkButtonStyle } from './link_button_style';
 
 import { Icon } from '@components/Icon';
+import { LinkButton } from '@components/sidebar/LinkButton';
+
+const buttons = [
+  {
+    link: '#',
+    iconName: 'sidebar-tasks',
+    title: 'Inbox',
+  },
+  {
+    link: '#',
+    iconName: 'sidebar-tasks',
+    title: 'Tasks',
+  },
+  {
+    link: '#',
+    iconName: 'sidebar-settings',
+    title: 'Settings',
+  },
+];
 
 
 const SidebarWrapper = ({
@@ -25,6 +45,12 @@ const SidebarWrapper = ({
           >
             <Icon iconName="arrow-right" className={!isOpen ? 'rotate-180' : ''}/>
           </button>
+        </div>
+        <div className={`${s.links} ${isOpen ? s.links_horizontal : s.links_vertical} flex justify-content-center align-items-center`}>
+          <LinkButton
+            info={buttons}
+            style={LinkButtonStyle}
+          />
         </div>
       </div>
       <div className={s.children}>{children}</div>

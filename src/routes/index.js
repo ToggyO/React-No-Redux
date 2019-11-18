@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import AuthRoute from './AuthRoute';
 import UnAuthRoute from './UnAuthRoute';
 
-import { SidebarWrapper } from '@components/SidebarWrapper';
+import { SidebarWrapper } from '@components/sidebar/SidebarWrapper';
 import { ModalContainer } from '@components/Modal';
 import { ROUTES } from '@config';
 import { AuthScreenWrapperContainer } from '@components/AuthScreenWrapper';
