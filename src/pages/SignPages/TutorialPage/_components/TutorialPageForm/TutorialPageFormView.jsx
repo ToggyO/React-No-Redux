@@ -4,7 +4,7 @@ import Vimeo from '@u-wave/react-vimeo';
 
 // import s from './style.module.sass';
 
-const TutorialPageFormView = ({registrationDone}) => (
+const TutorialPageFormView = ({ registrationDone }) => (
   <>
     <Vimeo
       className="mt-4 mb-7"
