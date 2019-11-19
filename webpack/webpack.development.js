@@ -79,7 +79,7 @@ module.exports = merge(common, {
           {
             loader: 'sass-resources-loader',
             options: {
-              resources: ['./src/styles/_variables.sass', './src/styles/_mixins.sass'],
+              resources: ['./src/styles/_variables.sass', './src/styles/_mixins.sass', './src/styles/_animations.sass' ],
             },
           },
         ],

@@ -1,3 +1,5 @@
+@import '@styles/_animations.sass'
+
 .wrapper
   min-height: 100vh
   position: relative
@@ -47,18 +49,20 @@
 .links
   overflow: hidden
   padding: 18px
+  border-bottom: 1px solid rgba(147, 152, 162, 0.2)
 
 .links_horizontal
   width: 237px
-  animation: sidebarSlideButtonsShow 0.8s forwards
   transform: translateX(0)
+  +animation(sidebarSlideButtonsShow, 0s, 0.8s)
 
 .links_vertical
-  width: 88px
-  padding: 10px
+  width: 84px
+  margin-right: 10px
+  padding: 10px 10px 24px 10px
   flex-direction: column
-  animation: sidebarSlideButtonsHide 0.8s forwards
   transform: translateX(0)
+  +animation(sidebarSlideButtonsHide, 0, 0.8s)
 
   a:first-child
     margin-top: 14px
@@ -66,21 +70,10 @@
   a:nth-child(2), a:nth-child(3)
     margin-top: 28px
 
-@keyframes sidebarSlideButtonsHide
-  0%
-    transform: translateX(-100%)
-  70%
-    flex-direction: column
-  100%
-    transform: translateX(0)
+.projects
+  flex-grow: 1
 
-@keyframes sidebarSlideButtonsShow
-  0%
-    transform: translateX(-100%)
-  70%
-    flex-direction: row
-  100%
-    transform: translateX(0)
+
 
 .children
   width: 100%

@@ -5,7 +5,9 @@ import s from './style.module.sass';
 import { style as LinkButtonStyle } from './link_button_style';
 
 import { Icon } from '@components/Icon';
-import { LinkButton } from '@components/sidebar/LinkButton';
+import { LinkButton } from '@components/SidebarWrapper/_components/LinkButton';
+import { TeamsButtons } from '@components/SidebarWrapper/_components/TeamsButtons';
+import { SidebarTeamsProject } from '@components/SidebarWrapper/_components/SidebarTeamsProject';
 
 const buttons = [
   {
@@ -33,7 +35,7 @@ const SidebarWrapper = ({
 
   return (
     <div className={`${s.wrapper} flex`}>
-      <div className={`${s.sidebar} ${isOpen ? s.sidebar_shown : ''}`}>
+      <div className={`${s.sidebar} ${isOpen ? s.sidebar_shown : ''} flex flex-column`}>
         <div className={`${s.logo_container} flex justify-content-center align-items-center`}>
           <div className={`${s.logo} ${isOpen ? s.logo_large : s.logo_small}`}>
             <Icon iconName="squad-logo" className={s.image}/>
@@ -51,6 +53,12 @@ const SidebarWrapper = ({
             info={buttons}
             style={LinkButtonStyle}
           />
+        </div>
+        <div className={s.projects}>
+          <SidebarTeamsProject/>
+        </div>
+        <div className={`${s.footer}`}>
+          <TeamsButtons isOpen={isOpen}/>
         </div>
       </div>
       <div className={s.children}>{children}</div>

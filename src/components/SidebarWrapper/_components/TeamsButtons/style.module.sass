@@ -1,0 +1,59 @@
+@import '@styles/_animations.sass'
+
+.container
+  overflow: hidden
+  border-top: 1px solid rgba(147, 152, 162, 0.2)
+  transition: height 0.8s ease-in-out
+
+  &_shown
+    flex-direction: row
+    height: 49px
+    transform: translateX(0)
+    +animation(sidebarSlideButtonsShow, 0, 0.8s)
+
+  &_hidden
+    height: 133px
+    flex-direction: column
+    transform: translateX(0)
+    +animation(sidebarSlideButtonsHide, 0, 0.8s)
+
+
+.choose_team
+  margin: 0 !important
+  border-right: .5px solid rgba(147, 152, 162, 0.2) !important
+
+  &__icon
+    width: 24px
+    height: 24px
+
+.add_projects
+  margin: 0 !important
+  border-left: .5px solid rgba(147, 152, 162, 0.2) !important
+
+.add_projects:hover, .choose_team:hover
+  background-color: $primary-color-hover
+
+.add_projects:active, .choose_team:active
+  background-color: $primary-color-active
+
+.add_projects p, .choose_team p
+  color: $secondary_color
+  font-size: 13px
+  line-height: 20px
+  font-weight: 400
+
+.shown
+  display: flex
+  flex-direction: row
+
+.hidden
+  display: flex
+  flex-direction: column
+  border-right: none !important
+  border-left: none !important
+  svg
+    margin: 0 !important
+
+.border_top
+  border-top: 1px solid rgba(147, 152, 162, 0.2) !important
+
