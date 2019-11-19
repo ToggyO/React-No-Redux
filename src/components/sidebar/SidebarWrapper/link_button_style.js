@@ -3,9 +3,16 @@ export const style = {
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
+    height: 40,
   },
-  icon: {
+  iconContainer: {
     flexGrow: 1,
+  },
+  circle: {
+    fontSize: 8,
+    lineHeight: '14px',
+    color: '#fff',
+    textAlign: 'center',
   },
   title: {
     fontSize: 14,

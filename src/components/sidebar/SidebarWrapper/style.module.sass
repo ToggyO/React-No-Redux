@@ -46,48 +46,41 @@
 
 .links
   overflow: hidden
-  //transition: width 0.8s ease-in-out, translate 0.8s ease-in-out
   padding: 18px
 
 .links_horizontal
   width: 237px
+  animation: sidebarSlideButtonsShow 0.8s forwards
+  transform: translateX(0)
 
 .links_vertical
-  width: 80px
-  //animation-name: sidebarSlideButtons
-  //animation-duration: 3s
-  //animation-iteration-count: 1
-  animation: sidebarSlideButtons 2s forwards
-  //animation-name: sidebarSlideButtons
-  //animation-duration: 3s
-  //animation-iteration-count: 1
+  width: 88px
+  padding: 10px
   flex-direction: column
+  animation: sidebarSlideButtonsHide 0.8s forwards
+  transform: translateX(0)
 
-@keyframes sidebarSlideButtons
+  a:first-child
+    margin-top: 14px
+
+  a:nth-child(2), a:nth-child(3)
+    margin-top: 28px
+
+@keyframes sidebarSlideButtonsHide
   0%
     transform: translateX(-100%)
-  50%
+  70%
     flex-direction: column
   100%
-    transform: translateX(30%)
+    transform: translateX(0)
 
-
-//.links_vertical
-//  a:nth-child(2), a:nth-child(3)
-//   margin-top: 28px
-
-//.links_horizontal
-//  padding: 24px
-//  flex-direction: row
-//  justify-content: space-between
-//
-//.links_vertical
-//  padding: 24px 18px
-//  flex-direction: column
-//
-//.links_vertical
-//  a:nth-child(2), a:nth-child(3)
-//    margin-top: 28px
+@keyframes sidebarSlideButtonsShow
+  0%
+    transform: translateX(-100%)
+  70%
+    flex-direction: row
+  100%
+    transform: translateX(0)
 
 .children
   width: 100%

@@ -9,11 +9,16 @@ import { Icon } from '@components/Icon';
 export const LinkButton = ({ info = [], style = {} }) => (
   <>
     {info.map(item => (
-      <NavLink key={item.title} to={item.link} className={s.link} style={style.link}>
-        <div className={`${s.icon} flex justify-content-center align-items-center`} style={style.icon}>
-          <Icon iconName={item.iconName} />
+      <NavLink key={item.title} to={item.link} className={`${s.link} relative`} style={style.link}>
+        <div
+          className={`${s.iconContainer} flex justify-content-center align-items-center`}
+          style={style.iconContainer}
+        >
+          <Icon iconName={item.iconName} className={s.icon} />
           <div className={s.notification} style={style.notification}>
-            <div className={s.circle} style={style.circle} />
+            <div className={s.circle} style={style.circle}>
+              9
+            </div>
           </div>
         </div>
         <div className={s.title} style={style.title}>

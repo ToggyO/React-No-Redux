@@ -10,7 +10,7 @@ import { LinkButton } from '@components/sidebar/LinkButton';
 const buttons = [
   {
     link: '#',
-    iconName: 'sidebar-tasks',
+    iconName: 'sidebar-inbox',
     title: 'Inbox',
   },
   {
