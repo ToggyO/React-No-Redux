@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PT from 'prop-types';
 
 import s from './style.module.sass';
@@ -6,7 +6,20 @@ import s from './style.module.sass';
 import { Icon } from '@components/Icon';
 
 export const SidebarTeamsProject = ({ color = 'orange', teamName = '   Project' }) => {
-  const [isOpen, toggleOpen] = useState(true);
+  const [isOpen, toggleOpen] = useState(false);
+  const containerRef = useRef(null);
+  const contentRef = useRef(null);
+
+  const setWidthProperty = () => {
+    const contentStyle = window.getComputedStyle(contentRef.current);
+    if (!isOpen) {
+      // debugger;
+      containerRef.current.style.height = contentStyle.height;
+    } else {
+      // debugger;
+      containerRef.current.style.height = 0;
+    }
+  };
 
   return (
     <div className={s.wrapper}>
@@ -23,26 +36,46 @@ export const SidebarTeamsProject = ({ color = 'orange', teamName = '   Project' 
                 .toUpperCase()}
             </span>
           </div>
-          <p className={`${s.headline} ml-2`}>{teamName.replace(/ /g, '')}</p>
+          <p className={`${s.headline} ml-2`}>{teamName.replace(/(^\s*)|(\s*)$/g, '')}</p>
           <div className={s.switch_buttons}>
-            <button
-              type="button"
-              className={`${s.button_create} btn`}
-              // onClick={() => toggleOpen(!isOpen)}
-            >
+            <button type="button" className={`${s.button_create} btn`} onClick={() => setWidthProperty()}>
               <Icon iconName="add-plus" className={isOpen ? 'rotate-270' : 'rotate-270'} />
             </button>
-            <button type="button" className={`${s.button_toggle} btn`} onClick={() => toggleOpen(!isOpen)}>
-              <Icon iconName="arrow-right" className={isOpen ? 'rotate-180' : 'rotate-270'} />
+            <button
+              type="button"
+              className={`${s.button_toggle} btn`}
+              onClick={() => {
+                toggleOpen(!isOpen);
+                setWidthProperty();
+              }}
+            >
+              <Icon iconName="arrow-right" className={isOpen ? 'rotate-270' : 'rotate-180'} />
             </button>
           </div>
         </div>
-        <div className={`${s.info} ${isOpen ? s.shown : s.hidden}`}>
-          <div className={s.test}>YEP!</div>
-          <div className={s.test}>YEP!</div>
-          <div className={s.test}>YEP!</div>
-          <div className={s.test}>YEP!</div>
-          <div className={s.test}>YEP!</div>
+        <div ref={containerRef} className={`${s.info} ${isOpen ? s.shown : s.hidden}`}>
+          <div ref={contentRef}>
+            <div className={s.test}>YEP!</div>
+            <div className={s.test}>YEP!</div>
+            <div className={s.test}>YEP!</div>
+            <div className={s.test}>YEP!</div>
+            <div className={s.test}>YEP!</div>
+            <div className={s.test}>YEP!</div>
+            <div className={s.test}>YEP!</div>
+            <div className={s.test}>YEP!</div>
+            <div className={s.test}>YEP!</div>
+            <div className={s.test}>YEP!</div>
+            <div className={s.test}>YEP!</div>
+            <div className={s.test}>YEP!</div>
+            <div className={s.test}>YEP!</div>
+            <div className={s.test}>YEP!</div>
+            <div className={s.test}>YEP!</div>
+            <div className={s.test}>YEP!</div>
+            <div className={s.test}>YEP!</div>
+            <div className={s.test}>YEP!</div>
+            <div className={s.test}>YEP!</div>
+            <div className={s.test}>YEP!</div>
+          </div>
         </div>
       </div>
     </div>
