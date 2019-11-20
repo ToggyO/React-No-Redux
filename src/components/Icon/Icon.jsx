@@ -146,6 +146,10 @@ function Icon({ iconName, className, fill }) {
       return (
         <svg className={className} width="11px" height="11px" viewBox="0 0 11 11" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="Web" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="01-" transform="translate(-225.000000, -191.000000)" fill="#9398A2"><g id="Group-9" transform="translate(-0.000926, 0.000000)"><g id="Icon/16/plus" transform="translate(222.000926, 189.000000)"><polygon id="plus-[#1512]" points="14 7 14 8 9 8 9 13 8 13 8 8 3 8 3 7 8 7 8 2 9 2 9 7"></polygon></g></g></g></g></svg>
       );
+    case 'settings_switch':
+      return (
+        <svg className={className} width="11px" height="11px" viewBox="0 0 11 11" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="Web" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="01--Settings-menu-Copy" transform="translate(-201.000000, -192.000000)" fill="#9398A2"><g id="Group-9" transform="translate(-0.000926, 0.000000)"><g id="Icon/16/settings" transform="translate(198.000000, 189.000000)"><path d="M8.9988177,3 L7.99763539,3 L7.99763539,4.99854124 L7,4.99854124 L7,6 L7.99763539,6 L7.99763539,14 L8.9988177,14 L8.9988177,6 L10,6 L10,4.99854124 L8.9988177,4.99854124 L8.9988177,3 Z M5,8 L6,8 L6,9 L5,9 L5,14 L4,14 L4,9 L3,9 L3,8 L4,8 L4,3 L5,3 L5,8 Z M13,8 L14,8 L14,9 L13,9 L13,14 L12,14 L12,9 L11,9 L11,8 L12,8 L12,3 L13,3 L13,8 Z" id="option_bar_settings-[#1401]"></path></g></g></g></g></svg>
+      );
     default:
       return null;
       // return <svg src="../img/registration/hello.svg" className={className} />;

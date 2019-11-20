@@ -17,22 +17,44 @@
   color: #fff
 
 .headline
-  font-weight: 700
-  font-size: 16px
-  line-height: 19px
-  color: #fff
+  flex-grow: 1
+
+  &_text
+    font-weight: 700
+    font-size: 16px
+    line-height: 19px
+    color: #fff
+    width: 100%
+
+//.headline::after
+//  visibility: hidden
+//  content: ''
+//  transition: visibility 0s, opacity 0.4s ease
+//  opacity: 0
+//
+//.headline:hover::after
+//  visibility: visible
+//  content: ''
+//  color: red
+//  width: 26px
+//  height: 26px
+//  margin-right: 12px
+//  background: url('/assets/sidebar/settings_icon.svg') no-repeat
+//  background-position: 50% 50%
+//  opacity: 1
+
+
+//&_button
+  //  margin: 0
+
+.settings_icon
+  height: 13px
+  width: 13px
 
 .switch_buttons
-  position: absolute
-  right: 0
-  top: 25%
-
-.button
-  &_create
-    margin: 0 12px 0 0 !important
-
-  &_toggle
-    margin: 0 !important
+  //position: absolute
+  //right: 0
+  //top: 25%
 
 
 .info

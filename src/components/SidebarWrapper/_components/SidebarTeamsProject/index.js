@@ -2,21 +2,21 @@ import React, { useState, useRef } from 'react';
 import PT from 'prop-types';
 
 import s from './style.module.sass';
+import { SwitchVisibilityProjectButton } from './_components/SwitchVisibilityProjectButton';
 
-import { Icon } from '@components/Icon';
+import { NavButtons } from '@components/SidebarWrapper/_components/SidebarTeamsProject/_components/NavButtons';
 
 export const SidebarTeamsProject = ({ color = 'orange', teamName = '   Project' }) => {
   const [isOpen, toggleOpen] = useState(false);
+  const [showSettings, toggleShowSettings] = useState(false);
   const containerRef = useRef(null);
   const contentRef = useRef(null);
 
   const setWidthProperty = () => {
     const contentStyle = window.getComputedStyle(contentRef.current);
     if (!isOpen) {
-      // debugger;
       containerRef.current.style.height = contentStyle.height;
     } else {
-      // debugger;
       containerRef.current.style.height = 0;
     }
   };
@@ -24,7 +24,13 @@ export const SidebarTeamsProject = ({ color = 'orange', teamName = '   Project' 
   return (
     <div className={s.wrapper}>
       <div className={`${s.container} relative`}>
-        <div className={`${s.logo} flex align-items-center relative`}>
+        <div
+          className={`${s.logo} flex justify-content-center align-items-center relative`}
+          onMouseOver={() => toggleShowSettings(true)}
+          onFocus={() => toggleShowSettings(true)}
+          onMouseOut={() => toggleShowSettings(false)}
+          onBlur={() => toggleShowSettings(false)}
+        >
           <div
             className={`${s.circle} flex justify-content-center align-items-center`}
             style={{ backgroundColor: color }}
@@ -36,21 +42,18 @@ export const SidebarTeamsProject = ({ color = 'orange', teamName = '   Project' 
                 .toUpperCase()}
             </span>
           </div>
-          <p className={`${s.headline} ml-2`}>{teamName.replace(/(^\s*)|(\s*)$/g, '')}</p>
-          <div className={s.switch_buttons}>
-            <button type="button" className={`${s.button_create} btn`} onClick={() => setWidthProperty()}>
-              <Icon iconName="add-plus" className={isOpen ? 'rotate-270' : 'rotate-270'} />
-            </button>
-            <button
-              type="button"
-              className={`${s.button_toggle} btn`}
-              onClick={() => {
-                toggleOpen(!isOpen);
-                setWidthProperty();
-              }}
-            >
-              <Icon iconName="arrow-right" className={isOpen ? 'rotate-270' : 'rotate-180'} />
-            </button>
+          <div
+            className={`${s.headline} ml-2 flex justify-content-space-between align-items-center relative`}
+          >
+            <p className={`${s.headline_text} `}>{teamName.replace(/(^\s*)|(\s*)$/g, '')}</p>
+            <NavButtons setWidthProperty={setWidthProperty} isOpen={isOpen} showSettings={showSettings} />
+          </div>
+          <div className={`${s.switch_buttons} flex align-items-center`}>
+            <SwitchVisibilityProjectButton
+              setWidthProperty={setWidthProperty}
+              toggleOpen={toggleOpen}
+              isOpen={isOpen}
+            />
           </div>
         </div>
         <div ref={containerRef} className={`${s.info} ${isOpen ? s.shown : s.hidden}`}>
