@@ -56,6 +56,36 @@ const SidebarWrapper = ({
         </div>
         <div className={s.projects}>
           <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
+          <SidebarTeamsProject/>
         </div>
         <div className={`${s.footer}`}>
           <TeamsButtons isOpen={isOpen}/>

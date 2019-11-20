@@ -3,7 +3,6 @@ export const style = {
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
-    height: 40,
   },
   iconContainer: {
     flexGrow: 1,

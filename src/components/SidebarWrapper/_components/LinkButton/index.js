@@ -9,7 +9,7 @@ import { Icon } from '@components/Icon';
 export const LinkButton = ({ info = [], style = {} }) => (
   <>
     {info.map(item => (
-      <NavLink key={item.title} to={item.link} className={`${s.link} relative`} style={style.link}>
+      <NavLink key={item.title} to={item.link} className={`${s.link} relative pt-2 pb-2`} style={style.link}>
         <div
           className={`${s.iconContainer} flex justify-content-center align-items-center`}
           style={style.iconContainer}

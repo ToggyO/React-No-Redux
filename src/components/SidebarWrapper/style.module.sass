@@ -1,7 +1,7 @@
 @import '@styles/_animations.sass'
 
 .wrapper
-  min-height: 100vh
+  height: 100vh
   position: relative
 
 .sidebar
@@ -9,13 +9,13 @@
   background-color: $primary_color
   box-shadow: 0 2px 12px 0 rgba(0,0,0,0.44)
   z-index: 10
-  transition: width 0.8s ease
+  transition: width 0.4s ease
 
 .sidebar_shown
   width: 270px
 
 .logo_container
-  height: 80px
+  min-height: 80px
   border-bottom: 1px solid rgba(147, 152, 162, 0.2)
   position: relative
 
@@ -48,32 +48,23 @@
 
 .links
   overflow: hidden
-  padding: 18px
+  min-height: 80px
   border-bottom: 1px solid rgba(147, 152, 162, 0.2)
+  transition: min-height 0.2s ease
 
 .links_horizontal
-  //width: 237px
-  //transform: translateX(0)
-  +animation(sidebarSlideButtonsShow, 0s, 0.8s)
+  min-height: 79px
+  +animation(sidebarSlideButtonsShow, 0s, 0.4s)
 
 .links_vertical
-  //width: 84px
-  //margin-right: 10px
-  //padding: 10px 10px 24px 10px
-  //flex-direction: column
-  //transform: translateX(0)
-  +animation(sidebarSlideButtonsHide, 0, 0.8s)
+  min-height: 215px
+  +animation(sidebarSlideButtonsHide, 0, 0.4s)
 
-  a:first-child
-    margin-top: 14px
-
-  a:nth-child(2), a:nth-child(3)
-    margin-top: 28px
 
 .projects
-  flex-grow: 1
-
-
+  //flex-grow: 1
+  //max-height: 100%
+  overflow-y: scroll
 
 .children
   width: 100%

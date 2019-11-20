@@ -12,20 +12,15 @@
     width: 84px
   100%
     width: 84px
-    margin-right: 10px
-    padding: 10px 10px 24px 10px
     flex-direction: column
     transform: translateX(0)
 
 
-
 +keyframe(sidebarSlideButtonsShow)
   0%
-    //flex-direction: column
     width: 84px
     transform: translateX(0)
   30%
-    //flex-direction: column
     width: 84px
     transform: translateX(-1500%)
   90%
@@ -37,12 +32,31 @@
     width: 237px
 
 
-//+keyframe(sidebarSlideProjectShown)
-//  0%
-//    width: 0
-//  100%
-//    width
++keyframe(sidebarSlideTeamsButtonsHide)
+  0%
+    flex-direction: row
+    transform: translateX(0)
+  30%
+    flex-direction: row
+    transform: translateX(-1500%)
+  90%
+    flex-direction: column
+  100%
+    flex-direction: column
+    transform: translateX(0)
 
+
+
++keyframe(sidebarSlideTeamsButtonsShow)
+  0%
+    transform: translateX(0)
+  30%
+    transform: translateX(-1500%)
+  90%
+    flex-direction: row
+  100%
+    flex-direction: row
+    transform: translateX(0)
 
 
 
