@@ -4,14 +4,15 @@ import PT from 'prop-types';
 import s from './style.module.sass';
 
 import { Icon } from '@components/Icon';
+import { setHeightProperty } from '@utils/index';
 
-export const SwitchVisibilityProjectButton = ({ isOpen, toggleOpen, setWidthProperty }) => (
+export const SwitchVisibilityProjectButton = ({ isOpen, toggleOpen, containerRef, contentRef }) => (
   <button
     type="button"
     className={`${s.button_toggle} btn`}
     onClick={() => {
       toggleOpen(!isOpen);
-      setWidthProperty();
+      setHeightProperty(isOpen, containerRef, contentRef);
     }}
   >
     <Icon iconName="arrow-right" className={isOpen ? 'rotate-270' : 'rotate-180'} />
@@ -19,7 +20,8 @@ export const SwitchVisibilityProjectButton = ({ isOpen, toggleOpen, setWidthProp
 );
 
 SwitchVisibilityProjectButton.propTypes = {
-  setWidthProperty: PT.func,
   toggleOpen: PT.func,
   isOpen: PT.bool,
+  containerRef: PT.node,
+  contentRef: PT.node,
 };

@@ -3,6 +3,7 @@ import PT from 'prop-types';
 
 import s from './style.module.sass';
 import { SwitchVisibilityProjectButton } from './_components/SwitchVisibilityProjectButton';
+import { SidebarTeamsProjectsFolder } from './_components/SidebarTeamsProjectsFolder';
 
 import { NavButtons } from '@components/SidebarWrapper/_components/SidebarTeamsProject/_components/NavButtons';
 
@@ -11,15 +12,6 @@ export const SidebarTeamsProject = ({ color = 'orange', teamName = '   Project' 
   const [showSettings, toggleShowSettings] = useState(false);
   const containerRef = useRef(null);
   const contentRef = useRef(null);
-
-  const setWidthProperty = () => {
-    const contentStyle = window.getComputedStyle(contentRef.current);
-    if (!isOpen) {
-      containerRef.current.style.height = contentStyle.height;
-    } else {
-      containerRef.current.style.height = 0;
-    }
-  };
 
   return (
     <div className={s.wrapper}>
@@ -46,38 +38,22 @@ export const SidebarTeamsProject = ({ color = 'orange', teamName = '   Project' 
             className={`${s.headline} ml-2 flex justify-content-space-between align-items-center relative`}
           >
             <p className={`${s.headline_text} `}>{teamName.replace(/(^\s*)|(\s*)$/g, '')}</p>
-            <NavButtons setWidthProperty={setWidthProperty} isOpen={isOpen} showSettings={showSettings} />
+            <NavButtons isOpen={isOpen} showSettings={showSettings} />
           </div>
           <div className={`${s.switch_buttons} flex align-items-center`}>
             <SwitchVisibilityProjectButton
-              setWidthProperty={setWidthProperty}
+              // setWidthProperty={setWidthProperty}
               toggleOpen={toggleOpen}
               isOpen={isOpen}
+              containerRef={containerRef}
+              contentRef={contentRef}
             />
           </div>
         </div>
-        <div ref={containerRef} className={`${s.info} ${isOpen ? s.shown : s.hidden}`}>
+        <div ref={containerRef} className={`${s.info}`}>
           <div ref={contentRef}>
-            <div className={s.test}>YEP!</div>
-            <div className={s.test}>YEP!</div>
-            <div className={s.test}>YEP!</div>
-            <div className={s.test}>YEP!</div>
-            <div className={s.test}>YEP!</div>
-            <div className={s.test}>YEP!</div>
-            <div className={s.test}>YEP!</div>
-            <div className={s.test}>YEP!</div>
-            <div className={s.test}>YEP!</div>
-            <div className={s.test}>YEP!</div>
-            <div className={s.test}>YEP!</div>
-            <div className={s.test}>YEP!</div>
-            <div className={s.test}>YEP!</div>
-            <div className={s.test}>YEP!</div>
-            <div className={s.test}>YEP!</div>
-            <div className={s.test}>YEP!</div>
-            <div className={s.test}>YEP!</div>
-            <div className={s.test}>YEP!</div>
-            <div className={s.test}>YEP!</div>
-            <div className={s.test}>YEP!</div>
+            <SidebarTeamsProjectsFolder />
+            {/* <div className={s.test}>YEP!</div> */}
           </div>
         </div>
       </div>

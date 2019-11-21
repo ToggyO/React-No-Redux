@@ -150,6 +150,14 @@ function Icon({ iconName, className, fill }) {
       return (
         <svg className={className} width="11px" height="11px" viewBox="0 0 11 11" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="Web" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="01--Settings-menu-Copy" transform="translate(-201.000000, -192.000000)" fill="#9398A2"><g id="Group-9" transform="translate(-0.000926, 0.000000)"><g id="Icon/16/settings" transform="translate(198.000000, 189.000000)"><path d="M8.9988177,3 L7.99763539,3 L7.99763539,4.99854124 L7,4.99854124 L7,6 L7.99763539,6 L7.99763539,14 L8.9988177,14 L8.9988177,6 L10,6 L10,4.99854124 L8.9988177,4.99854124 L8.9988177,3 Z M5,8 L6,8 L6,9 L5,9 L5,14 L4,14 L4,9 L3,9 L3,8 L4,8 L4,3 L5,3 L5,8 Z M13,8 L14,8 L14,9 L13,9 L13,14 L12,14 L12,9 L11,9 L11,8 L12,8 L12,3 L13,3 L13,8 Z" id="option_bar_settings-[#1401]"></path></g></g></g></g></svg>
       );
+    case 'folder':
+      return (
+        <svg className={className} width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="Web" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="01--Settings-menu" transform="translate(-42.000000, -428.000000)" fill="#9398A2"><g id="Group-9" transform="translate(-0.000926, 0.000000)"><g id="Icon/16/folder/-border-Copy-3-Icon/16/folder/-border-Copy" transform="translate(40.000926, 426.000000)"><polygon id="folder-[#1792]-copy" points="8 4 6.8 2 2 2 2 14 14 14 14 4"></polygon></g></g></g></g></svg>
+      );
+    case 'folder-empty':
+      return (
+        <svg className={className} width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="Web" stroke="none" strokeWidth="1" fill="#9398A2" fillRule="evenodd"><g id="01--Settings-menu" transform="translate(-42.000000, -231.000000)" fill="#9398A2"><g id="Group-9" transform="translate(-0.000926, 0.000000)"><g id="Icon/16/folder-Icon/16/folder/-border" transform="translate(40.000926, 229.000000)"><path d="M13,7 L3,7 L3,3 L6.1874,3 L7.3622,5 L13,5 L13,7 Z M3,13 L13,13 L13,8 L3,8 L3,13 Z M8,4 L6.8,2 L2,2 L2,14 L14,14 L14,4 L8,4 Z" id="folder-[#1792]-copy"></path></g></g></g></g></svg>
+      );
     default:
       return null;
       // return <svg src="../img/registration/hello.svg" className={className} />;

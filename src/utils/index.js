@@ -86,3 +86,14 @@ export const redirectToStep = step => {
 };
 
 export const parseQueryString = queries => parse(queries, { ignoreQueryPrefix: true });
+
+export const setHeightProperty = (flag, containerRef, contentRef) => {
+  const contentStyle = window.getComputedStyle(contentRef.current);
+  if (!flag) {
+    // eslint-disable-next-line no-param-reassign
+    containerRef.current.style.height = contentStyle.height;
+  } else {
+    // eslint-disable-next-line no-param-reassign
+    containerRef.current.style.height = 0;
+  }
+};
