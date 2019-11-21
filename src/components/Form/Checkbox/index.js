@@ -23,9 +23,9 @@ export const Checkbox = ({
     style={{ ...style.titleWrapper, cursor: 'pointer' }}
   >
     {state && (icon || iconChecked) ? (
-      <Icon iconName={iconChecked} className={iconCheckedStyle} />
-    ) : (
       <Icon iconName={icon} className={iconStyle} />
+    ) : (
+      <Icon iconName={iconChecked} className={iconCheckedStyle} />
     )}
     <input
       type="checkbox"

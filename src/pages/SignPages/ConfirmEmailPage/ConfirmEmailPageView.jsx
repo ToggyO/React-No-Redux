@@ -23,7 +23,7 @@ const ConfirmEmailPageView = ({ userInfo = {}, sendNewCode, withExtra, clearExtr
         {withExtra && <MessageSuccess message={`Confirmation code is sent to ${userInfo.email}`}/>}
         <FormTemplateView
           titleLarge="Confirm your email"
-          titleSmall={`We have sent a confirmation code to ${userInfo.email}. Enter this code below:`}
+          titleSmall={`We have sent a confirmation code to ${userInfo.email}. Please enter this code below:`}
           addTitleSmallClass="pl-20 pr-20"
           link={<p>
             Didn’t receive a confirmation code?&nbsp;

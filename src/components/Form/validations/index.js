@@ -2,7 +2,7 @@ export const validateField = {
   email: value => {
     let error;
     if (!value) {
-      error = 'Required';
+      error = 'Please, fill in all the required fields';
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
       error = 'Invalid email';
     }

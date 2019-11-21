@@ -64,7 +64,7 @@ const SetPasswordFormView = ({ location = {}, errorsFromBackend = {}, setNewPass
             disabled={!isValid}
             className="btn green-filled rounded p-4 full_width login-page-button"
           >
-            Next
+            Confirm
           </button>
         </Form>
       )}

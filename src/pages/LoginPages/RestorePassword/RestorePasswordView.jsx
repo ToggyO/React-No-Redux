@@ -24,7 +24,7 @@ const RestorePasswordView = ({ withExtra = '' }) => (
         link={
           <>
             <p>
-              If you don't receive the email within a few minutes, please please try again.
+              If you don't receive the email within a few minutes, please try again.
             </p>
             <p className="pt-6">or&nbsp;
               <Link
