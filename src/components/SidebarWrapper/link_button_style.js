@@ -2,7 +2,10 @@ export const style = {
   link: {
     display: 'flex',
     flexDirection: 'column',
-    width: '100%',
+    width: 67,
+    // width: '100%',
+    minWidth: '67px',
+    // maxWidth: '33%',
   },
   iconContainer: {
     flexGrow: 1,

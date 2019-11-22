@@ -9,7 +9,7 @@
   background-color: $primary_color
   box-shadow: 0 2px 12px 0 rgba(0,0,0,0.44)
   z-index: 10
-  transition: width 0.4s ease
+  transition: width .1s ease-in-out
 
 .sidebar_shown
   width: 270px
@@ -25,12 +25,12 @@
 .logo_large
   width: 124px
   height: 26px
-  transition: width 0.8s ease
+  transition: width 0.1s ease
 
 .logo_small
   width: 31px
   height: 26px
-  transition: width 0.8s ease
+  transition: width 0.1s ease
 
 .image
   width: 124px
@@ -54,16 +54,10 @@
   transform: translateZ(0)
 
 .links_horizontal
-  min-height: 79px
-  +animation(sidebarSlideButtonsShow, 0s, 0.4s)
+  min-height: 80px
 
 .links_vertical
   min-height: 215px
-  +animation(sidebarSlideButtonsHide, 0, 0.4s)
-
-
-.projects
-  overflow-y: scroll
 
 .children
   width: 100%

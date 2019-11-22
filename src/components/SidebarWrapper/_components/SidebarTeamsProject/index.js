@@ -7,7 +7,7 @@ import { SidebarTeamsProjectsFolder } from './_components/SidebarTeamsProjectsFo
 import { SidebarTeamsProjectsHeadline } from './_components/SidebarTeamsProjectsHeadline';
 import { NavButtons } from './_components/NavButtons';
 
-export const SidebarTeamsProject = ({ color = 'orange', teamName = '   Project' }) => {
+export const SidebarTeamsProject = ({ isSidebarOpened, color = 'orange', teamName = '   Project' }) => {
   const [isOpen, toggleOpen] = useState(false);
   const [showSettings, toggleShowSettings] = useState(false);
 
@@ -22,20 +22,30 @@ export const SidebarTeamsProject = ({ color = 'orange', teamName = '   Project' 
           onBlur={() => toggleShowSettings(false)}
         >
           <div
-            className={`${s.tittle_container} flex justify-content-center align-items-center relative`}
+            className={`${s.tittle_container} ${
+              !isSidebarOpened ? s.float_left : ''
+            } flex justify-content-center align-items-center relative`}
             onClick={() => toggleOpen(!isOpen)}
           >
-            <SidebarTeamsProjectsHeadline color={color} teamName={teamName} />
+            <SidebarTeamsProjectsHeadline
+              isSidebarOpened={isSidebarOpened}
+              color={color}
+              teamName={teamName}
+            />
           </div>
-          <NavButtons
-            isOpen={isOpen}
-            showSettings={showSettings}
-            addSettingsIconClass="btn mr-3"
-            addCreateButtonClass="btn mr-3"
-          />
-          <div className={`${s.switch_buttons} flex align-items-center`}>
-            <SwitchVisibilityProjectButton toggleOpen={toggleOpen} isOpen={isOpen} />
-          </div>
+          {isSidebarOpened && (
+            <>
+              <NavButtons
+                isOpen={isOpen}
+                showSettings={showSettings}
+                addSettingsIconClass="btn mr-3"
+                addCreateButtonClass="btn mr-3"
+              />
+              <div className={`${s.switch_buttons} flex align-items-center`}>
+                <SwitchVisibilityProjectButton toggleOpen={toggleOpen} isOpen={isOpen} />
+              </div>
+            </>
+          )}
         </div>
         <div className={`${s.info} ${isOpen ? s.shown : s.hidden}`}>
           <div className={s.info_container}>
@@ -46,12 +56,13 @@ export const SidebarTeamsProject = ({ color = 'orange', teamName = '   Project' 
           </div>
         </div>
       </div>
-      {!isOpen && <div className={s.overlay} onClick={() => toggleOpen(!isOpen)} />}
+      {isSidebarOpened && !isOpen && <div className={s.overlay} onClick={() => toggleOpen(!isOpen)} />}
     </div>
   );
 };
 
 SidebarTeamsProject.propTypes = {
+  isSidebarOpened: PT.bool,
   color: PT.string,
   teamName: PT.string,
 };

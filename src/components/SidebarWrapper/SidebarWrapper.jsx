@@ -8,6 +8,7 @@ import { Icon } from '@components/Icon';
 import { LinkButton } from '@components/SidebarWrapper/_components/LinkButton';
 import { TeamsButtons } from '@components/SidebarWrapper/_components/TeamsButtons';
 import { SidebarTeamsProject } from '@components/SidebarWrapper/_components/SidebarTeamsProject';
+import CustomScrollbar from '@components/Scrollbar';
 
 const buttons = [
   {
@@ -31,44 +32,48 @@ const buttons = [
 const SidebarWrapper = ({
   children,
 }) => {
-  const [ isOpen, toggleOpen ] = useState(true);
+  const [ isSidebarOpened, toggleSidebarOpen ] = useState(true);
 
   return (
     <div className={`${s.wrapper} flex`}>
-      <div className={`${s.sidebar} ${isOpen ? s.sidebar_shown : ''} flex flex-column`}>
+      <div className={`${s.sidebar} ${isSidebarOpened ? s.sidebar_shown : ''} flex flex-column`}>
         <div className={`${s.logo_container} flex justify-content-center align-items-center`}>
-          <div className={`${s.logo} ${isOpen ? s.logo_large : s.logo_small}`}>
+          <div className={`${s.logo} ${isSidebarOpened ? s.logo_large : s.logo_small}`}>
             <Icon iconName="squad-logo" className={s.image}/>
           </div>
           <button
             type="button"
             className={`${s.toggle_button}`}
-            onClick={() => toggleOpen(!isOpen)}
+            onClick={() => toggleSidebarOpen(!isSidebarOpened)}
           >
-            <Icon iconName="arrow-right" className={!isOpen ? 'rotate-180' : ''}/>
+            <Icon iconName="arrow-right" className={!isSidebarOpened ? 'rotate-180' : ''}/>
           </button>
         </div>
-        <div className={`${s.links} ${isOpen ? s.links_horizontal : s.links_vertical} flex justify-content-center align-items-center`}>
+        <div className={`${s.links} ${isSidebarOpened ? s.links_horizontal : s.links_vertical} flex justify-content-center align-items-center flex-wrap-wrap`}>
           <LinkButton
             info={buttons}
             style={LinkButtonStyle}
           />
         </div>
-        <div className={s.projects}>
-          <SidebarTeamsProject />
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-        </div>
+        <CustomScrollbar
+          style={{ flexGrow: 1 }}
+          universal
+          autoHide
+          autoHideTimeout={1000}
+          autoHideDuration={200}
+          thumbstyle={{ backgroundColor: '#6D768A',
+            width: 4,
+            borderRadius: 2,
+          }}
+        >
+          <SidebarTeamsProject isSidebarOpened={isSidebarOpened}/>
+          <SidebarTeamsProject isSidebarOpened={isSidebarOpened}/>
+          <SidebarTeamsProject isSidebarOpened={isSidebarOpened}/>
+          <SidebarTeamsProject isSidebarOpened={isSidebarOpened}/>
+
+        </CustomScrollbar>
         <div className={`${s.footer}`}>
-          <TeamsButtons isOpen={isOpen}/>
+          <TeamsButtons isOpen={isSidebarOpened}/>
         </div>
       </div>
       <div className={s.children}>{children}</div>
