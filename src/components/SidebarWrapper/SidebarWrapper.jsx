@@ -55,27 +55,7 @@ const SidebarWrapper = ({
           />
         </div>
         <div className={s.projects}>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
-          <SidebarTeamsProject/>
+          <SidebarTeamsProject />
           <SidebarTeamsProject/>
           <SidebarTeamsProject/>
           <SidebarTeamsProject/>
