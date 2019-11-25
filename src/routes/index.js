@@ -11,16 +11,17 @@ import { ROUTES } from '@config';
 import { AuthScreenWrapperContainer } from '@components/AuthScreenWrapper';
 import { HomePageContainer } from '@pages/HomePage';
 import { NotFoundPageView } from '@pages/NotFoundPage';
-import { SignUpPageContainer } from '@pages/SignPages/SignUpPage';
-import { ConfirmEmailPageContainer } from '@pages/SignPages/ConfirmEmailPage';
-import { SetPasswordPageView } from '@pages/LoginPages/SetPasswordPage';
-import { EnterNamePageView } from '@pages/SignPages/EnterNamePage';
-import { SetCompanyNamePageView } from '@pages/SignPages/SetCompanyNamePage';
-import { FirstProjectPageView } from '@pages/SignPages/FirstProjectPage';
-import { TutorialPageView } from '@pages/SignPages/TutorialPage';
-import { SetTeamPageView } from '@pages/SignPages/SetTeamPage';
+import { SignUpPageContainer } from '@pages/SignPages/Admin/SignUpPage';
+import { ConfirmEmailPageContainer } from '@pages/SignPages/Admin/ConfirmEmailPage';
+import { SetNewPasswordPageView } from '@pages/LoginPages/SetNewPasswordPage';
+import { EnterNamePageView } from '@pages/SignPages/Admin/EnterNamePage';
+import { SetCompanyNamePageView } from '@pages/SignPages/Admin/SetCompanyNamePage';
+import { FirstProjectPageView } from '@pages/SignPages/Admin/FirstProjectPage';
+import { TutorialPageView } from '@pages/SignPages/Admin/TutorialPage';
+import { SetTeamPageView } from '@pages/SignPages/Admin/SetTeamPage';
 import { LoginPageView } from '@pages/LoginPages/LoginPage';
 import { RestorePasswordContainer } from '@pages/LoginPages/RestorePassword';
+import { SetPasswordPageView } from '@pages/SignPages/Member/SetPasswordPage';
 
 // eslint-disable-next-line react/prop-types
 const Routes = ({ modal: { modalKey } }) => (
@@ -65,6 +66,11 @@ const Routes = ({ modal: { modalKey } }) => (
               <Route
                 path={ROUTES.AUTH.ROOT + ROUTES.AUTH.SET_PASSWORD}
                 exact
+                component={SetNewPasswordPageView}
+              />
+              <Route
+                path={ROUTES.AUTH.ROOT + ROUTES.AUTH.SET_PASSWORD_INVITE}
+                exact
                 component={SetPasswordPageView}
               />
             </Switch>
@@ -76,7 +82,7 @@ const Routes = ({ modal: { modalKey } }) => (
         component={props => (
           <SidebarWrapper {...props}>
             <Switch>
-              <AuthRoute path={ROUTES.HOME_PAGE} exact component={HomePageContainer} />
+              <Route path={ROUTES.HOME_PAGE} exact component={HomePageContainer} />
             </Switch>
           </SidebarWrapper>
         )}

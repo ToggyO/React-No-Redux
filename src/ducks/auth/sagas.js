@@ -334,6 +334,21 @@ export function* setNewPasswordSaga() {
   yield takeLatest(authTypes.SET_NEW_PASSWORD_REQUEST, setNewPassword);
 }
 
+function* setPasswordInvite(action) {
+  try {
+    yield call(api.auth.setPasswordInvite, action.payload);
+    yield put({ type: authTypes.SET_PASSWORD_INVITE_SUCCESS });
+    yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.LOGIN_IN);
+  } catch (error) {
+    const { errors } = error.response.data;
+    yield put({ type: authTypes.SET_PASSWORD_INVITE_ERROR, payload: errors });
+  }
+}
+
+export function* setPasswordInviteSaga() {
+  yield takeLatest(authTypes.SET_PASSWORD_INVITE_REQUEST, setPasswordInvite);
+}
+
 /*---------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 

@@ -73,6 +73,7 @@ export const clearExtra = () => ({
   type: types.CLEAR_EXTRA,
 });
 
-// export const logoutRequest = () => ({
-//   type: types.LOGOUT,
-// });
+export const setPasswordInvite = data => ({
+  type: types.SET_PASSWORD_INVITE_REQUEST,
+  payload: data,
+});

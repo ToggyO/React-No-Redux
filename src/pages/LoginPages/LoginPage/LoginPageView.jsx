@@ -19,7 +19,7 @@ const LoginPageView = () => {
   return (
     <>
       <Helmet defaultTitle="Squad.io - Sign in">
-        <meta name="description" content="login in page" />
+        <meta name="description" content="Login in page" />
       </Helmet>
       <FormTemplateView
         titleLarge="Sign in"

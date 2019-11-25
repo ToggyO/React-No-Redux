@@ -52,6 +52,10 @@ export default {
       const response = await superaxios.post(API_URL.RESTORE_PASSWORD, data);
       return response.data;
     },
+    setPasswordInvite: async data => {
+      const response = await superaxios.post(API_URL.SET_PASSWORD_INVITE, data);
+      return response.data;
+    },
     setNewPassword: async data => {
       const response = await superaxios.put(API_URL.SET_NEW_PASSWORD, data);
       return response.data;

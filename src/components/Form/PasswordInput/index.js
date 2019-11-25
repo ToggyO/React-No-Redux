@@ -8,7 +8,7 @@ import s from './style.module.sass';
 import { ImageBefore } from '@components/Form/ImgBefore';
 import { LabelWrapper } from '@components/Form/LabelWrapper';
 import { Checkbox } from '@components/Form/Checkbox';
-import { style } from '@pages/LoginPages/SetPasswordPage/_components/SetPasswordForm/checkbox_style';
+import { style } from '@pages/LoginPages/SetNewPasswordPage/_components/SetPasswordForm/checkbox_style';
 
 export class PasswordInput extends React.Component {
   state = {

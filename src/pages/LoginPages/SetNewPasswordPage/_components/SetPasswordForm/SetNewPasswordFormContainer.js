@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import SetPasswordFormView from './SetPasswordFormView';
+import SetPasswordFormView from './SetNewPasswordFormView';
 
 import { authSelectors, authActions } from '@ducks/auth';
 

@@ -10,13 +10,21 @@ import { PasswordInput } from '@components/Form/PasswordInput';
 import key from '@assets/login_page/key.png';
 
 
-const SetPasswordFormView = ({
+const SetNewPasswordFormView = ({
   location = {},
   errorsFromBackend = {},
-  setNewPassword,
+  // setNewPassword,
   clearStoreErrors,
 }) => {
   const formikRef = useRef(null);
+  const queries = parseQueryString(location.search);
+
+  useEffect(() => {
+    // const queries1 = parseQueryString(location.search);
+    // console.log(queries1);
+    // https://www.mailinator.com/key/url?url=https%3A//squad.magora.work/team/invite%3Fcode%3D63df9d10d15f4cfbb4bea3d37a276044%26isRegistered%3Dfalse
+
+  },[]);
 
   useEffect(() => {
     formikRef.current.setErrors(responseFormikError(errorsFromBackend, ERROR_CODES));
@@ -24,7 +32,6 @@ const SetPasswordFormView = ({
 
   useEffect(() => () => clearStoreErrors(), []);
 
-  const queries = parseQueryString(location.search);
 
   return (
     <Formik
@@ -32,8 +39,12 @@ const SetPasswordFormView = ({
       initialValues={{ password: '', passwordConfirm: '' }}
       validate={validateForm.confirmPassword}
       onSubmit={values => {
-        setNewPassword({
-          code: queries.code,
+        // setNewPassword({
+        //   code: queries.code,
+        //   password: values.password,
+        // });
+        console.log({
+          inviteCode: queries.code,
           password: values.password,
         });
       }}
@@ -64,7 +75,7 @@ const SetPasswordFormView = ({
             disabled={!isValid}
             className="btn green-filled rounded p-4 full_width login-page-button"
           >
-            Confirm
+            Next
           </button>
         </Form>
       )}
@@ -72,11 +83,11 @@ const SetPasswordFormView = ({
   );
 };
 
-SetPasswordFormView.propTypes = {
+SetNewPasswordFormView.propTypes = {
   location: PT.object,
   errorsFromBackend: PT.arrayOf(PT.object),
-  setNewPassword: PT.func,
+  // setNewPassword: PT.func,
   clearStoreErrors: PT.func,
 };
 
-export default withRouter(SetPasswordFormView);
+export default withRouter(SetNewPasswordFormView);

@@ -12,6 +12,7 @@ export const ROUTES = {
     LOGIN_IN: '/login-in',
     RESTORE_PASSWORD: '/restore-password',
     SET_PASSWORD: '/set-password',
+    SET_PASSWORD_INVITE: '/set-password-invite',
   },
   SOME_PAGE: '/some-page',
 };

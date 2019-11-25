@@ -13,5 +13,6 @@ export const API_URL = {
   SET_FIRST_PROJECT: 'signup/admin/project',
   REGISTRATION_DONE: 'signup/done',
   RESTORE_PASSWORD: 'users/passwords/request',
+  SET_PASSWORD_INVITE: 'signup/member/email',
   SET_NEW_PASSWORD: 'users/passwords/set',
 };
