@@ -10,7 +10,13 @@ import { validateField } from '@components/Form/validations';
 import { TextInput } from '@components/Form/TextInput';
 import { Checkbox } from '@components/Form/Checkbox';
 
-const EnterNameFormView = ({ errorsFromBackend, setUserName, clearStoreErrors }) => {
+const EnterNameFormView = ({
+  errorsFromBackend,
+  userRole,
+  setUserName,
+  setUserNameInvite,
+  clearStoreErrors,
+}) => {
   const [state, setState] = useState(false);
   const formikRef = useRef(null);
 
@@ -20,11 +26,18 @@ const EnterNameFormView = ({ errorsFromBackend, setUserName, clearStoreErrors })
 
   useEffect(() => () => clearStoreErrors(), []);
 
+  const onFormSubmit = values => {
+    if (userRole === 'Admin') {
+      return setUserName(values);
+    }
+    return setUserNameInvite(values);
+  };
+
   return (
     <Formik
       ref={formikRef}
       initialValues={{ name: '' }}
-      onSubmit={setUserName}
+      onSubmit={onFormSubmit}
       render={({ isValid, errors }) => (
         <Form>
           {errors.global &&
@@ -65,7 +78,9 @@ const EnterNameFormView = ({ errorsFromBackend, setUserName, clearStoreErrors })
 
 EnterNameFormView.propTypes = {
   errorsFromBackend: PT.array,
+  userRole: PT.string,
   setUserName: PT.func,
+  setUserNameInvite: PT.func,
   clearStoreErrors: PT.func,
 };
 

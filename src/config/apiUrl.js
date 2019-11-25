@@ -7,6 +7,7 @@ export const API_URL = {
   CONFIRM_EMAIL: 'signup/admin/confirm',
   SEND_NEW_CODE: 'signup/admin/send-new-code',
   SET_USER_NAME: 'signup/admin/username',
+  SET_USER_NAME_INVITE: 'signup/member/username',
   SET_COMPANY_NAME: 'signup/admin/company',
   SET_TEAM: 'signup/admin/team',
   GET_TEAM_EMAILS: 'signup/admin/team/invites',

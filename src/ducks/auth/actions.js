@@ -77,3 +77,8 @@ export const setPasswordInvite = data => ({
   type: types.SET_PASSWORD_INVITE_REQUEST,
   payload: data,
 });
+
+export const setUserNameInvite = data => ({
+  type: types.SET_USER_NAME_INVITE_REQUEST,
+  payload: data,
+});

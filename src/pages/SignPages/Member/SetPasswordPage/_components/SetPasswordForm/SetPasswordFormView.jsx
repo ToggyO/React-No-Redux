@@ -10,10 +10,10 @@ import { PasswordInput } from '@components/Form/PasswordInput';
 import key from '@assets/login_page/key.png';
 
 
-const SetNewPasswordFormView = ({
+const SetPasswordFormView = ({
   location = {},
   errorsFromBackend = {},
-  // setNewPassword,
+  setPasswordInvite,
   clearStoreErrors,
 }) => {
   const formikRef = useRef(null);
@@ -23,7 +23,6 @@ const SetNewPasswordFormView = ({
     // const queries1 = parseQueryString(location.search);
     // console.log(queries1);
     // https://www.mailinator.com/key/url?url=https%3A//squad.magora.work/team/invite%3Fcode%3D63df9d10d15f4cfbb4bea3d37a276044%26isRegistered%3Dfalse
-
   },[]);
 
   useEffect(() => {
@@ -32,21 +31,25 @@ const SetNewPasswordFormView = ({
 
   useEffect(() => () => clearStoreErrors(), []);
 
-
   return (
     <Formik
       ref={formikRef}
       initialValues={{ password: '', passwordConfirm: '' }}
       validate={validateForm.confirmPassword}
       onSubmit={values => {
-        // setNewPassword({
-        //   code: queries.code,
+        // setPasswordInvite({
+        //   inviteCode: queries.code,
         //   password: values.password,
         // });
+        setPasswordInvite({
+          inviteCode: 'a30e24bd8e5a40a3bcf0a9575f9cfaf2', // TODO HARDCODE
+          password: values.password,
+        });
         console.log({
           inviteCode: queries.code,
           password: values.password,
         });
+        // https://www.mailinator.com/key/url?url=https%3A//squad.magora.work/team/invite%3Fcode%3Da30e24bd8e5a40a3bcf0a9575f9cfaf2%26isRegistered%3Dfalse
       }}
       render={({ errors, touched, isValid }) => (
         <Form>
@@ -83,11 +86,11 @@ const SetNewPasswordFormView = ({
   );
 };
 
-SetNewPasswordFormView.propTypes = {
+SetPasswordFormView.propTypes = {
   location: PT.object,
   errorsFromBackend: PT.arrayOf(PT.object),
-  // setNewPassword: PT.func,
+  setPasswordInvite: PT.func,
   clearStoreErrors: PT.func,
 };
 
-export default withRouter(SetNewPasswordFormView);
+export default withRouter(SetPasswordFormView);

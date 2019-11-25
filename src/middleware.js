@@ -14,7 +14,7 @@ export const saveUserData = store => next => action => {
   ) {
     const { user, token, registrationStep } = action.payload.data;
     const { accessToken, refreshToken } = token;
-    // debugger;
+
     writeToLocalState(LOCAL_STORAGE_KEYS.USER, user);
     writeToLocalState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN, accessToken);
     writeToLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN, refreshToken);
@@ -27,7 +27,7 @@ export const saveUserData = store => next => action => {
   ) {
     const { user, token, registrationStep } = action.payload.data;
     const { accessToken, refreshToken } = token;
-    // debugger;
+
     writeToSessionState(LOCAL_STORAGE_KEYS.USER, user);
     writeToSessionState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN, accessToken);
     writeToSessionState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN, refreshToken);
@@ -37,7 +37,10 @@ export const saveUserData = store => next => action => {
 };
 
 export const updateUsersData = store => next => action => {
-  if (action.type === authTypes.SET_USER_NAME_SUCCESS) {
+  if (
+    action.type === authTypes.SET_USER_NAME_SUCCESS ||
+    action.type === authTypes.SET_USER_NAME_INVITE_SUCCESS
+  ) {
     const { data } = action.payload.data;
     writeToLocalState(LOCAL_STORAGE_KEYS.USER, data);
   }
@@ -55,6 +58,7 @@ export const saveRegistrationStep = store => next => action => {
   if (
     action.type === authTypes.CONFIRM_EMAIL_SUCCESS ||
     action.type === authTypes.SET_USER_NAME_SUCCESS ||
+    action.type === authTypes.SET_USER_NAME_INVITE_SUCCESS ||
     action.type === authTypes.SET_COMPANY_NAME_SUCCESS ||
     action.type === authTypes.SET_TEAM_SUCCESS ||
     action.type === authTypes.SET_FIRST_PROJECT_SUCCESS ||

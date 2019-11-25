@@ -46,6 +46,7 @@ export default function auth(state = initialState, action) {
     case types.LOGIN_IN_WITH_GOOGLE_REQUEST:
     case types.CONFIRM_EMAIL_REQUEST:
     case types.SEND_NEW_CODE_REQUEST:
+    case types.SET_USER_NAME_INVITE_REQUEST:
     case types.SET_USER_NAME_REQUEST:
     case types.SET_COMPANY_NAME_REQUEST:
     case types.SET_TEAM_REQUEST:
@@ -61,6 +62,7 @@ export default function auth(state = initialState, action) {
     case types.LOGIN_IN_WITH_EMAIL_SUCCESS:
     case types.LOGIN_IN_WITH_EMAIL_REMEMBER_ME_SUCCESS:
     case types.LOGIN_IN_WITH_GOOGLE_SUCCESS:
+    case types.SET_PASSWORD_INVITE_SUCCESS:
     case types.LOGIN_IN_WITH_GOOGLE_REMEMBER_ME_SUCCESS: {
       const { data } = action.payload;
       return { ...state, data, loading: false };
@@ -70,6 +72,7 @@ export default function auth(state = initialState, action) {
       return { ...state, loading: false, extra: action.payload };
     case types.CONFIRM_EMAIL_SUCCESS:
     case types.SET_USER_NAME_SUCCESS:
+    case types.SET_USER_NAME_INVITE_SUCCESS:
     case types.SET_COMPANY_NAME_SUCCESS:
     case types.SET_TEAM_SUCCESS:
     case types.SET_FIRST_PROJECT_SUCCESS:
@@ -77,7 +80,6 @@ export default function auth(state = initialState, action) {
       const { data } = action.payload;
       return { ...state, loading: false, data: { ...state.data, registrationStep: data.registrationStep } };
     }
-    case types.SET_PASSWORD_INVITE_SUCCESS:
     case types.SET_NEW_PASSWORD_SUCCESS:
     case types.REFRESHING_TOKEN_SUCCESS:
       return { ...state, loading: false };
@@ -88,6 +90,7 @@ export default function auth(state = initialState, action) {
     case types.CONFIRM_EMAIL_ERROR:
     case types.SEND_NEW_CODE_ERROR:
     case types.SET_USER_NAME_ERROR:
+    case types.SET_USER_NAME_INVITE_ERROR:
     case types.SET_COMPANY_NAME_ERROR:
     case types.SET_TEAM_ERROR:
     case types.SET_FIRST_PROJECT_ERROR:
