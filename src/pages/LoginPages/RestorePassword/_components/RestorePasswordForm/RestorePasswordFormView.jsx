@@ -10,12 +10,19 @@ import { validateField } from '@components/Form/validations';
 import mail from '@assets/login_page/email_icon.png';
 
 
-const RestorePasswordFormView = ({ errorsFromBackend, restorePassword, clearExtra}) => {
+const RestorePasswordFormView = ({
+  errorsFromBackend,
+  restorePassword,
+  clearExtra,
+  clearStoreErrors,
+}) => {
   const formikRef = useRef(null);
 
   useEffect(() => {
     formikRef.current.setErrors(responseFormikError(errorsFromBackend, ERROR_CODES));
   }, [errorsFromBackend]);
+
+  useEffect(() => () => clearStoreErrors(), []);
 
   return (
     <Formik
@@ -59,6 +66,7 @@ RestorePasswordFormView.propTypes = {
   errorsFromBackend: PT.arrayOf(PT.object),
   restorePassword: PT.func,
   clearExtra: PT.func,
+  clearStoreErrors: PT.func,
 };
 
 export default RestorePasswordFormView;

@@ -18,6 +18,9 @@ function mapDispatchToProps(dispatch) {
     clearExtra(emailObj) {
       dispatch(authActions.clearExtra(emailObj));
     },
+    clearStoreErrors() {
+      dispatch(authActions.clearStoreErrors());
+    },
   };
 }
 

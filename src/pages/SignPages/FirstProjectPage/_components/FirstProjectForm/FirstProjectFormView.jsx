@@ -80,7 +80,7 @@ const FirstProjectFormView = ({ setFirstProjectRequest, ...rest }) => {
             <Field
               type="text"
               name="name"
-              placeholder="Enter project name"
+              placeholder="Enter a project name"
               component={TextInput}
               validate={validateField.name}
               addClassWrapper="pt-4 pb-4 mb-3"

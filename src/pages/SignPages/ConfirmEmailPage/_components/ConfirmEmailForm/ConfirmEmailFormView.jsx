@@ -18,6 +18,7 @@ const ConfirmEmailFormView = ({ errorsFromBackend, confirmEmail, clearStoreError
         addClassWrapper="pt-4 pb-4"
         errorsFromBackend={setErrors(errorsFromBackend)}
         onClick={confirmEmail}
+        clearStoreErrors={clearStoreErrors}
         clearExtra={clearExtra}
       />
     </>

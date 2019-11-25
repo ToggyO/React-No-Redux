@@ -12,13 +12,15 @@ import { TextInput } from '@components/Form/TextInput';
 import { validateField } from '@components/Form/validations';
 
 
-const SetTeamFormView = ({ errorsFromBackend, setTeam }) => {
+const SetTeamFormView = ({ errorsFromBackend, setTeam, clearStoreErrors }) => {
   const [emails, setEmails] = useState([]);
   const formikRef = useRef(null);
 
   useEffect(() => {
     formikRef.current.setErrors(responseFormikError(errorsFromBackend, ERROR_CODES));
   }, [errorsFromBackend]);
+
+  useEffect(() => () => clearStoreErrors(), []);
 
   return (
     <Formik
@@ -75,6 +77,7 @@ const SetTeamFormView = ({ errorsFromBackend, setTeam }) => {
 SetTeamFormView.propTypes = {
   errorsFromBackend: PT.arrayOf(PT.object),
   setTeam: PT.func,
+  clearStoreErrors: PT.func,
 };
 
 export default SetTeamFormView;

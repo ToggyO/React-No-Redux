@@ -14,6 +14,9 @@ const mapDispatchToProps = dispatch => ({
   setUserName(name) {
     dispatch(authActions.setUserName(name));
   },
+  clearStoreErrors() {
+    dispatch(authActions.clearStoreErrors());
+  },
 });
 
 export default connect(

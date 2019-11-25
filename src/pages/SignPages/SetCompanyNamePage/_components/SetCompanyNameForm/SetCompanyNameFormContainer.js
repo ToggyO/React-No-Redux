@@ -15,6 +15,9 @@ function mapDispatchToProps(dispatch) {
     setCompanyName(name) {
       dispatch(authActions.setCompanyName(name));
     },
+    clearStoreErrors() {
+      dispatch(authActions.clearStoreErrors());
+    },
   };
 }
 

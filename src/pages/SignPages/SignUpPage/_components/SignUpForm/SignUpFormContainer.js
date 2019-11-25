@@ -18,6 +18,9 @@ function mapDispatchToProps(dispatch) {
     signUpWithGoogleRequest(emailObj) {
       dispatch(authActions.signUpWithGoogleRequest(emailObj));
     },
+    clearStoreErrors() {
+      dispatch(authActions.clearStoreErrors());
+    },
   };
 }
 

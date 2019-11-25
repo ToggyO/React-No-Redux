@@ -14,12 +14,19 @@ import mail from '@assets/login_page/email_icon.png';
 
 
 // eslint-disable-next-line react/prop-types
-const SignUpFormView = ({ errorsFromBackend, signUpWithEmailRequest, signUpWithGoogleRequest }) => {
+const SignUpFormView = ({
+  errorsFromBackend,
+  signUpWithEmailRequest,
+  signUpWithGoogleRequest,
+  clearStoreErrors,
+}) => {
   const formikRef = useRef(null);
 
   useEffect(() => {
     formikRef.current.setErrors(responseFormikError(errorsFromBackend, ERROR_CODES));
   }, [errorsFromBackend]);
+
+  useEffect(() => () => clearStoreErrors(), []);
 
   return (
     <Formik
@@ -88,6 +95,9 @@ const SignUpFormView = ({ errorsFromBackend, signUpWithEmailRequest, signUpWithG
 
 SignUpFormView.propTypes = {
   errorsFromBackend: PT.arrayOf(PT.object),
+  signUpWithEmailRequest: PT.func,
+  signUpWithGoogleRequest: PT.func,
+  clearStoreErrors: PT.func,
 };
 
 export default SignUpFormView;

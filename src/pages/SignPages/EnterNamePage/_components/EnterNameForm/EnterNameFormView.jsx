@@ -10,13 +10,15 @@ import { validateField } from '@components/Form/validations';
 import { TextInput } from '@components/Form/TextInput';
 import { Checkbox } from '@components/Form/Checkbox';
 
-const EnterNameFormView = ({ errorsFromBackend, setUserName }) => {
+const EnterNameFormView = ({ errorsFromBackend, setUserName, clearStoreErrors }) => {
   const [state, setState] = useState(false);
   const formikRef = useRef(null);
 
   useEffect(() => {
     formikRef.current.setErrors(responseFormikError(errorsFromBackend, ERROR_CODES));
   }, [errorsFromBackend]);
+
+  useEffect(() => () => clearStoreErrors(), []);
 
   return (
     <Formik
@@ -64,6 +66,7 @@ const EnterNameFormView = ({ errorsFromBackend, setUserName }) => {
 EnterNameFormView.propTypes = {
   errorsFromBackend: PT.array,
   setUserName: PT.func,
+  clearStoreErrors: PT.func,
 };
 
 export default EnterNameFormView;

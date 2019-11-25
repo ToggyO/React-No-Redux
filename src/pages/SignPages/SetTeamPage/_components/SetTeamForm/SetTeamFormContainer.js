@@ -15,6 +15,9 @@ function mapDispatchToProps(dispatch) {
     setTeam(data) {
       dispatch(authActions.setTeam(data));
     },
+    clearStoreErrors() {
+      dispatch(authActions.clearStoreErrors());
+    },
   };
 }
 

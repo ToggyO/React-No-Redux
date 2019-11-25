@@ -16,12 +16,19 @@ import { validateField } from '@components/Form/validations';
 import { responseFormikError } from '@utils/index';
 
 
-const LoginPageViewForm = ({ errorsFromBackend, loginInWithEmailRequest, loginInWithGoogleRequest }) => {
+const LoginPageViewForm = ({
+  errorsFromBackend,
+  loginInWithEmailRequest,
+  loginInWithGoogleRequest,
+  clearStoreErrors,
+}) => {
   const formikRef = useRef(null);
 
   useEffect(() => {
     formikRef.current.setErrors(responseFormikError(errorsFromBackend, ERROR_CODES));
   }, [errorsFromBackend]);
+
+  useEffect(() => () => clearStoreErrors(), []);
 
   return (
     <Formik
@@ -91,6 +98,7 @@ LoginPageViewForm.propTypes = {
   errorsFromBackend: PT.arrayOf(PT.object),
   loginInWithEmailRequest: PT.func,
   loginInWithGoogleRequest: PT.func,
+  clearStoreErrors: PT.func,
 };
 
 export default LoginPageViewForm;

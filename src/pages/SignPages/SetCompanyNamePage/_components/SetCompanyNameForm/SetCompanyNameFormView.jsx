@@ -8,12 +8,14 @@ import { TextInput } from '@components/Form/TextInput';
 import { validateField } from '@components/Form/validations';
 
 
-const SetCompanyNameForm = ({ errorsFromBackend, setCompanyName }) => {
+const SetCompanyNameForm = ({ errorsFromBackend, setCompanyName, clearStoreErrors }) => {
   const formikRef = useRef(null);
 
   useEffect(() => {
     formikRef.current.setErrors(responseFormikError(errorsFromBackend, ERROR_CODES));
   }, [errorsFromBackend]);
+
+  useEffect(() => () => clearStoreErrors(), []);
 
   return (
     <Formik
@@ -52,6 +54,7 @@ const SetCompanyNameForm = ({ errorsFromBackend, setCompanyName }) => {
 SetCompanyNameForm.propTypes = {
   errorsFromBackend: PT.arrayOf(PT.object),
   setCompanyName: PT.func,
+  clearStoreErrors: PT.func,
   errors: PT.object,
   isValid: PT.bool,
 };

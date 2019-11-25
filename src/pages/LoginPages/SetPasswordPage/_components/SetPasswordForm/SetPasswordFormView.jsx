@@ -10,12 +10,19 @@ import { PasswordInput } from '@components/Form/PasswordInput';
 import key from '@assets/login_page/key.png';
 
 
-const SetPasswordFormView = ({ location = {}, errorsFromBackend = {}, setNewPassword }) => {
+const SetPasswordFormView = ({
+  location = {},
+  errorsFromBackend = {},
+  setNewPassword,
+  clearStoreErrors,
+}) => {
   const formikRef = useRef(null);
 
   useEffect(() => {
     formikRef.current.setErrors(responseFormikError(errorsFromBackend, ERROR_CODES));
   }, [errorsFromBackend]);
+
+  useEffect(() => () => clearStoreErrors(), []);
 
   const queries = parseQueryString(location.search);
 
@@ -28,14 +35,7 @@ const SetPasswordFormView = ({ location = {}, errorsFromBackend = {}, setNewPass
         setNewPassword({
           code: queries.code,
           password: values.password,
-          email: 'gihofon952@hide-mail.net', // todo HARDCODE
         });
-        console.log({
-          code: queries.code,
-          password: values.password,
-          email: 'gihofon952@hide-mail.net',
-
-        })
       }}
       render={({ errors, touched, isValid }) => (
         <Form>
@@ -76,6 +76,7 @@ SetPasswordFormView.propTypes = {
   location: PT.object,
   errorsFromBackend: PT.arrayOf(PT.object),
   setNewPassword: PT.func,
+  clearStoreErrors: PT.func,
 };
 
 export default withRouter(SetPasswordFormView);

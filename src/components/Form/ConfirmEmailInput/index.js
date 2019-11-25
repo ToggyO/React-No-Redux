@@ -6,7 +6,15 @@ import { RenderCircles } from './_components/RenderCircles';
 import s from './style.module.sass';
 
 export const ConfirmEmailInput = props => {
-  const { name, maxLength, addClassWrapper, errorsFromBackend = {}, onClick, ...rest } = props;
+  const {
+    name,
+    maxLength,
+    addClassWrapper,
+    errorsFromBackend = {},
+    clearStoreErrors,
+    onClick,
+    ...rest
+  } = props;
   const array = [...Array(maxLength)];
 
   const [state, setState] = useState('');
@@ -15,7 +23,10 @@ export const ConfirmEmailInput = props => {
 
   useEffect(() => {
     window.addEventListener('keydown', onInputFocus);
-    return () => window.removeEventListener('keydown', onInputFocus);
+    return () => {
+      clearStoreErrors();
+      window.removeEventListener('keydown', onInputFocus);
+    };
   }, []);
 
   const inputId = `input-${name}`;
@@ -43,7 +54,7 @@ export const ConfirmEmailInput = props => {
           type="text"
           name={name}
           id={inputId}
-          className="default_input pl-0"
+          className="default_input pl-0 pr-0"
           ref={inputRef}
           value={state}
           onChange={e => setState(e.target.value.replace(/\D/, ''))}
@@ -76,5 +87,6 @@ ConfirmEmailInput.propTypes = {
   name: PT.string,
   maxLength: PT.number,
   errorsFromBackend: PT.object,
+  clearStoreErrors: PT.func,
   onClick: PT.func,
 };
