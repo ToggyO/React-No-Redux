@@ -52,7 +52,7 @@ const SetTeamFormView = ({ errorsFromBackend, setTeam, clearStoreErrors }) => {
               placeholder="Enter email to send invite"
               component={MultipleTextInput}
               validate={validateField.multipleEmail}
-              addClassWrapper="pt-4 pb-4"
+              addClassWrapper="pt-4 pb-2"
               addClassInput="pt-4 pb-4 pl-5 pr-5"
               emails={emails}
               setEmails={setEmails}

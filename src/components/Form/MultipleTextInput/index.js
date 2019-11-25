@@ -6,6 +6,7 @@ import { RenderListDelete } from '@components/Form/RenderListDelete';
 import { ImageBefore } from '@components/Form/ImgBefore';
 import { LabelWrapper } from '@components/Form/LabelWrapper';
 import s from '@components/Form/TextInput/style.module.sass';
+import CustomScrollbar from '@components/Scrollbar';
 
 export const MultipleTextInput = props => {
   const {
@@ -72,21 +73,39 @@ export const MultipleTextInput = props => {
           {additionalElement}
         </div>
       </LabelWrapper>
-      <div className={`${s.mapped_emails} mt-3`}>
-        {rest.emails.map((item, i) => (
-          <RenderListDelete
-            key={item}
-            arrayIndex={i}
-            email={item}
-            addContainerClass="flex pt-2 pb-2"
-            addDeleteButtonClass="pl-2 pr-2"
-            addIconClass="fill-secondary"
-            style={rest.renderListStyle}
-            icon={rest.renderListIcon}
-            {...rest}
-          />
-        ))}
-      </div>
+      <CustomScrollbar
+        style={{ maxHeight: 200, maxWidth: 499, marginTop: 16 }}
+        universal
+        autoHideTimeout={1000}
+        autoHideDuration={200}
+        autoHeight
+        thumbStyleHorizontal={{
+          backgroundColor: '#6D768A',
+          height: 4,
+          borderRadius: 2,
+        }}
+        thumbStyleVertical={{
+          backgroundColor: '#6D768A',
+          width: 4,
+          borderRadius: 2,
+        }}
+      >
+        <div className={`${s.mapped_emails}`}>
+          {rest.emails.map((item, i) => (
+            <RenderListDelete
+              key={item}
+              arrayIndex={i}
+              email={item}
+              addContainerClass="flex pt-2 pb-2"
+              addDeleteButtonClass="pl-2 pr-2"
+              addIconClass="fill-secondary"
+              style={rest.renderListStyle}
+              icon={rest.renderListIcon}
+              {...rest}
+            />
+          ))}
+        </div>
+      </CustomScrollbar>
     </div>
   );
 };

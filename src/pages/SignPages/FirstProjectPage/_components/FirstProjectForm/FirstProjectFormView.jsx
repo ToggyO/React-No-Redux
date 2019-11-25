@@ -15,6 +15,7 @@ import { RadioButtonGroup } from '@components/Form/RadioButton/RadioButtonGroup'
 import { RadioButton } from '@components/Form/RadioButton/RadioButton';
 import { Preloader } from '@components/Preloader';
 import api from '@services/api';
+import CustomScrollbar from '@components/Scrollbar';
 
 const YourTeamRadioButton = props => (
   <RadioButton {...props} withExtra={{ icon: 'team', text: 'Your team' }} />
@@ -104,26 +105,42 @@ const FirstProjectFormView = ({ setFirstProjectRequest, ...rest }) => {
             <Field name="radioGroup" id="projectTeam" component={YourTeamRadioButton} style={style} />
             <Field name="radioGroup" id="projectPeople" component={PeopleRadioButton} style={style} />
           </RadioButtonGroup>
-
-          <div className={`${s.mapped_emails} mt-3`}>
-            {values.radioGroup === 'projectPeople' &&
-              emails.map(item =>
-                <RenderListAdd
-                  key={item}
-                  email={item}
-                  state={selectedEmails.includes(item)}
-                  addContainerClass="flex pt-2 pb-2"
-                  addDeleteButtonClass="pl-2 pr-2"
-                  addIconFillClass="fill-light-gray"
-                  onClick={() => handleSelectEmail(item)}
-                  style={renderListStyle}
-                  icon="accept"
-                  {...rest}
-                />
-              )
-            }
-          </div>
-
+          <CustomScrollbar
+            style={{ maxHeight: 200, maxWidth: 499, marginTop: 16 }}
+            universal
+            autoHideTimeout={1000}
+            autoHideDuration={200}
+            autoHeight
+            thumbStyleHorizontal={{
+              backgroundColor: '#6D768A',
+              height: 4,
+              borderRadius: 2,
+            }}
+            thumbStyleVertical={{
+              backgroundColor: '#6D768A',
+              width: 4,
+              borderRadius: 2,
+            }}
+          >
+            <div className={`${s.mapped_emails}`}>
+              {values.radioGroup === 'projectPeople' &&
+                emails.map(item =>
+                  <RenderListAdd
+                    key={item}
+                    email={item}
+                    state={selectedEmails.includes(item)}
+                    addContainerClass="flex pt-2 pb-2"
+                    addDeleteButtonClass="pl-2 pr-2"
+                    addIconFillClass="fill-light-gray"
+                    onClick={() => handleSelectEmail(item)}
+                    style={renderListStyle}
+                    icon="accept"
+                    {...rest}
+                  />
+                )
+              }
+            </div>
+          </CustomScrollbar>
           <button
             type="submit"
             disabled={!isValid}

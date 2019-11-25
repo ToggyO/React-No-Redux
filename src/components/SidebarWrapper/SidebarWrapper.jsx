@@ -61,7 +61,7 @@ const SidebarWrapper = ({
           autoHide
           autoHideTimeout={1000}
           autoHideDuration={200}
-          thumbstyle={{ backgroundColor: '#6D768A',
+          thumbStyleVertical={{ backgroundColor: '#6D768A',
             width: 4,
             borderRadius: 2,
           }}
@@ -70,7 +70,7 @@ const SidebarWrapper = ({
           <SidebarTeamsProject isSidebarOpened={isSidebarOpened}/>
           <SidebarTeamsProject isSidebarOpened={isSidebarOpened}/>
           <SidebarTeamsProject isSidebarOpened={isSidebarOpened}/>
-
+          <SidebarTeamsProject isSidebarOpened={isSidebarOpened}/>
         </CustomScrollbar>
         <div className={`${s.footer}`}>
           <TeamsButtons isOpen={isSidebarOpened}/>
