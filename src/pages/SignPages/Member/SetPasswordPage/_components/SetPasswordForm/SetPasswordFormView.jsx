@@ -42,14 +42,13 @@ const SetPasswordFormView = ({
         //   password: values.password,
         // });
         setPasswordInvite({
-          inviteCode: 'a30e24bd8e5a40a3bcf0a9575f9cfaf2', // TODO HARDCODE
+          inviteCode: '8928cae33a4245c38fa786166b17ce8b', // TODO HARDCODE
           password: values.password,
         });
         console.log({
           inviteCode: queries.code,
           password: values.password,
         });
-        // https://www.mailinator.com/key/url?url=https%3A//squad.magora.work/team/invite%3Fcode%3Da30e24bd8e5a40a3bcf0a9575f9cfaf2%26isRegistered%3Dfalse
       }}
       render={({ errors, touched, isValid }) => (
         <Form>

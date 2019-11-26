@@ -24,7 +24,7 @@ const buttons = [
   {
     link: '#',
     iconName: 'sidebar-settings',
-    title: 'Settings',
+    title: 'Teams',
   },
 ];
 

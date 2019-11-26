@@ -158,6 +158,18 @@ function Icon({ iconName, className, fill }) {
       return (
         <svg className={className} width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="Web" stroke="none" strokeWidth="1" fill="#9398A2" fillRule="evenodd"><g id="01--Settings-menu" transform="translate(-42.000000, -231.000000)" fill="#9398A2"><g id="Group-9" transform="translate(-0.000926, 0.000000)"><g id="Icon/16/folder-Icon/16/folder/-border" transform="translate(40.000926, 229.000000)"><path d="M13,7 L3,7 L3,3 L6.1874,3 L7.3622,5 L13,5 L13,7 Z M3,13 L13,13 L13,8 L3,8 L3,13 Z M8,4 L6.8,2 L2,2 L2,14 L14,14 L14,4 L8,4 Z" id="folder-[#1792]-copy"></path></g></g></g></g></svg>
       );
+    case 'edit-project-settings':
+      return (
+        <svg className={className} width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="Web" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="01--Settings-menu" transform="translate(-60.000000, -228.000000)" fill="#9398A2"><g id="Group-3" transform="translate(50.000000, 209.000000)"><g id="Icon/16/edit" transform="translate(9.000000, 18.000000)"><path d="M14.744355,14 L14.744355,15 L1,15 L1,14 L14.744355,14 Z M10.3284271,1.13603897 L13.863961,4.67157288 L6.79289322,11.7426407 L2.90380592,12.0961941 L3.25735931,8.20710678 L10.3284271,1.13603897 Z M8.20710678,4.67157288 L4.30431918,8.57436047 L3.96446609,11.0355339 L6.42563953,10.6956808 L10.3284271,6.79289322 L8.20710678,4.67157288 Z M10.3284271,2.55025253 L8.91421356,3.96446609 L11.0355339,6.08578644 L12.4497475,4.67157288 L10.3284271,2.55025253 Z" id="Combined-Shape"></path></g></g></g></g></svg>
+      );
+    case 'edit-project-statuses':
+      return (
+        <svg className={className} width="14px" height="12px" viewBox="0 0 14 12" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="Web" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="01--Settings-menu" transform="translate(-60.000000, -266.000000)" fill="#878E9F"><g id="Group-3" transform="translate(50.000000, 209.000000)"><g id="Icon/16/status" transform="translate(9.000000, 55.000000)"><path d="M2,10 L14,10 L14,6 L2,6 L2,10 Z M1,11 L15,11 L15,5 L1,5 L1,11 Z M2,14 L14,14 L14,13 L2,13 L2,14 Z M2,3 L14,3 L14,2 L2,2 L2,3 Z" id="router_middle-[#1114]"></path></g></g></g></g></svg>
+      );
+    case 'delete-project':
+      return (
+        <svg width="13px" height="13px" viewBox="0 0 13 13" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="Web" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="01--Settings-menu" transform="translate(-61.000000, -303.000000)" fill="#878E9F"><g id="Group-3" transform="translate(50.000000, 209.000000)"><g id="Icon/16/delete" transform="translate(9.000000, 92.000000)"><path d="M6,12 L7,12 L7,8 L6,8 L6,12 Z M10,12 L11,12 L11,8 L10,8 L10,12 Z M8,12 L9,12 L9,8 L8,8 L8,12 Z M5,14 L12,14 L12,6 L5,6 L5,14 Z M6,5 L11,5 L11,3 L6,3 L6,5 Z M12,5 L12,2 L5,2 L5,5 L2,5 L2,6 L4,6 L4,15 L13,15 L13,6 L15,6 L15,5 L12,5 Z" id="delete-[#1487]"></path></g></g></g></g></svg>
+      );
     default:
       return null;
       // return <svg src="../img/registration/hello.svg" className={className} />;

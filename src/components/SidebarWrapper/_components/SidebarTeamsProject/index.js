@@ -7,6 +7,8 @@ import { SidebarTeamsProjectsFolder } from './_components/SidebarTeamsProjectsFo
 import { SidebarTeamsProjectsHeadline } from './_components/SidebarTeamsProjectsHeadline';
 import { NavButtons } from './_components/NavButtons';
 
+import { SidebarProjectSettings } from '@components/Form/Dropdown/SidebarProjectSettings';
+
 export const SidebarTeamsProject = ({ isSidebarOpened, color = 'orange', teamName = '   Project' }) => {
   const [isOpen, toggleOpen] = useState(false);
   const [showSettings, toggleShowSettings] = useState(false);
@@ -29,6 +31,7 @@ export const SidebarTeamsProject = ({ isSidebarOpened, color = 'orange', teamNam
           >
             <SidebarTeamsProjectsHeadline
               isSidebarOpened={isSidebarOpened}
+              isOpen={isOpen}
               color={color}
               teamName={teamName}
             />
@@ -40,6 +43,7 @@ export const SidebarTeamsProject = ({ isSidebarOpened, color = 'orange', teamNam
                 showSettings={showSettings}
                 addSettingsIconClass="btn mr-3"
                 addCreateButtonClass="btn mr-3"
+                settingsWrapper={SidebarProjectSettings}
               />
               <div className={`${s.switch_buttons} flex align-items-center`}>
                 <SwitchVisibilityProjectButton toggleOpen={toggleOpen} isOpen={isOpen} />
@@ -47,7 +51,7 @@ export const SidebarTeamsProject = ({ isSidebarOpened, color = 'orange', teamNam
             </>
           )}
         </div>
-        <div className={`${s.info} ${isOpen ? s.shown : s.hidden}`}>
+        <div className={`${s.info} ${isSidebarOpened && isOpen ? s.shown : s.hidden}`}>
           <div className={s.info_container}>
             <SidebarTeamsProjectsFolder addContainerClass="pt-2 pb-2" />
             <SidebarTeamsProjectsFolder addContainerClass="pt-2 pb-2" />

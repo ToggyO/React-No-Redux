@@ -13,8 +13,8 @@ export const TeamsButtons = ({ isOpen }) => (
         isOpen ? s.shown : s.hidden
       } btn flex justify-content-center align-items-center pt-3 pb-3`}
     >
-      <Icon iconName="people" className={`${s.choose_team__icon} fill-secondary mr-2`} />
-      <p>Teams</p>
+      <Icon iconName="settings_switch" className={`${s.choose_team__icon} mr-2`} />
+      <p>Settings</p>
     </button>
     <button
       type="button"
