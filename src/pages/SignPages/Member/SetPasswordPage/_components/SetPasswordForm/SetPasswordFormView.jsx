@@ -20,12 +20,6 @@ const SetPasswordFormView = ({
   const queries = parseQueryString(location.search);
 
   useEffect(() => {
-    // const queries1 = parseQueryString(location.search);
-    // console.log(queries1);
-    // https://www.mailinator.com/key/url?url=https%3A//squad.magora.work/team/invite%3Fcode%3D63df9d10d15f4cfbb4bea3d37a276044%26isRegistered%3Dfalse
-  },[]);
-
-  useEffect(() => {
     formikRef.current.setErrors(responseFormikError(errorsFromBackend, ERROR_CODES));
   }, [errorsFromBackend]);
 
@@ -37,15 +31,7 @@ const SetPasswordFormView = ({
       initialValues={{ password: '', passwordConfirm: '' }}
       validate={validateForm.confirmPassword}
       onSubmit={values => {
-        // setPasswordInvite({
-        //   inviteCode: queries.code,
-        //   password: values.password,
-        // });
         setPasswordInvite({
-          inviteCode: '8928cae33a4245c38fa786166b17ce8b', // TODO HARDCODE
-          password: values.password,
-        });
-        console.log({
           inviteCode: queries.code,
           password: values.password,
         });

@@ -10,7 +10,8 @@ export const saveUserData = store => next => action => {
     action.type === authTypes.SIGNUP_WITH_EMAIL_SUCCESS ||
     action.type === authTypes.SIGNUP_WITH_GOOGLE_SUCCESS ||
     action.type === authTypes.LOGIN_IN_WITH_EMAIL_REMEMBER_ME_SUCCESS ||
-    action.type === authTypes.LOGIN_IN_WITH_GOOGLE_REMEMBER_ME_SUCCESS
+    action.type === authTypes.LOGIN_IN_WITH_GOOGLE_REMEMBER_ME_SUCCESS ||
+    action.type === authTypes.SET_PASSWORD_INVITE_SUCCESS
   ) {
     const { user, token, registrationStep } = action.payload.data;
     const { accessToken, refreshToken } = token;

@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import AuthRoute from './AuthRoute';
 import UnAuthRoute from './UnAuthRoute';
+import InviteRoute from './InviteRoute';
 
 import { SidebarWrapper } from '@components/SidebarWrapper';
 import { ModalContainer } from '@components/Modal';
@@ -22,6 +23,8 @@ import { SetTeamPageView } from '@pages/SignPages/Admin/SetTeamPage';
 import { LoginPageView } from '@pages/LoginPages/LoginPage';
 import { RestorePasswordContainer } from '@pages/LoginPages/RestorePassword';
 import { SetPasswordPageView } from '@pages/SignPages/Member/SetPasswordPage';
+import { TeamPageView } from '@pages/TeamPages';
+import { ProjectPageView } from '@pages/ProjectPages';
 
 // eslint-disable-next-line react/prop-types
 const Routes = ({ modal: { modalKey } }) => (
@@ -77,6 +80,12 @@ const Routes = ({ modal: { modalKey } }) => (
           </AuthScreenWrapperContainer>
         )}
       />
+
+      {/* INVITES */}
+      <InviteRoute path={ROUTES.TEAM.ROOT + ROUTES.TEAM.INVITE} exact component={TeamPageView} />
+      <InviteRoute path={ROUTES.PROJECT.ROOT + ROUTES.PROJECT.INVITE} exact component={ProjectPageView} />
+      {/* INVITES */}
+
       <AuthRoute
         path={ROUTES.HOME_PAGE}
         component={props => (
@@ -89,7 +98,6 @@ const Routes = ({ modal: { modalKey } }) => (
       />
 
       {/* REDIRECTS */}
-      {/* <AuthRoute path={ROUTES.HOME_PAGE} exact component={HomePageContainer} /> */}
       {/* /REDIRECTS */}
 
       {/* NOT FOUND PAGE */}

@@ -13,7 +13,14 @@ export const ROUTES = {
     RESTORE_PASSWORD: '/restore-password',
     SET_PASSWORD: '/set-password',
     SET_PASSWORD_INVITE: '/set-password-invite',
-    // ENTER_NAME_INVITE: '/enter-name-invite',
+  },
+  TEAM: {
+    ROOT: '/team',
+    INVITE: '/invite',
+  },
+  PROJECT: {
+    ROOT: '/project',
+    INVITE: '/invite',
   },
   SOME_PAGE: '/some-page',
 };
