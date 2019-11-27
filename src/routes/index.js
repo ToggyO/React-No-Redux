@@ -82,8 +82,25 @@ const Routes = ({ modal: { modalKey } }) => (
       />
 
       {/* INVITES */}
-      <InviteRoute path={ROUTES.TEAM.ROOT + ROUTES.TEAM.INVITE} exact component={TeamPageView} />
-      <InviteRoute path={ROUTES.PROJECT.ROOT + ROUTES.PROJECT.INVITE} exact component={ProjectPageView} />
+      <InviteRoute
+        path={ROUTES.USER.ROOT}
+        component={props => (
+          <SidebarWrapper {...props}>
+            <Switch>
+              <Route
+                path={ROUTES.USER.ROOT + ROUTES.USER.TEAM.ROOT + ROUTES.USER.TEAM.INVITE}
+                exact
+                component={TeamPageView}
+              />
+              <Route
+                path={ROUTES.USER.ROOT + ROUTES.USER.PROJECT.ROOT + ROUTES.USER.PROJECT.INVITE}
+                exact
+                component={ProjectPageView}
+              />
+            </Switch>
+          </SidebarWrapper>
+        )}
+      />
       {/* INVITES */}
 
       <AuthRoute

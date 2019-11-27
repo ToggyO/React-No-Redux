@@ -14,13 +14,16 @@ export const ROUTES = {
     SET_PASSWORD: '/set-password',
     SET_PASSWORD_INVITE: '/set-password-invite',
   },
-  TEAM: {
-    ROOT: '/team',
-    INVITE: '/invite',
-  },
-  PROJECT: {
-    ROOT: '/project',
-    INVITE: '/invite',
+  USER: {
+    ROOT: '/user',
+    TEAM: {
+      ROOT: '/team',
+      INVITE: '/invite',
+    },
+    PROJECT: {
+      ROOT: '/project',
+      INVITE: '/invite',
+    },
   },
   SOME_PAGE: '/some-page',
 };
