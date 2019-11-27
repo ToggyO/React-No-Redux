@@ -7,7 +7,20 @@ import { SidebarTeamsProjectsFolder } from './_components/SidebarTeamsProjectsFo
 import { SidebarTeamsProjectsHeadline } from './_components/SidebarTeamsProjectsHeadline';
 import { NavButtons } from './_components/NavButtons';
 
-import { SidebarProjectSettings } from '@components/Form/Dropdown/SidebarProjectSettings';
+import { DropdownSettingsItem } from '@components/Form/Dropdown/SidebarProjectSettings/_components/DropdownSettingsItem';
+import { DropdownSettingsButton } from '@components/Form/Dropdown/SidebarProjectSettings/_components/DropdownSettingsButton';
+
+const renderProjectSettings = () => (
+  <>
+    <DropdownSettingsItem link="#" iconName="edit-project-settings" title="Edit project settings" />
+    <DropdownSettingsItem link="#" iconName="edit-project-statuses" title="Edit project statuses" />
+    <DropdownSettingsButton
+      iconName="delete-project"
+      title="Delete projects"
+      onClick={() => console.log('clicked')}
+    />
+  </>
+);
 
 export const SidebarTeamsProject = ({ isSidebarOpened, color = 'orange', teamName = '   Project' }) => {
   const [isOpen, toggleOpen] = useState(false);
@@ -43,7 +56,14 @@ export const SidebarTeamsProject = ({ isSidebarOpened, color = 'orange', teamNam
                 showSettings={showSettings}
                 addSettingsIconClass="btn mr-3"
                 addCreateButtonClass="btn mr-3"
-                settingsWrapper={SidebarProjectSettings}
+                // settingsWrapper={SidebarProjectSettings}
+                settingsTooltip={{
+                  placement: 'bottom-end',
+                  tooltip: renderProjectSettings(),
+                  trigger: 'click',
+                  containerClass: 'sidebarProjectsSettingsTooltipContainer',
+                  arrowClass: 'sidebarProjectsSettingsTooltipArrow',
+                }}
               />
               <div className={`${s.switch_buttons} flex align-items-center`}>
                 <SwitchVisibilityProjectButton toggleOpen={toggleOpen} isOpen={isOpen} />

@@ -18,7 +18,7 @@ const HomePageView = () => {
       <h1>Protected Home Page</h1>
       <form className="flex flex-column">
         <label htmlFor="delete_user_test" className="flex flex-column text-align-center">
-          Delete User
+          Delete User by ID
           <input
             type="text"
             id="delete_user_test"

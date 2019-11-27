@@ -7,7 +7,21 @@ import s from './style.module.sass';
 
 import { SidebarTeamsProjectsBoard } from '@components/SidebarWrapper/_components/SidebarTeamsProject/_components/SidebarTeamsProjectsBoard';
 import { FolderHeadline } from '@components/SidebarWrapper/_components/SidebarTeamsProject/_components/SidebarTeamsProjectsFolder/_components/FolderHeadline';
-import { SidebarFolderSettings } from '@components/Form/Dropdown/SidebarFolderSettings';
+import { DropdownSettingsItem } from '@components/Form/Dropdown/SidebarProjectSettings/_components/DropdownSettingsItem';
+import { DropdownSettingsButton } from '@components/Form/Dropdown/SidebarProjectSettings/_components/DropdownSettingsButton';
+
+const renderProjectSettings = () => (
+  <>
+    <DropdownSettingsItem link="#" iconName="edit-project-settings" title="Edit project settings" />
+    <DropdownSettingsItem link="#" iconName="edit-project-statuses" title="Edit project statuses" />
+    <DropdownSettingsItem link="#" iconName="edit-project-statuses" title="Edit folder sharing" />
+    <DropdownSettingsButton
+      iconName="delete-project"
+      title="Delete projects"
+      onClick={() => console.log('clicked')}
+    />
+  </>
+);
 
 export const SidebarTeamsProjectsFolder = ({
   folderName = '   Folder',
@@ -34,7 +48,13 @@ export const SidebarTeamsProjectsFolder = ({
           showSettings={showSettings}
           addSettingsIconClass="btn mr-3 mt-0 mb-0"
           addCreateButtonClass="btn mr-0 mt-0 mb-0"
-          settingsWrapper={SidebarFolderSettings}
+          settingsTooltip={{
+            placement: 'bottom-end',
+            tooltip: renderProjectSettings(),
+            trigger: 'click',
+            containerClass: 'sidebarProjectsSettingsTooltipContainer',
+            arrowClass: 'sidebarProjectsSettingsTooltipArrow',
+          }}
         />
       </div>
       <div className={`${s.boards_container} ${isOpen ? s.shown : s.hidden}`}>

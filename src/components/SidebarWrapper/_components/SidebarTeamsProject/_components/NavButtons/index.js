@@ -1,6 +1,9 @@
 import React from 'react';
 import PT from 'prop-types';
 
+// eslint-disable-next-line import/no-unresolved
+import { Tooltip } from '@components/ReactTooltip/bin';
+
 import s from './style.module.sass';
 
 import { Icon } from '@components/Icon';
@@ -11,14 +14,20 @@ export const NavButtons = ({
   addContainerClass = '',
   addSettingsIconClass = '',
   addCreateButtonClass = '',
-  settingsWrapper: SettingsWrapper,
+  settingsTooltip: { placement, tooltip, trigger, containerClass = '', arrowClass = '' },
 }) => (
   <div
     className={`${s.container} ${
       isOpen ? s.shown : s.hidden
     } ${addContainerClass} flex justify-content-space-between align-items-center`}
   >
-    <SettingsWrapper>
+    <Tooltip
+      placement={placement}
+      tooltip={tooltip}
+      trigger={trigger}
+      containerClass={containerClass}
+      arrowClass={arrowClass}
+    >
       <button
         type="button"
         className={`${s.headline_button} ${
@@ -27,7 +36,7 @@ export const NavButtons = ({
       >
         <Icon iconName="settings_switch" className={s.settings_icon} />
       </button>
-    </SettingsWrapper>
+    </Tooltip>
     <button type="button" className={`${s.headline_create} ${addCreateButtonClass}`}>
       <Icon iconName="add-plus" className={isOpen ? 'rotate-270' : 'rotate-270'} />
     </button>
@@ -40,5 +49,5 @@ NavButtons.propTypes = {
   addContainerClass: PT.string,
   addSettingsIconClass: PT.string,
   addCreateButtonClass: PT.string,
-  settingsWrapper: PT.oneOfType([PT.element, PT.node, PT.func]),
+  settingsTooltip: PT.object,
 };
