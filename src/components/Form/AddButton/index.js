@@ -24,7 +24,7 @@ export const AddButton = ({
         setEmails(oldArray => [...oldArray, values[fieldName]]);
         setFieldValue(fieldName, '', false);
       } else {
-        setFieldError(fieldName, 'Email has already been entered');
+        setFieldError(fieldName, 'This email has already been invited');
       }
     }
   };
