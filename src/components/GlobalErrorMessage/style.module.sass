@@ -1,0 +1,35 @@
+.container
+  position: fixed
+  top: 0
+  height: 72px
+  width: 100%
+  background-color: $pale-red
+  box-shadow: 0 1px 9px 0 rgba(73,85,112,0.6)
+  z-index: 1000
+  transform: translateY(-100%)
+  transition: transform .8s ease-out
+
+.shown
+  transform: translateY(0)
+
+.icon_container
+  margin-right: 16px
+
+.icon
+  width: 28px
+  height: 28px
+  fill: $white
+
+.text
+  color: #FFFFFF
+  font-size: 15px
+  line-height: 18px
+  font-weight: 400
+
+.hide_error
+  position: absolute
+  top: 0
+  right: 0
+  padding-top: 10px
+  padding-right: 10px
+

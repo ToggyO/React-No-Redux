@@ -60,6 +60,7 @@ export class PasswordInput extends React.Component {
               placeholder={placeholder}
               onFocus={this.customHandleFocus}
               onBlur={this.customHandleBlur}
+              autoComplete="on"
             />
             <Checkbox
               state={isPwShown}

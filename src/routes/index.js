@@ -6,6 +6,8 @@ import AuthRoute from './AuthRoute';
 import UnAuthRoute from './UnAuthRoute';
 import InviteRoute from './InviteRoute';
 
+import { globalSelectors } from '@ducks/global';
+
 import { SidebarWrapper } from '@components/SidebarWrapper';
 import { ModalContainer } from '@components/Modal';
 import { ROUTES } from '@config';
@@ -25,11 +27,13 @@ import { RestorePasswordContainer } from '@pages/LoginPages/RestorePassword';
 import { SetPasswordPageView } from '@pages/SignPages/Member/SetPasswordPage';
 import { TeamPageView } from '@pages/TeamPages';
 import { ProjectPageView } from '@pages/ProjectPages';
+import GlobalErrorMessage from '@components/GlobalErrorMessage';
 
 // eslint-disable-next-line react/prop-types
-const Routes = ({ modal: { modalKey } }) => (
+const Routes = ({ modal: { modalKey }, globalErrorMessage }) => (
   <>
     {modalKey ? <ModalContainer /> : null}
+    {globalErrorMessage ? <GlobalErrorMessage /> : null}
     <Switch>
       {/* UnAuthRoute */}
       <UnAuthRoute
@@ -124,7 +128,10 @@ const Routes = ({ modal: { modalKey } }) => (
   </>
 );
 
-const mapStateToProps = ({ modal }) => ({ modal });
+const mapStateToProps = state => ({
+  globalErrorMessage: globalSelectors.globalErrorSelector(state),
+  modal: state.modal,
+});
 
 export default connect(
   mapStateToProps,

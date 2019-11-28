@@ -1,0 +1,3 @@
+/* Global error message */
+export const GLOBAL_ERROR_MESSAGE_SHOWN = 'global/GLOBAL_ERROR_MESSAGE_SHOWN';
+export const GLOBAL_ERROR_MESSAGE_HIDDEN = 'global/GLOBAL_ERROR_MESSAGE_HIDDEN';

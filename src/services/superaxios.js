@@ -3,11 +3,10 @@ import axios from 'axios';
 
 import { store } from '../store';
 
-import { modalOpen } from '@ducks/modal/actions';
-
 import { authTypes } from '@ducks/auth';
 import { LOCAL_STORAGE_KEYS, API_DOMAIN, API_URL } from '@config';
 import { getFromLocalState, writeToLocalState } from '@services/ls';
+import { hideGlobalError, showGlobalError } from '@ducks/global/actions';
 
 let isAlreadyFetchingAccessToken = false;
 let subscribers = [];
@@ -42,21 +41,29 @@ superaxios.interceptors.request.use(config => {
 });
 
 superaxios.interceptors.response.use(
-  response => response,
+  response => {
+    if (store.getState().global.error) {
+      store.dispatch(hideGlobalError());
+    }
+    return Promise.resolve(response);
+  },
   error => {
-    const {
-      config,
-      response: { status },
-    } = error;
+    const { config, request, response } = error;
     const originalRequest = config;
 
-    if (status === 401) {
+    if (request.status === 0) {
+      store.dispatch(showGlobalError('Connection lost.'));
+      return Promise.reject(error);
+    }
+
+    if (response.status === 401) {
       if (!isAlreadyFetchingAccessToken) {
         isAlreadyFetchingAccessToken = true;
         const oldRefreshToken = `${getFromLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN)}`;
         store.dispatch({ type: authTypes.REFRESHING_TOKEN_REQUEST });
         superaxios
           .put(API_URL.REFRESH_TOKEN, { refreshToken: oldRefreshToken })
+          // eslint-disable-next-line no-shadow
           .then(response => {
             store.dispatch({ type: authTypes.REFRESHING_TOKEN_SUCCESS });
             const { accessToken, refreshToken } = response.data.data;
@@ -80,8 +87,9 @@ superaxios.interceptors.response.use(
       return retryOriginalRequest;
     }
 
-    if (status === 500) {
-      store.dispatch(modalOpen('Handler500'));
+    if (response.status === 500) {
+      store.dispatch(showGlobalError('Something went wrong.'));
+      return Promise.reject(error);
     }
 
     return Promise.reject(error);
@@ -89,3 +97,8 @@ superaxios.interceptors.response.use(
 );
 
 export default superaxios;
+
+// Access
+// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl9pZCI6IjdjOTBiNDc4MWUwYTQyMzY4ZDkzOGE1ZWFmZTJhYjM4IiwidXNlcl9pZCI6IjFkYThlMDZmMjhjODQ3OTNhNGI4Mzg2YmRlMTRjMWVlIiwicm9sZV9pZCI6ImJmMjJhM2ZkZjdlYjQ4NzFiODRhNGQ4ZmY1MWQwZjdkIiwiZXhwIjoxNTc0NTAwMjUyLCJpc3MiOiJTcXVhZCIsImF1ZCI6IklPIn0.JENuuWkCKA61gapoeWpnDujZPjEugNruPSboKXa5UCI
+// Refresh
+// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMWRhOGUwNmYyOGM4NDc5M2E0YjgzODZiZGUxNGMxZWUiLCJleHAiOjE1NzUwMTg2NTIsImlzcyI6IlNxdWFkIiwiYXVkIjoiSU8ifQ.Bpk7GSRnBdgfJRhG2jrUNYO4kLG5gwFZ_z9732G-maE

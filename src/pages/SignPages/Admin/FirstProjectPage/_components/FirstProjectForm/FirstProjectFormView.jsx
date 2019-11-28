@@ -32,9 +32,13 @@ const FirstProjectFormView = ({ setFirstProjectRequest, ...rest }) => {
 
   const fetchTeamEmails = async () => {
     setFetching(true);
-    const { data } = await api.other.getTeamEmails();
-    setEmails(data);
-    setFetching(false);
+    try {
+      const { data } = await api.other.getTeamEmails();
+      setEmails(data);
+      setFetching(false);
+    } catch (error) {
+      setFetching(false);
+    }
   };
 
   const handleSelectEmail = email => {
@@ -63,18 +67,9 @@ const FirstProjectFormView = ({ setFirstProjectRequest, ...rest }) => {
   }, []);
 
   return (
-  // const formikRef = useRef(null);
-  //
-  // useEffect(() => {
-  //   formikRef.current.setErrors(responseFormikError(errorsFromBackend, ERROR_CODES));
-  // }, [errorsFromBackend]);
-
     <Formik
       initialValues={{ name: '', radioGroup: 'projectTeam', colorHex: '#82ABFB' }}
-      onSubmit={values => {
-        handleSubmit(values);
-        console.log(values);
-      }}
+      onSubmit={values => handleSubmit(values)}
       render={({ isValid, values, setFieldValue }) => (
         <Form>
           <div>
@@ -87,6 +82,7 @@ const FirstProjectFormView = ({ setFirstProjectRequest, ...rest }) => {
               addClassWrapper="pt-4 pb-4 mb-3"
               addClassInput="pt-4 pb-4 pl-5"
               additionalElement={<ColorSelect setFieldValue={setFieldValue}/>}
+              maxLength={60}
             />
             <ErrorMessage name="project" component="div" className="formik-error error-label" />
           </div>

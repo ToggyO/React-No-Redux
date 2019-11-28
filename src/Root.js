@@ -6,9 +6,9 @@ import { store } from './store';
 
 import Routes from '@routes';
 import history from '@services/history';
-
 import { ErrorBoundary } from '@components/ErrorBoundary';
 import { ScrollToTop } from '@components/ScrollToTop';
+
 // import { getWindowDimensions } from '@utils/index';
 
 import './styles/index.sass';

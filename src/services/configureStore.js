@@ -6,9 +6,10 @@ import { saveUserData, updateUsersData, clearUserData, saveRegistrationStep } fr
 
 import auth, { authSagas } from '@ducks/auth';
 import modal from '@ducks/modal';
+import global from '@ducks/global';
 
 export default function configureStore() {
-  const reducer = combineReducers({ auth, modal });
+  const reducer = combineReducers({ auth, modal, global });
   const sagas = {
     ...authSagas,
   };

@@ -19,6 +19,7 @@ export const TextInput = props => {
     imgBefore,
     inputStyle,
     additionalElement,
+    maxLength,
   } = props;
   const { touched, errors, values } = form;
   const [isFocused, setFocus] = useState(false);
@@ -62,6 +63,7 @@ export const TextInput = props => {
             style={inputStyle}
             onFocus={customHandleFocus}
             onBlur={customHandleBlur}
+            maxLength={maxLength}
           />
           {additionalElement}
         </div>
@@ -83,5 +85,5 @@ TextInput.propTypes = {
   touched: PT.object,
   errors: PT.object,
   additionalElement: PT.element,
-  multiple: PT.bool,
+  maxLength: PT.number,
 };

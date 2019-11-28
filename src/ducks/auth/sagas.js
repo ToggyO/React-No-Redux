@@ -36,7 +36,9 @@ function* signUpWithEmail(action) {
     //   "data": null
     //   "code": "business_conflict"
     // }
-    const { errors } = error.response.data;
+    const { response = {} } = error;
+    const { data = {} } = response;
+    const { errors = [] } = data;
     yield put({ type: authTypes.SIGNUP_WITH_EMAIL_ERROR, payload: errors });
   }
 }
@@ -67,7 +69,9 @@ function* signUpWithGoogle(action) {
     //   "data": null
     //   "code": "sec.forbidden"
     // }
-    const { errors } = error.response.data;
+    const { response = {} } = error;
+    const { data = {} } = response;
+    const { errors = [] } = data;
     yield put({ type: authTypes.SIGNUP_WITH_EMAIL_ERROR, payload: errors });
   }
 }
@@ -99,7 +103,9 @@ function* LoginWithEmail(action) {
     //   "data": null
     //   "code": "sec.security_error"
     // }
-    const { errors } = error.response.data;
+    const { response = {} } = error;
+    const { data = {} } = response;
+    const { errors = [] } = data;
     yield put({ type: authTypes.LOGIN_IN_WITH_EMAIL_ERROR, payload: errors });
   }
 }
@@ -132,7 +138,9 @@ function* LoginWithGoogle(action) {
     //   "data": null
     //   "code": "sec.security_error"
     // }
-    const { errors } = error.response.data;
+    const { response = {} } = error;
+    const { data = {} } = response;
+    const { errors = [] } = data;
     yield put({ type: authTypes.LOGIN_IN_WITH_GOOGLE_ERROR, payload: errors });
   }
 }
@@ -158,7 +166,9 @@ function* confirmEmail(action) {
     //   "data": null
     //   "code": "sec.security_error"
     // }
-    const { errors } = error.response.data;
+    const { response = {} } = error;
+    const { data = {} } = response;
+    const { errors = [] } = data;
     yield put({ type: authTypes.CONFIRM_EMAIL_ERROR, payload: errors });
   }
 }
@@ -172,7 +182,9 @@ function* sendNewCode(action) {
     const data = yield call(api.auth.sendNewCode, action.payload);
     yield put({ type: authTypes.SEND_NEW_CODE_SUCCESS, payload: data.data.registrationStep.stepName });
   } catch (error) {
-    const { errors } = error.response.data;
+    const { response = {} } = error;
+    const { data = {} } = response;
+    const { errors = [] } = data;
     yield put({ type: authTypes.SEND_NEW_CODE_ERROR, payload: errors });
   }
 }
@@ -203,7 +215,9 @@ function* setUserName(action) {
     //   "data": null
     //   "code": "sec.security_error"
     // }
-    const { errors } = error.response.data;
+    const { response = {} } = error;
+    const { data = {} } = response;
+    const { errors = [] } = data;
     yield put({ type: authTypes.SET_USER_NAME_ERROR, payload: errors });
   }
 }
@@ -233,7 +247,9 @@ function* setCompanyName(action) {
     //   "data": null
     //   "code": "sec.security_error"
     // }
-    const { errors } = error.response.data;
+    const { response = {} } = error;
+    const { data = {} } = response;
+    const { errors = [] } = data;
     yield put({ type: authTypes.SET_COMPANY_NAME_ERROR, payload: errors });
   }
 }
@@ -267,7 +283,9 @@ function* setTeam(action) {
     //   "data": null
     //   "code": "sec.security_error"
     // }
-    const { errors } = error.response.data;
+    const { response = {} } = error;
+    const { data = {} } = response;
+    const { errors = [] } = data;
     yield put({ type: authTypes.SET_TEAM_ERROR, payload: errors });
   }
 }
@@ -282,7 +300,9 @@ function* setFirstProject(action) {
     yield put({ type: authTypes.SET_FIRST_PROJECT_SUCCESS, payload: data });
     yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.QUICK_TUTORIAL);
   } catch (error) {
-    const { errors } = error.response.data;
+    const { response = {} } = error;
+    const { data = {} } = response;
+    const { errors = [] } = data;
     yield put({ type: authTypes.SET_FIRST_PROJECT_ERROR, payload: errors });
   }
 }
@@ -296,7 +316,9 @@ function* registrationDone(action) {
     const data = yield call(api.auth.registrationDone, action.payload);
     yield put({ type: authTypes.REGISTRATION_DONE_SUCCESS, payload: data });
   } catch (error) {
-    const { errors } = error.response.data;
+    const { response = {} } = error;
+    const { data = {} } = response;
+    const { errors = [] } = data;
     yield put({ type: authTypes.REGISTRATION_DONE_ERROR, payload: errors });
   }
 }
@@ -310,7 +332,9 @@ function* restorePassword(action) {
     yield call(api.auth.restorePassword, action.payload);
     yield put({ type: authTypes.RESTORE_PASSWORD_SUCCESS, payload: action.payload.email });
   } catch (error) {
-    const { errors } = error.response.data;
+    const { response = {} } = error;
+    const { data = {} } = response;
+    const { errors = [] } = data;
     yield put({ type: authTypes.RESTORE_PASSWORD_ERROR, payload: errors });
   }
 }
@@ -325,7 +349,9 @@ function* setNewPassword(action) {
     yield put({ type: authTypes.SET_NEW_PASSWORD_SUCCESS });
     yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.LOGIN_IN);
   } catch (error) {
-    const { errors } = error.response.data;
+    const { response = {} } = error;
+    const { data = {} } = response;
+    const { errors = [] } = data;
     yield put({ type: authTypes.SET_NEW_PASSWORD_ERROR, payload: errors });
   }
 }
@@ -340,7 +366,9 @@ function* setPasswordInvite(action) {
     yield put({ type: authTypes.SET_PASSWORD_INVITE_SUCCESS, payload: data });
     yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.ENTER_NAME_INVITE);
   } catch (error) {
-    const { errors } = error.response.data;
+    const { response = {} } = error;
+    const { data = {} } = response;
+    const { errors = [] } = data;
     yield put({ type: authTypes.SET_PASSWORD_INVITE_ERROR, payload: errors });
   }
 }
@@ -355,7 +383,9 @@ function* setUserNameInvite(action) {
     yield put({ type: authTypes.SET_USER_NAME_INVITE_SUCCESS, payload: data });
     yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.QUICK_TUTORIAL);
   } catch (error) {
-    const { errors } = error.response.data;
+    const { response = {} } = error;
+    const { data = {} } = response;
+    const { errors = [] } = data;
     yield put({ type: authTypes.SET_USER_NAME_INVITE_ERROR, payload: errors });
   }
 }

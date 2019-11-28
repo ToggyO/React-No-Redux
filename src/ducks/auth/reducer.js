@@ -82,6 +82,7 @@ export default function auth(state = initialState, action) {
     }
     case types.SET_NEW_PASSWORD_SUCCESS:
     case types.REFRESHING_TOKEN_SUCCESS:
+    case types.AUTH_PRELOADER_STOP:
       return { ...state, loading: false };
     case types.SIGNUP_WITH_EMAIL_ERROR:
     case types.SIGNUP_WITH_GOOGLE_ERROR:

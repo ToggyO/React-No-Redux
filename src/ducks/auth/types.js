@@ -84,5 +84,8 @@ export const REFRESHING_TOKEN_ERROR = 'auth/REFRESH_TOKEN_ERROR';
 export const CLEAR_STORE_ERRORS = 'auth/CLEAR_STORE_ERRORS';
 export const CLEAR_EXTRA = 'auth/CLEAR_EXTRA';
 
+/* Preloader stop */
+export const AUTH_PRELOADER_STOP = 'auth/AUTH_PRELOADER_STOP';
+
 /* Logout */
 export const LOGOUT = 'auth/LOGOUT';
