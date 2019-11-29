@@ -1,9 +1,13 @@
 /* eslint-disable no-unused-vars */
+import { store as reduxStore } from './store';
+
 import { authTypes } from '@ducks/auth';
 import { writeToLocalState } from '@services/ls';
 import { userLogout } from '@services/auth';
 import { LOCAL_STORAGE_KEYS } from '@config';
 import { writeToSessionState } from '@services/ss';
+import { modalOpen } from '@ducks/modal/actions';
+import { modalTypes } from '@ducks/modal';
 
 export const saveUserData = store => next => action => {
   if (
@@ -67,6 +71,14 @@ export const saveRegistrationStep = store => next => action => {
   ) {
     const { registrationStep } = action.payload.data;
     writeToLocalState(LOCAL_STORAGE_KEYS.REGISTER_STEP, registrationStep);
+  }
+  return next(action);
+};
+
+export const showWarning = store => next => action => {
+  if (action.type === authTypes.VALIDATE_SET_NEW_PASSWORD_CODE_ERROR) {
+    // reduxStore.dispatch({ type: modalTypes.MODAL_OPEN, payload: 'DeprecatedLinkMessage' });
+    reduxStore.dispatch(modalOpen('DeprecatedLinkMessage'));
   }
   return next(action);
 };

@@ -7,6 +7,8 @@ import { authTypes } from '@ducks/auth';
 import { LOCAL_STORAGE_KEYS, API_DOMAIN, API_URL } from '@config';
 import { getFromLocalState, writeToLocalState } from '@services/ls';
 import { hideGlobalError, showGlobalError } from '@ducks/global/actions';
+import { userLogout } from '@services/auth';
+import { ERROR_CODES } from '@config/errorCodes';
 
 let isAlreadyFetchingAccessToken = false;
 let subscribers = [];
@@ -57,34 +59,40 @@ superaxios.interceptors.response.use(
     }
 
     if (response.status === 401) {
-      if (!isAlreadyFetchingAccessToken) {
-        isAlreadyFetchingAccessToken = true;
-        const oldRefreshToken = `${getFromLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN)}`;
-        store.dispatch({ type: authTypes.REFRESHING_TOKEN_REQUEST });
-        superaxios
-          .put(API_URL.REFRESH_TOKEN, { refreshToken: oldRefreshToken })
-          // eslint-disable-next-line no-shadow
-          .then(response => {
-            store.dispatch({ type: authTypes.REFRESHING_TOKEN_SUCCESS });
-            const { accessToken, refreshToken } = response.data.data;
-            writeToLocalState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN, accessToken);
-            writeToLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN, refreshToken);
-            isAlreadyFetchingAccessToken = false;
-            onAccessTokenFetched(accessToken);
-          })
-          .catch(() => {
-            store.dispatch({ type: authTypes.REFRESHING_TOKEN_ERROR });
-            store.dispatch({ type: authTypes.LOGOUT });
+      const { data = {} } = response;
+      const { errors = [] } = data;
+      if (errors.filter(item => item.code === ERROR_CODES.ACCESS_TOKEN_EXPIRED)) {
+        if (!isAlreadyFetchingAccessToken) {
+          isAlreadyFetchingAccessToken = true;
+          const oldRefreshToken = `${getFromLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN)}`;
+          store.dispatch({ type: authTypes.REFRESHING_TOKEN_REQUEST });
+          superaxios
+            .put(API_URL.REFRESH_TOKEN, { refreshToken: oldRefreshToken })
+            // eslint-disable-next-line no-shadow
+            .then(response => {
+              store.dispatch({ type: authTypes.REFRESHING_TOKEN_SUCCESS });
+              const { accessToken, refreshToken } = response.data.data;
+              writeToLocalState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN, accessToken);
+              writeToLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN, refreshToken);
+              isAlreadyFetchingAccessToken = false;
+              onAccessTokenFetched(accessToken);
+            })
+            .catch(() => {
+              store.dispatch({ type: authTypes.REFRESHING_TOKEN_ERROR });
+              store.dispatch({ type: authTypes.LOGOUT });
+            });
+        }
+
+        const retryOriginalRequest = new Promise(resolve => {
+          addSubscriber(accessToken => {
+            originalRequest.headers.Authorization = `Bearer ${accessToken}`;
+            resolve(superaxios(originalRequest));
           });
+        });
+        return retryOriginalRequest;
       }
 
-      const retryOriginalRequest = new Promise(resolve => {
-        addSubscriber(accessToken => {
-          originalRequest.headers.Authorization = `Bearer ${accessToken}`;
-          resolve(superaxios(originalRequest));
-        });
-      });
-      return retryOriginalRequest;
+      if (errors.filter(item => item.code === ERROR_CODES.REFRESH_TOKEN_EXPIRED)) userLogout();
     }
 
     if (response.status === 500) {

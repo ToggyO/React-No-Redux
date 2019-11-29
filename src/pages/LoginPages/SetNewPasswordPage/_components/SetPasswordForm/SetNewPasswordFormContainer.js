@@ -15,6 +15,9 @@ function mapDispatchToProps(dispatch) {
     setNewPassword(data) {
       dispatch(authActions.setNewPassword(data));
     },
+    validateSetNewPasswordCode(data) {
+      dispatch(authActions.validateSetNewPasswordCode(data));
+    },
     clearStoreErrors() {
       dispatch(authActions.clearStoreErrors());
     },

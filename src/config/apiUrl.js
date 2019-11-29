@@ -16,4 +16,5 @@ export const API_URL = {
   RESTORE_PASSWORD: 'users/passwords/request',
   SET_PASSWORD_INVITE: 'signup/member/email',
   SET_NEW_PASSWORD: 'users/passwords/set',
+  VALIDATE_LINK_CODE: 'users/passwords/validate',
 };

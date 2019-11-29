@@ -15,16 +15,20 @@ const SetNewPasswordFormView = ({
   errorsFromBackend = {},
   setNewPassword,
   clearStoreErrors,
+  validateSetNewPasswordCode,
 }) => {
   const formikRef = useRef(null);
+  const queries = parseQueryString(location.search);
+
+  useEffect(() => {
+    validateSetNewPasswordCode(queries.code);
+  },[]);
 
   useEffect(() => {
     formikRef.current.setErrors(responseFormikError(errorsFromBackend, ERROR_CODES));
   }, [errorsFromBackend]);
 
   useEffect(() => () => clearStoreErrors(), []);
-
-  const queries = parseQueryString(location.search);
 
   return (
     <Formik
@@ -77,6 +81,7 @@ SetNewPasswordFormView.propTypes = {
   errorsFromBackend: PT.arrayOf(PT.object),
   setNewPassword: PT.func,
   clearStoreErrors: PT.func,
+  validateSetNewPasswordCode: PT.func,
 };
 
 export default withRouter(SetNewPasswordFormView);

@@ -11,7 +11,7 @@ import mail from '@assets/login_page/email_icon.png';
 
 
 const RestorePasswordFormView = ({
-  errorsFromBackend,
+  errorsFromBackend = [],
   restorePassword,
   clearExtra,
   clearStoreErrors,

@@ -65,6 +65,11 @@ export const setNewPassword = data => ({
   payload: data,
 });
 
+export const validateSetNewPasswordCode = code => ({
+  type: types.VALIDATE_SET_NEW_PASSWORD_CODE_REQUEST,
+  payload: code,
+});
+
 export const clearStoreErrors = () => ({
   type: types.CLEAR_STORE_ERRORS,
 });

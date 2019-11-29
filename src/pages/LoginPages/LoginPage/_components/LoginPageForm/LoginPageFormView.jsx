@@ -17,7 +17,7 @@ import { responseFormikError } from '@utils/index';
 
 
 const LoginPageViewForm = ({
-  errorsFromBackend,
+  errorsFromBackend = [],
   loginInWithEmailRequest,
   loginInWithGoogleRequest,
   clearStoreErrors,

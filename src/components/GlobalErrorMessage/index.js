@@ -51,7 +51,7 @@ class GlobalErrorMessage extends React.Component {
           <p className={s.text}>{globalErrorMessage}</p>
         </div>
         <div className={s.hide_error} onClick={this.onCloseErrorMessage}>
-          <Icon iconName="close-modal" />
+          <Icon iconName="close-modal" className="fill-white" />
         </div>
       </div>,
       this.el

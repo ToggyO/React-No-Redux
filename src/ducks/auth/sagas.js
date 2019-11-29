@@ -360,6 +360,23 @@ export function* setNewPasswordSaga() {
   yield takeLatest(authTypes.SET_NEW_PASSWORD_REQUEST, setNewPassword);
 }
 
+function* validateSetNewPasswordCode(action) {
+  try {
+    yield call(api.auth.validateSetNewPasswordCode, action.payload);
+    yield put({ type: authTypes.VALIDATE_SET_NEW_PASSWORD_CODE_SUCCESS });
+  } catch (error) {
+    const { response = {} } = error;
+    const { data = {} } = response;
+    const { errors = [] } = data;
+    yield put({ type: authTypes.VALIDATE_SET_NEW_PASSWORD_CODE_ERROR, payload: errors });
+    yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.LOGIN_IN);
+  }
+}
+
+export function* validateSetNewPasswordCodeSaga() {
+  yield takeLatest(authTypes.VALIDATE_SET_NEW_PASSWORD_CODE_REQUEST, validateSetNewPasswordCode);
+}
+
 function* setPasswordInvite(action) {
   try {
     const data = yield call(api.auth.setPasswordInvite, action.payload);

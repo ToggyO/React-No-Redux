@@ -98,8 +98,8 @@ function Icon({ iconName, className, fill }) {
     case 'close-modal':
       return (
         <svg className={className} width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
-          <g id="Icon-/-close" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-            <polygon id="close-[#1511]" fill="#434C60" points="11.0122 10 17 15.9878 15.9871 17 10 11.0122 4.0122 17 3 15.9878 8.9871 10 3 4.0122 4.0122 3 10 8.9878 15.9871 3 17 4.0122"></polygon>
+          <g id="Icon-/-close" stroke="none" strokeWidth="1" fillRule="evenodd">
+            <polygon id="close-[#1511]" points="11.0122 10 17 15.9878 15.9871 17 10 11.0122 4.0122 17 3 15.9878 8.9871 10 3 4.0122 4.0122 3 10 8.9878 15.9871 3 17 4.0122"></polygon>
           </g>
         </svg>
       );

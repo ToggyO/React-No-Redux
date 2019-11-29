@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import s from './Modal.module.sass';
 
 import { Handler500 } from '@components/Modal/_components/Handler500';
+import { DeprecatedLinkMessage } from '@components/Modal/_components/DeprecatedLinkMessage';
 
 
 /* eslint-disable */
@@ -49,6 +50,8 @@ class Modal extends React.Component {
     switch (modalKey) {
       case 'Handler500':
         return <Handler500 onClose={this.onClickEnvironmentModalClose}/>;
+      case 'DeprecatedLinkMessage':
+        return <DeprecatedLinkMessage onClose={this.onClickEnvironmentModalClose}/>;
       case 'test':
         return <div style={{ width: 150, height: 150 }}>111</div>;
       default:
