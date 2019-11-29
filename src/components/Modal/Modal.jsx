@@ -69,7 +69,7 @@ class Modal extends React.Component {
         <>
           <div
             className={`${s.overlay} ${this.state.isOpen ? s.overlay_shown : ''}`}
-            onClick={this.onClickEnvironmentModalClose} id="modal-overlay"
+            // onClick={this.onClickEnvironmentModalClose} id="modal-overlay"
           />
           <div className={`${s.modalWindow} ${this.state.isOpen ? s.modalWindow_shown : ''}`}>
             <div className={`${s.modalWrapper}`}>

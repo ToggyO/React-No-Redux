@@ -7,10 +7,14 @@ import s from './style.module.sass';
 
 const UserProfilePageView = () => (
   <>
-    <Helmet defaultTitle="Squad.io - Home">
-      <meta name="description" content="Home page" />
+    <Helmet defaultTitle="Squad.io - Settings">
+      <meta name="description" content="User profile page" />
     </Helmet>
-    <div className={s.test}/>
+    <div className={s.wrapper}>
+      <div className={s.container}>
+        p
+      </div>
+    </div>
   </>
 );
 
