@@ -3,25 +3,47 @@ import PT from 'prop-types';
 import { Field, Form, Formik } from 'formik';
 import { withRouter } from 'react-router-dom';
 
+import { compose } from 'redux';
+
+import history from '@services/history';
 import { ERROR_CODES } from '@config/errorCodes';
 import { parseQueryString, responseFormikError } from '@utils/index';
 import { validateForm } from '@components/Form/validations';
 import { PasswordInput } from '@components/Form/PasswordInput';
 import key from '@assets/login_page/key.png';
+import superaxios from '@services/superaxios';
+import { API_URL } from '@config/apiUrl';
+import { ROUTES } from '@config/routes';
+import { withAuthLoader } from '@components/HOC/withAuthLoader';
+import { withModal } from '@components/HOC/withModal';
 
 
 const SetNewPasswordFormView = ({
   location = {},
-  errorsFromBackend = {},
+  errorsFromBackend = [],
   setNewPassword,
   clearStoreErrors,
-  validateSetNewPasswordCode,
+  loaderStart,
+  loaderStop,
+  modalOpen,
 }) => {
   const formikRef = useRef(null);
   const queries = parseQueryString(location.search);
 
+  const validateCode = async () => {
+    try {
+      loaderStart();
+      await superaxios.get(`${API_URL.VALIDATE_LINK_CODE}?code=${queries.code}`);
+      loaderStop();
+    } catch (error) {
+      loaderStop();
+      history.push(ROUTES.AUTH.ROOT + ROUTES.AUTH.LOGIN_IN);
+      modalOpen('DeprecatedLinkMessage');
+    }
+  };
+
   useEffect(() => {
-    validateSetNewPasswordCode(queries.code);
+    validateCode();
   },[]);
 
   useEffect(() => {
@@ -81,7 +103,14 @@ SetNewPasswordFormView.propTypes = {
   errorsFromBackend: PT.arrayOf(PT.object),
   setNewPassword: PT.func,
   clearStoreErrors: PT.func,
-  validateSetNewPasswordCode: PT.func,
+  loaderStart: PT.func,
+  loaderStop: PT.func,
+  modalOpen: PT.func,
 };
 
-export default withRouter(SetNewPasswordFormView);
+export default compose(
+  withRouter,
+  withAuthLoader,
+  withModal,
+)(SetNewPasswordFormView);
+

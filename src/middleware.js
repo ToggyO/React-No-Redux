@@ -74,11 +74,3 @@ export const saveRegistrationStep = store => next => action => {
   }
   return next(action);
 };
-
-export const showWarning = store => next => action => {
-  if (action.type === authTypes.VALIDATE_SET_NEW_PASSWORD_CODE_ERROR) {
-    // reduxStore.dispatch({ type: modalTypes.MODAL_OPEN, payload: 'DeprecatedLinkMessage' });
-    reduxStore.dispatch(modalOpen('DeprecatedLinkMessage'));
-  }
-  return next(action);
-};

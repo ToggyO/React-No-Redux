@@ -1,9 +1,9 @@
 import React from 'react';
 import TooltipTrigger from 'react-popper-tooltip';
+import PT, { oneOfType } from 'prop-types';
 import './style.sass';
 
 
-// eslint-disable-next-line react/prop-types
 export const Tooltip = ({children, tooltip, hideArrow, containerClass, arrowClass, ...props}) => (
   <TooltipTrigger
     {...props}
@@ -43,5 +43,18 @@ export const Tooltip = ({children, tooltip, hideArrow, containerClass, arrowClas
     )}
   </TooltipTrigger>
 );
+
+Tooltip.propTypes = {
+  children: oneOfType([
+    PT.node,
+    PT.element,
+    PT.func,
+  ]),
+  tooltip: PT.object,
+  hideArrow: PT.func,
+  containerClass: PT.string,
+  arrowClass: PT.string,
+};
+
 
 

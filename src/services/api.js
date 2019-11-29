@@ -64,10 +64,6 @@ export default {
       const response = await superaxios.put(API_URL.SET_NEW_PASSWORD, data);
       return response.data;
     },
-    validateSetNewPasswordCode: async code => {
-      const response = await superaxios.get(`${API_URL.VALIDATE_LINK_CODE}?code=${code}`);
-      return response.data;
-    },
   },
   other: {
     getTeamEmails: async () => {

@@ -55,8 +55,8 @@ export default function auth(state = initialState, action) {
     case types.RESTORE_PASSWORD_REQUEST:
     case types.SET_PASSWORD_INVITE_REQUEST:
     case types.SET_NEW_PASSWORD_REQUEST:
-    case types.VALIDATE_SET_NEW_PASSWORD_CODE_REQUEST:
     case types.REFRESHING_TOKEN_REQUEST:
+    case types.AUTH_PRELOADER_START:
       return { ...state, loading: true };
     case types.SIGNUP_WITH_EMAIL_SUCCESS:
     case types.SIGNUP_WITH_GOOGLE_SUCCESS:
@@ -82,7 +82,6 @@ export default function auth(state = initialState, action) {
       return { ...state, loading: false, data: { ...state.data, registrationStep: data.registrationStep } };
     }
     case types.SET_NEW_PASSWORD_SUCCESS:
-    case types.VALIDATE_SET_NEW_PASSWORD_CODE_SUCCESS:
     case types.REFRESHING_TOKEN_SUCCESS:
     case types.AUTH_PRELOADER_STOP:
       return { ...state, loading: false };
@@ -101,7 +100,6 @@ export default function auth(state = initialState, action) {
     case types.RESTORE_PASSWORD_ERROR:
     case types.SET_PASSWORD_INVITE_ERROR:
     case types.SET_NEW_PASSWORD_ERROR:
-    case types.VALIDATE_SET_NEW_PASSWORD_CODE_ERROR:
     case types.REFRESHING_TOKEN_ERROR:
       return { ...state, loading: false, errors: action.payload };
     case types.CLEAR_STORE_ERRORS:
