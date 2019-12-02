@@ -6,22 +6,18 @@
   transition: height 0.1s ease-in-out
 
   &_shown
-    //flex-direction: row
     height: 49px
-    //width: 50%
     transform: translateX(0)
-    //+animation(sidebarSlideTeamsButtonsShow, 0, 0.4s)
 
   &_hidden
     height: 133px
-    //flex-direction: column
     transform: translateX(0)
-    //+animation(sidebarSlideTeamsButtonsHide, 0, 0.4s)
-
 
 .choose_team
   margin: 0 !important
   border-right: .5px solid rgba(147, 152, 162, 0.2) !important
+  background-color: transparent
+  transition: background-color 0.2s ease
 
   &__icon
     width: 18px

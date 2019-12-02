@@ -4,7 +4,6 @@ import { Route, Switch } from 'react-router-dom';
 
 import AuthRoute from './AuthRoute';
 import UnAuthRoute from './UnAuthRoute';
-import InviteRoute from './InviteRoute';
 
 import { globalSelectors } from '@ducks/global';
 
@@ -28,6 +27,8 @@ import { SetPasswordPageView } from '@pages/SignPages/Member/SetPasswordPage';
 import { TeamPageView } from '@pages/TeamPages';
 import { ProjectPageView } from '@pages/ProjectPages';
 import GlobalErrorMessage from '@components/GlobalErrorMessage';
+import { UserSettingsPageView } from '@pages/UserPages/UserSettingsPage';
+import { UserProfileView } from '@pages/UserPages/UserSettingsPage/_components/UserProfile';
 
 // eslint-disable-next-line react/prop-types
 const Routes = ({ modal: { modalKey }, globalErrorMessage }) => (
@@ -85,30 +86,21 @@ const Routes = ({ modal: { modalKey }, globalErrorMessage }) => (
         )}
       />
 
-      {/* INVITES */}
-      <InviteRoute
+      {/* AuthRoute */}
+      <AuthRoute
         path={ROUTES.USER.ROOT}
         component={props => (
-          <SidebarWrapper {...props}>
+          <UserSettingsPageView {...props}>
             <Switch>
-              <Route
-                path={ROUTES.USER.ROOT + ROUTES.USER.TEAM.ROOT + ROUTES.USER.TEAM.INVITE}
-                exact
-                component={TeamPageView}
-              />
-              <Route
-                path={ROUTES.USER.ROOT + ROUTES.USER.PROJECT.ROOT + ROUTES.USER.PROJECT.INVITE}
-                exact
-                component={ProjectPageView}
-              />
+              <Route path={ROUTES.USER.ROOT + ROUTES.USER.PROFILE} exact component={UserProfileView} />
             </Switch>
-          </SidebarWrapper>
+          </UserSettingsPageView>
         )}
       />
-      {/* INVITES */}
-
+      <AuthRoute path={ROUTES.TEAM.ROOT} component={TeamPageView} />
+      <AuthRoute path={ROUTES.PROJECT.ROOT} component={ProjectPageView} />
       <AuthRoute
-        path={ROUTES.HOME_PAGE}
+        path={ROUTES.ROOT}
         component={props => (
           <SidebarWrapper {...props}>
             <Switch>

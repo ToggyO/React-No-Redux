@@ -32,10 +32,6 @@ export default {
       const response = await superaxios.put(API_URL.SET_USER_NAME, name);
       return response.data;
     },
-    setUserNameInvite: async name => {
-      const response = await superaxios.put(API_URL.SET_USER_NAME_INVITE, name);
-      return response.data;
-    },
     setCompanyName: async name => {
       const response = await superaxios.post(API_URL.SET_COMPANY_NAME, name);
       return response.data;

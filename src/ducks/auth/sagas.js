@@ -1,5 +1,7 @@
 import { takeLatest, put, call } from 'redux-saga/effects';
 
+import { store } from '../../store';
+
 import * as authTypes from './types';
 
 import { ROUTES } from '@config';
@@ -207,7 +209,10 @@ function* setUserName(action) {
     // }
     const data = yield call(api.auth.setUserName, action.payload);
     yield put({ type: authTypes.SET_USER_NAME_SUCCESS, payload: data });
-    yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.SET_COMPANY_NAME);
+    const role = yield store.getState().auth.data.registrationStep.statusName;
+    yield role === 'Admin'
+      ? call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.SET_COMPANY_NAME)
+      : call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.QUICK_TUTORIAL);
   } catch (error) {
     // {
     //   "message": "Unauthorized",
@@ -364,7 +369,7 @@ function* setPasswordInvite(action) {
   try {
     const data = yield call(api.auth.setPasswordInvite, action.payload);
     yield put({ type: authTypes.SET_PASSWORD_INVITE_SUCCESS, payload: data });
-    yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.ENTER_NAME_INVITE);
+    yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.ENTER_NAME);
   } catch (error) {
     const { response = {} } = error;
     const { data = {} } = response;
@@ -375,23 +380,6 @@ function* setPasswordInvite(action) {
 
 export function* setPasswordInviteSaga() {
   yield takeLatest(authTypes.SET_PASSWORD_INVITE_REQUEST, setPasswordInvite);
-}
-
-function* setUserNameInvite(action) {
-  try {
-    const data = yield call(api.auth.setUserNameInvite, action.payload);
-    yield put({ type: authTypes.SET_USER_NAME_INVITE_SUCCESS, payload: data });
-    yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.QUICK_TUTORIAL);
-  } catch (error) {
-    const { response = {} } = error;
-    const { data = {} } = response;
-    const { errors = [] } = data;
-    yield put({ type: authTypes.SET_USER_NAME_INVITE_ERROR, payload: errors });
-  }
-}
-
-export function* setUserNameInviteSaga() {
-  yield takeLatest(authTypes.SET_USER_NAME_INVITE_REQUEST, setUserNameInvite);
 }
 
 /*---------------------------------------------------------------------------*/

@@ -11,7 +11,7 @@ const ProjectPageView = () => (
       <meta name="description" content="Project page" />
     </Helmet>
     <h1>Protected Project Page</h1>
-    <Link to={ROUTES.USER.ROOT + ROUTES.USER.TEAM.ROOT + ROUTES.USER.TEAM.INVITE}>To team page</Link>
+    <Link to={ROUTES.TEAM.ROOT}>To team page</Link>
   </div>
 );
 

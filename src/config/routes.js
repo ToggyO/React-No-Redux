@@ -1,5 +1,6 @@
 export const ROUTES = {
-  HOME_PAGE: '/',
+  ROOT: '/',
+  HOME_PAGE: '/home',
   AUTH: {
     ROOT: '/auth',
     SIGN_UP: '/signup',
@@ -16,14 +17,17 @@ export const ROUTES = {
   },
   USER: {
     ROOT: '/user',
-    TEAM: {
-      ROOT: '/team',
-      INVITE: '/invite',
-    },
-    PROJECT: {
-      ROOT: '/project',
-      INVITE: '/invite',
-    },
+    PROFILE: '/profile',
+    PREFERENCES: '/preferences',
+    NOTIFICATIONS: '/notifications',
+  },
+  TEAM: {
+    ROOT: '/team',
+    INVITE: '/invite',
+  },
+  PROJECT: {
+    ROOT: '/project',
+    INVITE: '/invite',
   },
   SOME_PAGE: '/some-page',
 };

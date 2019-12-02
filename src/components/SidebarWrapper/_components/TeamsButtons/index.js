@@ -1,21 +1,25 @@
 import React from 'react';
 import PT from 'prop-types';
 
+import { Link } from 'react-router-dom';
+
 import s from './style.module.sass';
 
 import { Icon } from '@components/Icon';
+import { ROUTES } from '@config/routes';
 
 export const TeamsButtons = ({ isOpen }) => (
   <div className={`${s.container} ${isOpen ? s.container_shown : s.container_hidden} flex flex-wrap-wrap`}>
-    <button
+    <Link
+      to={ROUTES.USER.ROOT + ROUTES.USER.PROFILE}
       type="button"
       className={`${s.choose_team} ${
         isOpen ? s.shown : s.hidden
-      } btn flex justify-content-center align-items-center pt-3 pb-3`}
+      } flex justify-content-center align-items-center pt-3 pb-3`}
     >
       <Icon iconName="settings_switch" className={`${s.choose_team__icon} mr-2`} />
       <p>Settings</p>
-    </button>
+    </Link>
     <button
       type="button"
       className={`${s.add_projects} ${isOpen ? s.shown : s.hidden} ${

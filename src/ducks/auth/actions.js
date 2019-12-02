@@ -78,11 +78,6 @@ export const setPasswordInvite = data => ({
   payload: data,
 });
 
-export const setUserNameInvite = data => ({
-  type: types.SET_USER_NAME_INVITE_REQUEST,
-  payload: data,
-});
-
 // Auth loader
 export const authLoaderStart = () => ({
   type: types.AUTH_PRELOADER_START,
