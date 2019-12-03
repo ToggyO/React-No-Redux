@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import AuthRoute from './AuthRoute';
 import UnAuthRoute from './UnAuthRoute';
@@ -104,6 +104,7 @@ const Routes = ({ modal: { modalKey }, globalErrorMessage }) => (
         component={props => (
           <SidebarWrapper {...props}>
             <Switch>
+              <Redirect exact from={ROUTES.ROOT} to={ROUTES.HOME_PAGE} />
               <Route path={ROUTES.HOME_PAGE} exact component={HomePageContainer} />
             </Switch>
           </SidebarWrapper>
@@ -111,6 +112,7 @@ const Routes = ({ modal: { modalKey }, globalErrorMessage }) => (
       />
 
       {/* REDIRECTS */}
+      {/* <Redirect from={ROUTES.ROOT} to={ROUTES.ROOT + ROUTES.HOME_PAGE}/> */}
       {/* /REDIRECTS */}
 
       {/* NOT FOUND PAGE */}
