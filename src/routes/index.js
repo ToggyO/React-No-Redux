@@ -92,7 +92,11 @@ const Routes = ({ modal: { modalKey }, globalErrorMessage }) => (
         component={props => (
           <UserSettingsPageView {...props}>
             <Switch>
-              <Route path={ROUTES.USER.ROOT + ROUTES.USER.PROFILE} exact component={UserProfileView} />
+              <Route
+                path={`${ROUTES.USER.ROOT}/:userId${ROUTES.USER.PROFILE}`}
+                exact
+                component={UserProfileView}
+              />
             </Switch>
           </UserSettingsPageView>
         )}
@@ -112,7 +116,6 @@ const Routes = ({ modal: { modalKey }, globalErrorMessage }) => (
       />
 
       {/* REDIRECTS */}
-      {/* <Redirect from={ROUTES.ROOT} to={ROUTES.ROOT + ROUTES.HOME_PAGE}/> */}
       {/* /REDIRECTS */}
 
       {/* NOT FOUND PAGE */}

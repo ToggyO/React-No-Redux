@@ -13,6 +13,7 @@ import CustomScrollbar from '@components/Scrollbar';
 
 
 const UserProfileSidebarView = ({
+  parsedPathname,
   companies = [ 'Test4', 'Test3', 'Test2', 'Test'],
   teams = [
     {
@@ -94,7 +95,7 @@ const UserProfileSidebarView = ({
         </div>
         <div className={s.user}>
           <UserProfileSidebarHeadlinesWrapper title="User" addContainerClass="mb-2 mt-5">
-            <UserProfileSidebarUserView/>
+            <UserProfileSidebarUserView parsedPathname={parsedPathname}/>
           </UserProfileSidebarHeadlinesWrapper>
         </div>
         <div className={s.teams}>
@@ -140,6 +141,7 @@ const UserProfileSidebarView = ({
 );
 
 UserProfileSidebarView.propTypes = {
+  parsedPathname: PT.object,
   companies: PT.array,
   teams: PT.array,
 };

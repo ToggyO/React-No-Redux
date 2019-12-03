@@ -15,35 +15,12 @@ export const isEmptyObject = obj => {
   return flag;
 };
 
-// export const isEmptyObject = obj => {
-//   for (let key in obj) {
-//     return false;
-//   }
-//   return true;
-// };
-
 export function getWindowDimensions() {
   const { clientWidth: width, clientHeight: height } = document.documentElement;
   return {
     width,
     height,
   };
-}
-
-// Users hooks
-export function useWindowDimensions() {
-  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions());
-    }
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  return windowDimensions;
 }
 
 export const responseFormikError = (errors, errorCodes) => {
@@ -87,6 +64,14 @@ export const redirectToStep = step => {
 
 export const parseQueryString = queries => parse(queries, { ignoreQueryPrefix: true });
 
+export const parseRouteString = location => {
+  const routeString = location.slice(1).split('/');
+  let routeElements = {};
+  // eslint-disable-next-line no-return-assign
+  routeString.map((item, i) => (routeElements = { ...routeElements, [i]: item }));
+  return routeElements;
+};
+
 export const setHeightProperty = (flag, containerRef, contentRef) => {
   const contentStyle = window.getComputedStyle(contentRef.current);
   if (!flag) {
@@ -97,3 +82,26 @@ export const setHeightProperty = (flag, containerRef, contentRef) => {
     containerRef.current.style.height = 0;
   }
 };
+
+// Users hooks
+export function useWindowDimensions() {
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowDimensions;
+}
+
+// export const isEmptyObject = obj => {
+//   for (let key in obj) {
+//     return false;
+//   }
+//   return true;
+// };
