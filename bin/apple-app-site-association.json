@@ -9,7 +9,11 @@
         "details": [
             {
                 "appID": "65B5B68C2U.com.magora-team.squad.stage",
-                "paths": [ "/auth/set-password" ]
+                "paths": [ 
+                    "/auth/set-password",
+                    "/team/invite",
+                    "/project/invite"
+                ]
             }
         ]
     }
