@@ -3,9 +3,9 @@ import PT from 'prop-types';
 
 import s from './style.module.sass';
 
-export const UserProfileSidebarHeadlinesWrapper = ({ children, title = '' }) => (
+export const UserProfileSidebarHeadlinesWrapper = ({ children, title = '', addContainerClass = '' }) => (
   <div>
-    <div className={`${s.headline} pl-10 pb-4 mb-2`}>
+    <div className={`${s.headline} ${addContainerClass} pl-10 pb-4`}>
       <h2>{title}</h2>
     </div>
     <div className={s.children}>{children}</div>
@@ -15,4 +15,5 @@ export const UserProfileSidebarHeadlinesWrapper = ({ children, title = '' }) => 
 UserProfileSidebarHeadlinesWrapper.propTypes = {
   children: PT.oneOfType([PT.node, PT.element, PT.func]),
   title: PT.string,
+  addContainerClass: PT.string,
 };
