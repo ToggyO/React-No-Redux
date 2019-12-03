@@ -5,6 +5,7 @@ import s from './Modal.module.sass';
 
 import { Handler500 } from '@components/Modal/_components/Handler500';
 import { DeprecatedLinkMessage } from '@components/Modal/_components/DeprecatedLinkMessage';
+import ModalCloseConfirm from '@components/Modal/_components/ModalCloseConfirm';
 
 
 /* eslint-disable */
@@ -15,7 +16,12 @@ class Modal extends React.Component {
       isOpen: false,
     };
     this.el = document.createElement('div');
+    // this.modalRoot = document.createElement(`modal-root-${this.props.zIndex}`);
     this.modalRoot = document.getElementById('modal-root');
+
+    this.overlayRef = React.createRef();
+    this.modalWindowRef = React.createRef();
+    console.log(this.props);
   }
 
   // componentDidUpdate(prevProps) {
@@ -36,42 +42,53 @@ class Modal extends React.Component {
     setTimeout(() => this.setState({ isOpen: true }), 0);
   }
 
+  componentDidUpdate(prevProps, prevState, snapshot) {
+   if (this.state.isOpen !== prevState.isOpen) console.log(this.state.isOpen, this.props.itemKey);
+  }
+
   componentWillUnmount() {
     this.modalRoot.removeChild(this.el);
   }
 
   onClickEnvironmentModalClose = () => {
     this.setState({ isOpen: false });
-    setTimeout(() => this.props.modalClose(), 200);
+    setTimeout(() => this.props.modalClose(this.props.itemKey), 200);
   };
 
   onRenderModalContent = () => {
-    const { modalKey, options } = this.props.modalState;
-    switch (modalKey) {
+    const { itemKey } = this.props;
+    switch (itemKey) {
       case 'Handler500':
         return <Handler500 onClose={this.onClickEnvironmentModalClose}/>;
       case 'DeprecatedLinkMessage':
         return <DeprecatedLinkMessage onClose={this.onClickEnvironmentModalClose}/>;
-      case 'test':
-        return <div style={{ width: 150, height: 150 }}>111</div>;
+      case 'ModalCloseConfirm':
+        return <ModalCloseConfirm onClose={this.onClickEnvironmentModalClose}/>;
       default:
         return null;
     }
   };
 
   render() {
-    const { modalKey } = this.props.modalState;
-
-    if (!modalKey) return null;
+    const { zIndex, modalState, itemKey } = this.props;
+    const { modalKeyArray } = modalState;
+    const filteredModalKey = modalKeyArray.filter(item => item === itemKey);
+    if (filteredModalKey.length === 0) return null;
 
     return (
       ReactDOM.createPortal(
         <>
           <div
+            ref={this.overlayRef}
             className={`${s.overlay} ${this.state.isOpen ? s.overlay_shown : ''}`}
-            // onClick={this.onClickEnvironmentModalClose} id="modal-overlay"
+            style={{ zIndex: 1000 + zIndex }}
+            onClick={this.onClickEnvironmentModalClose} id="modal-overlay"
           />
-          <div className={`${s.modalWindow} ${this.state.isOpen ? s.modalWindow_shown : ''}`}>
+          <div
+            className={`${s.modalWindow} ${this.state.isOpen ? s.modalWindow_shown : ''}`}
+            ref={this.modalWindowRef}
+            style={{ zIndex: 1001 + zIndex }}
+          >
             <div className={`${s.modalWrapper}`}>
               <div className={`${s.modalContainer}`}>
                 {this.onRenderModalContent()}

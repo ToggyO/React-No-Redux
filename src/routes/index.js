@@ -29,11 +29,13 @@ import { ProjectPageView } from '@pages/ProjectPages';
 import GlobalErrorMessage from '@components/GlobalErrorMessage';
 import { UserSettingsPageView } from '@pages/UserPages/UserSettingsPage';
 import { UserProfileView } from '@pages/UserPages/UserSettingsPage/_components/UserProfile';
+import { modalSelectors } from '@ducks/modal';
 
 // eslint-disable-next-line react/prop-types
-const Routes = ({ modal: { modalKey }, globalErrorMessage }) => (
+const Routes = ({ modal, globalErrorMessage }) => (
   <>
-    {modalKey ? <ModalContainer /> : null}
+    {/* eslint-disable-next-line react/prop-types */}
+    {modal.length > 0 && modal.map((item, i) => <ModalContainer key={item} zIndex={i} itemKey={item} />)}
     {globalErrorMessage ? <GlobalErrorMessage /> : null}
     <Switch>
       {/* UnAuthRoute */}
@@ -127,7 +129,7 @@ const Routes = ({ modal: { modalKey }, globalErrorMessage }) => (
 
 const mapStateToProps = state => ({
   globalErrorMessage: globalSelectors.globalErrorSelector(state),
-  modal: state.modal,
+  modal: modalSelectors.modalKeySelector(state),
 });
 
 export default connect(

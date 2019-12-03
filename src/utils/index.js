@@ -83,6 +83,9 @@ export const setHeightProperty = (flag, containerRef, contentRef) => {
   }
 };
 
+// eslint-disable-next-line no-param-reassign
+export const getElementProperty = (ref, property) => window.getComputedStyle(ref.current)[property];
+
 // Users hooks
 export function useWindowDimensions() {
   const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());

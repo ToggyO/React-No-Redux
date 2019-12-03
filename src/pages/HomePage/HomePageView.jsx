@@ -7,11 +7,12 @@ import { LogoutButton } from '@components/LogoutButton';
 import superaxios from '@services/superaxios';
 
 
-const HomePageView = () => {
+// eslint-disable-next-line react/prop-types
+const HomePageView = ({ modalOpen }) => {
   const [userId, setUserId] = useState('');
 
   return (
-    <div className={`${s.wrapper} flex align-items-center flex-column`}>
+    <div className={`${s.wrapper} flex align-items-center flex-column`} >
       <Helmet defaultTitle="Squad.io - Home">
         <meta name="description" content="Home page" />
       </Helmet>
@@ -36,6 +37,19 @@ const HomePageView = () => {
           }
         >
           Kill
+        </button>
+        <button type="button" onClick={() => modalOpen('Handler500')}>Handler500</button>
+        <button type="button" onClick={() => modalOpen('DeprecatedLinkMessage')}>DeprecatedLinkMessage</button>
+        <button type="button" onClick={() => modalOpen('ModalCloseConfirm')}>ModalCloseConfirm</button>
+        <button
+          type="button"
+          onClick={() =>{
+            modalOpen('Handler500');
+            setTimeout(() => modalOpen('DeprecatedLinkMessage'), 1000);
+            setTimeout(() => modalOpen('ModalCloseConfirm'), 2000);
+          }}
+        >
+          AND TOGETHER!!!!
         </button>
       </form>
       <LogoutButton addButtonClass="btn" />

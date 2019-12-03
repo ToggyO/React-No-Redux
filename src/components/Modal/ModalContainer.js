@@ -12,8 +12,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    modalClose() {
-      dispatch(modalActions.modalClose());
+    modalClose(itemKey) {
+      dispatch(modalActions.modalClose(itemKey));
     },
   };
 }
