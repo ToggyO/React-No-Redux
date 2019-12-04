@@ -40,13 +40,11 @@ const HomePageView = ({ modalOpen }) => {
         </button>
         <button type="button" onClick={() => modalOpen('Handler500')}>Handler500</button>
         <button type="button" onClick={() => modalOpen('DeprecatedLinkMessage')}>DeprecatedLinkMessage</button>
-        <button type="button" onClick={() => modalOpen('ModalCloseConfirm')}>ModalCloseConfirm</button>
         <button
           type="button"
           onClick={() =>{
             modalOpen('Handler500');
             setTimeout(() => modalOpen('DeprecatedLinkMessage'), 1000);
-            setTimeout(() => modalOpen('ModalCloseConfirm'), 2000);
           }}
         >
           AND TOGETHER!!!!

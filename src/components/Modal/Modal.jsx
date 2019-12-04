@@ -14,10 +14,14 @@ class Modal extends React.Component {
     super(props);
     this.state = {
       isOpen: false,
+      isConfirmModalOpen: false,
     };
     this.el = document.createElement('div');
     this.modalRoot = document.getElementById('modal-root');
     this.onClickEnvironmentModalClose = this.onClickEnvironmentModalClose.bind(this);
+    this.onOpenConfirmModal = this.onOpenConfirmModal.bind(this);
+    this.onCloseConfirmModal = this.onCloseConfirmModal.bind(this);
+    this.onRenderModalContent = this.onRenderModalContent.bind(this);
   }
 
   // componentDidUpdate(prevProps) {
@@ -46,11 +50,18 @@ class Modal extends React.Component {
     this.modalRoot.removeChild(this.el);
   }
 
-  onClickEnvironmentModalClose = key => {
-    // debugger;
-    this.setState({ isOpen: false });
+  onClickEnvironmentModalClose(key) {
+    this.setState(prevState => ({ ...prevState, isOpen: false }));
     setTimeout(() => this.props.modalClose(key), 200);
   };
+
+  onOpenConfirmModal() {
+    this.setState(prevState => ({ ...prevState, isConfirmModalOpen: true }));
+  }
+
+  onCloseConfirmModal() {
+    this.setState(prevState => ({ ...prevState, isConfirmModalOpen: false }));
+  }
 
   onRenderModalContent = () => {
     const { itemKey, modalState } = this.props;
@@ -58,23 +69,21 @@ class Modal extends React.Component {
     const modalCloseConfirm = this.props.modalOpen;
 
     switch (itemKey) {
-      case 'ModalCloseConfirm':
-        return <ModalCloseConfirm
-          onClose={this.onClickEnvironmentModalClose}
-          itemKey={willBeClosedModalKey}
-        />;
       case 'Handler500':
-        return <Handler500 onClose={() => modalCloseConfirm('ModalCloseConfirm')}/>;
+        return <Handler500 onClose={this.onOpenConfirmModal}/>;
       case 'DeprecatedLinkMessage':
-        return <DeprecatedLinkMessage onClose={() => modalCloseConfirm('ModalCloseConfirm')}/>;
+        return <DeprecatedLinkMessage onClose={this.onOpenConfirmModal}/>;
       default:
         return null;
     }
   };
 
+
   render() {
     const { zIndex, modalState, itemKey, modalOpen } = this.props;
+    const { isConfirmModalOpen } = this.state;
     const filteredModalKey = modalState.filter(item => item === itemKey);
+
     if (filteredModalKey.length === 0) return null;
 
     return (
@@ -83,9 +92,7 @@ class Modal extends React.Component {
           <div
             className={`${s.overlay} ${this.state.isOpen ? s.overlay_shown : ''}`}
             style={{ zIndex: 1000 + zIndex }}
-            onClick={() => modalOpen('ModalCloseConfirm')}
-            // onClick={this.onClickEnvironmentModalClose}
-            id="modal-overlay"
+            onClick={this.onOpenConfirmModal}
           />
           <div
             className={`${s.modalWindow} ${this.state.isOpen ? s.modalWindow_shown : ''}`}
@@ -97,6 +104,13 @@ class Modal extends React.Component {
               </div>
             </div>
           </div>
+          <ModalCloseConfirm
+            isConfirmModalOpen={isConfirmModalOpen}
+            onClose={this.onClickEnvironmentModalClose}
+            onCloseConfirmModal={this.onCloseConfirmModal}
+            zIndex={zIndex}
+            itemKey={itemKey}
+          />
         </>,
         this.el,
       )
