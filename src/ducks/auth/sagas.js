@@ -97,7 +97,7 @@ function* LoginWithEmail(action) {
     yield action.payload.rememberMe
       ? put({ type: authTypes.LOGIN_IN_WITH_EMAIL_REMEMBER_ME_SUCCESS, payload: data })
       : put({ type: authTypes.LOGIN_IN_WITH_EMAIL_SUCCESS, payload: data });
-    yield call(historyRedirect, ROUTES.HOME_PAGE);
+    yield call(historyRedirect, ROUTES.ROOT);
   } catch (error) {
     // {
     //   "message": "Unauthorized",
@@ -132,7 +132,7 @@ function* LoginWithGoogle(action) {
       ? put({ type: authTypes.LOGIN_IN_WITH_GOOGLE_REMEMBER_ME_SUCCESS, payload: data })
       : put({ type: authTypes.LOGIN_IN_WITH_GOOGLE_SUCCESS, payload: data });
     yield put({ type: authTypes.CLEAR_STORE_ERRORS });
-    yield call(historyRedirect, ROUTES.HOME_PAGE);
+    yield call(historyRedirect, ROUTES.ROOT);
   } catch (error) {
     // {
     //   "message": "Unauthorized",

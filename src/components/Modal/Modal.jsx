@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 
 import s from './Modal.module.sass';
 
+import { UserSettings } from '@components/Modal/_components/UserSettings';
+
+
 import { Handler500 } from '@components/Modal/_components/Handler500';
 import { DeprecatedLinkMessage } from '@components/Modal/_components/DeprecatedLinkMessage';
 import ModalCloseConfirm from '@components/Modal/_components/ModalCloseConfirm';
@@ -73,6 +76,8 @@ class Modal extends React.Component {
         return <Handler500 onClose={this.onOpenConfirmModal}/>;
       case 'DeprecatedLinkMessage':
         return <DeprecatedLinkMessage onClose={this.onOpenConfirmModal}/>;
+      case 'UserSettings':
+        return <UserSettings onClose={this.onOpenConfirmModal}/>;
       default:
         return null;
     }

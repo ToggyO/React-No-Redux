@@ -23,6 +23,12 @@ const UserSettingsPageView = ({ children, location }) => {
           <div className={s.children}>{children}</div>
         </div>
       </div>
+      {/* <div className={`${s.wrapper} flex justify-content-center align-items-center`}> */}
+      {/*  <div className={s.container}> */}
+      {/*    <UserProfileSidebarView parsedPathname={parsedPathname}/> */}
+      {/*    <div className={s.children}>{children}</div> */}
+      {/*  </div> */}
+      {/* </div> */}
     </>
   )
 };

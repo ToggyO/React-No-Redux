@@ -96,10 +96,11 @@ const FirstProjectFormView = ({ setFirstProjectRequest, ...rest }) => {
             <Preloader
               addClassImage="h-66"
               addClassPreloader={fetching ? 'flex justify-content-center align-items-center' : 'display-none'}
-              addClassChildren="flex justify-content-center align-items-center"
-            />
-            <Field name="radioGroup" id="projectTeam" component={YourTeamRadioButton} style={style} />
-            <Field name="radioGroup" id="projectPeople" component={PeopleRadioButton} style={style} />
+              addClassChildren="flex justify-content-space-between align-items-center"
+            >
+              <Field name="radioGroup" id="projectTeam" component={YourTeamRadioButton} style={style} />
+              <Field name="radioGroup" id="projectPeople" component={PeopleRadioButton} style={style} />
+            </Preloader>
           </RadioButtonGroup>
           <CustomScrollbar
             style={{ maxHeight: 200, maxWidth: 499, marginTop: 16 }}

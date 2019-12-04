@@ -11,12 +11,15 @@ export const Preloader = ({
   addClassChildren = '',
   addClassImage = '',
   children,
+  style = {},
 }) => (
-  <div className={`${s.wrapper} ${addClassWrapper}`}>
-    <div className={`${s.preloader} ${addClassPreloader}`}>
+  <div className={`${s.wrapper} ${addClassWrapper}`} style={style.wrapper}>
+    <div className={`${s.preloader} ${addClassPreloader}`} style={style.preloader}>
       <Icon className={addClassImage} iconName="preloader" />
     </div>
-    <div className={`${s.children} ${addClassChildren}`}>{children}</div>
+    <div className={`${s.children} ${addClassChildren}`} style={style.children}>
+      {children}
+    </div>
   </div>
 );
 
@@ -25,5 +28,6 @@ Preloader.propTypes = {
   addClassPreloader: PT.string,
   addClassChildren: PT.string,
   addClassImage: PT.string,
-  children: PT.element,
+  children: PT.oneOfType([PT.element, PT.node, PT.func, PT.array]),
+  style: PT.object,
 };

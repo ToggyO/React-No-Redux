@@ -7,7 +7,7 @@ import UnAuthRoute from './UnAuthRoute';
 
 import { globalSelectors } from '@ducks/global';
 
-import { SidebarWrapper } from '@components/SidebarWrapper';
+import { SidebarWrapperContainer } from '@components/SidebarWrapper';
 import { ModalContainer } from '@components/Modal';
 import { ROUTES } from '@config';
 import { AuthScreenWrapperContainer } from '@components/AuthScreenWrapper';
@@ -27,9 +27,10 @@ import { SetPasswordPageView } from '@pages/SignPages/Member/SetPasswordPage';
 import { TeamPageView } from '@pages/TeamPages';
 import { ProjectPageView } from '@pages/ProjectPages';
 import GlobalErrorMessage from '@components/GlobalErrorMessage';
-import { UserSettingsPageView } from '@pages/UserPages/UserSettingsPage';
-import { UserProfileView } from '@pages/UserPages/UserSettingsPage/_components/UserProfile';
+// import { UserSettingsPageView } from '@pages/UserPages/UserSettingsPage';
+// import { UserProfileView } from '@pages/UserPages/UserSettingsPage/_components/UserProfile';
 import { modalSelectors } from '@ducks/modal';
+// import { authSelectors } from '@ducks/auth';
 
 // eslint-disable-next-line react/prop-types
 const Routes = ({ modal, globalErrorMessage }) => (
@@ -89,31 +90,31 @@ const Routes = ({ modal, globalErrorMessage }) => (
       />
 
       {/* AuthRoute */}
-      <AuthRoute
-        path={ROUTES.USER.ROOT}
-        component={props => (
-          <UserSettingsPageView {...props}>
-            <Switch>
-              <Route
-                path={`${ROUTES.USER.ROOT}/:userId${ROUTES.USER.PROFILE}`}
-                exact
-                component={UserProfileView}
-              />
-            </Switch>
-          </UserSettingsPageView>
-        )}
-      />
+      {/* <AuthRoute */}
+      {/*  path={ROUTES.USER.ROOT} */}
+      {/*  component={props => ( */}
+      {/*    <UserSettingsPageView {...props}> */}
+      {/*      <Switch> */}
+      {/*        <Route */}
+      {/*          path={`${ROUTES.USER.ROOT}/:userId${ROUTES.USER.PROFILE}`} */}
+      {/*          exact */}
+      {/*          component={UserProfileView} */}
+      {/*        /> */}
+      {/*      </Switch> */}
+      {/*    </UserSettingsPageView> */}
+      {/*  )} */}
+      {/* /> */}
       <AuthRoute path={ROUTES.TEAM.ROOT} component={TeamPageView} />
       <AuthRoute path={ROUTES.PROJECT.ROOT} component={ProjectPageView} />
       <AuthRoute
         path={ROUTES.ROOT}
         component={props => (
-          <SidebarWrapper {...props}>
+          <SidebarWrapperContainer {...props}>
             <Switch>
               <Redirect exact from={ROUTES.ROOT} to={ROUTES.HOME_PAGE} />
               <Route path={ROUTES.HOME_PAGE} exact component={HomePageContainer} />
             </Switch>
-          </SidebarWrapper>
+          </SidebarWrapperContainer>
         )}
       />
 
@@ -130,6 +131,7 @@ const Routes = ({ modal, globalErrorMessage }) => (
 const mapStateToProps = state => ({
   globalErrorMessage: globalSelectors.globalErrorSelector(state),
   modal: modalSelectors.modalKeySelector(state),
+  // userInfo: authSelectors.userInfoSelector(state),
 });
 
 export default connect(

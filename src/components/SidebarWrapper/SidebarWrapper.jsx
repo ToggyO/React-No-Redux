@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
+import PT from 'prop-types';
 
 import s from './style.module.sass';
 import { style as LinkButtonStyle } from './link_button_style';
@@ -31,6 +32,7 @@ const buttons = [
 
 const SidebarWrapper = ({
   children,
+  modalOpen,
 }) => {
   const [ isSidebarOpened, toggleSidebarOpen ] = useState(true);
 
@@ -73,12 +75,17 @@ const SidebarWrapper = ({
           <SidebarTeamsProject isSidebarOpened={isSidebarOpened}/>
         </CustomScrollbar>
         <div className={`${s.footer}`}>
-          <TeamsButtons isOpen={isSidebarOpened}/>
+          <TeamsButtons isOpen={isSidebarOpened} modalOpen={modalOpen}/>
         </div>
       </div>
       <div className={s.children}>{children}</div>
     </div>
   )
+};
+
+SidebarWrapper.propTypes = {
+  modalOpen: PT.func,
+  // modal: PT.arrayOf(PT.string),
 };
 
 export default SidebarWrapper;

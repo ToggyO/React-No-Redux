@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 
+import { detect } from 'detect-browser';
+
 import s from './style.module.sass';
 
 import { LogoutButton } from '@components/LogoutButton';
@@ -11,9 +13,14 @@ import superaxios from '@services/superaxios';
 const HomePageView = ({ modalOpen }) => {
   const [userId, setUserId] = useState('');
 
+  const browser = detect();
+  console.log(browser.os);
+  // if (browser && /android|iOS/i.test(browser.os)) return <div>HAHAHAHAH! LOL!</div>;
+
   return (
     <div className={`${s.wrapper} flex align-items-center flex-column`} >
       <Helmet defaultTitle="Squad.io - Home">
+        <meta name="viewport" content="width=990px, user-scalable=yes" />
         <meta name="description" content="Home page" />
       </Helmet>
       <h1>Protected Home Page</h1>
