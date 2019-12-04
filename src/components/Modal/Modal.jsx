@@ -22,9 +22,12 @@ class Modal extends React.Component {
     this.el = document.createElement('div');
     this.modalRoot = document.getElementById('modal-root');
     this.onClickEnvironmentModalClose = this.onClickEnvironmentModalClose.bind(this);
+    this.onOverlayClick = this.onOverlayClick.bind(this);
     this.onOpenConfirmModal = this.onOpenConfirmModal.bind(this);
     this.onCloseConfirmModal = this.onCloseConfirmModal.bind(this);
     this.onRenderModalContent = this.onRenderModalContent.bind(this);
+
+    this.overlayRef = React.createRef();
   }
 
   // componentDidUpdate(prevProps) {
@@ -43,6 +46,8 @@ class Modal extends React.Component {
   componentDidMount() {
     this.modalRoot.appendChild(this.el);
     setTimeout(() => this.setState({ isOpen: true }), 0);
+    window.document.addEventListener('touchstart', this.onOverlayClick, false);
+    window.document.addEventListener('mousedown', this.onOverlayClick, false);
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
@@ -51,6 +56,23 @@ class Modal extends React.Component {
 
   componentWillUnmount() {
     this.modalRoot.removeChild(this.el);
+    window.document.removeEventListener('touchstart', this.onOverlayClick, false);
+    window.document.removeEventListener('mousedown', this.onOverlayClick, false);
+  }
+
+  // onOverlayClick(e) {
+  //   if (e.target.id === `modal-overlay-${this.props.zIndex}`) {
+  //     debugger;
+  //     this.onOpenConfirmModal();
+  //   }
+  // }
+
+  onOverlayClick(e) {
+    if (this.overlayRef.current.contains(e.target)) {
+      debugger;
+      console.log(this.overlayRef.current.contains(e.target));
+      this.onOpenConfirmModal();
+    }
   }
 
   onClickEnvironmentModalClose(key) {
@@ -59,6 +81,7 @@ class Modal extends React.Component {
   };
 
   onOpenConfirmModal() {
+    debugger;
     this.setState(prevState => ({ ...prevState, isConfirmModalOpen: true }));
   }
 
@@ -67,9 +90,7 @@ class Modal extends React.Component {
   }
 
   onRenderModalContent = () => {
-    const { itemKey, modalState } = this.props;
-    const willBeClosedModalKey = modalState[modalState.length-2];
-    const modalCloseConfirm = this.props.modalOpen;
+    const { itemKey } = this.props;
 
     switch (itemKey) {
       case 'Handler500':
@@ -95,9 +116,12 @@ class Modal extends React.Component {
       ReactDOM.createPortal(
         <>
           <div
+            ref={this.overlayRef}
+            id={`modal-overlay-${zIndex}`}
             className={`${s.overlay} ${this.state.isOpen ? s.overlay_shown : ''}`}
             style={{ zIndex: 1000 + zIndex }}
-            onClick={this.onOpenConfirmModal}
+            // onClick={this.onOpenConfirmModal}
+            onClick={this.onOverlayClick}
           />
           <div
             className={`${s.modalWindow} ${this.state.isOpen ? s.modalWindow_shown : ''}`}
