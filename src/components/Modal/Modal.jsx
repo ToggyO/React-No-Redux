@@ -16,12 +16,8 @@ class Modal extends React.Component {
       isOpen: false,
     };
     this.el = document.createElement('div');
-    // this.modalRoot = document.createElement(`modal-root-${this.props.zIndex}`);
     this.modalRoot = document.getElementById('modal-root');
-
-    this.overlayRef = React.createRef();
-    this.modalWindowRef = React.createRef();
-    console.log(this.props);
+    this.onClickEnvironmentModalClose = this.onClickEnvironmentModalClose.bind(this);
   }
 
   // componentDidUpdate(prevProps) {
@@ -43,50 +39,56 @@ class Modal extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-   if (this.state.isOpen !== prevState.isOpen) console.log(this.state.isOpen, this.props.itemKey);
+    if (this.state.isOpen !== prevState.isOpen) console.log(this.state.isOpen);
   }
 
   componentWillUnmount() {
     this.modalRoot.removeChild(this.el);
   }
 
-  onClickEnvironmentModalClose = () => {
+  onClickEnvironmentModalClose = key => {
+    // debugger;
     this.setState({ isOpen: false });
-    setTimeout(() => this.props.modalClose(this.props.itemKey), 200);
+    setTimeout(() => this.props.modalClose(key), 200);
   };
 
   onRenderModalContent = () => {
-    const { itemKey } = this.props;
+    const { itemKey, modalState } = this.props;
+    const willBeClosedModalKey = modalState[modalState.length-2];
+    const modalCloseConfirm = this.props.modalOpen;
+
     switch (itemKey) {
-      case 'Handler500':
-        return <Handler500 onClose={this.onClickEnvironmentModalClose}/>;
-      case 'DeprecatedLinkMessage':
-        return <DeprecatedLinkMessage onClose={this.onClickEnvironmentModalClose}/>;
       case 'ModalCloseConfirm':
-        return <ModalCloseConfirm onClose={this.onClickEnvironmentModalClose}/>;
+        return <ModalCloseConfirm
+          onClose={this.onClickEnvironmentModalClose}
+          itemKey={willBeClosedModalKey}
+        />;
+      case 'Handler500':
+        return <Handler500 onClose={() => modalCloseConfirm('ModalCloseConfirm')}/>;
+      case 'DeprecatedLinkMessage':
+        return <DeprecatedLinkMessage onClose={() => modalCloseConfirm('ModalCloseConfirm')}/>;
       default:
         return null;
     }
   };
 
   render() {
-    const { zIndex, modalState, itemKey } = this.props;
-    const { modalKeyArray } = modalState;
-    const filteredModalKey = modalKeyArray.filter(item => item === itemKey);
+    const { zIndex, modalState, itemKey, modalOpen } = this.props;
+    const filteredModalKey = modalState.filter(item => item === itemKey);
     if (filteredModalKey.length === 0) return null;
 
     return (
       ReactDOM.createPortal(
         <>
           <div
-            ref={this.overlayRef}
             className={`${s.overlay} ${this.state.isOpen ? s.overlay_shown : ''}`}
             style={{ zIndex: 1000 + zIndex }}
-            onClick={this.onClickEnvironmentModalClose} id="modal-overlay"
+            onClick={() => modalOpen('ModalCloseConfirm')}
+            // onClick={this.onClickEnvironmentModalClose}
+            id="modal-overlay"
           />
           <div
             className={`${s.modalWindow} ${this.state.isOpen ? s.modalWindow_shown : ''}`}
-            ref={this.modalWindowRef}
             style={{ zIndex: 1001 + zIndex }}
           >
             <div className={`${s.modalWrapper}`}>
