@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PT from 'prop-types';
 
 import s from './style.module.sass';
@@ -35,6 +35,8 @@ const SidebarWrapper = ({
   modalOpen,
 }) => {
   const [ isSidebarOpened, toggleSidebarOpen ] = useState(true);
+
+  useEffect(() => console.log(isSidebarOpened),[isSidebarOpened]);
 
   return (
     <div className={`${s.wrapper} flex`}>

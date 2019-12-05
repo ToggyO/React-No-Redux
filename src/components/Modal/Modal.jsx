@@ -69,7 +69,6 @@ class Modal extends React.Component {
 
   onOverlayClick(e) {
     if (this.overlayRef.current.contains(e.target)) {
-      debugger;
       console.log(this.overlayRef.current.contains(e.target));
       this.onOpenConfirmModal();
     }
@@ -81,7 +80,6 @@ class Modal extends React.Component {
   };
 
   onOpenConfirmModal() {
-    debugger;
     this.setState(prevState => ({ ...prevState, isConfirmModalOpen: true }));
   }
 
@@ -120,8 +118,8 @@ class Modal extends React.Component {
             id={`modal-overlay-${zIndex}`}
             className={`${s.overlay} ${this.state.isOpen ? s.overlay_shown : ''}`}
             style={{ zIndex: 1000 + zIndex }}
-            // onClick={this.onOpenConfirmModal}
             onClick={this.onOverlayClick}
+            onTouchStart={this.onOverlayClick}
           />
           <div
             className={`${s.modalWindow} ${this.state.isOpen ? s.modalWindow_shown : ''}`}
