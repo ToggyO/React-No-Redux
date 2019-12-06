@@ -1,8 +1,9 @@
-import * as userTypes from './types';
-import * as userActions from './actions';
-import * as userSagas from './sagas';
-import * as userSelectors from './selectors';
+import user from './reducer';
 
-export default './reducer';
-export { userTypes, userActions, userSagas, userSelectors };
-// export default user;
+import * as userActions from './actions';
+import * as userTypes from './types';
+import * as userSelectors from './selectors';
+import * as userSagas from './sagas';
+
+export { userActions, userTypes, userSelectors, userSagas };
+export default user;

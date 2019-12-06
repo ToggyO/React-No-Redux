@@ -5,6 +5,8 @@ import { Router } from 'react-router-dom';
 import Portals from './Portals';
 import { store } from './store';
 
+// import configureStore from './ducks/configureStore';
+
 import Routes from '@routes';
 import history from '@services/history';
 import { ErrorBoundary } from '@components/ErrorBoundary';
