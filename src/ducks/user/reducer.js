@@ -17,6 +17,7 @@ export default function user(state = initialState, action) {
     case types.FETCH_USER_DATA_REQUEST:
       return { ...state, loading: true };
     case types.FETCH_USER_DATA_SUCCESS: {
+      // debugger;
       const { data, dataType } = action.payload;
       return {
         ...state,

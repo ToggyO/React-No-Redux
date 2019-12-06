@@ -87,7 +87,7 @@ export const setHeightProperty = (flag, containerRef, contentRef) => {
 export const getElementProperty = (ref, property) => window.getComputedStyle(ref.current)[property];
 
 export const makeRequestString = obj => {
-  let reqString = '';
+  let reqString = '?';
   Object.keys(obj).forEach(key => {
     if (obj[key]) {
       reqString += `&${key[0].toUpperCase()}${key.slice(1)}=${obj[key]}`;

@@ -11,17 +11,17 @@ export const userDataSelector = createSelector(
 );
 
 export const userCompaniesSelector = createSelector(
-  state => state.user.data.companies,
+  state => state.user.data.companies.items,
   errors => errors
 );
 
 export const userTeamsSelector = createSelector(
-  state => state.user.data.teams,
+  state => state.user.data.teams.items,
   errors => errors
 );
 
 export const userProjectsSelector = createSelector(
-  state => state.user.data.projects,
+  state => state.user.data.projects.items,
   errors => errors
 );
 

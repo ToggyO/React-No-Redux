@@ -6,10 +6,12 @@ import { compose } from 'redux';
 
 import UserSettings from './UserSettings';
 
-import { userActions, userSelectors } from '@ducks/user';
+import * as userActions from '@ducks/user/actions';
+import * as userSelectors from '@ducks/user/selectors';
 
 const mapStateToProps = state => ({
   userCompanies: userSelectors.userCompaniesSelector(state),
+  userTeams: userSelectors.userTeamsSelector(state),
   userData: userSelectors.userDataSelector(state),
   loading: userSelectors.userLoaderSelector(state),
 });

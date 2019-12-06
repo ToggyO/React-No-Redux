@@ -67,7 +67,7 @@ superaxios.interceptors.response.use(
           const oldRefreshToken = `${getFromLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN)}`;
           store.dispatch({ type: authTypes.REFRESHING_TOKEN_REQUEST });
           superaxios
-            .put(API_URL.REFRESH_TOKEN, { refreshToken: oldRefreshToken })
+            .put(API_URL.AUTH.REFRESH_TOKEN, { refreshToken: oldRefreshToken })
             // eslint-disable-next-line no-shadow
             .then(response => {
               store.dispatch({ type: authTypes.REFRESHING_TOKEN_SUCCESS });

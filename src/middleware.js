@@ -42,10 +42,7 @@ export const saveUserData = store => next => action => {
 };
 
 export const updateUsersData = store => next => action => {
-  if (
-    action.type === authTypes.SET_USER_NAME_SUCCESS ||
-    action.type === authTypes.SET_USER_NAME_INVITE_SUCCESS
-  ) {
+  if (action.type === authTypes.SET_USER_NAME_SUCCESS) {
     const { data } = action.payload.data;
     writeToLocalState(LOCAL_STORAGE_KEYS.USER, data);
   }
@@ -63,7 +60,6 @@ export const saveRegistrationStep = store => next => action => {
   if (
     action.type === authTypes.CONFIRM_EMAIL_SUCCESS ||
     action.type === authTypes.SET_USER_NAME_SUCCESS ||
-    action.type === authTypes.SET_USER_NAME_INVITE_SUCCESS ||
     action.type === authTypes.SET_COMPANY_NAME_SUCCESS ||
     action.type === authTypes.SET_TEAM_SUCCESS ||
     action.type === authTypes.SET_FIRST_PROJECT_SUCCESS ||

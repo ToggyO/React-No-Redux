@@ -15,56 +15,8 @@ import CustomScrollbar from '@components/Scrollbar';
 const UserProfileSidebarView = ({
   parsedPathname,
   companies = [ 'Test4', 'Test3', 'Test2', 'Test'],
-  teams = [
-    {
-      title: 'Team',
-      color: 'orange',
-    },
-    {
-      title: 'Team2',
-      color: 'green',
-    },
-    {
-      title: 'Team3',
-      color: 'blue',
-    },
-    {
-      title: 'Team4',
-      color: 'orange',
-    },
-    {
-      title: 'Team5',
-      color: 'orange',
-    },
-    {
-      title: 'Team6',
-      color: 'orange',
-    },
-    {
-      title: 'Team7',
-      color: 'orange',
-    },
-    {
-      title: 'Team8',
-      color: 'orange',
-    },
-    {
-      title: 'Team9',
-      color: 'orange',
-    },
-    {
-      title: 'Team10',
-      color: 'orange',
-    },
-    {
-      title: 'Team11',
-      color: 'orange',
-    },
-    {
-      title: 'Team12',
-      color: 'orange',
-    },
-  ],
+  teams = [],
+  ...rest
 }) => (
   <>
     <div className={`${s.wrapper} pr-6`}>
@@ -102,9 +54,9 @@ const UserProfileSidebarView = ({
             >
               {teams.map(item => (
                 <UserProfileSidebarTeamsView
-                  key={item.title}
-                  color={item.color}
-                  teamName={item.title}
+                  key={item.team.name}
+                  color={item.team.colorHex}
+                  teamName={item.team.name}
                 />)
               )}
               <div className={`${s.add_button}`}>
@@ -131,3 +83,53 @@ UserProfileSidebarView.propTypes = {
 };
 
 export default UserProfileSidebarView;
+// teams = [
+//   {
+//     title: 'Team',
+//     color: 'orange',
+//   },
+//   {
+//     title: 'Team2',
+//     color: 'green',
+//   },
+//   {
+//     title: 'Team3',
+//     color: 'blue',
+//   },
+//   {
+//     title: 'Team4',
+//     color: 'orange',
+//   },
+//   {
+//     title: 'Team5',
+//     color: 'orange',
+//   },
+//   {
+//     title: 'Team6',
+//     color: 'orange',
+//   },
+//   {
+//     title: 'Team7',
+//     color: 'orange',
+//   },
+//   {
+//     title: 'Team8',
+//     color: 'orange',
+//   },
+//   {
+//     title: 'Team9',
+//     color: 'orange',
+//   },
+//   {
+//     title: 'Team10',
+//     color: 'orange',
+//   },
+//   {
+//     title: 'Team11',
+//     color: 'orange',
+//   },
+//   {
+//     title: 'Team12',
+//     color: 'orange',
+//   },
+// ],
