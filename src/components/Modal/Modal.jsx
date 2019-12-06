@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import s from './Modal.module.sass';
 
-import { UserSettings } from '@components/Modal/_components/UserSettings';
+import { UserSettingsContainer } from '@components/Modal/_components/UserSettings';
 
 
 import { Handler500 } from '@components/Modal/_components/Handler500';
@@ -96,7 +96,7 @@ class Modal extends React.Component {
       case 'DeprecatedLinkMessage':
         return <DeprecatedLinkMessage onClose={this.onOpenConfirmModal}/>;
       case 'UserSettings':
-        return <UserSettings onClose={this.onOpenConfirmModal}/>;
+        return <UserSettingsContainer onClose={this.onOpenConfirmModal}/>;
       default:
         return null;
     }

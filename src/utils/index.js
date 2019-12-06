@@ -86,6 +86,17 @@ export const setHeightProperty = (flag, containerRef, contentRef) => {
 // eslint-disable-next-line no-param-reassign
 export const getElementProperty = (ref, property) => window.getComputedStyle(ref.current)[property];
 
+export const makeRequestString = obj => {
+  let reqString = '';
+  Object.keys(obj).forEach(key => {
+    if (obj[key]) {
+      reqString += `&${key[0].toUpperCase()}${key.slice(1)}=${obj[key]}`;
+    }
+    return reqString;
+  });
+  return reqString;
+};
+
 // Users hooks
 export function useWindowDimensions() {
   const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());

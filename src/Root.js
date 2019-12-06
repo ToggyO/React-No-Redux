@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
 
+import Portals from './Portals';
 import { store } from './store';
 
 import Routes from '@routes';
@@ -10,7 +11,6 @@ import { ErrorBoundary } from '@components/ErrorBoundary';
 import { ScrollToTop } from '@components/ScrollToTop';
 
 // import { getWindowDimensions } from '@utils/index';
-
 import './styles/index.sass';
 
 const Root = () => {
@@ -23,6 +23,7 @@ const Root = () => {
     <Provider store={store}>
       <ErrorBoundary>
         <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
+          <Portals />
           <ScrollToTop>
             <Routes />
           </ScrollToTop>

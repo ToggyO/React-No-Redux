@@ -8,10 +8,15 @@ import auth, { authSagas } from '@ducks/auth';
 import modal from '@ducks/modal';
 import global from '@ducks/global';
 
+import user, { userSagas } from '@ducks/user';
+
 export default function configureStore() {
-  const reducer = combineReducers({ auth, modal, global });
+  const reducer = combineReducers({ auth, modal, global, user });
+  console.log(user);
+  console.log(userSagas);
   const sagas = {
     ...authSagas,
+    // ...userSagas,
   };
   const sagaMiddleware = createSagaMiddleware();
   const middlewares = [sagaMiddleware, saveUserData, updateUsersData, clearUserData, saveRegistrationStep];

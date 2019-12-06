@@ -1,14 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 import AuthRoute from './AuthRoute';
 import UnAuthRoute from './UnAuthRoute';
 
-import { globalSelectors } from '@ducks/global';
-
 import { SidebarWrapperContainer } from '@components/SidebarWrapper';
-import { ModalContainer } from '@components/Modal';
 import { ROUTES } from '@config';
 import { AuthScreenWrapperContainer } from '@components/AuthScreenWrapper';
 import { HomePageContainer } from '@pages/HomePage';
@@ -26,18 +22,13 @@ import { RestorePasswordContainer } from '@pages/LoginPages/RestorePassword';
 import { SetPasswordPageView } from '@pages/SignPages/Member/SetPasswordPage';
 import { TeamPageView } from '@pages/TeamPages';
 import { ProjectPageView } from '@pages/ProjectPages';
-import GlobalErrorMessage from '@components/GlobalErrorMessage';
 // import { UserSettingsPageView } from '@pages/UserPages/UserSettingsPage';
 // import { UserProfileView } from '@pages/UserPages/UserSettingsPage/_components/UserProfile';
-import { modalSelectors } from '@ducks/modal';
 // import { authSelectors } from '@ducks/auth';
 
 // eslint-disable-next-line react/prop-types
-const Routes = ({ modal, globalErrorMessage }) => (
+const Routes = () => (
   <>
-    {/* eslint-disable-next-line react/prop-types */}
-    {modal.length > 0 && modal.map((item, i) => <ModalContainer key={item} zIndex={i} itemKey={item} />)}
-    {globalErrorMessage ? <GlobalErrorMessage /> : null}
     <Switch>
       {/* UnAuthRoute */}
       <UnAuthRoute
@@ -128,13 +119,4 @@ const Routes = ({ modal, globalErrorMessage }) => (
   </>
 );
 
-const mapStateToProps = state => ({
-  globalErrorMessage: globalSelectors.globalErrorSelector(state),
-  modal: modalSelectors.modalKeySelector(state),
-  // userInfo: authSelectors.userInfoSelector(state),
-});
-
-export default connect(
-  mapStateToProps,
-  null
-)(Routes);
+export default Routes;

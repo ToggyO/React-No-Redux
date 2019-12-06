@@ -11,7 +11,7 @@ import { UserProfileSidebarTeamsView } from './_components/UserProfileSidebarTea
 
 import CustomScrollbar from '@components/Scrollbar';
 
-
+/* eslint-disable */
 const UserProfileSidebarView = ({
   parsedPathname,
   companies = [ 'Test4', 'Test3', 'Test2', 'Test'],
@@ -74,27 +74,11 @@ const UserProfileSidebarView = ({
         </div>
         <div className={s.company}>
           <UserProfileSidebarHeadlinesWrapper title="Company">
-            <CustomScrollbar
-              style={{ height: 100 }}
-              autoHide
-              universal
-              thumbStyleHorizontal={{
-                backgroundColor: '#6D768A',
-                height: 4,
-                borderRadius: 2,
-              }}
-              thumbStyleVertical={{
-                backgroundColor: '#6D768A',
-                width: 4,
-                borderRadius: 2,
-              }}
-            >
-              <UserProfileSidebarCompanyView companies={companies}/>
-            </CustomScrollbar>
+            <UserProfileSidebarCompanyView parsedPathname={parsedPathname}/>
           </UserProfileSidebarHeadlinesWrapper>
         </div>
         <div className={s.user}>
-          <UserProfileSidebarHeadlinesWrapper title="User" addContainerClass="mb-2 mt-5">
+          <UserProfileSidebarHeadlinesWrapper title="User" addContainerClass="mb-2">
             <UserProfileSidebarUserView parsedPathname={parsedPathname}/>
           </UserProfileSidebarHeadlinesWrapper>
         </div>
@@ -104,7 +88,7 @@ const UserProfileSidebarView = ({
               autoHide
               universal
               autoHeight
-              autoHeightMax={320}
+              autoHeightMax={380}
               thumbStyleHorizontal={{
                 backgroundColor: '#6D768A',
                 height: 4,

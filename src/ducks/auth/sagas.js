@@ -5,12 +5,8 @@ import { store } from '../../store';
 import * as authTypes from './types';
 
 import { ROUTES } from '@config';
-
 import { historyRedirect } from '@utils/index';
-
-// import { ROUTES } from '@config';
 import api from '@services/api';
-// import history from '@services/history';
 
 /*
 	function* workerSaga
