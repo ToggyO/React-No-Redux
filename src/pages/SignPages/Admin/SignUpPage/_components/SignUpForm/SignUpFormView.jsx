@@ -47,7 +47,7 @@ const SignUpFormView = ({
             imgBefore={mail}
             component={TextInput}
             addClassWrapper="pt-4 pb-2"
-            addClassInput="pt-4 pb-4"
+            addClassInput="default_input pt-4 pb-4"
           />
           {errors.email && touched.email &&
           <div className="formik-error error-label">{errors.email}</div>}
@@ -57,7 +57,7 @@ const SignUpFormView = ({
             imgBefore={key}
             component={PasswordInput}
             addClassWrapper="pt-2 pb-2"
-            addClassInput="pt-4 pb-4"
+            addClassInput="default_input pt-4 pb-4"
           />
           {errors.password && touched.password &&
           <div className="formik-error error-label">{errors.password}</div>}
@@ -67,7 +67,7 @@ const SignUpFormView = ({
             imgBefore={key}
             component={PasswordInput}
             addClassWrapper="pt-2 pb-4"
-            addClassInput="pt-4 pb-4"
+            addClassInput="default_input pt-4 pb-4"
           />
           {errors.passwordConfirm && touched.passwordConfirm &&
           <div className="formik-error error-label">{errors.passwordConfirm}</div>}

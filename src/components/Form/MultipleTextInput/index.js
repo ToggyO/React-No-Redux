@@ -49,9 +49,7 @@ export const MultipleTextInput = props => {
             ref={inputRef}
             type={type}
             id={inputId}
-            className={`default_input ${
-              errors[field.name] && touched[field.name] ? 'error-label' : null
-            } ${addClassInput}`}
+            className={`${errors[field.name] && touched[field.name] ? 'error-label' : null} ${addClassInput}`}
             value={values[field.name]}
             name={field.name}
             placeholder={placeholder}

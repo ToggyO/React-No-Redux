@@ -52,7 +52,7 @@ const LoginPageViewForm = ({
             component={TextInput}
             validate={validateField.email}
             addClassWrapper="pt-4 pb-4"
-            addClassInput="pt-4 pb-4"
+            addClassInput="default_input pt-4 pb-4"
           />
           {errors.email && touched.email &&
           <div className="formik-error error-label">{errors.email}</div>}
@@ -63,7 +63,7 @@ const LoginPageViewForm = ({
             component={PasswordInput}
             validate={validateField.password}
             addClassWrapper="pt-4 pb-4"
-            addClassInput="pt-4 pb-4"
+            addClassInput="default_input pt-4 pb-4"
           />
           {errors.password && touched.password &&
           <div className="formik-error error-label">{errors.password}</div>}

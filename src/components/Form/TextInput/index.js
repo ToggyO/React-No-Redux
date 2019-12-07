@@ -54,7 +54,7 @@ export const TextInput = props => {
             {...field}
             type={type}
             id={inputId}
-            className={`default_input ${
+            className={`${
               errors.global || (errors[field.name] && touched[field.name]) ? 'error-label' : null
             } ${addClassInput}`}
             value={values[field.name]}

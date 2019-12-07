@@ -20,6 +20,7 @@ const ConfirmEmailFormView = ({ errorsFromBackend, confirmEmail, clearStoreError
         onClick={confirmEmail}
         clearStoreErrors={clearStoreErrors}
         clearExtra={clearExtra}
+        addClassInput="default_input"
       />
     </>
   );

@@ -50,22 +50,11 @@ class Modal extends React.Component {
     window.document.addEventListener('mousedown', this.onOverlayClick, false);
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (this.state.isOpen !== prevState.isOpen) console.log(this.state.isOpen);
-  }
-
   componentWillUnmount() {
     this.modalRoot.removeChild(this.el);
     window.document.removeEventListener('touchstart', this.onOverlayClick, false);
     window.document.removeEventListener('mousedown', this.onOverlayClick, false);
   }
-
-  // onOverlayClick(e) {
-  //   if (e.target.id === `modal-overlay-${this.props.zIndex}`) {
-  //     debugger;
-  //     this.onOpenConfirmModal();
-  //   }
-  // }
 
   onOverlayClick(e) {
     if (this.overlayRef.current.contains(e.target)) {

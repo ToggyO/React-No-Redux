@@ -1,17 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PT from 'prop-types';
 
 import s from './style.module.sass';
 import { style as preloaderStyle } from './preloader_style';
 import { UserProfileSidebarView } from './_components/UserProfileSidebar';
 
-import { parseRouteString } from '@utils/index';
-// import { getFromLocalState } from '@services/ls';
-// import { getFromSessionState } from '@services/ss';
+import { UserProfileView } from './_components/UserTabs/UserProfile';
+
 import { Preloader } from '@components/Preloader';
 import CustomScrollbar from '@components/Scrollbar';
+import { UserProfileTabsWrapper } from '@components/Modal/_components/UserSettings/_components/UserTabs/UserProfileTabsWrapper';
 
-/* eslint-disable */
+
 const UserSettings = ({
   location,
   onClose,
@@ -19,20 +19,34 @@ const UserSettings = ({
   fetchUserData,
   ...rest
 }) => {
-  // debugger;
-  const parsedPathname = parseRouteString(location.pathname); // obsolete
   // const userInfo = getFromLocalState('USER') || getFromSessionState('USER');
+  const [currentTab, setTab] = useState('profile');
 
   useEffect(() => {
     fetchUserData('teams', 1, 9999);
   },[]);
 
+  const onRenderSettingsPageTab = key => {
+    switch(key) {
+      case 'billing':
+        return <div>Billing</div>;
+      case 'manage':
+        return <div>Manage users</div>;
+      case 'profile':
+        return <UserProfileView/>;
+      case 'preferences':
+        return <div>Preferences</div>;
+      case 'notifications':
+        return <div>Notifications</div>;
+      default:
+        return <div>Test</div>;
+    }
+  };
+
   return (
     <Preloader
       style={preloaderStyle}
       addClassPreloader={loading ? 'flex justify-content-center align-items-center' : 'display-none'}
-      // addClassPreloader='flex justify-content-center align-items-center'
-      // addClassPreloader='display-none'
       addClassChildren="flex justify-content-center align-items-center"
     >
       <div className={`${s.container} relative`}>
@@ -40,8 +54,6 @@ const UserSettings = ({
           style={{ width: '100%', maxWidth: 260, height: '100vh' }}
           autoHide
           universal
-          // autoHeight
-          // autoHeightMax={882}
           thumbStyleHorizontal={{
             backgroundColor: '#6D768A',
             height: 4,
@@ -53,16 +65,19 @@ const UserSettings = ({
             borderRadius: 2,
           }}
         >
-          <UserProfileSidebarView parsedPathname={parsedPathname} teams={rest.userTeams}/>
+          <UserProfileSidebarView
+            teams={rest.userTeams}
+            teamsLoader={rest.teamsLoader}
+            currentTab={currentTab}
+            setTab={setTab}
+          />
         </CustomScrollbar>
-        <div className={`${s.children}`}>
-          <div className={s.scroll_container}>
+        <div className={`${s.children} flex flex-column`}>
+          <UserProfileTabsWrapper>
             <CustomScrollbar
               style={{ height: '100%'}}
               autoHide
               universal
-              // autoHeight
-              // autoHeightMax={882}
               thumbStyleHorizontal={{
                 backgroundColor: '#6D768A',
                 height: 4,
@@ -75,10 +90,10 @@ const UserSettings = ({
               }}
             >
               <div className={`${s.switch_pages} flex flex-column`}>
-                <div>1111</div>
+                {onRenderSettingsPageTab(currentTab)}
               </div>
             </CustomScrollbar>
-          </div>
+          </UserProfileTabsWrapper>
           <div className={s.button_block}>
             <button
               type="button"
@@ -109,6 +124,8 @@ UserSettings.propTypes = {
   // ]),
   location: PT.object,
   onClose: PT.func,
+  fetchUserData: PT.func,
+  loading: PT.bool,
 };
 
 export default UserSettings;

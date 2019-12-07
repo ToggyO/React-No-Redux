@@ -42,7 +42,7 @@ const SetTeamFormView = ({ errorsFromBackend, setTeam, clearStoreErrors }) => {
               component={TextInput}
               validate={validateField.name}
               addClassWrapper="pt-4 pb-4"
-              addClassInput="pt-4 pb-4 pl-5 pr-5"
+              addClassInput="default_input pt-4 pb-4 pl-5 pr-5"
               additionalElement={<ColorSelect setFieldValue={setFieldValue}/>}
               maxLength={60}
             />
@@ -54,7 +54,7 @@ const SetTeamFormView = ({ errorsFromBackend, setTeam, clearStoreErrors }) => {
               component={MultipleTextInput}
               validate={validateField.multipleEmail}
               addClassWrapper="pt-4 pb-2"
-              addClassInput="pt-4 pb-4 pl-5 pr-5"
+              addClassInput="default_input pt-4 pb-4 pl-5 pr-5"
               emails={emails}
               setEmails={setEmails}
               renderListStyle={style}

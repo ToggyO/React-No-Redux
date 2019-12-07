@@ -10,6 +10,7 @@ export const ConfirmEmailInput = props => {
     name,
     maxLength,
     addClassWrapper,
+    addClassInput,
     errorsFromBackend = {},
     clearStoreErrors,
     onClick,
@@ -54,7 +55,7 @@ export const ConfirmEmailInput = props => {
           type="text"
           name={name}
           id={inputId}
-          className="default_input pl-0 pr-0"
+          className={`${addClassInput} pl-0 pr-0`}
           ref={inputRef}
           value={state}
           onChange={e => setState(e.target.value.replace(/\D/, ''))}
@@ -84,6 +85,7 @@ export const ConfirmEmailInput = props => {
 
 ConfirmEmailInput.propTypes = {
   addClassWrapper: PT.string,
+  addClassInput: PT.string,
   name: PT.string,
   maxLength: PT.number,
   errorsFromBackend: PT.object,

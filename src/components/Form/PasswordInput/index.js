@@ -52,9 +52,9 @@ export class PasswordInput extends React.Component {
               {...field}
               id={inputId}
               type={isPwShown ? 'text' : 'password'}
-              className={`default_input ${
+              className={` ${addClassInput} ${
                 errors.global || (errors[field.name] && touched[field.name]) ? 'error-label' : ''
-              } ${addClassInput}`}
+              }`}
               value={values[field.name]}
               name={field.name}
               placeholder={placeholder}

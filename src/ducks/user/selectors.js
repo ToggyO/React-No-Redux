@@ -10,13 +10,28 @@ export const userDataSelector = createSelector(
   errors => errors
 );
 
+export const userDataLoaderSelector = createSelector(
+  state => state.user.data.userLoaded,
+  errors => errors
+);
+
 export const userCompaniesSelector = createSelector(
   state => state.user.data.companies.items,
   errors => errors
 );
 
+export const userCompaniesLoaderSelector = createSelector(
+  state => state.user.data.companiesLoaded,
+  errors => errors
+);
+
 export const userTeamsSelector = createSelector(
   state => state.user.data.teams.items,
+  errors => errors
+);
+
+export const userTeamsLoaderSelector = createSelector(
+  state => state.user.data.teamsLoaded,
   errors => errors
 );
 

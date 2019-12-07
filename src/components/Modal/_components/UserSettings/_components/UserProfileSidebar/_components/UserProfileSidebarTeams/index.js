@@ -5,7 +5,7 @@ import style from './style.module.sass';
 
 import s from '@components/SidebarWrapper/_components/SidebarTeamsProject/_components/SidebarTeamsProjectsHeadline/style.module.sass';
 
-export const UserProfileSidebarTeamsView = ({ color = 'brown', teamName }) => (
+export const UserProfileSidebarTeamsView = ({ color = 'grey', teamName = 'Team Name' }) => (
   <div className={`${style.container} pl-10 pt-4 pb-4`}>
     <div
       className={`${style.circle} flex justify-content-center align-items-center`}

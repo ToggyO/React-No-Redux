@@ -10,9 +10,12 @@ import * as userActions from '@ducks/user/actions';
 import * as userSelectors from '@ducks/user/selectors';
 
 const mapStateToProps = state => ({
-  userCompanies: userSelectors.userCompaniesSelector(state),
+  // userCompanies: userSelectors.userCompaniesSelector(state),
+  // companiesLoader: userSelectors.userCompaniesLoaderSelector(state),
   userTeams: userSelectors.userTeamsSelector(state),
+  teamsLoader: userSelectors.userTeamsLoaderSelector(state),
   userData: userSelectors.userDataSelector(state),
+  userDataLoader: userSelectors.userDataLoaderSelector(state),
   loading: userSelectors.userLoaderSelector(state),
 });
 

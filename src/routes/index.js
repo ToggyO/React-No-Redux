@@ -23,7 +23,7 @@ import { SetPasswordPageView } from '@pages/SignPages/Member/SetPasswordPage';
 import { TeamPageView } from '@pages/TeamPages';
 import { ProjectPageView } from '@pages/ProjectPages';
 // import { UserSettingsPageView } from '@pages/UserPages/UserSettingsPage';
-// import { UserProfileView } from '@pages/UserPages/UserSettingsPage/_components/UserProfile';
+// import { UserProfileView } from '@pages/UserPages/UserSettingsPage/_components/UserTabs';
 // import { authSelectors } from '@ducks/auth';
 
 // eslint-disable-next-line react/prop-types

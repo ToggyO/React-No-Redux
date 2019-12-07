@@ -8,14 +8,20 @@ import { UserProfileSidebarUserView } from './_components/UserProfileSidebarUser
 import { UserProfileSidebarLogoView } from './_components/UserProfileSidebarLogo';
 import { UserProfileSidebarHeadlinesWrapper } from './_components/UserProfileSidebarHealinesWrapper';
 import { UserProfileSidebarTeamsView } from './_components/UserProfileSidebarTeams';
+import { UserTeamsPlaceholder } from './_components/UserProfileSidebarTeams/UserTeamsPlaceholder';
 
 import CustomScrollbar from '@components/Scrollbar';
+import { getUniqueKey } from '@utils/index';
+
+const teamsPlaceholder = [...Array(4)];
 
 /* eslint-disable */
 const UserProfileSidebarView = ({
   parsedPathname,
   companies = [ 'Test4', 'Test3', 'Test2', 'Test'],
   teams = [],
+  currentTab,
+  setTab,
   ...rest
 }) => (
   <>
@@ -25,13 +31,13 @@ const UserProfileSidebarView = ({
           <UserProfileSidebarLogoView/>
         </div>
         <div className={s.company}>
-          <UserProfileSidebarHeadlinesWrapper title="Company">
-            <UserProfileSidebarCompanyView parsedPathname={parsedPathname}/>
+          <UserProfileSidebarHeadlinesWrapper title="Company" addContainerClass="mb-2">
+            <UserProfileSidebarCompanyView setTab={setTab} currentTab={currentTab}/>
           </UserProfileSidebarHeadlinesWrapper>
         </div>
         <div className={s.user}>
           <UserProfileSidebarHeadlinesWrapper title="User" addContainerClass="mb-2">
-            <UserProfileSidebarUserView parsedPathname={parsedPathname}/>
+            <UserProfileSidebarUserView setTab={setTab} currentTab={currentTab}/>
           </UserProfileSidebarHeadlinesWrapper>
         </div>
         <div className={s.teams}>
@@ -52,12 +58,14 @@ const UserProfileSidebarView = ({
                 borderRadius: 2,
               }}
             >
-              {teams.map(item => (
-                <UserProfileSidebarTeamsView
-                  key={item.team.name}
-                  color={item.team.colorHex}
-                  teamName={item.team.name}
-                />)
+              {!rest.teamsLoader
+                ? teamsPlaceholder.map(item => <UserTeamsPlaceholder key={getUniqueKey()}/>)
+                : teams.map(item => (
+                    <UserProfileSidebarTeamsView
+                      key={item.team.name}
+                      color={item.team.colorHex}
+                      teamName={item.team.name}
+                    />)
               )}
               <div className={`${s.add_button}`}>
                 <button
@@ -80,6 +88,7 @@ UserProfileSidebarView.propTypes = {
   parsedPathname: PT.object,
   companies: PT.array,
   teams: PT.array,
+  setTab: PT.func,
 };
 
 export default UserProfileSidebarView;

@@ -80,7 +80,7 @@ const FirstProjectFormView = ({ setFirstProjectRequest, ...rest }) => {
               component={TextInput}
               validate={validateField.name}
               addClassWrapper="pt-4 pb-4 mb-3"
-              addClassInput="pt-4 pb-4 pl-5"
+              addClassInput="default_input pt-4 pb-4 pl-5"
               additionalElement={<ColorSelect setFieldValue={setFieldValue}/>}
               maxLength={60}
             />

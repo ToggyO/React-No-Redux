@@ -3,8 +3,11 @@ import * as types from './types';
 const initialState = {
   data: {
     user: {},
+    userLoaded: false,
     teams: [],
+    teamsLoaded: false,
     companies: [],
+    companiesLoaded: false,
     projects: [],
   },
   loading: false,
@@ -24,6 +27,7 @@ export default function user(state = initialState, action) {
         data: {
           ...state.data,
           [dataType]: data,
+          [`${dataType}Loaded`]: true,
         },
         loading: false,
       };
