@@ -26,7 +26,18 @@ export class PasswordInput extends React.Component {
   };
 
   render() {
-    const { addClassWrapper, addClassInput, placeholder, field, form, label, imgBefore } = this.props;
+    const {
+      addClassWrapper,
+      addClassInputContainer,
+      addClassInput,
+      addClassFocusedInput,
+      addClassBlurredInput,
+      placeholder,
+      field,
+      form,
+      label,
+      imgBefore,
+    } = this.props;
     const { touched, errors, values } = form;
     const { isPwShown, isFocused } = this.state;
     const inputId = `input-${field.name}`;
@@ -35,9 +46,9 @@ export class PasswordInput extends React.Component {
       <div className={`${s.wrapper} ${addClassWrapper}`}>
         <LabelWrapper label={label} errors={errors} touched={touched} inputId={inputId} field={field}>
           <div
-            className={`${s.container} form_background ${isFocused ? 'form_border_focus' : 'form_border'}  ${
-              errors.global || (errors[field.name] && touched[field.name]) ? 'error' : ''
-            } flex`}
+            className={`${s.container} ${addClassInputContainer} ${
+              isFocused ? addClassFocusedInput : addClassBlurredInput
+            }  ${errors.global || (errors[field.name] && touched[field.name]) ? 'error' : ''} flex`}
           >
             {imgBefore && (
               <ImageBefore
@@ -86,7 +97,10 @@ export class PasswordInput extends React.Component {
 
 PasswordInput.propTypes = {
   addClassWrapper: PT.string,
+  addClassInputContainer: PT.string,
   addClassInput: PT.string,
+  addClassFocusedInput: PT.string,
+  addClassBlurredInput: PT.string,
   placeholder: PT.string,
   field: PT.object,
   form: PT.object,

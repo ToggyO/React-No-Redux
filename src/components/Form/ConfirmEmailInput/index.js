@@ -10,7 +10,10 @@ export const ConfirmEmailInput = props => {
     name,
     maxLength,
     addClassWrapper,
+    addClassInputContainer,
     addClassInput,
+    addClassFocusedInput,
+    addClassBlurredInput,
     errorsFromBackend = {},
     clearStoreErrors,
     onClick,
@@ -42,9 +45,9 @@ export const ConfirmEmailInput = props => {
     <div className={`${s.container} ${addClassWrapper}`}>
       <label
         htmlFor={inputId}
-        className={`${s.label} form_background ${isFocused ? 'form_border_focus' : 'form_border'} ${
-          errorsFromBackend.global ? 'error' : null
-        } flex p-4 mb-4`}
+        className={`${s.label} ${addClassInputContainer} ${
+          isFocused ? addClassFocusedInput : addClassBlurredInput
+        } ${errorsFromBackend.global ? 'error' : null} flex p-4 mb-4`}
       >
         <div className={`${s.circles} flex justify-content-space-between`}>
           {array.map((item, i) => (
@@ -85,7 +88,10 @@ export const ConfirmEmailInput = props => {
 
 ConfirmEmailInput.propTypes = {
   addClassWrapper: PT.string,
+  addClassInputContainer: PT.string,
   addClassInput: PT.string,
+  addClassFocusedInput: PT.string,
+  addClassBlurredInput: PT.string,
   name: PT.string,
   maxLength: PT.number,
   errorsFromBackend: PT.object,

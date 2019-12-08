@@ -20,7 +20,7 @@ const UserSettings = ({
   ...rest
 }) => {
   // const userInfo = getFromLocalState('USER') || getFromSessionState('USER');
-  const [currentTab, setTab] = useState('profile');
+  const [currentTab, setTab] = useState('Profile');
 
   useEffect(() => {
     fetchUserData('teams', 1, 9999);
@@ -28,15 +28,15 @@ const UserSettings = ({
 
   const onRenderSettingsPageTab = key => {
     switch(key) {
-      case 'billing':
+      case 'Billing':
         return <div>Billing</div>;
-      case 'manage':
+      case 'Manage users':
         return <div>Manage users</div>;
-      case 'profile':
-        return <UserProfileView/>;
-      case 'preferences':
+      case 'Profile':
+        return <UserProfileView userData={rest.userData}/>;
+      case 'Preferences':
         return <div>Preferences</div>;
-      case 'notifications':
+      case 'Notifications':
         return <div>Notifications</div>;
       default:
         return <div>Test</div>;
@@ -73,7 +73,7 @@ const UserSettings = ({
           />
         </CustomScrollbar>
         <div className={`${s.children} flex flex-column`}>
-          <UserProfileTabsWrapper>
+          <UserProfileTabsWrapper currentTab={currentTab}>
             <CustomScrollbar
               style={{ height: '100%'}}
               autoHide

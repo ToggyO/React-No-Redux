@@ -5,6 +5,7 @@ import { ERROR_CODES } from '@config/errorCodes';
 import { responseFormikError } from '@utils/index';
 import { ConfirmEmailInput } from '@components/Form/ConfirmEmailInput';
 
+
 const ConfirmEmailFormView = ({ errorsFromBackend, confirmEmail, clearStoreErrors, clearExtra }) => {
   const setErrors = errors => responseFormikError(errors, ERROR_CODES);
 
@@ -21,6 +22,9 @@ const ConfirmEmailFormView = ({ errorsFromBackend, confirmEmail, clearStoreError
         clearStoreErrors={clearStoreErrors}
         clearExtra={clearExtra}
         addClassInput="default_input"
+        addClassInputContainer="form_background"
+        addClassFocusedInput="form_border_focus"
+        addClassBlurredInput="form_border"
       />
     </>
   );

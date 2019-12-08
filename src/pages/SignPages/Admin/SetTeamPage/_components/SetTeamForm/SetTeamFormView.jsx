@@ -28,7 +28,6 @@ const SetTeamFormView = ({ errorsFromBackend, setTeam, clearStoreErrors }) => {
       initialValues={{ name: '', colorHex: '#82ABFB', email: '' }}
       onSubmit={values => {
         setTeam({...values, emails});
-        // console.log({...values, emails});
       }}
       render={({ isValid, errors, setFieldValue }) => (
         <>
@@ -42,6 +41,9 @@ const SetTeamFormView = ({ errorsFromBackend, setTeam, clearStoreErrors }) => {
               component={TextInput}
               validate={validateField.name}
               addClassWrapper="pt-4 pb-4"
+              addClassInputContainer="form_background"
+              addClassFocusedInput="form_border_focus"
+              addClassBlurredInput="form_border"
               addClassInput="default_input pt-4 pb-4 pl-5 pr-5"
               additionalElement={<ColorSelect setFieldValue={setFieldValue}/>}
               maxLength={60}
@@ -54,6 +56,9 @@ const SetTeamFormView = ({ errorsFromBackend, setTeam, clearStoreErrors }) => {
               component={MultipleTextInput}
               validate={validateField.multipleEmail}
               addClassWrapper="pt-4 pb-2"
+              addClassInputContainer="form_background"
+              addClassFocusedInput="form_border_focus"
+              addClassBlurredInput="form_border"
               addClassInput="default_input pt-4 pb-4 pl-5 pr-5"
               emails={emails}
               setEmails={setEmails}

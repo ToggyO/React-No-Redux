@@ -44,7 +44,10 @@ const RestorePasswordFormView = ({
             component={TextInput}
             validate={validateField.email}
             addClassWrapper="pt-4 pb-6"
+            addClassInputContainer="form_background"
             addClassInput="default_input pt-4 pb-4"
+            addClassFocusedInput="form_border_focus"
+            addClassBlurredInput="form_border"
           />
           {errors.email && touched.email &&
           <div className="formik-error error-label">{errors.email}</div>}

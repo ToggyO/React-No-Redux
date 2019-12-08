@@ -20,7 +20,8 @@ const HomePageView = ({ modalOpen }) => {
   return (
     <div className={`${s.wrapper} flex align-items-center flex-column`} >
       <Helmet defaultTitle="Squad.io - Home">
-        <meta name="viewport" content="width=990px, user-scalable=yes" />
+        {browser && /android|iOS/i.test(browser.os)
+          && <meta name="viewport" content="width=990px, user-scalable=yes"/>}
         <meta name="description" content="Home page" />
       </Helmet>
       <h1>Protected Home Page</h1>

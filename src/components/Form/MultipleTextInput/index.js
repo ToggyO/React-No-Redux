@@ -11,7 +11,10 @@ import CustomScrollbar from '@components/Scrollbar';
 export const MultipleTextInput = props => {
   const {
     addClassWrapper,
+    addClassInputContainer,
     addClassInput,
+    addClassFocusedInput,
+    addClassBlurredInput,
     type,
     placeholder,
     field,
@@ -39,9 +42,9 @@ export const MultipleTextInput = props => {
     <div className={`${s.text_input} ${addClassWrapper}`}>
       <LabelWrapper label={label} errors={errors} touched={touched} inputId={inputId} field={field}>
         <div
-          className={`${s.container} form_background ${isFocused ? 'form_border_focus' : 'form_border'} ${
-            errors[field.name] && touched[field.name] ? 'error' : null
-          } flex`}
+          className={`${s.container} ${addClassInputContainer} ${
+            isFocused ? addClassFocusedInput : addClassBlurredInput
+          } ${errors[field.name] && touched[field.name] ? 'error' : null} flex`}
         >
           {imgBefore && <ImageBefore src={imgBefore} imageWidth={18} imageHeight={16} />}
           <input
@@ -110,7 +113,10 @@ export const MultipleTextInput = props => {
 
 MultipleTextInput.propTypes = {
   addClassWrapper: PT.string,
+  addClassInputContainer: PT.string,
   addClassInput: PT.string,
+  addClassFocusedInput: PT.string,
+  addClassBlurredInput: PT.string,
   type: PT.string,
   placeholder: PT.string,
   field: PT.object,

@@ -46,7 +46,10 @@ const SetPasswordFormView = ({
             imgBefore={key}
             component={PasswordInput}
             addClassWrapper="pt-4 pb-2"
+            addClassInputContainer="form_background"
             addClassInput="default_input pt-4 pb-4"
+            addClassFocusedInput="form_border_focus"
+            addClassBlurredInput="form_border"
           />
           {errors.password && touched.password && <div className="formik-error error-label">{errors.password}</div>}
           <Field
@@ -55,7 +58,10 @@ const SetPasswordFormView = ({
             imgBefore={key}
             component={PasswordInput}
             addClassWrapper="pt-2 pb-6"
+            addClassInputContainer="form_background"
             addClassInput="default_input pt-4 pb-4"
+            addClassFocusedInput="form_border_focus"
+            addClassBlurredInput="form_border"
           />
           {errors.passwordConfirm && touched.passwordConfirm && <div className="formik-error error-label">{errors.passwordConfirm}</div>}
           <button

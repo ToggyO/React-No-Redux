@@ -41,6 +41,9 @@ const EnterNameFormView = ({
             validate={validateField.name}
             addClassWrapper="pt-4 pb-4"
             addClassInput="default_input pt-4 pb-4 pl-5"
+            addClassInputContainer="form_background"
+            addClassFocusedInput="form_border_focus"
+            addClassBlurredInput="form_border"
             maxLength={60}
           />
           <ErrorMessage name="name" component="div" className="formik-error error-label" />

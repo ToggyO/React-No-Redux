@@ -10,7 +10,10 @@ import { style as imgBeforeStyle } from './img_before_style';
 export const TextInput = props => {
   const {
     addClassWrapper,
+    addClassInputContainer,
     addClassInput,
+    addClassFocusedInput,
+    addClassBlurredInput,
     type,
     placeholder,
     field,
@@ -37,9 +40,9 @@ export const TextInput = props => {
     <div className={`${s.text_input} ${addClassWrapper}`}>
       <LabelWrapper label={label} errors={errors} touched={touched} inputId={inputId} field={field}>
         <div
-          className={`${s.container} form_background ${isFocused ? 'form_border_focus' : 'form_border'} ${
-            errors.global || (errors[field.name] && touched[field.name]) ? 'error' : null
-          } flex`}
+          className={`${s.container} ${addClassInputContainer} ${
+            isFocused ? addClassFocusedInput : addClassBlurredInput
+          } ${errors.global || (errors[field.name] && touched[field.name]) ? 'error' : null} flex`}
         >
           {imgBefore && (
             <ImageBefore
@@ -74,7 +77,10 @@ export const TextInput = props => {
 
 TextInput.propTypes = {
   addClassWrapper: PT.string,
+  addClassInputContainer: PT.string,
   addClassInput: PT.string,
+  addClassFocusedInput: PT.string,
+  addClassBlurredInput: PT.string,
   type: PT.string,
   placeholder: PT.string,
   field: PT.object,

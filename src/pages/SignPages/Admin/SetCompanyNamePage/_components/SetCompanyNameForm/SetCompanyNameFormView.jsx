@@ -34,6 +34,9 @@ const SetCompanyNameForm = ({ errorsFromBackend, setCompanyName, clearStoreError
               component={TextInput}
               validate={validateField.name}
               addClassWrapper="pt-4 pb-4"
+              addClassInputContainer="form_background"
+              addClassFocusedInput="form_border_focus"
+              addClassBlurredInput="form_border"
               addClassInput="default_input pt-4 pb-4 pl-5 pr-5"
               maxLength={60}
             />

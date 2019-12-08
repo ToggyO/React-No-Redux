@@ -97,6 +97,8 @@ export const makeRequestString = obj => {
   return reqString;
 };
 
+export const firstLetterToUpperCase = text => `${text[0].toUpperCase()}${text.slice(1)}`;
+
 // Users hooks
 export function useWindowDimensions() {
   const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
