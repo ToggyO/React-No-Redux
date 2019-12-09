@@ -47,7 +47,7 @@ const SetPasswordFormView = ({
             component={PasswordInput}
             addClassWrapper="pt-4 pb-2"
             addClassInputContainer="form_background"
-            addClassInput="default_input pt-4 pb-4"
+            addClassInput="default_input pt-4 pb-4 pl-14 pr-13"
             addClassFocusedInput="form_border_focus"
             addClassBlurredInput="form_border"
           />
@@ -59,7 +59,7 @@ const SetPasswordFormView = ({
             component={PasswordInput}
             addClassWrapper="pt-2 pb-6"
             addClassInputContainer="form_background"
-            addClassInput="default_input pt-4 pb-4"
+            addClassInput="default_input pt-4 pb-4 pl-14 pr-13"
             addClassFocusedInput="form_border_focus"
             addClassBlurredInput="form_border"
           />

@@ -83,7 +83,7 @@ const FirstProjectFormView = ({ setFirstProjectRequest, ...rest }) => {
               addClassInputContainer="form_background"
               addClassFocusedInput="form_border_focus"
               addClassBlurredInput="form_border"
-              addClassInput="default_input pt-4 pb-4 pl-5"
+              addClassInput="default_input pt-4 pb-4 pl-5 pl-14 pr-13"
               additionalElement={<ColorSelect setFieldValue={setFieldValue}/>}
               maxLength={60}
             />

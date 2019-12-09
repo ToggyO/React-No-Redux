@@ -5,13 +5,15 @@ import PT from 'prop-types';
 import style from './style.module.sass';
 
 export const LabelWrapper = props => {
-  const { label, errors, touched, field, inputId, children } = props;
+  const { label, errors, touched, field, inputId, children, addClassLabel } = props;
 
   return (
     <div className={style.wrapper}>
       <label
         htmlFor={inputId}
-        className={`${style.label} ${errors[field.name] && touched[field.name] ? 'error-label' : null}`}
+        className={`${style.label} ${addClassLabel} ${
+          errors[field.name] && touched[field.name] ? 'error-label' : null
+        }`}
       >
         {label}
       </label>
@@ -27,4 +29,5 @@ LabelWrapper.propTypes = {
   field: PT.object,
   inputId: PT.string,
   children: PT.element,
+  addClassLabel: PT.string,
 };

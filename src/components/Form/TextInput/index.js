@@ -10,6 +10,7 @@ import { style as imgBeforeStyle } from './img_before_style';
 export const TextInput = props => {
   const {
     addClassWrapper,
+    addClassLabel,
     addClassInputContainer,
     addClassInput,
     addClassFocusedInput,
@@ -23,6 +24,7 @@ export const TextInput = props => {
     inputStyle,
     additionalElement,
     maxLength,
+    disabled,
   } = props;
   const { touched, errors, values } = form;
   const [isFocused, setFocus] = useState(false);
@@ -38,7 +40,14 @@ export const TextInput = props => {
 
   return (
     <div className={`${s.text_input} ${addClassWrapper}`}>
-      <LabelWrapper label={label} errors={errors} touched={touched} inputId={inputId} field={field}>
+      <LabelWrapper
+        label={label}
+        errors={errors}
+        touched={touched}
+        inputId={inputId}
+        field={field}
+        addClassLabel={addClassLabel}
+      >
         <div
           className={`${s.container} ${addClassInputContainer} ${
             isFocused ? addClassFocusedInput : addClassBlurredInput
@@ -67,6 +76,7 @@ export const TextInput = props => {
             onFocus={customHandleFocus}
             onBlur={customHandleBlur}
             maxLength={maxLength}
+            disabled={disabled}
           />
           {additionalElement}
         </div>
@@ -77,6 +87,7 @@ export const TextInput = props => {
 
 TextInput.propTypes = {
   addClassWrapper: PT.string,
+  addClassLabel: PT.string,
   addClassInputContainer: PT.string,
   addClassInput: PT.string,
   addClassFocusedInput: PT.string,
@@ -92,4 +103,5 @@ TextInput.propTypes = {
   errors: PT.object,
   additionalElement: PT.element,
   maxLength: PT.number,
+  disabled: PT.bool,
 };

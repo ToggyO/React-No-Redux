@@ -9,12 +9,16 @@ const UserProfileView = ({
   userData,
 }) => (
   <div className={s.container}>
-    <div className={s.headline}>
+    <div className={`${s.headline} pt-8`}>
       <h4>Profile</h4>
     </div>
     <div className={`${s.form} flex`}>
-      <UserProfileFormView userData={userData}/>
-      <div style={{ width: 120, backgroundColor: 'lightgray' }}/>
+      <div className={s.form_edit}>
+        <UserProfileFormView userData={userData}/>
+      </div>
+      <div style={{ paddingLeft: 40, paddingRight: 10, display: 'flex', justifyContent: 'center' }}>
+        <div style={{ width: '120px', height: '100%', backgroundColor: 'lightgray' }}/>
+      </div>
     </div>
   </div>
 );

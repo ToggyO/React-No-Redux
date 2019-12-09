@@ -73,7 +73,7 @@ const UserSettings = ({
           />
         </CustomScrollbar>
         <div className={`${s.children} flex flex-column`}>
-          <UserProfileTabsWrapper currentTab={currentTab}>
+          <UserProfileTabsWrapper currentTab={currentTab} onClose={onClose}>
             <CustomScrollbar
               style={{ height: '100%'}}
               autoHide
@@ -94,22 +94,22 @@ const UserSettings = ({
               </div>
             </CustomScrollbar>
           </UserProfileTabsWrapper>
-          <div className={s.button_block}>
-            <button
-              type="button"
-              className="btn green-filled rounded pt-5 pb-5  ml-10 full_width"
-              onClick={onClose}
-            >
-              Save Changes
-            </button>
-            <button
-              type="button"
-              className="btn primary-outlined rounded pt-5 pb-5 ml-10 full_width"
-              onClick={onClose}
-            >
-              Cancel
-            </button>
-          </div>
+          {/* <div className={s.button_block}> */}
+          {/*  <button */}
+          {/*    type="button" */}
+          {/*    className="btn green-filled rounded pt-5 pb-5  ml-10 full_width" */}
+          {/*    onClick={onClose} */}
+          {/*  > */}
+          {/*    Save Changes */}
+          {/*  </button> */}
+          {/*  <button */}
+          {/*    type="button" */}
+          {/*    className="btn primary-outlined rounded pt-5 pb-5 ml-10 full_width" */}
+          {/*    onClick={onClose} */}
+          {/*  > */}
+          {/*    Cancel */}
+          {/*  </button> */}
+          {/* </div> */}
         </div>
       </div>
     </Preloader>

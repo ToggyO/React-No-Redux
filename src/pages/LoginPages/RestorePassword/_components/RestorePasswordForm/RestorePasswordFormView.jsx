@@ -45,7 +45,7 @@ const RestorePasswordFormView = ({
             validate={validateField.email}
             addClassWrapper="pt-4 pb-6"
             addClassInputContainer="form_background"
-            addClassInput="default_input pt-4 pb-4"
+            addClassInput="default_input pt-4 pb-4 pl-14 pr-13"
             addClassFocusedInput="form_border_focus"
             addClassBlurredInput="form_border"
           />
