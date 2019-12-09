@@ -47,6 +47,7 @@ const UserSettings = ({
           isDataFetched={isDataFetched}
           isUserUpdating={isUserUpdating}
           updateUserData={updateUserData}
+          modalOpen={rest.modalOpen}
         />;
       case 'Preferences':
         return <div>Preferences</div>;
@@ -110,22 +111,6 @@ const UserSettings = ({
               </div>
             </CustomScrollbar>
           </UserProfileTabsWrapper>
-          {/* <div className={s.button_block}> */}
-          {/*  <button */}
-          {/*    type="button" */}
-          {/*    className="btn green-filled rounded pt-5 pb-5  ml-10 full_width" */}
-          {/*    onClick={onClose} */}
-          {/*  > */}
-          {/*    Save Changes */}
-          {/*  </button> */}
-          {/*  <button */}
-          {/*    type="button" */}
-          {/*    className="btn primary-outlined rounded pt-5 pb-5 ml-10 full_width" */}
-          {/*    onClick={onClose} */}
-          {/*  > */}
-          {/*    Cancel */}
-          {/*  </button> */}
-          {/* </div> */}
         </div>
       </div>
     </Preloader>

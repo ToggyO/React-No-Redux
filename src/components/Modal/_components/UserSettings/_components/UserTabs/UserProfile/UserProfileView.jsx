@@ -10,6 +10,7 @@ const UserProfileView = ({
   isDataFetched,
   isUserUpdating,
   updateUserData,
+  modalOpen,
 }) => (
   <div className={s.container}>
     <div className={`${s.headline} pt-8`}>
@@ -22,6 +23,7 @@ const UserProfileView = ({
           isDataFetched={isDataFetched}
           isUserUpdating={isUserUpdating}
           updateUserData={updateUserData}
+          modalOpen={modalOpen}
         />
       </div>
       <div style={{ paddingLeft: 40, paddingRight: 10, display: 'flex', justifyContent: 'center' }}>
@@ -39,6 +41,7 @@ UserProfileView.propTypes = {
   isDataFetched: PT.bool,
   isUserUpdating: PT.bool,
   updateUserData: PT.func,
+  modalOpen: PT.func,
 };
 
 export default UserProfileView;

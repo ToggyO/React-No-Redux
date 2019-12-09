@@ -17,6 +17,8 @@ export const ConfirmEmailInput = props => {
     errorsFromBackend = {},
     clearStoreErrors,
     onClick,
+    customOnFocus,
+    customOnBlur,
     ...rest
   } = props;
   const array = [...Array(maxLength)];
@@ -37,9 +39,15 @@ export const ConfirmEmailInput = props => {
 
   const onInputFocus = () => inputRef.current.focus();
 
-  const customHandleFocus = () => setFocus(true);
+  const customHandleFocus = () => {
+    if (customOnFocus) customOnFocus();
+    setFocus(true);
+  };
 
-  const customHandleBlur = () => setFocus(false);
+  const customHandleBlur = () => {
+    if (customOnBlur) customOnBlur();
+    setFocus(false);
+  };
 
   return (
     <div className={`${s.container} ${addClassWrapper}`}>
@@ -97,4 +105,6 @@ ConfirmEmailInput.propTypes = {
   errorsFromBackend: PT.object,
   clearStoreErrors: PT.func,
   onClick: PT.func,
+  customOnFocus: PT.func,
+  customOnBlur: PT.func,
 };

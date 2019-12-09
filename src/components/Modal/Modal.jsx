@@ -9,6 +9,7 @@ import { UserSettingsContainer } from '@components/Modal/_components/UserSetting
 import { Handler500 } from '@components/Modal/_components/Handler500';
 import { DeprecatedLinkMessage } from '@components/Modal/_components/DeprecatedLinkMessage';
 import ModalCloseConfirm from '@components/Modal/_components/ModalCloseConfirm';
+import ModalChangeEmailContainer from '@components/Modal/_components/ModalChangeEmail/ModalChangeEmailContainer';
 
 
 /* eslint-disable */
@@ -86,6 +87,8 @@ class Modal extends React.Component {
         return <DeprecatedLinkMessage onClose={this.onOpenConfirmModal}/>;
       case 'UserSettings':
         return <UserSettingsContainer onClose={this.onOpenConfirmModal}/>;
+      case 'ModalChangeEmail':
+        return <ModalChangeEmailContainer onClose={this.onOpenConfirmModal}/>;
       default:
         return null;
     }

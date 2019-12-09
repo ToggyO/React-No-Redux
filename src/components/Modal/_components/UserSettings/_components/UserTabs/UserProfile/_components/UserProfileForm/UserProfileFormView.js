@@ -9,14 +9,14 @@ import s from './style.module.sass';
 import { TextInput } from '@components/Form/TextInput';
 import { Icon } from '@components/Icon';
 
-const UserProfileFormView = ({ userData, isDataFetched, isUserUpdating, updateUserData }) => {
+const UserProfileFormView = ({ userData, isDataFetched, isUserUpdating, updateUserData, modalOpen }) => {
   const formikRef = useRef(null);
 
   return (
     <Formik
       ref={formikRef}
       initialValues={{
-        name: !isDataFetched ? 'Username' : userData.name,
+        name: !isDataFetched ? 'User name' : userData.name,
         email: !isDataFetched ? 'User email' : userData.email,
         password: 'Set a unique password to protect your Squad account.',
       }}
@@ -57,7 +57,7 @@ const UserProfileFormView = ({ userData, isDataFetched, isUserUpdating, updateUs
             addClassWrapper="pt-8 pb-3"
             addClassInputContainer="form_border_bottom form_border_gray"
             addClassInput="default_input input_settings pt-2 pb-2 pr-3"
-            additionalElement={<UserProfileEditButton />}
+            additionalElement={<UserProfileEditButton onClick={() => modalOpen('ModalChangeEmail')} />}
             disabled
           />
           <Field
@@ -69,7 +69,7 @@ const UserProfileFormView = ({ userData, isDataFetched, isUserUpdating, updateUs
             addClassWrapper="pt-3 pb-8"
             addClassInputContainer="form_border_bottom form_border_gray"
             addClassInput="default_input input_settings pt-2 pb-2 pr-3"
-            additionalElement={<UserProfileEditButton />}
+            additionalElement={<UserProfileEditButton onClick={() => modalOpen()} />}
             disabled
           />
         </Form>
@@ -83,6 +83,7 @@ UserProfileFormView.propTypes = {
   isDataFetched: PT.bool,
   isUserUpdating: PT.bool,
   updateUserData: PT.func,
+  modalOpen: PT.func,
 };
 
 export default UserProfileFormView;

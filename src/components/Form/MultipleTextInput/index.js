@@ -23,6 +23,8 @@ export const MultipleTextInput = props => {
     imgBefore,
     inputStyle,
     additionalElement,
+    customOnFocus,
+    customOnBlur,
     ...rest
   } = props;
   const { touched, errors, values, setFieldValue, setFieldError } = form;
@@ -31,10 +33,14 @@ export const MultipleTextInput = props => {
   const inputRef = useRef(null);
   const [isFocused, setFocus] = useState(false);
 
-  const customHandleFocus = () => setFocus(true);
+  const customHandleFocus = () => {
+    if (customOnFocus) customOnFocus();
+    setFocus(true);
+  };
 
   const customHandleBlur = e => {
     field.onBlur(e);
+    if (customOnBlur) customOnBlur();
     setFocus(false);
   };
 
@@ -128,4 +134,6 @@ MultipleTextInput.propTypes = {
   errors: PT.object,
   additionalElement: PT.element,
   multiple: PT.bool,
+  customOnFocus: PT.func,
+  customOnBlur: PT.func,
 };

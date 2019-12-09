@@ -18,10 +18,14 @@ export class PasswordInput extends React.Component {
 
   showHidePw = () => this.setState(prevState => ({ ...prevState, isPwShown: !prevState.isPwShown }));
 
-  customHandleFocus = () => this.setState(prevState => ({ ...prevState, isFocused: true }));
+  customHandleFocus = () => {
+    if (this.customOnFocus) this.customOnFocus();
+    this.setState(prevState => ({ ...prevState, isFocused: true }));
+  };
 
   customHandleBlur = e => {
     this.props.field.onBlur(e);
+    if (this.customOnBlur) this.customOnBlur();
     this.setState(prevState => ({ ...prevState, isFocused: false }));
   };
 
@@ -109,4 +113,6 @@ PasswordInput.propTypes = {
   imgBefore: PT.string,
   touched: PT.object,
   errors: PT.object,
+  customOnFocus: PT.func,
+  customOnBlur: PT.func,
 };

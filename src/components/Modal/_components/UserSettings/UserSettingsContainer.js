@@ -8,6 +8,7 @@ import UserSettings from './UserSettings';
 
 import * as userActions from '@ducks/user/actions';
 import * as userSelectors from '@ducks/user/selectors';
+import { modalActions } from '@ducks/modal';
 
 const mapStateToProps = state => ({
   // userCompanies: userSelectors.userCompaniesSelector(state),
@@ -26,6 +27,9 @@ const mapDispatchToProps = dispatch => ({
   },
   updateUserData(name) {
     dispatch(userActions.updateUserData(name));
+  },
+  modalOpen(itemKey) {
+    dispatch(modalActions.modalClose(itemKey));
   },
 });
 

@@ -45,7 +45,7 @@ export const userProjectsSelector = createSelector(
   errors => errors
 );
 
-// export const errorsSelector = createSelector(
-//   state => state.auth.errors,
-//   errors => errors
-// );
+export const errorsSelector = createSelector(
+  state => state.user.errors,
+  errors => errors
+);
