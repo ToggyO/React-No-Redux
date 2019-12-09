@@ -25,16 +25,22 @@ export const TextInput = props => {
     additionalElement,
     maxLength,
     disabled,
+    customOnFocus,
+    customOnBlur,
   } = props;
   const { touched, errors, values } = form;
   const [isFocused, setFocus] = useState(false);
 
   const inputId = `input-${field.name}`;
 
-  const customHandleFocus = () => setFocus(true);
+  const customHandleFocus = () => {
+    if (customOnFocus) customOnFocus();
+    setFocus(true);
+  };
 
   const customHandleBlur = e => {
     field.onBlur(e);
+    if (customOnBlur) customOnBlur();
     setFocus(false);
   };
 
@@ -104,4 +110,6 @@ TextInput.propTypes = {
   additionalElement: PT.element,
   maxLength: PT.number,
   disabled: PT.bool,
+  customOnFocus: PT.func,
+  customOnBlur: PT.func,
 };

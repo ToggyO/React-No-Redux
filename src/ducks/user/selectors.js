@@ -1,7 +1,12 @@
 import { createSelector } from 'reselect';
 
-export const userLoaderSelector = createSelector(
+export const loaderSelector = createSelector(
   state => state.user.loading,
+  errors => errors
+);
+
+export const userSpinnerSelector = createSelector(
+  state => state.user.spinner,
   errors => errors
 );
 

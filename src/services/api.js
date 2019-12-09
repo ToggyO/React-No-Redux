@@ -64,8 +64,12 @@ export default {
   },
   user: {
     fetchUserData: async ({ dataType, ...rest }) => {
-      const URL = `${API_URL.USER.GET_TEAMS_OF_USER}/${dataType || ''}${makeRequestString(rest)}`;
+      const URL = `${API_URL.USER.FETCH_USER_DATA}/${dataType || ''}${makeRequestString(rest)}`;
       const response = await superaxios.get(URL);
+      return response.data;
+    },
+    updateUserData: async data => {
+      const response = await superaxios.put(API_URL.USER.FETCH_USER_DATA, data);
       return response.data;
     },
   },

@@ -4,8 +4,7 @@ import PT from 'prop-types';
 import s from './style.module.sass';
 import { style as preloaderStyle } from './preloader_style';
 import { UserProfileSidebarView } from './_components/UserProfileSidebar';
-
-import { UserProfileView } from './_components/UserTabs/UserProfile';
+import  {UserProfileView } from './_components/UserTabs/UserProfile';
 
 import { Preloader } from '@components/Preloader';
 import CustomScrollbar from '@components/Scrollbar';
@@ -16,24 +15,39 @@ const UserSettings = ({
   location,
   onClose,
   loading,
+  userData,
+  isUserUpdating,
   fetchUserData,
+  updateUserData,
   ...rest
 }) => {
   // const userInfo = getFromLocalState('USER') || getFromSessionState('USER');
+  const [isDataFetched, setDataFetched] = useState(false);
   const [currentTab, setTab] = useState('Profile');
 
   useEffect(() => {
     fetchUserData('teams', 1, 9999);
-  },[]);
+    fetchUserData(null, 1, 9999);
+  }, []);
+
+  useEffect(() => {
+    const { teamsLoader, userDataLoader } = rest;
+    if (teamsLoader && userDataLoader) setDataFetched(true);
+  }, [rest.teamsLoader, rest.userDataLoader]);
 
   const onRenderSettingsPageTab = key => {
-    switch(key) {
+    switch (key) {
       case 'Billing':
         return <div>Billing</div>;
       case 'Manage users':
         return <div>Manage users</div>;
       case 'Profile':
-        return <UserProfileView userData={rest.userData}/>;
+        return <UserProfileView
+          userData={userData}
+          isDataFetched={isDataFetched}
+          isUserUpdating={isUserUpdating}
+          updateUserData={updateUserData}
+        />;
       case 'Preferences':
         return <div>Preferences</div>;
       case 'Notifications':
@@ -46,7 +60,9 @@ const UserSettings = ({
   return (
     <Preloader
       style={preloaderStyle}
-      addClassPreloader={loading ? 'flex justify-content-center align-items-center' : 'display-none'}
+      addClassPreloader={loading || !isDataFetched
+        ? 'flex justify-content-center align-items-center'
+        : 'display-none'}
       addClassChildren="flex justify-content-center align-items-center"
     >
       <div className={`${s.container} relative`}>
@@ -75,7 +91,7 @@ const UserSettings = ({
         <div className={`${s.children} flex flex-column`}>
           <UserProfileTabsWrapper currentTab={currentTab} onClose={onClose}>
             <CustomScrollbar
-              style={{ height: '100%'}}
+              style={{ height: '100%' }}
               autoHide
               universal
               thumbStyleHorizontal={{
@@ -113,18 +129,19 @@ const UserSettings = ({
         </div>
       </div>
     </Preloader>
-  )
+  );
 };
 
 UserSettings.propTypes = {
-  // children: PT.oneOfType([
-  //   PT.node,
-  //   PT.element,
-  //   PT.func,
-  // ]),
   location: PT.object,
+  userData: PT.oneOfType([
+    PT.object,
+    PT.arrayOf(PT.object),
+  ]),
   onClose: PT.func,
+  isUserUpdating: PT.bool,
   fetchUserData: PT.func,
+  updateUserData: PT.func,
   loading: PT.bool,
 };
 

@@ -12,16 +12,20 @@ import * as userSelectors from '@ducks/user/selectors';
 const mapStateToProps = state => ({
   // userCompanies: userSelectors.userCompaniesSelector(state),
   // companiesLoader: userSelectors.userCompaniesLoaderSelector(state),
-  userTeams: userSelectors.userTeamsSelector(state),
-  teamsLoader: userSelectors.userTeamsLoaderSelector(state),
+  loading: userSelectors.loaderSelector(state),
   userData: userSelectors.userDataSelector(state),
   userDataLoader: userSelectors.userDataLoaderSelector(state),
-  loading: userSelectors.userLoaderSelector(state),
+  userTeams: userSelectors.userTeamsSelector(state),
+  teamsLoader: userSelectors.userTeamsLoaderSelector(state),
+  isUserUpdating: userSelectors.userSpinnerSelector(state),
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchUserData(...args) {
     dispatch(userActions.fetchUserData(...args));
+  },
+  updateUserData(name) {
+    dispatch(userActions.updateUserData(name));
   },
 });
 

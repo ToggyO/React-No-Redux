@@ -4,22 +4,26 @@ import PT from 'prop-types';
 
 import { UserProfileEditButton } from '../UserProfileEditButton';
 
-import { TextInput } from '@components/Form/TextInput';
+import s from './style.module.sass';
 
-const UserProfileFormView = ({ userData }) => {
+import { TextInput } from '@components/Form/TextInput';
+import { Icon } from '@components/Icon';
+
+const UserProfileFormView = ({ userData, isDataFetched, isUserUpdating, updateUserData }) => {
   const formikRef = useRef(null);
 
   return (
     <Formik
       ref={formikRef}
       initialValues={{
-        name: userData.name,
-        email: userData.email,
+        name: !isDataFetched ? 'Username' : userData.name,
+        email: !isDataFetched ? 'User email' : userData.email,
         password: 'Set a unique password to protect your Squad account.',
       }}
+      enableReinitialize="true"
       // validate={validateForm.confirmSignUp}
       onSubmit={() => {}}
-      render={({ errors, touched }) => (
+      render={({ errors, touched, values }) => (
         <Form>
           <Field
             type="text"
@@ -34,6 +38,14 @@ const UserProfileFormView = ({ userData }) => {
             addClassFocusedInput="form_border_focus form_border_rounded"
             addClassBlurredInput="form_border form_border_rounded"
             maxLength={60}
+            customOnBlur={() => values.name !== userData.name && updateUserData({ name: values.name })}
+            additionalElement={
+              isUserUpdating ? (
+                <div className={s.spinner_container}>
+                  <Icon iconName="spinner" className={s.spinner} />
+                </div>
+              ) : null
+            }
           />
           {errors.name && touched.name && <div className="formik-error error-label">{errors.email}</div>}
           <Field
@@ -46,6 +58,7 @@ const UserProfileFormView = ({ userData }) => {
             addClassInputContainer="form_border_bottom form_border_gray"
             addClassInput="default_input input_settings pt-2 pb-2 pr-3"
             additionalElement={<UserProfileEditButton />}
+            disabled
           />
           <Field
             type="text"
@@ -57,6 +70,7 @@ const UserProfileFormView = ({ userData }) => {
             addClassInputContainer="form_border_bottom form_border_gray"
             addClassInput="default_input input_settings pt-2 pb-2 pr-3"
             additionalElement={<UserProfileEditButton />}
+            disabled
           />
         </Form>
       )}
@@ -66,6 +80,9 @@ const UserProfileFormView = ({ userData }) => {
 
 UserProfileFormView.propTypes = {
   userData: PT.oneOfType([PT.object, PT.arrayOf(PT.object)]),
+  isDataFetched: PT.bool,
+  isUserUpdating: PT.bool,
+  updateUserData: PT.func,
 };
 
 export default UserProfileFormView;

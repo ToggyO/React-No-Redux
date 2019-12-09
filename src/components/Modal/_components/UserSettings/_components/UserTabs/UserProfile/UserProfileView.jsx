@@ -7,6 +7,9 @@ import { UserProfileFormView } from './_components/UserProfileForm';
 
 const UserProfileView = ({
   userData,
+  isDataFetched,
+  isUserUpdating,
+  updateUserData,
 }) => (
   <div className={s.container}>
     <div className={`${s.headline} pt-8`}>
@@ -14,7 +17,12 @@ const UserProfileView = ({
     </div>
     <div className={`${s.form} flex`}>
       <div className={s.form_edit}>
-        <UserProfileFormView userData={userData}/>
+        <UserProfileFormView
+          userData={userData}
+          isDataFetched={isDataFetched}
+          isUserUpdating={isUserUpdating}
+          updateUserData={updateUserData}
+        />
       </div>
       <div style={{ paddingLeft: 40, paddingRight: 10, display: 'flex', justifyContent: 'center' }}>
         <div style={{ width: '120px', height: '100%', backgroundColor: 'lightgray' }}/>
@@ -28,6 +36,9 @@ UserProfileView.propTypes = {
     PT.object,
     PT.arrayOf(PT.object),
   ]),
+  isDataFetched: PT.bool,
+  isUserUpdating: PT.bool,
+  updateUserData: PT.func,
 };
 
 export default UserProfileView;

@@ -19,6 +19,6 @@ export const API_URL = {
     VALIDATE_LINK_CODE: 'users/passwords/validate',
   },
   USER: {
-    GET_TEAMS_OF_USER: '/users/current',
+    FETCH_USER_DATA: '/users/current',
   },
 };

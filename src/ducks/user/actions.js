@@ -8,3 +8,8 @@ export const fetchUserData = (dataType, page, pageSize) => ({
     pageSize,
   },
 });
+
+export const updateUserData = name => ({
+  type: types.UPDATE_USER_DATA_REQUEST,
+  payload: name,
+});
