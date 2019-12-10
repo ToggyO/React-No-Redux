@@ -10,6 +10,11 @@ export const userSpinnerSelector = createSelector(
   errors => errors
 );
 
+export const userModalLoaderSelector = createSelector(
+  state => state.user.modalLoading,
+  errors => errors
+);
+
 export const userDataSelector = createSelector(
   state => state.user.data.user,
   errors => errors

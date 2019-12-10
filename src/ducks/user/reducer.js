@@ -12,6 +12,7 @@ const initialState = {
   },
   spinner: false,
   loading: false,
+  modalLoading: false,
   errors: [],
   extra: '',
 };
@@ -22,6 +23,9 @@ export default function user(state = initialState, action) {
       return { ...state, loading: true };
     case types.UPDATE_USER_DATA_REQUEST:
       return { ...state, spinner: true };
+    case types.CHANGE_USER_EMAIL_REQUEST:
+    case types.CONFIRM_NEW_USER_EMAIL_REQUEST:
+      return { ...state, modalLoading: true };
     case types.FETCH_USER_DATA_SUCCESS: {
       const { data, dataType } = action.payload;
       return {
@@ -35,14 +39,18 @@ export default function user(state = initialState, action) {
       };
     }
     case types.UPDATE_USER_DATA_SUCCESS:
+    case types.CONFIRM_NEW_USER_EMAIL_SUCCESS:
       return {
         ...state,
         spinner: false,
+        modalLoading: false,
         data: {
           ...state.data,
           user: action.payload,
         },
       };
+    case types.CHANGE_USER_EMAIL_SUCCESS:
+      return { ...state, modalLoading: false };
     // case types.RESTORE_PASSWORD_SUCCESS:
     //   return { ...state, loading: false, extra: action.payload };
     // case types.REGISTRATION_DONE_SUCCESS: {
@@ -53,9 +61,17 @@ export default function user(state = initialState, action) {
     //   return { ...state, loading: false };
     case types.FETCH_USER_DATA_ERROR:
     case types.UPDATE_USER_DATA_ERROR:
-      return { ...state, loading: false, spinner: false, errors: action.payload };
-    // case types.CLEAR_STORE_ERRORS:
-    //   return { ...state, errors: [] };
+    case types.CHANGE_USER_EMAIL_ERROR:
+    case types.CONFIRM_NEW_USER_EMAIL_ERROR:
+      return {
+        ...state,
+        loading: false,
+        spinner: false,
+        modalLoading: false,
+        errors: action.payload,
+      };
+    case types.CLEAR_USER_ERRORS:
+      return { ...state, errors: [] };
     // case types.CLEAR_EXTRA:
     //   return { ...state, extra: '' };
     default:

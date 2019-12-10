@@ -20,5 +20,7 @@ export const API_URL = {
   },
   USER: {
     FETCH_USER_DATA: '/users/current',
+    CHANGE_USER_EMAIL: '/users/email/request',
+    CONFIRM_USER_EMAIL: '/users/email/set',
   },
 };

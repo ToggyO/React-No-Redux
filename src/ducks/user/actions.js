@@ -13,3 +13,22 @@ export const updateUserData = name => ({
   type: types.UPDATE_USER_DATA_REQUEST,
   payload: name,
 });
+
+export const changeUserEmailRequest = data => ({
+  type: types.CHANGE_USER_EMAIL_REQUEST,
+  payload: data,
+});
+
+export const confirmNewUserEmail = code => ({
+  type: types.CONFIRM_NEW_USER_EMAIL_REQUEST,
+  payload: code,
+});
+
+export const changeUserPassword = data => ({
+  type: types.CHANGE_USER_EMAIL_REQUEST,
+  payload: data,
+});
+
+export const clearUserErrors = () => ({
+  type: types.CLEAR_USER_ERRORS,
+});

@@ -21,6 +21,7 @@ const UserSettings = ({
   updateUserData,
   ...rest
 }) => {
+
   // const userInfo = getFromLocalState('USER') || getFromSessionState('USER');
   const [isDataFetched, setDataFetched] = useState(false);
   const [currentTab, setTab] = useState('Profile');

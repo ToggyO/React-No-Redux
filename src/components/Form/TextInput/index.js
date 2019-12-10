@@ -27,6 +27,7 @@ export const TextInput = props => {
     disabled,
     customOnFocus,
     customOnBlur,
+    autoComplete,
   } = props;
   const { touched, errors, values } = form;
   const [isFocused, setFocus] = useState(false);
@@ -83,6 +84,7 @@ export const TextInput = props => {
             onBlur={customHandleBlur}
             maxLength={maxLength}
             disabled={disabled}
+            autoComplete={autoComplete || 'on'}
           />
           {additionalElement}
         </div>
@@ -112,4 +114,5 @@ TextInput.propTypes = {
   disabled: PT.bool,
   customOnFocus: PT.func,
   customOnBlur: PT.func,
+  autoComplete: PT.string,
 };

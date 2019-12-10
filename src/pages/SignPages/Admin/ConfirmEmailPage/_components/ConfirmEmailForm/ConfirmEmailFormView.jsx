@@ -25,6 +25,7 @@ const ConfirmEmailFormView = ({ errorsFromBackend, confirmEmail, clearStoreError
         addClassInputContainer="form_background"
         addClassFocusedInput="form_border_focus"
         addClassBlurredInput="form_border"
+        buttonText="Next"
       />
     </>
   );

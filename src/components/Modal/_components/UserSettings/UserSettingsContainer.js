@@ -29,7 +29,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(userActions.updateUserData(name));
   },
   modalOpen(itemKey) {
-    dispatch(modalActions.modalClose(itemKey));
+    dispatch(modalActions.modalOpen(itemKey));
   },
 });
 

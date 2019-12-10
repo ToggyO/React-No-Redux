@@ -23,5 +23,5 @@ RadioButtonGroup.propTypes = {
   addLabelClass: PT.string,
   addChildrenContainerClass: PT.string,
   labelStyle: PT.object,
-  children: PT.array,
+  children: PT.oneOfType([PT.array, PT.object]),
 };

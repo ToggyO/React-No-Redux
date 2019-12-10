@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { ModalChangeEmail } from './index';
+import ModalConfirmEmailChangeView from './ModalConfirmEmailChangeView';
 
 import * as userSelectors from '@ducks/user/selectors';
 import * as userActions from '@ducks/user/actions';
@@ -13,8 +13,8 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = dispatch => ({
-  changeUserEmailRequest(data) {
-    dispatch(userActions.changeUserEmailRequest(data));
+  confirmNewUserEmail(code) {
+    dispatch(userActions.confirmNewUserEmail(code));
   },
   clearUserErrors() {
     dispatch(userActions.clearUserErrors());
@@ -24,4 +24,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ModalChangeEmail);
+)(ModalConfirmEmailChangeView);

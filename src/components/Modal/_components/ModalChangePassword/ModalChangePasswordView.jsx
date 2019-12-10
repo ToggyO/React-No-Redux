@@ -2,16 +2,15 @@ import React, { useEffect, useRef } from 'react';
 import PT from 'prop-types';
 import { Field, Form, Formik } from 'formik';
 
+
 import { responseFormikError } from '@utils/index';
 import { ERROR_CODES } from '@config/errorCodes';
-import mail from '@assets/login_page/email_icon.png';
-import { TextInput } from '@components/Form/TextInput';
-import { validateField } from '@components/Form/validations';
+import { validateField, validateForm } from '@components/Form/validations';
 import key from '@assets/login_page/key.png';
 import { PasswordInput } from '@components/Form/PasswordInput';
 import ModalLabelWrapperContainer from '@components/Modal/_components/ModalLabelWrapper/ModalLabelWrapperContainer';
 
-export const ModalChangeEmail = ({ onClose, errorsFromBackend, changeUserEmailRequest, clearUserErrors }) => {
+const ModalChangePasswordView = ({ onClose, errorsFromBackend, changeUserEmailRequest, clearUserErrors }) => {
   const formikRef = useRef(null);
 
   useEffect(() => {
@@ -21,32 +20,16 @@ export const ModalChangeEmail = ({ onClose, errorsFromBackend, changeUserEmailRe
   useEffect(() => () => clearUserErrors(), []);
 
   return (
-    <ModalLabelWrapperContainer label="Change email" onClose={onClose}>
+    <ModalLabelWrapperContainer label="Change password" onClose={onClose}>
       <Formik
         ref={formikRef}
-        initialValues={{ newEmail: '', password: '' }}
+        initialValues={{ oldPassword: '', password: '', passwordConfirm: '' }}
+        validate={validateForm.confirmPassword}
         onSubmit={changeUserEmailRequest}
         render={({ errors, touched, isValid }) => (
           <Form>
             <Field
-              type="email"
-              name="newEmail"
-              placeholder="Enter new Email"
-              imgBefore={mail}
-              component={TextInput}
-              validate={validateField.email}
-              addClassWrapper="pt-4 pb-3"
-              addClassInputContainer="form_background"
-              addClassInput="default_input pt-4 pb-4 pl-14 pr-13"
-              addClassFocusedInput="form_border_focus"
-              addClassBlurredInput="form_border"
-              autoComplete="email"
-            />
-            {errors.newEmail && touched.newEmail && (
-              <div className="formik-error error-label text-align-center">{errors.newEmail}</div>
-            )}
-            <Field
-              name="password"
+              name="oldPassword"
               placeholder="Enter password"
               imgBefore={key}
               component={PasswordInput}
@@ -58,8 +41,38 @@ export const ModalChangeEmail = ({ onClose, errorsFromBackend, changeUserEmailRe
               addClassBlurredInput="form_border"
               autoComplete="new-password"
             />
+            {errors.oldPassword && touched.oldPassword && (
+              <div className="formik-error error-label text-align-center">{errors.oldPassword}</div>
+            )}
+            <Field
+              name="password"
+              placeholder="Enter password"
+              imgBefore={key}
+              component={PasswordInput}
+              addClassWrapper="pt-3 pb-4"
+              addClassInputContainer="form_background"
+              addClassInput="default_input pt-4 pb-4 pl-14 pr-13"
+              addClassFocusedInput="form_border_focus"
+              addClassBlurredInput="form_border"
+              autoComplete="new-password"
+            />
             {errors.password && touched.password && (
               <div className="formik-error error-label text-align-center">{errors.password}</div>
+            )}
+            <Field
+              name="passwordConfirm"
+              placeholder="Enter password"
+              imgBefore={key}
+              component={PasswordInput}
+              addClassWrapper="pt-3 pb-4"
+              addClassInputContainer="form_background"
+              addClassInput="default_input pt-4 pb-4 pl-14 pr-13"
+              addClassFocusedInput="form_border_focus"
+              addClassBlurredInput="form_border"
+              autoComplete="new-password"
+            />
+            {errors.passwordConfirm && touched.passwordConfirm && (
+              <div className="formik-error error-label text-align-center">{errors.passwordConfirm}</div>
             )}
             <button
               type="submit"
@@ -75,9 +88,11 @@ export const ModalChangeEmail = ({ onClose, errorsFromBackend, changeUserEmailRe
   );
 };
 
-ModalChangeEmail.propTypes = {
+ModalChangePasswordView.propTypes = {
   onClose: PT.func,
   errorsFromBackend: PT.arrayOf(PT.object),
   changeUserEmailRequest: PT.func,
   clearUserErrors: PT.func,
 };
+
+export default ModalChangePasswordView;

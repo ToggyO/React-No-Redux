@@ -18,7 +18,7 @@ export const UserProfileTabsWrapper = ({ children, currentTab, onClose }) => (
       <h2 className={`${s.tab} ${s.title}`}>{currentTab}</h2>
       <div className={`${s.close}`} onClick={onClose}>
         <button type="button" className="btn">
-          <Icon iconName="close-modal" />
+          <Icon iconName="close-modal" className="fill-primary" />
         </button>
       </div>
     </div>

@@ -85,10 +85,10 @@ export const ConfirmEmailInput = props => {
         className="btn green-filled rounded p-4 full_width login-page-button"
         onClick={() => {
           onClick({ code: state });
-          rest.clearExtra();
+          if (rest.clearExtra) rest.clearExtra();
         }}
       >
-        Next
+        {rest.buttonText}
       </button>
     </div>
   );

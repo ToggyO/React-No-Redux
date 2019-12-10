@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 
 import s from './Modal.module.sass';
 
+import { ModalConfirmEmailChangeContainer } from '@components/Modal/_components/ModalConfirmEmailChange';
 import { UserSettingsContainer } from '@components/Modal/_components/UserSettings';
-
-
 import { Handler500 } from '@components/Modal/_components/Handler500';
 import { DeprecatedLinkMessage } from '@components/Modal/_components/DeprecatedLinkMessage';
 import ModalCloseConfirm from '@components/Modal/_components/ModalCloseConfirm';
 import ModalChangeEmailContainer from '@components/Modal/_components/ModalChangeEmail/ModalChangeEmailContainer';
+import { ModalChangePasswordContainer } from '@components/Modal/_components/ModalChangePassword';
 
 
 /* eslint-disable */
@@ -47,19 +47,18 @@ class Modal extends React.Component {
   componentDidMount() {
     this.modalRoot.appendChild(this.el);
     setTimeout(() => this.setState({ isOpen: true }), 0);
-    window.document.addEventListener('touchstart', this.onOverlayClick, false);
-    window.document.addEventListener('mousedown', this.onOverlayClick, false);
+    // window.document.addEventListener('touchstart', this.onOverlayClick, false);
+    // window.document.addEventListener('mousedown', this.onOverlayClick, false);
   }
 
   componentWillUnmount() {
     this.modalRoot.removeChild(this.el);
-    window.document.removeEventListener('touchstart', this.onOverlayClick, false);
-    window.document.removeEventListener('mousedown', this.onOverlayClick, false);
+    // window.document.removeEventListener('touchstart', this.onOverlayClick, false);
+    // window.document.removeEventListener('mousedown', this.onOverlayClick, false);
   }
 
   onOverlayClick(e) {
     if (this.overlayRef.current.contains(e.target)) {
-      console.log(this.overlayRef.current.contains(e.target));
       this.onOpenConfirmModal();
     }
   }
@@ -82,13 +81,17 @@ class Modal extends React.Component {
 
     switch (itemKey) {
       case 'Handler500':
-        return <Handler500 onClose={this.onOpenConfirmModal}/>;
+        return <Handler500 onClose={this.onClickEnvironmentModalClose} withoutConfirmation="true"/>;
       case 'DeprecatedLinkMessage':
-        return <DeprecatedLinkMessage onClose={this.onOpenConfirmModal}/>;
+        return <DeprecatedLinkMessage onClose={this.onClickEnvironmentModalClose} withoutConfirmation="true"/>;
       case 'UserSettings':
         return <UserSettingsContainer onClose={this.onOpenConfirmModal}/>;
       case 'ModalChangeEmail':
         return <ModalChangeEmailContainer onClose={this.onOpenConfirmModal}/>;
+      case 'ModalConfirmEmailChange':
+        return <ModalConfirmEmailChangeContainer onClose={this.onOpenConfirmModal}/>;
+      case 'ModalChangePasswordView':
+        return <ModalChangePasswordContainer onClose={this.onOpenConfirmModal}/>;
       default:
         return null;
     }
@@ -110,8 +113,8 @@ class Modal extends React.Component {
             id={`modal-overlay-${zIndex}`}
             className={`${s.overlay} ${this.state.isOpen ? s.overlay_shown : ''}`}
             style={{ zIndex: 1000 + zIndex }}
-            onClick={this.onOverlayClick}
-            onTouchStart={this.onOverlayClick}
+            onClick={e => this.onRenderModalContent().props.withoutConfirmation ? this.onClickEnvironmentModalClose(itemKey) : this.onOverlayClick(e)}
+            onTouchStart={e => this.onRenderModalContent().props.withoutConfirmation ? this.onClickEnvironmentModalClose(itemKey) : this.onOverlayClick(e)}
           />
           <div
             className={`${s.modalWindow} ${this.state.isOpen ? s.modalWindow_shown : ''}`}
@@ -120,6 +123,7 @@ class Modal extends React.Component {
             <div className={`${s.modalWrapper}`}>
               <div className={`${s.modalContainer}`}>
                 {this.onRenderModalContent()}
+                {console.log(this.onRenderModalContent().props.withoutConfirmation)}
               </div>
             </div>
           </div>

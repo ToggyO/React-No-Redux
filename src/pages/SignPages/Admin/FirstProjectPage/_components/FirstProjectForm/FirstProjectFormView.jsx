@@ -49,9 +49,9 @@ const FirstProjectFormView = ({ setFirstProjectRequest, ...rest }) => {
   };
 
   const handleSubmit = values => {
-    const { name, hexColor, radioGroup } = values;
+    const { name, colorHex, radioGroup } = values;
 
-    let dataToSubmit = { name, hexColor };
+    let dataToSubmit = { name, colorHex };
 
     if (radioGroup === 'projectTeam') {
       dataToSubmit = { ...dataToSubmit, emails };
@@ -69,7 +69,9 @@ const FirstProjectFormView = ({ setFirstProjectRequest, ...rest }) => {
   return (
     <Formik
       initialValues={{ name: '', radioGroup: 'projectTeam', colorHex: '#82ABFB' }}
-      onSubmit={values => handleSubmit(values)}
+      onSubmit={values => {
+        handleSubmit(values)
+      }}
       render={({ isValid, values, setFieldValue }) => (
         <Form>
           <div>

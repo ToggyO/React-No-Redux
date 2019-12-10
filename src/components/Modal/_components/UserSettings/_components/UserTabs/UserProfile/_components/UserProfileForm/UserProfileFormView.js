@@ -17,8 +17,8 @@ const UserProfileFormView = ({ userData, isDataFetched, isUserUpdating, updateUs
       ref={formikRef}
       initialValues={{
         name: !isDataFetched ? 'User name' : userData.name,
-        email: !isDataFetched ? 'User email' : userData.email,
-        password: 'Set a unique password to protect your Squad account.',
+        userEmail: !isDataFetched ? 'User email' : userData.email,
+        userPassword: 'Set a unique password to protect your Squad account.',
       }}
       enableReinitialize="true"
       // validate={validateForm.confirmSignUp}
@@ -50,7 +50,7 @@ const UserProfileFormView = ({ userData, isDataFetched, isUserUpdating, updateUs
           {errors.name && touched.name && <div className="formik-error error-label">{errors.email}</div>}
           <Field
             type="text"
-            name="email"
+            name="userEmail"
             component={TextInput}
             label="Email"
             addClassLabel="label_settings"
@@ -62,14 +62,14 @@ const UserProfileFormView = ({ userData, isDataFetched, isUserUpdating, updateUs
           />
           <Field
             type="text"
-            name="password"
+            name="userPassword"
             component={TextInput}
             label="Password"
             addClassLabel="label_settings"
             addClassWrapper="pt-3 pb-8"
             addClassInputContainer="form_border_bottom form_border_gray"
             addClassInput="default_input input_settings pt-2 pb-2 pr-3"
-            additionalElement={<UserProfileEditButton onClick={() => modalOpen()} />}
+            additionalElement={<UserProfileEditButton onClick={() => modalOpen('ModalChangePasswordView')} />}
             disabled
           />
         </Form>

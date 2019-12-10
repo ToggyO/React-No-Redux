@@ -41,6 +41,7 @@ export class PasswordInput extends React.Component {
       form,
       label,
       imgBefore,
+      autoComplete,
     } = this.props;
     const { touched, errors, values } = form;
     const { isPwShown, isFocused } = this.state;
@@ -75,7 +76,7 @@ export class PasswordInput extends React.Component {
               placeholder={placeholder}
               onFocus={this.customHandleFocus}
               onBlur={this.customHandleBlur}
-              autoComplete="on"
+              autoComplete={autoComplete || 'on'}
             />
             <Checkbox
               state={isPwShown}
@@ -115,4 +116,5 @@ PasswordInput.propTypes = {
   errors: PT.object,
   customOnFocus: PT.func,
   customOnBlur: PT.func,
+  autoComplete: PT.string,
 };

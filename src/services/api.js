@@ -3,6 +3,7 @@ import superaxios from '@services/superaxios';
 import { API_URL } from '@config';
 import { makeRequestString } from '@utils/index';
 
+console.log(API_URL);
 export default {
   auth: {
     signUpWithEmail: async emailObj => {
@@ -72,10 +73,18 @@ export default {
       const response = await superaxios.put(API_URL.USER.FETCH_USER_DATA, data);
       return response.data;
     },
+    changeUserEmailRequest: async data => {
+      const response = await superaxios.post(API_URL.USER.CHANGE_USER_EMAIL, data);
+      return response.data;
+    },
+    confirmNewUserEmail: async code => {
+      const response = await superaxios.put(API_URL.USER.CONFIRM_USER_EMAIL, code);
+      return response.data;
+    },
   },
   other: {
     getTeamEmails: async () => {
-      const response = await superaxios.get(API_URL.GET_TEAM_EMAILS);
+      const response = await superaxios.get(API_URL.AUTH.GET_TEAM_EMAILS);
       return response.data;
     },
   },
