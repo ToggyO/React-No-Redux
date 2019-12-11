@@ -7,16 +7,16 @@ import { Icon } from '@components/Icon';
 
 
 
-const Handler500 = ({ onClose }) => (
+const Handler500 = ({ onClose, itemKey }) => (
   <div className={s.wrapper}>
     <div className={`${s.message} pt-4 pb-4`}>
       <article className="pb-2 pt-2">Error</article>
       <p className="pb-2 pt-2">Something went wrong.</p>
     </div>
-    <div className={s.button} onClick={onClose}>
+    <div className={s.button} onClick={() => onClose(itemKey)}>
       <button type="button" className="btn green full_width rounded p-4">Retry</button>
     </div>
-    <div className={`${s.close} pt-4 pr-4`}  onClick={onClose}>
+    <div className={`${s.close} pt-4 pr-4`}  onClick={() => onClose(itemKey)}>
       <button type="button" className="btn">
         <Icon iconName="close-modal"/>
       </button>
@@ -26,6 +26,7 @@ const Handler500 = ({ onClose }) => (
 
 Handler500.propTypes = {
   onClose: PT.func,
+  itemKey: PT.string,
 };
 
 export default Handler500;

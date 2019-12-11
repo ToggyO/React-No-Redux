@@ -3,7 +3,6 @@ import superaxios from '@services/superaxios';
 import { API_URL } from '@config';
 import { makeRequestString } from '@utils/index';
 
-console.log(API_URL);
 export default {
   auth: {
     signUpWithEmail: async emailObj => {

@@ -65,6 +65,7 @@ const UserSettings = ({
       addClassPreloader={loading || !isDataFetched
         ? 'flex justify-content-center align-items-center'
         : 'display-none'}
+      // addClassPreloader='flex justify-content-center align-items-center'
       addClassChildren="flex justify-content-center align-items-center"
     >
       <div className={`${s.container} relative`}>

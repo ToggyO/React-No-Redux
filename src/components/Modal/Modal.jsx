@@ -28,7 +28,7 @@ class Modal extends React.Component {
     this.onCloseConfirmModal = this.onCloseConfirmModal.bind(this);
     this.onRenderModalContent = this.onRenderModalContent.bind(this);
 
-    this.overlayRef = React.createRef();
+    this.modalWindowRef = React.createRef();
   }
 
   // componentDidUpdate(prevProps) {
@@ -58,8 +58,14 @@ class Modal extends React.Component {
   }
 
   onOverlayClick(e) {
-    if (this.overlayRef.current.contains(e.target)) {
+    if (this.modalWindowRef.current === e.target) {
       this.onOpenConfirmModal();
+    }
+  }
+
+  onOverlayClickWithoutConfirmation(e, key) {
+    if (this.modalWindowRef.current === e.target) {
+      this.onClickEnvironmentModalClose(key);
     }
   }
 
@@ -81,9 +87,9 @@ class Modal extends React.Component {
 
     switch (itemKey) {
       case 'Handler500':
-        return <Handler500 onClose={this.onClickEnvironmentModalClose} withoutConfirmation="true"/>;
+        return <Handler500 onClose={this.onClickEnvironmentModalClose} itemKey={itemKey} withoutConfirmation="true"/>;
       case 'DeprecatedLinkMessage':
-        return <DeprecatedLinkMessage onClose={this.onClickEnvironmentModalClose} withoutConfirmation="true"/>;
+        return <DeprecatedLinkMessage onClose={this.onClickEnvironmentModalClose} itemKey={itemKey} withoutConfirmation="true"/>;
       case 'UserSettings':
         return <UserSettingsContainer onClose={this.onOpenConfirmModal}/>;
       case 'ModalChangeEmail':
@@ -109,23 +115,22 @@ class Modal extends React.Component {
       ReactDOM.createPortal(
         <>
           <div
-            ref={this.overlayRef}
-            id={`modal-overlay-${zIndex}`}
             className={`${s.overlay} ${this.state.isOpen ? s.overlay_shown : ''}`}
             style={{ zIndex: 1000 + zIndex }}
-            onClick={e => this.onRenderModalContent().props.withoutConfirmation ? this.onClickEnvironmentModalClose(itemKey) : this.onOverlayClick(e)}
-            onTouchStart={e => this.onRenderModalContent().props.withoutConfirmation ? this.onClickEnvironmentModalClose(itemKey) : this.onOverlayClick(e)}
           />
           <div
+            ref={this.modalWindowRef}
+            id={`modal-window-${zIndex}`}
             className={`${s.modalWindow} ${this.state.isOpen ? s.modalWindow_shown : ''}`}
             style={{ zIndex: 1001 + zIndex }}
+            onClick={e => this.onRenderModalContent().props.withoutConfirmation
+              ? this.onOverlayClickWithoutConfirmation(e, itemKey)
+              : this.onOverlayClick(e)}
+            onTouchStart={e => this.onRenderModalContent().props.withoutConfirmation
+              ? this.onOverlayClickWithoutConfirmation(e, itemKey)
+              : this.onOverlayClick(e)}
           >
-            <div className={`${s.modalWrapper}`}>
-              <div className={`${s.modalContainer}`}>
-                {this.onRenderModalContent()}
-                {console.log(this.onRenderModalContent().props.withoutConfirmation)}
-              </div>
-            </div>
+            {this.onRenderModalContent()}
           </div>
           <ModalCloseConfirm
             isConfirmModalOpen={isConfirmModalOpen}
