@@ -88,6 +88,10 @@ export default {
       const response = await superaxios.put(API_URL.USER.CHANGE_USER_PASSWORD, data);
       return response.data;
     },
+    changeUserAvatar: async data => {
+      const response = await superaxios.post(API_URL.USER.CHANGE_USER_AVATAR, data);
+      return response.data;
+    },
   },
   other: {
     getTeamEmails: async () => {

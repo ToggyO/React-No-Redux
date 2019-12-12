@@ -24,5 +24,6 @@ export const API_URL = {
     CONFIRM_USER_EMAIL: '/users/email/set',
     SEND_NEW_CODE: '/users/email/send-new-request',
     CHANGE_USER_PASSWORD: '/users/passwords/change',
+    CHANGE_USER_AVATAR: '/users/avatar',
   },
 };

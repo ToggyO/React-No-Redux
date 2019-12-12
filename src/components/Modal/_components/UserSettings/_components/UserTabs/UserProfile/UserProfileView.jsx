@@ -4,6 +4,7 @@ import PT from 'prop-types';
 import s from './style.module.sass';
 
 import { UserProfileFormView } from './_components/UserProfileForm';
+import { UserProfileAvatarContainer } from './_components/UserProfileAvatar';
 
 const UserProfileView = ({
   userData,
@@ -26,9 +27,7 @@ const UserProfileView = ({
           modalOpen={modalOpen}
         />
       </div>
-      <div style={{ paddingLeft: 40, paddingRight: 10, display: 'flex', justifyContent: 'center' }}>
-        <div style={{ width: '120px', height: '100%', backgroundColor: 'lightgray' }}/>
-      </div>
+      <UserProfileAvatarContainer userName={userData.name} isDataFetched={isDataFetched}/>
     </div>
   </div>
 );

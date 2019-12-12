@@ -72,6 +72,9 @@ const UserProfileFormView = ({ userData, isDataFetched, isUserUpdating, updateUs
             additionalElement={<UserProfileEditButton onClick={() => modalOpen('ModalChangePassword')} />}
             disabled
           />
+          <button type="button" className="btn green" onClick={() => modalOpen('ModalChangePasswordSuccess')}>
+            test
+          </button>
         </Form>
       )}
     />

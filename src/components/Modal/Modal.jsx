@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+
 import s from './Modal.module.sass';
 
 import { ModalConfirmEmailChangeContainer } from '@components/Modal/_components/ModalConfirmEmailChange';
@@ -10,6 +11,8 @@ import { DeprecatedLinkMessage } from '@components/Modal/_components/DeprecatedL
 import ModalCloseConfirm from '@components/Modal/_components/ModalCloseConfirm';
 import ModalChangeEmailContainer from '@components/Modal/_components/ModalChangeEmail/ModalChangeEmailContainer';
 import { ModalChangePasswordContainer } from '@components/Modal/_components/ModalChangePassword';
+import { ModalCropperPreviewContainer } from '@components/Modal/_components/ModalCropperPreview';
+import { ModalChangePasswordSuccess } from '@components/Modal/_components/ModalChangePasswordSuccess';
 
 
 /* eslint-disable */
@@ -83,7 +86,7 @@ class Modal extends React.Component {
   }
 
   onRenderModalContent = () => {
-    const { itemKey } = this.props;
+    const { itemKey, options } = this.props;
 
     switch (itemKey) {
       case 'Handler500':
@@ -98,6 +101,10 @@ class Modal extends React.Component {
         return <ModalConfirmEmailChangeContainer onClose={this.onOpenConfirmModal}/>;
       case 'ModalChangePassword':
         return <ModalChangePasswordContainer onClose={this.onOpenConfirmModal}/>;
+      case 'ModalCropperPreview':
+        return <ModalCropperPreviewContainer onClose={this.onOpenConfirmModal} options={options}/>;
+      case 'ModalChangePasswordSuccess':
+        return <ModalChangePasswordSuccess onClose={this.onOpenConfirmModal} itemKey={itemKey} withoutConfirmation="true"/>;
       default:
         return null;
     }

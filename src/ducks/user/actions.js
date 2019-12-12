@@ -34,6 +34,11 @@ export const changeUserPassword = data => ({
   payload: data,
 });
 
+export const changeUserAvatar = data => ({
+  type: types.CHANGE_USER_AVATAR_REQUEST,
+  payload: data,
+});
+
 export const clearUserErrors = () => ({
   type: types.CLEAR_USER_ERRORS,
 });

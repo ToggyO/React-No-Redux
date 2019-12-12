@@ -27,6 +27,7 @@ export default function user(state = initialState, action) {
     case types.CONFIRM_NEW_USER_EMAIL_REQUEST:
     case types.SEND_NEW_CODE_TO_CHANGE_EMAIL_REQUEST:
     case types.CHANGE_USER_PASSWORD_REQUEST:
+    case types.CHANGE_USER_AVATAR_REQUEST:
       return { ...state, modalLoading: true };
     case types.FETCH_USER_DATA_SUCCESS: {
       const { data, dataType } = action.payload;
@@ -42,6 +43,7 @@ export default function user(state = initialState, action) {
     }
     case types.UPDATE_USER_DATA_SUCCESS:
     case types.CONFIRM_NEW_USER_EMAIL_SUCCESS:
+    case types.CHANGE_USER_AVATAR_SUCCESS:
       return {
         ...state,
         spinner: false,
@@ -71,6 +73,7 @@ export default function user(state = initialState, action) {
     case types.CONFIRM_NEW_USER_EMAIL_ERROR:
     case types.SEND_NEW_CODE_TO_CHANGE_EMAIL_ERROR:
     case types.CHANGE_USER_PASSWORD_ERROR:
+    case types.CHANGE_USER_AVATAR_ERROR:
       return {
         ...state,
         loading: false,

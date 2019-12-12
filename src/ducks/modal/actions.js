@@ -1,11 +1,18 @@
 import * as types from './types';
 
-export const modalOpen = itemKey => ({
+export const modalOpen = (modalKey, options) => ({
   type: types.MODAL_OPEN,
-  payload: itemKey,
+  payload: {
+    modalKey,
+    options,
+  },
 });
 
-export const modalClose = itemKey => ({
+export const modalClose = modalKey => ({
   type: types.MODAL_CLOSE,
-  payload: itemKey,
+  payload: modalKey,
+});
+
+export const modalClearOptions = () => ({
+  type: types.MODAL_CLEAR_OPTIONS,
 });

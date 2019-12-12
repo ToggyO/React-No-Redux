@@ -129,3 +129,21 @@ function* changeUserPassword(action) {
 export function* changeUserPasswordSaga() {
   yield takeEvery(types.CHANGE_USER_PASSWORD_REQUEST, changeUserPassword);
 }
+
+function* changeUserAvatar(action) {
+  try {
+    const data = yield call(api.user.changeUserAvatar, action.payload);
+    yield put({ type: types.CHANGE_USER_AVATAR_SUCCESS, payload: data.data });
+    yield put({ type: modalTypes.MODAL_CLOSE, payload: 'ModalCropperPreview' });
+  } catch (error) {
+    const { response = {} } = error;
+    const { data = {} } = response;
+    const { errors = [] } = data;
+    yield put({ type: types.CHANGE_USER_AVATAR_ERROR, payload: errors });
+    yield put({ type: globalTypes.GLOBAL_ERROR_MESSAGE_SHOWN, payload: 'Something went wrong.' });
+  }
+}
+
+export function* changeUserAvatarSaga() {
+  yield takeEvery(types.CHANGE_USER_AVATAR_REQUEST, changeUserAvatar);
+}
