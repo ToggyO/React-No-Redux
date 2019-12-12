@@ -191,6 +191,10 @@ function Icon({ iconName, className, fill }) {
           </g><g transform="rotate(330 50 50)" style={{animationPlayState: 'running', animationDelay: 0}}><rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#495570" style={{animationPlayState: 'running', animationDelay: 0}}><animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite" style={{animationPlayState: 'running', animationDelay: 0}}></animate></rect></g>
         </svg>
       );
+    case 'accept_white':
+      return (
+        <svg className={className} width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="Web" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="03-Change-email--Copy-2" transform="translate(-546.000000, -22.000000)"><g id="Group-4"><g id="Group-2" transform="translate(546.000000, 22.000000)"><circle id="Oval" fill="#FFFFFF" cx="14" cy="14" r="14"></circle><g id="Icon-/-check-Icon/12/check" transform="translate(8.000000, 8.000000)" fill="#53D0BA"><polygon id="done_mini-[#1484]" points="12 2.92 4.6164 10.6 4.6152 10.5988 4.6152 10.6 0 5.8 1.8456 3.88 4.6152 6.76 10.1544 1"></polygon></g></g></g></g></g></svg>
+      );
     default:
       return null;
       // return <svg src="../img/registration/hello.svg" className={className} />;

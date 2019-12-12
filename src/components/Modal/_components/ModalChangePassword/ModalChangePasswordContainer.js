@@ -13,9 +13,9 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = dispatch => ({
-  // changeUserEmailRequest(data) {
-  //   dispatch(userActions.changeUserEmailRequest(data));
-  // },
+  changeUserPassword(data) {
+    dispatch(userActions.changeUserPassword(data));
+  },
   clearUserErrors() {
     dispatch(userActions.clearUserErrors());
   },

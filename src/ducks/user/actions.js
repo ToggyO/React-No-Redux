@@ -24,11 +24,20 @@ export const confirmNewUserEmail = code => ({
   payload: code,
 });
 
+export const sendNewCodeToChangeEmail = data => ({
+  type: types.SEND_NEW_CODE_TO_CHANGE_EMAIL_REQUEST,
+  payload: data,
+});
+
 export const changeUserPassword = data => ({
-  type: types.CHANGE_USER_EMAIL_REQUEST,
+  type: types.CHANGE_USER_PASSWORD_REQUEST,
   payload: data,
 });
 
 export const clearUserErrors = () => ({
   type: types.CLEAR_USER_ERRORS,
+});
+
+export const clearUserExtra = () => ({
+  type: types.CLEAR_USER_EXTRA,
 });

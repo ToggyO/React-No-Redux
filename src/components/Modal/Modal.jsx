@@ -96,7 +96,7 @@ class Modal extends React.Component {
         return <ModalChangeEmailContainer onClose={this.onOpenConfirmModal}/>;
       case 'ModalConfirmEmailChange':
         return <ModalConfirmEmailChangeContainer onClose={this.onOpenConfirmModal}/>;
-      case 'ModalChangePasswordView':
+      case 'ModalChangePassword':
         return <ModalChangePasswordContainer onClose={this.onOpenConfirmModal}/>;
       default:
         return null;

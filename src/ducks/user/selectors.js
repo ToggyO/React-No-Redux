@@ -54,3 +54,8 @@ export const errorsSelector = createSelector(
   state => state.user.errors,
   errors => errors
 );
+
+export const userExtraSelector = createSelector(
+  state => state.user.extra,
+  errors => errors
+);

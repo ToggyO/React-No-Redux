@@ -80,6 +80,14 @@ export default {
       const response = await superaxios.put(API_URL.USER.CONFIRM_USER_EMAIL, code);
       return response.data;
     },
+    sendNewCodeToChangeEmail: async data => {
+      const response = await superaxios.post(API_URL.USER.SEND_NEW_CODE, data);
+      return response.data;
+    },
+    changeUserPassword: async data => {
+      const response = await superaxios.put(API_URL.USER.CHANGE_USER_PASSWORD, data);
+      return response.data;
+    },
   },
   other: {
     getTeamEmails: async () => {

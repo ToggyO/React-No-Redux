@@ -28,6 +28,9 @@ export const ModalChangeEmail = ({ onClose, errorsFromBackend, changeUserEmailRe
         onSubmit={changeUserEmailRequest}
         render={({ errors, touched, isValid }) => (
           <Form>
+            {errors.global && (
+              <div className="formik-error error-label text-align-center">{errors.global}</div>
+            )}
             <Field
               type="email"
               name="newEmail"

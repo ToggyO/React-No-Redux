@@ -10,7 +10,7 @@ import key from '@assets/login_page/key.png';
 import { PasswordInput } from '@components/Form/PasswordInput';
 import ModalLabelWrapperContainer from '@components/Modal/_components/ModalLabelWrapper/ModalLabelWrapperContainer';
 
-const ModalChangePasswordView = ({ onClose, errorsFromBackend, changeUserEmailRequest, clearUserErrors }) => {
+const ModalChangePasswordView = ({ onClose, errorsFromBackend, changeUserPassword, clearUserErrors }) => {
   const formikRef = useRef(null);
 
   useEffect(() => {
@@ -25,12 +25,15 @@ const ModalChangePasswordView = ({ onClose, errorsFromBackend, changeUserEmailRe
         ref={formikRef}
         initialValues={{ oldPassword: '', password: '', passwordConfirm: '' }}
         validate={validateForm.confirmPassword}
-        onSubmit={changeUserEmailRequest}
+        onSubmit={values => changeUserPassword({
+          oldPassword: values.oldPassword,
+          password: values.password,
+        })}
         render={({ errors, touched, isValid }) => (
           <Form>
             <Field
               name="oldPassword"
-              placeholder="Enter password"
+              placeholder="Your password"
               imgBefore={key}
               component={PasswordInput}
               validate={validateField.password}
@@ -46,7 +49,7 @@ const ModalChangePasswordView = ({ onClose, errorsFromBackend, changeUserEmailRe
             )}
             <Field
               name="password"
-              placeholder="Enter password"
+              placeholder="New password"
               imgBefore={key}
               component={PasswordInput}
               addClassWrapper="pt-3 pb-4"
@@ -61,7 +64,7 @@ const ModalChangePasswordView = ({ onClose, errorsFromBackend, changeUserEmailRe
             )}
             <Field
               name="passwordConfirm"
-              placeholder="Enter password"
+              placeholder="Confirm password"
               imgBefore={key}
               component={PasswordInput}
               addClassWrapper="pt-3 pb-4"
@@ -79,7 +82,7 @@ const ModalChangePasswordView = ({ onClose, errorsFromBackend, changeUserEmailRe
               disabled={!isValid}
               className="btn green-filled rounded p-4 full_width login-page-button mt-6"
             >
-              Send me the code
+              Change
             </button>
           </Form>
         )}
@@ -91,7 +94,7 @@ const ModalChangePasswordView = ({ onClose, errorsFromBackend, changeUserEmailRe
 ModalChangePasswordView.propTypes = {
   onClose: PT.func,
   errorsFromBackend: PT.arrayOf(PT.object),
-  changeUserEmailRequest: PT.func,
+  changeUserPassword: PT.func,
   clearUserErrors: PT.func,
 };
 

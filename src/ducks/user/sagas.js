@@ -3,6 +3,7 @@ import { takeEvery, put, call } from 'redux-saga/effects';
 import * as types from './types';
 
 import { modalTypes } from '@ducks/modal';
+import { globalTypes } from '@ducks/global';
 
 import api from '@services/api';
 // import { modalClose } from '@ducks/modal/actions';
@@ -39,6 +40,7 @@ function* updateUserData(action) {
     const { data = {} } = response;
     const { errors = [] } = data;
     yield put({ type: types.UPDATE_USER_DATA_ERROR, payload: errors });
+    yield put({ type: globalTypes.GLOBAL_ERROR_MESSAGE_SHOWN, payload: 'Something went wrong.' });
   }
 }
 
@@ -48,8 +50,18 @@ export function* updateUserDataSaga() {
 
 function* changeUserEmailRequest(action) {
   try {
-    yield call(api.user.changeUserEmailRequest, action.payload);
-    yield put({ type: types.CHANGE_USER_EMAIL_SUCCESS });
+    const data = yield call(api.user.changeUserEmailRequest, action.payload);
+    yield put({
+      type: types.CHANGE_USER_EMAIL_SUCCESS,
+      payload: {
+        newEmail: action.payload.newEmail,
+        token: data.data.token,
+      },
+    });
+    yield put({
+      type: globalTypes.GLOBAL_SUCCESS_MESSAGE_SHOWN,
+      payload: `Confirmation code is sent to ${action.payload.newEmail}`,
+    });
     yield put({ type: modalTypes.MODAL_CLOSE, payload: 'ModalChangeEmail' });
     yield put({ type: modalTypes.MODAL_OPEN, payload: 'ModalConfirmEmailChange' });
   } catch (error) {
@@ -79,4 +91,41 @@ function* confirmNewUserEmail(action) {
 
 export function* confirmNewUserEmailSaga() {
   yield takeEvery(types.CONFIRM_NEW_USER_EMAIL_REQUEST, confirmNewUserEmail);
+}
+
+function* sendNewCodeToChangeEmail(action) {
+  try {
+    yield call(api.user.sendNewCodeToChangeEmail, action.payload);
+    yield put({
+      type: globalTypes.GLOBAL_SUCCESS_MESSAGE_SHOWN,
+      payload: `Confirmation code is sent to ${action.payload.newEmail}`,
+    });
+    yield put({ type: types.SEND_NEW_CODE_TO_CHANGE_EMAIL_SUCCESS });
+  } catch (error) {
+    const { response = {} } = error;
+    const { data = {} } = response;
+    const { errors = [] } = data;
+    yield put({ type: types.SEND_NEW_CODE_TO_CHANGE_EMAIL_ERROR, payload: errors });
+  }
+}
+
+export function* sendNewCodeToChangeEmailSaga() {
+  yield takeEvery(types.SEND_NEW_CODE_TO_CHANGE_EMAIL_REQUEST, sendNewCodeToChangeEmail);
+}
+
+function* changeUserPassword(action) {
+  try {
+    const data = yield call(api.user.changeUserPassword, action.payload);
+    yield put({ type: types.CHANGE_USER_PASSWORD_SUCCESS, payload: data.data });
+    yield put({ type: modalTypes.MODAL_CLOSE, payload: 'ModalChangePassword' });
+  } catch (error) {
+    const { response = {} } = error;
+    const { data = {} } = response;
+    const { errors = [] } = data;
+    yield put({ type: types.CHANGE_USER_PASSWORD_ERROR, payload: errors });
+  }
+}
+
+export function* changeUserPasswordSaga() {
+  yield takeEvery(types.CHANGE_USER_PASSWORD_REQUEST, changeUserPassword);
 }

@@ -2,16 +2,17 @@ import React from 'react';
 import PT from 'prop-types';
 
 import s from './style.module.sass';
+import { style as preloaderStyle } from './preloader_style';
 
 import { Icon } from '@components/Icon';
 import { Preloader } from '@components/Preloader';
-import { style as preloaderStyle } from '@components/Modal/_components/UserSettings/preloader_style';
 
 export const ModalLabelWrapper = ({ children, label, onClose, modalLoading }) => (
   <div className={s.wrapper}>
     <Preloader
       style={preloaderStyle}
       addClassPreloader={modalLoading ? 'flex justify-content-center align-items-center' : 'display-none'}
+      // addClassPreloader='flex justify-content-center align-items-center'
       addClassChildren="flex justify-content-center align-items-center"
     />
     <div className={s.container}>

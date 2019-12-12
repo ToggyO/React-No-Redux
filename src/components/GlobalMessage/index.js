@@ -10,45 +10,63 @@ import s from './style.module.sass';
 import { Icon } from '@components/Icon';
 import { globalActions, globalSelectors } from '@ducks/global';
 
-class GlobalErrorMessage extends React.Component {
+class GlobalMessage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isOpen: '',
     };
     this.el = document.createElement('div');
-    this.globalErrorRoot = document.getElementById('global-error-root');
+    this.globalErrorRoot = document.getElementById('global-message-root');
+    this.onCloseMessage = this.onCloseMessage.bind(this);
+    this.onGlobalTimeout = this.onGlobalTimeout.bind(this);
+    this.onGlobalTimeout();
   }
 
   componentDidMount() {
     this.globalErrorRoot.appendChild(this.el);
-    setTimeout(() => this.setState({ isOpen: this.props.globalErrorMessage }), 0);
+    setTimeout(
+      () =>
+        this.setState({
+          isOpen: this.props.globalSuccessMessage || this.props.globalErrorMessage,
+        }),
+      0
+    );
   }
 
   componentWillUnmount() {
     this.globalErrorRoot.removeChild(this.el);
   }
 
-  onCloseErrorMessage = () => {
+  onCloseMessage = () => {
     this.setState({ isOpen: false });
-    setTimeout(() => this.props.hideGlobalError(), 2000);
+    setTimeout(() => {
+      if (this.props.globalSuccessMessage) this.props.hideGlobalSuccess();
+      if (this.props.globalErrorMessage) this.props.hideGlobalError();
+    }, 2000);
   };
 
+  onGlobalTimeout = () => setTimeout(this.onCloseMessage, 10000);
+
   render() {
-    const { iconClassName = '', globalErrorMessage } = this.props;
+    const { iconClassName = '', globalSuccessMessage, globalErrorMessage } = this.props;
     const { isOpen } = this.state;
 
-    if (!globalErrorMessage) return null;
+    if (!globalSuccessMessage && !globalErrorMessage) return null;
 
     return ReactDOM.createPortal(
       <div
         className={`${s.container} ${isOpen ? s.shown : ''} flex justify-content-center align-items-center`}
+        style={{ backgroundColor: (globalSuccessMessage && '#53D0BA') || (globalErrorMessage && '#FF778C') }}
       >
         <div className={s.icon_container}>
-          <Icon iconName="delete" className={`${s.icon} ${iconClassName}`} />
+          <Icon
+            iconName={(globalSuccessMessage && 'accept_white') || (globalErrorMessage && 'delete')}
+            className={`${s.icon} ${iconClassName}`}
+          />
         </div>
         <div className={s.text_container}>
-          <p className={s.text}>{globalErrorMessage}</p>
+          <p className={s.text}>{globalSuccessMessage || globalErrorMessage}</p>
         </div>
         <div className={s.hide_error} onClick={this.onCloseErrorMessage}>
           <Icon iconName="close-modal" className="fill-white" />
@@ -59,17 +77,23 @@ class GlobalErrorMessage extends React.Component {
   }
 }
 
-GlobalErrorMessage.propTypes = {
+GlobalMessage.propTypes = {
   iconClassName: PT.string,
+  globalSuccessMessage: PT.string,
   globalErrorMessage: PT.string,
+  hideGlobalSuccess: PT.func,
   hideGlobalError: PT.func,
 };
 
 const mapStateToProps = state => ({
+  globalSuccessMessage: globalSelectors.globalSuccessSelector(state),
   globalErrorMessage: globalSelectors.globalErrorSelector(state),
 });
 
 const mapDispatchToProps = dispatch => ({
+  hideGlobalSuccess() {
+    dispatch(globalActions.hideGlobalSuccess());
+  },
   hideGlobalError() {
     dispatch(globalActions.hideGlobalError());
   },
@@ -78,4 +102,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(GlobalErrorMessage);
+)(GlobalMessage);

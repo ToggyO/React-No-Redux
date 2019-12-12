@@ -78,7 +78,9 @@ export const ConfirmEmailInput = props => {
           inputMode="numeric"
         />
       </label>
-      {errorsFromBackend.global && <div className="formik-error error-label">{errorsFromBackend.global}</div>}
+      {errorsFromBackend.global && (
+        <div className="formik-error error-label text-align-center">{errorsFromBackend.global}</div>
+      )}
       <button
         type="submit"
         disabled={state.length !== maxLength}

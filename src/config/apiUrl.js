@@ -22,5 +22,7 @@ export const API_URL = {
     FETCH_USER_DATA: '/users/current',
     CHANGE_USER_EMAIL: '/users/email/request',
     CONFIRM_USER_EMAIL: '/users/email/set',
+    SEND_NEW_CODE: '/users/email/send-new-request',
+    CHANGE_USER_PASSWORD: '/users/passwords/change',
   },
 };
