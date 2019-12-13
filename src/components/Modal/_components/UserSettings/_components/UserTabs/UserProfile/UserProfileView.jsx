@@ -30,7 +30,6 @@ const UserProfileView = ({
       </div>
       <UserProfileAvatarContainer
         userData={userData}
-        isDataFetched={isDataFetched}
       />
     </div>
   </div>

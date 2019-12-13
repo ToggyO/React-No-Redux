@@ -27,7 +27,6 @@ const UserSettings = ({
   const [currentTab, setTab] = useState('Profile');
   const userDataFromLocalState = getFromLocalState('USER') || getFromSessionState('USER');
 
-
   useEffect(() => {
     fetchUserData('teams', 1, 9999);
     fetchUserData(null, 1, 9999);

@@ -3,17 +3,11 @@ import { connect } from 'react-redux';
 import UserProfileAvatarView from './UserProfileAvatarView';
 
 import { modalActions } from '@ducks/modal';
+import * as userSelectors from '@ducks/user/selectors';
 
-// const mapStateToProps = state => ({
-//   // userCompanies: userSelectors.userCompaniesSelector(state),
-//   // companiesLoader: userSelectors.userCompaniesLoaderSelector(state),
-//   loading: userSelectors.loaderSelector(state),
-//   userData: userSelectors.userDataSelector(state),
-//   userDataLoader: userSelectors.userDataLoaderSelector(state),
-//   userTeams: userSelectors.userTeamsSelector(state),
-//   teamsLoader: userSelectors.userTeamsLoaderSelector(state),
-//   isUserUpdating: userSelectors.userSpinnerSelector(state),
-// });
+const mapStateToProps = state => ({
+  modalLoading: userSelectors.userModalLoaderSelector(state),
+});
 
 const mapDispatchToProps = dispatch => ({
   modalOpen(itemKey, options) {
@@ -22,6 +16,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(UserProfileAvatarView);

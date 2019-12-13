@@ -6,7 +6,7 @@ import { style as modalWrapperStyle } from '../ModalChangeEmail/modal_wrapper_st
 
 import { responseFormikError } from '@utils/index';
 import { ERROR_CODES } from '@config/errorCodes';
-import { validateField, validateForm } from '@components/Form/validations';
+import { validateForm } from '@components/Form/validations';
 import key from '@assets/login_page/key.png';
 import { PasswordInput } from '@components/Form/PasswordInput';
 import ModalLabelWrapperContainer from '@components/Modal/_components/ModalLabelWrapper/ModalLabelWrapperContainer';
@@ -25,7 +25,7 @@ const ModalChangePasswordView = ({ onClose, errorsFromBackend, changeUserPasswor
       <Formik
         ref={formikRef}
         initialValues={{ oldPassword: '', password: '', passwordConfirm: '' }}
-        validate={validateForm.confirmPassword}
+        validate={validateForm.changePassword}
         onSubmit={values => changeUserPassword({
           oldPassword: values.oldPassword,
           password: values.password,
@@ -37,7 +37,6 @@ const ModalChangePasswordView = ({ onClose, errorsFromBackend, changeUserPasswor
               placeholder="Your password"
               imgBefore={key}
               component={PasswordInput}
-              validate={validateField.password}
               addClassWrapper="pt-3 pb-4"
               addClassInputContainer="form_background"
               addClassInput="default_input pt-4 pb-4 pl-14 pr-13"

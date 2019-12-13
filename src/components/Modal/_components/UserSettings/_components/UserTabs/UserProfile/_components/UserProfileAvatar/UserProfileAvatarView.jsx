@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import PT from 'prop-types';
 
 import s from './style.module.sass';
@@ -6,18 +6,16 @@ import s from './style.module.sass';
 import spinner from '@assets/user_profile/spinner-png.png'
 
 const UserProfileAvatarView = ({
-  userData: {
-    name = '',
-    avatar: {
-      formatUrls = {},
-    },
-  },
+  // userData: {
+  //   name = '',
+  //   avatar = {},
+  // },
+  userData,
+  modalLoading,
   modalOpen,
 }) => {
   const [isImageLoaded, setImageLoaded] = useState(false);
   const fileInputRef = useRef(null);
-
-  useEffect(() => console.log(isImageLoaded),[isImageLoaded]);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -31,17 +29,17 @@ const UserProfileAvatarView = ({
 
   return (
     <div className={s.container}>
-      <div className={s.avatar_container}>
+      <div className={`${s.avatar_container} flex justify-content-center align-items-center`}>
         <div
           className={`${s.avatar} ${s.avatar_placeholder} flex justify-content-center align-items-center`}
         >
-          {formatUrls['360']
+          {userData.avatar && userData.avatar.formatUrls['360']
             ? <img
-              src={!isImageLoaded
+              src={(!isImageLoaded || modalLoading)
                 ? spinner
-                : formatUrls['360']
+                : userData.avatar.formatUrls['360']
               } alt="ava-bomba" align="middle" onLoad={() => setImageLoaded(true)}/>
-            : name
+            : userData.name
               .replace(/ /g, '')
               .slice(0, 1)
               .toUpperCase()
@@ -68,6 +66,7 @@ const UserProfileAvatarView = ({
 
 UserProfileAvatarView.propTypes = {
   userData: PT.object,
+  modalLoading: PT.bool,
   modalOpen: PT.func,
 };
 

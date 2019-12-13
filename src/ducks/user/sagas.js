@@ -118,6 +118,7 @@ function* changeUserPassword(action) {
     const data = yield call(api.user.changeUserPassword, action.payload);
     yield put({ type: types.CHANGE_USER_PASSWORD_SUCCESS, payload: data.data });
     yield put({ type: modalTypes.MODAL_CLOSE, payload: 'ModalChangePassword' });
+    yield put({ type: modalTypes.MODAL_OPEN, payload: { modalKey: 'ModalChangePasswordSuccess' } });
   } catch (error) {
     const { response = {} } = error;
     const { data = {} } = response;

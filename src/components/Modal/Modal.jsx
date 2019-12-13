@@ -104,7 +104,7 @@ class Modal extends React.Component {
       case 'ModalCropperPreview':
         return <ModalCropperPreviewContainer onClose={this.onOpenConfirmModal} options={options}/>;
       case 'ModalChangePasswordSuccess':
-        return <ModalChangePasswordSuccess onClose={this.onOpenConfirmModal} itemKey={itemKey} withoutConfirmation="true"/>;
+        return <ModalChangePasswordSuccess onClose={this.onClickEnvironmentModalClose} itemKey={itemKey} withoutConfirmation="true"/>;
       default:
         return null;
     }

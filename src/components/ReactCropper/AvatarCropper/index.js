@@ -19,7 +19,6 @@ class AvatarCropper extends React.Component {
       .getCroppedCanvas()
       .toDataURL()
       .split(';base64,');
-    this.props.setImageLoaded(false);
     this.props.onCropDone({
       contentType: url[0].slice(5),
       bytes: url[1],
@@ -66,7 +65,6 @@ class AvatarCropper extends React.Component {
 AvatarCropper.propTypes = {
   loadedFile: PT.oneOfType([PT.object, PT.array, PT.string]),
   onCropDone: PT.func,
-  setImageLoaded: PT.func,
 };
 
 export default AvatarCropper;

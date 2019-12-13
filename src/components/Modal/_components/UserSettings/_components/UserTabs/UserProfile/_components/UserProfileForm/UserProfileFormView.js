@@ -21,7 +21,6 @@ const UserProfileFormView = ({ userData, isUserUpdating, updateUserData, modalOp
         userPassword: 'Set a unique password to protect your Squad account.',
       }}
       enableReinitialize="true"
-      // validate={validateForm.confirmSignUp}
       onSubmit={() => {}}
       render={({ errors, touched, values }) => (
         <Form>
@@ -72,9 +71,6 @@ const UserProfileFormView = ({ userData, isUserUpdating, updateUserData, modalOp
             additionalElement={<UserProfileEditButton onClick={() => modalOpen('ModalChangePassword')} />}
             disabled
           />
-          <button type="button" className="btn green" onClick={() => modalOpen('ModalChangePasswordSuccess')}>
-            test
-          </button>
         </Form>
       )}
     />
