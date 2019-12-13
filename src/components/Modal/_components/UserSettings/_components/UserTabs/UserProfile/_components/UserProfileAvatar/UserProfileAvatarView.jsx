@@ -1,7 +1,9 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import PT from 'prop-types';
 
 import s from './style.module.sass';
+
+import spinner from '@assets/user_profile/spinner-png.png'
 
 const UserProfileAvatarView = ({
   userData: {
@@ -12,24 +14,19 @@ const UserProfileAvatarView = ({
   },
   modalOpen,
 }) => {
-  const [state, setState] = useState({
-    isImageLoaded: false,
-    image: null,
-  });
+  const [isImageLoaded, setImageLoaded] = useState(false);
   const fileInputRef = useRef(null);
+
+  useEffect(() => console.log(isImageLoaded),[isImageLoaded]);
 
   const handleChange = (e) => {
     e.preventDefault();
     const file = fileInputRef.current.files[0];
     if (file) {
       const fileToDataUrl = window.URL.createObjectURL(file);
-      modalOpen('ModalCropperPreview', { loadedFile: fileToDataUrl });
+      modalOpen('ModalCropperPreview', { loadedFile: fileToDataUrl, setImageLoaded });
       fileInputRef.current.value = null;
     }
-  };
-
-  const onLoadImage = () => {
-    setState(true);
   };
 
   return (
@@ -39,7 +36,11 @@ const UserProfileAvatarView = ({
           className={`${s.avatar} ${s.avatar_placeholder} flex justify-content-center align-items-center`}
         >
           {formatUrls['360']
-            ? <img src={state.image} alt="ava-bomba" align="middle" onLoad={onLoadImage}/>
+            ? <img
+              src={!isImageLoaded
+                ? spinner
+                : formatUrls['360']
+              } alt="ava-bomba" align="middle" onLoad={() => setImageLoaded(true)}/>
             : name
               .replace(/ /g, '')
               .slice(0, 1)
@@ -62,7 +63,7 @@ const UserProfileAvatarView = ({
         </label>
       </div>
     </div>
-  )
+  );
 };
 
 UserProfileAvatarView.propTypes = {

@@ -9,7 +9,7 @@ import AvatarCropper from '@components/ReactCropper/AvatarCropper';
 
 const ModalCropperPreview = ({ onClose, options = {}, changeUserAvatar }) => (
   <ModalLabelWrapperContainer label="Crop uploaded photo" onClose={onClose} style={modalWrapperStyle}>
-    <AvatarCropper loadedFile={options.loadedFile} onCropDone={changeUserAvatar}/>
+    <AvatarCropper loadedFile={options.loadedFile} setImageLoaded={options.setImageLoaded} onCropDone={changeUserAvatar}/>
   </ModalLabelWrapperContainer>
 );
 
