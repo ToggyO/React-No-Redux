@@ -104,6 +104,10 @@ module.exports = merge(common, {
           },
         ],
       },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
     ],
   },
 });
