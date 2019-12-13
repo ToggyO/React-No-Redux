@@ -13,6 +13,7 @@ import ModalChangeEmailContainer from '@components/Modal/_components/ModalChange
 import { ModalChangePasswordContainer } from '@components/Modal/_components/ModalChangePassword';
 import { ModalCropperPreviewContainer } from '@components/Modal/_components/ModalCropperPreview';
 import { ModalChangePasswordSuccess } from '@components/Modal/_components/ModalChangePasswordSuccess';
+import { ModalFillRequiredFields } from '@components/Modal/_components/ModalFillRequiredFields';
 
 
 /* eslint-disable */
@@ -105,6 +106,8 @@ class Modal extends React.Component {
         return <ModalCropperPreviewContainer onClose={this.onOpenConfirmModal} options={options}/>;
       case 'ModalChangePasswordSuccess':
         return <ModalChangePasswordSuccess onClose={this.onClickEnvironmentModalClose} itemKey={itemKey} withoutConfirmation="true"/>;
+      case 'ModalFillRequiredFields':
+        return <ModalFillRequiredFields onClose={this.onClickEnvironmentModalClose} itemKey={itemKey} withoutConfirmation="true"/>;
       default:
         return null;
     }

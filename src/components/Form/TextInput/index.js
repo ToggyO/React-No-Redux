@@ -22,6 +22,7 @@ export const TextInput = props => {
     label,
     imgBefore,
     inputStyle,
+    wrapperStyle,
     additionalElement,
     maxLength,
     disabled,
@@ -46,7 +47,7 @@ export const TextInput = props => {
   };
 
   return (
-    <div className={`${s.text_input} ${addClassWrapper}`}>
+    <div className={`${s.text_input} ${addClassWrapper}`} style={wrapperStyle}>
       <LabelWrapper
         label={label}
         errors={errors}
@@ -107,6 +108,7 @@ TextInput.propTypes = {
   label: PT.string,
   imgBefore: PT.string,
   inputStyle: PT.object,
+  wrapperStyle: PT.object,
   touched: PT.object,
   errors: PT.object,
   additionalElement: PT.element,

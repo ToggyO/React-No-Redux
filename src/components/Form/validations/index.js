@@ -22,7 +22,7 @@ export const validateField = {
   name: value => {
     let error;
     if (!value) {
-      error = 'Required';
+      error = 'Please enter the name';
     } else if (value.length > 60) {
       error = 'Name is more than 60 characters';
     }
