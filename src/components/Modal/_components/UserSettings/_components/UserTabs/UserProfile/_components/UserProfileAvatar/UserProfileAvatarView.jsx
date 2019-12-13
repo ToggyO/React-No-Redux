@@ -1,9 +1,21 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import PT from 'prop-types';
 
 import s from './style.module.sass';
 
-const UserProfileAvatarView = ({ userName = '', modalOpen }) => {
+const UserProfileAvatarView = ({
+  userData: {
+    name = '',
+    avatar: {
+      formatUrls = {},
+    },
+  },
+  modalOpen,
+}) => {
+  const [state, setState] = useState({
+    isImageLoaded: false,
+    image: null,
+  });
   const fileInputRef = useRef(null);
 
   const handleChange = (e) => {
@@ -12,7 +24,12 @@ const UserProfileAvatarView = ({ userName = '', modalOpen }) => {
     if (file) {
       const fileToDataUrl = window.URL.createObjectURL(file);
       modalOpen('ModalCropperPreview', { loadedFile: fileToDataUrl });
+      fileInputRef.current.value = null;
     }
+  };
+
+  const onLoadImage = () => {
+    setState(true);
   };
 
   return (
@@ -21,12 +38,14 @@ const UserProfileAvatarView = ({ userName = '', modalOpen }) => {
         <div
           className={`${s.avatar} ${s.avatar_placeholder} flex justify-content-center align-items-center`}
         >
-          {userName
-            .replace(/ /g, '')
-            .slice(0, 1)
-            .toUpperCase()}
+          {formatUrls['360']
+            ? <img src={state.image} alt="ava-bomba" align="middle" onLoad={onLoadImage}/>
+            : name
+              .replace(/ /g, '')
+              .slice(0, 1)
+              .toUpperCase()
+          }
         </div>
-        {/* <img src="" alt="ava-bomba"/> */}
       </div>
       <div className={s.edit}>
         <label
@@ -47,7 +66,7 @@ const UserProfileAvatarView = ({ userName = '', modalOpen }) => {
 };
 
 UserProfileAvatarView.propTypes = {
-  userName: PT.string,
+  userData: PT.object,
   modalOpen: PT.func,
 };
 

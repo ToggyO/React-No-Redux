@@ -6,6 +6,7 @@ import s from './style.module.sass';
 import { UserProfileFormView } from './_components/UserProfileForm';
 import { UserProfileAvatarContainer } from './_components/UserProfileAvatar';
 
+
 const UserProfileView = ({
   userData,
   isDataFetched,
@@ -27,16 +28,16 @@ const UserProfileView = ({
           modalOpen={modalOpen}
         />
       </div>
-      <UserProfileAvatarContainer userName={userData.name} isDataFetched={isDataFetched}/>
+      <UserProfileAvatarContainer
+        userData={userData}
+        isDataFetched={isDataFetched}
+      />
     </div>
   </div>
 );
 
 UserProfileView.propTypes = {
-  userData: PT.oneOfType([
-    PT.object,
-    PT.arrayOf(PT.object),
-  ]),
+  userData: PT.object,
   isDataFetched: PT.bool,
   isUserUpdating: PT.bool,
   updateUserData: PT.func,

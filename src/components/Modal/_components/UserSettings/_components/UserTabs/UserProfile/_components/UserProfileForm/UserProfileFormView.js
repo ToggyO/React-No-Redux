@@ -9,15 +9,15 @@ import s from './style.module.sass';
 import { TextInput } from '@components/Form/TextInput';
 import { Icon } from '@components/Icon';
 
-const UserProfileFormView = ({ userData, isDataFetched, isUserUpdating, updateUserData, modalOpen }) => {
+const UserProfileFormView = ({ userData, isUserUpdating, updateUserData, modalOpen }) => {
   const formikRef = useRef(null);
 
   return (
     <Formik
       ref={formikRef}
       initialValues={{
-        name: !isDataFetched ? 'User name' : userData.name,
-        userEmail: !isDataFetched ? 'User email' : userData.email,
+        name: userData.name,
+        userEmail: userData.email,
         userPassword: 'Set a unique password to protect your Squad account.',
       }}
       enableReinitialize="true"
@@ -83,7 +83,6 @@ const UserProfileFormView = ({ userData, isDataFetched, isUserUpdating, updateUs
 
 UserProfileFormView.propTypes = {
   userData: PT.oneOfType([PT.object, PT.arrayOf(PT.object)]),
-  isDataFetched: PT.bool,
   isUserUpdating: PT.bool,
   updateUserData: PT.func,
   modalOpen: PT.func,

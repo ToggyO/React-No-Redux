@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import PT from 'prop-types';
 import { Field, Form, Formik } from 'formik';
 
+import { style as modalWrapperStyle } from '../ModalChangeEmail/modal_wrapper_style';
 
 import { responseFormikError } from '@utils/index';
 import { ERROR_CODES } from '@config/errorCodes';
@@ -20,7 +21,7 @@ const ModalChangePasswordView = ({ onClose, errorsFromBackend, changeUserPasswor
   useEffect(() => () => clearUserErrors(), []);
 
   return (
-    <ModalLabelWrapperContainer label="Change password" onClose={onClose}>
+    <ModalLabelWrapperContainer label="Change password" onClose={onClose} style={modalWrapperStyle}>
       <Formik
         ref={formikRef}
         initialValues={{ oldPassword: '', password: '', passwordConfirm: '' }}

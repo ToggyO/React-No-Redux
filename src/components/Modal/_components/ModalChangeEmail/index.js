@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import PT from 'prop-types';
 import { Field, Form, Formik } from 'formik';
 
+import { style as modalWrapperStyle } from './modal_wrapper_style';
+
 import { responseFormikError } from '@utils/index';
 import { ERROR_CODES } from '@config/errorCodes';
 import mail from '@assets/login_page/email_icon.png';
@@ -21,7 +23,7 @@ export const ModalChangeEmail = ({ onClose, errorsFromBackend, changeUserEmailRe
   useEffect(() => () => clearUserErrors(), []);
 
   return (
-    <ModalLabelWrapperContainer label="Change email" onClose={onClose}>
+    <ModalLabelWrapperContainer label="Change email" onClose={onClose} style={modalWrapperStyle}>
       <Formik
         ref={formikRef}
         initialValues={{ newEmail: '', password: '' }}

@@ -63,7 +63,7 @@ function* changeUserEmailRequest(action) {
       payload: `Confirmation code is sent to ${action.payload.newEmail}`,
     });
     yield put({ type: modalTypes.MODAL_CLOSE, payload: 'ModalChangeEmail' });
-    yield put({ type: modalTypes.MODAL_OPEN, payload: 'ModalConfirmEmailChange' });
+    yield put({ type: modalTypes.MODAL_OPEN, payload: { modalKey: 'ModalConfirmEmailChange' } });
   } catch (error) {
     const { response = {} } = error;
     const { data = {} } = response;

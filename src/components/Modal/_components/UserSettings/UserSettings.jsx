@@ -9,6 +9,8 @@ import  {UserProfileView } from './_components/UserTabs/UserProfile';
 import { Preloader } from '@components/Preloader';
 import CustomScrollbar from '@components/Scrollbar';
 import { UserProfileTabsWrapper } from '@components/Modal/_components/UserSettings/_components/UserTabs/UserProfileTabsWrapper';
+import { getFromLocalState } from '@services/ls';
+import { getFromSessionState } from '@services/ss';
 
 
 const UserSettings = ({
@@ -21,10 +23,10 @@ const UserSettings = ({
   updateUserData,
   ...rest
 }) => {
-
-  // const userInfo = getFromLocalState('USER') || getFromSessionState('USER');
   const [isDataFetched, setDataFetched] = useState(false);
   const [currentTab, setTab] = useState('Profile');
+  const userDataFromLocalState = getFromLocalState('USER') || getFromSessionState('USER');
+
 
   useEffect(() => {
     fetchUserData('teams', 1, 9999);
@@ -44,7 +46,7 @@ const UserSettings = ({
         return <div>Manage users</div>;
       case 'Profile':
         return <UserProfileView
-          userData={userData}
+          userData={userDataFromLocalState || userData}
           isDataFetched={isDataFetched}
           isUserUpdating={isUserUpdating}
           updateUserData={updateUserData}

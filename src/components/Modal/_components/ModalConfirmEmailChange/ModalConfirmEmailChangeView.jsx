@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import PT from 'prop-types';
 
+import { style as modalWrapperStyle } from '../ModalChangeEmail/modal_wrapper_style'
+
 import { responseFormikError } from '@utils/index';
 import { ERROR_CODES } from '@config/errorCodes';
 import ModalLabelWrapperContainer from '@components/Modal/_components/ModalLabelWrapper/ModalLabelWrapperContainer';
@@ -21,7 +23,7 @@ const ModalConfirmEmailChangeView = ({
   useEffect(() => () => clearUserErrors(),[]);
 
   return (
-    <ModalLabelWrapperContainer label="Confirmation code" onClose={onClose}>
+    <ModalLabelWrapperContainer label="Confirmation code" onClose={onClose} style={modalWrapperStyle}>
       <ConfirmEmailInput
         name="token"
         maxLength={6}

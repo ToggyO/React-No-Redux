@@ -2,6 +2,7 @@
 import { store as reduxStore } from './store';
 
 import { authTypes } from '@ducks/auth';
+import { userTypes } from '@ducks/user';
 import { writeToLocalState } from '@services/ls';
 import { userLogout } from '@services/auth';
 import { LOCAL_STORAGE_KEYS } from '@config';
@@ -42,9 +43,14 @@ export const saveUserData = store => next => action => {
 };
 
 export const updateUsersData = store => next => action => {
-  if (action.type === authTypes.SET_USER_NAME_SUCCESS) {
-    const { data } = action.payload.data;
-    writeToLocalState(LOCAL_STORAGE_KEYS.USER, data);
+  if (
+    action.type === authTypes.SET_USER_NAME_SUCCESS ||
+    action.type === userTypes.UPDATE_USER_DATA_SUCCESS ||
+    action.type === userTypes.CONFIRM_NEW_USER_EMAIL_SUCCESS ||
+    action.type === userTypes.CHANGE_USER_AVATAR_SUCCESS
+  ) {
+    writeToLocalState(LOCAL_STORAGE_KEYS.USER, action.payload);
+    writeToSessionState(LOCAL_STORAGE_KEYS.USER, action.payload);
   }
   return next(action);
 };

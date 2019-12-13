@@ -130,7 +130,7 @@ class Modal extends React.Component {
             id={`modal-window-${zIndex}`}
             className={`${s.modalWindow} ${this.state.isOpen ? s.modalWindow_shown : ''}`}
             style={{ zIndex: 1001 + zIndex }}
-            onClick={e => this.onRenderModalContent().props.withoutConfirmation
+            onMouseDown={e => this.onRenderModalContent().props.withoutConfirmation
               ? this.onOverlayClickWithoutConfirmation(e, itemKey)
               : this.onOverlayClick(e)}
             onTouchStart={e => this.onRenderModalContent().props.withoutConfirmation
