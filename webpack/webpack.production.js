@@ -89,7 +89,8 @@ module.exports = merge(common, {
         ],
       },
       {
-        test: /\.(scss|sass|css)$/,
+        test: /\.s(a|c)ss$/,
+        // test: /\.(scss|sass|css)$/,
         exclude: /\.module.(s(a|c)ss)$/,
         use: [
           MiniCssExtractPlugin.loader,
