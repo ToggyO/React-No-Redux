@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import SidebarWrapper from './SidebarWrapper';
 
 import { modalActions } from '@ducks/modal';
+import { sidebarActions } from '@ducks/sidebar';
 
 // const mapStateToProps = state => ({
 //   modal: modalSelectors.modalKeySelector(state),
@@ -11,6 +12,9 @@ import { modalActions } from '@ducks/modal';
 const mapDispatchToProps = dispatch => ({
   modalOpen(key) {
     dispatch(modalActions.modalOpen(key));
+  },
+  socketConnectTest() {
+    dispatch(sidebarActions.socketConnectTest());
   },
 });
 

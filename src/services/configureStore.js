@@ -9,9 +9,11 @@ import auth from '@ducks/auth';
 import modal from '@ducks/modal';
 import global from '@ducks/global';
 import user from '@ducks/user';
+import sidebar from '@ducks/sidebar';
 
 import { authSagas } from '@ducks/auth';
 import { userSagas } from '@ducks/user';
+import { sidebarSagas } from '@ducks/sidebar';
 
 // console.log(auth);
 // console.log(modal);
@@ -19,11 +21,12 @@ import { userSagas } from '@ducks/user';
 // console.log(user);
 // console.log(meSagas);
 export default function configureStore() {
-  const reducer = combineReducers({ auth, modal, global, user });
+  const reducer = combineReducers({ auth, modal, global, user, sidebar });
 
   const sagas = {
     ...authSagas,
     ...userSagas,
+    ...sidebarSagas,
   };
   const sagaMiddleware = createSagaMiddleware();
   const middlewares = [sagaMiddleware, saveUserData, updateUsersData, clearUserData, saveRegistrationStep];
