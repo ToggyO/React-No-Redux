@@ -40,12 +40,15 @@ class AvatarCropper extends React.Component {
           aspectRatio={1}
           guides={true}
           responsive={true}
+          restore={true}
           modal={true}
           center={true}
           autoCrop={true}
           autoCropArea={1}
           zoomable={false}
           viewMode={1}
+          minCropBoxWidth={100}
+          minCropBoxHeight={100}
           // preview=".img-preview"
         />
         <div className="react-cropper__button flex justify-content-center mt-6">

@@ -46,3 +46,12 @@ export const clearUserErrors = () => ({
 export const clearUserExtra = () => ({
   type: types.CLEAR_USER_EXTRA,
 });
+
+// User loader
+export const userLoaderStart = () => ({
+  type: types.USER_PRELOADER_START,
+});
+
+export const userLoaderStop = () => ({
+  type: types.USER_PRELOADER_STOP,
+});

@@ -20,6 +20,7 @@ const initialState = {
 export default function user(state = initialState, action) {
   switch (action.type) {
     case types.FETCH_USER_DATA_REQUEST:
+    case types.USER_PRELOADER_START:
       return { ...state, loading: true };
     case types.UPDATE_USER_DATA_REQUEST:
       return { ...state, spinner: true };
@@ -53,6 +54,8 @@ export default function user(state = initialState, action) {
           user: action.payload,
         },
       };
+    case types.USER_PRELOADER_STOP:
+      return { ...state, loading: false };
     case types.SEND_NEW_CODE_TO_CHANGE_EMAIL_SUCCESS:
     case types.CHANGE_USER_PASSWORD_SUCCESS:
       return { ...state, modalLoading: false };

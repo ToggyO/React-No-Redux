@@ -35,7 +35,7 @@ const buttons = [
 const SidebarWrapper = ({
   children,
   modalOpen,
-  ...rest
+  // ...rest
 }) => {
   const [isSidebarOpened, toggleSidebarOpen] = useState(true);
 
@@ -62,7 +62,7 @@ const SidebarWrapper = ({
   // const url = '/ws/projects';
   // const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl9pZCI6IjJiZTBiYzIxOTM3MzRmY2E4YWNmZTkzYTJkYTFjYzllIiwidXNlcl9pZCI6ImNhOTdiYTM2MzVlODQ0ZWY4NDc3NGZlMDYyM2E3YmFiIiwicm9sZV9pZCI6ImJmMjJhM2ZkZjdlYjQ4NzFiODRhNGQ4ZmY1MWQwZjdkIiwiZXhwIjoxNTc2MjQxNDQ4LCJpc3MiOiJTcXVhZCIsImF1ZCI6IklPIn0.M9Cved1ZSwMbL9muu95vgBq6q2UpfpFrtknJ2RNDOn4';
   // createSocketConnection(url, token);
-  rest.socketConnectTest('3307dec8-99d0-46c4-9935-4421230d6599');
+  // rest.socketConnectTest('3307dec8-99d0-46c4-9935-4421230d6599');
 
   return (
     <div className={`${s.wrapper} flex`}>

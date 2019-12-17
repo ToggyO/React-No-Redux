@@ -32,6 +32,9 @@ const ModalChangePasswordView = ({ onClose, errorsFromBackend, changeUserPasswor
         })}
         render={({ errors, touched, isValid }) => (
           <Form>
+            {errors.global && (
+              <div className="formik-error error-label text-align-center">Password is invalid</div>
+            )}
             <Field
               name="oldPassword"
               placeholder="Your password"
