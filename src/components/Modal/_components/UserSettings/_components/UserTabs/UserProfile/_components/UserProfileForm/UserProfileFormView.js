@@ -86,6 +86,15 @@ const UserProfileFormView = ({ userData, isUserUpdating, updateUserData, modalOp
             additionalElement={<UserProfileEditButton onClick={() => modalOpen('ModalChangePassword')} />}
             disabled
           />
+          <div className={s.logout}>
+            <button
+              type="button"
+              className="btn primary-outlined rounded pt-2 pb-2"
+              onClick={() => modalOpen('ModalLogoutConfirmation')}
+            >
+              Log out
+            </button>
+          </div>
         </Form>
       )}
     />

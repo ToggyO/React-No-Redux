@@ -14,6 +14,8 @@ import { ModalChangePasswordContainer } from '@components/Modal/_components/Moda
 import { ModalCropperPreviewContainer } from '@components/Modal/_components/ModalCropperPreview';
 import { ModalChangePasswordSuccess } from '@components/Modal/_components/ModalChangePasswordSuccess';
 import { ModalFillRequiredFields } from '@components/Modal/_components/ModalFillRequiredFields';
+import { ModalLogoutConfirmationView }
+  from '@components/Modal/_components/ModalLogoutConfirmation';
 
 
 /* eslint-disable */
@@ -93,7 +95,8 @@ class Modal extends React.Component {
       case 'Handler500':
         return <Handler500 onClose={this.onClickEnvironmentModalClose} itemKey={itemKey} withoutConfirmation="true"/>;
       case 'DeprecatedLinkMessage':
-        return <DeprecatedLinkMessage onClose={this.onClickEnvironmentModalClose} itemKey={itemKey} withoutConfirmation="true"/>;
+        return <DeprecatedLinkMessage onClose={this.onClickEnvironmentModalClose} itemKey={itemKey}
+                                      withoutConfirmation="true"/>;
       case 'UserSettings':
         return <UserSettingsContainer onClose={this.onOpenConfirmModal}/>;
       case 'ModalChangeEmail':
@@ -105,9 +108,14 @@ class Modal extends React.Component {
       case 'ModalCropperPreview':
         return <ModalCropperPreviewContainer onClose={this.onOpenConfirmModal} options={options}/>;
       case 'ModalChangePasswordSuccess':
-        return <ModalChangePasswordSuccess onClose={this.onClickEnvironmentModalClose} itemKey={itemKey} withoutConfirmation="true"/>;
+        return <ModalChangePasswordSuccess onClose={this.onClickEnvironmentModalClose} itemKey={itemKey}
+                                           withoutConfirmation="true"/>;
       case 'ModalFillRequiredFields':
-        return <ModalFillRequiredFields onClose={this.onClickEnvironmentModalClose} itemKey={itemKey} withoutConfirmation="true"/>;
+        return <ModalFillRequiredFields onClose={this.onClickEnvironmentModalClose} itemKey={itemKey}
+                                        withoutConfirmation="true"/>;
+      case 'ModalLogoutConfirmation':
+        return <ModalLogoutConfirmationView onClose={this.onClickEnvironmentModalClose} itemKey={itemKey}
+                                                 withoutConfirmation="true"/>;
       default:
         return null;
     }

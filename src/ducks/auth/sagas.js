@@ -56,7 +56,7 @@ function* signUpWithGoogle(action) {
     //   "isSuccess": true,
     //   "code": "success"
     // }
-    const data = yield call(api.auth.signUpWithGoogle, action.payload);
+    const data = yield call(api.auth.loginWithGoogle, action.payload);
     yield put({ type: authTypes.SIGNUP_WITH_EMAIL_SUCCESS, payload: data });
     yield put({ type: authTypes.CLEAR_STORE_ERRORS });
     yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.ENTER_NAME);
