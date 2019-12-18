@@ -13,6 +13,7 @@ const initialState = {
   spinner: false,
   loading: false,
   modalLoading: false,
+  avatarLoading: false,
   errors: [],
   extra: '',
 };
@@ -28,8 +29,9 @@ export default function user(state = initialState, action) {
     case types.CONFIRM_NEW_USER_EMAIL_REQUEST:
     case types.SEND_NEW_CODE_TO_CHANGE_EMAIL_REQUEST:
     case types.CHANGE_USER_PASSWORD_REQUEST:
-    case types.CHANGE_USER_AVATAR_REQUEST:
       return { ...state, modalLoading: true };
+    case types.CHANGE_USER_AVATAR_REQUEST:
+      return { ...state, modalLoading: true, avatarLoading: true };
     case types.FETCH_USER_DATA_SUCCESS: {
       const { data, dataType } = action.payload;
       return {
@@ -49,6 +51,7 @@ export default function user(state = initialState, action) {
         ...state,
         spinner: false,
         modalLoading: false,
+        avatarLoading: false,
         data: {
           ...state.data,
           user: action.payload,
@@ -61,15 +64,8 @@ export default function user(state = initialState, action) {
       return { ...state, modalLoading: false };
     case types.CHANGE_USER_EMAIL_SUCCESS:
       return { ...state, modalLoading: false, extra: action.payload };
-
-    // case types.RESTORE_PASSWORD_SUCCESS:
-    //   return { ...state, loading: false, extra: action.payload };
-    // case types.REGISTRATION_DONE_SUCCESS: {
-    //   const { data } = action.payload;
-    //   return { ...state, loading: false, data: { ...state.data, registrationStep: data.registrationStep } };
-    // }
-    // case types.AUTH_PRELOADER_STOP:
-    //   return { ...state, loading: false };
+    case types.AVATAR_PRELOADER_STOP:
+      return { ...state, avatarLoading: false };
     case types.FETCH_USER_DATA_ERROR:
     case types.UPDATE_USER_DATA_ERROR:
     case types.CHANGE_USER_EMAIL_ERROR:
@@ -82,6 +78,7 @@ export default function user(state = initialState, action) {
         loading: false,
         spinner: false,
         modalLoading: false,
+        avatarLoading: false,
         errors: action.payload,
       };
     case types.CLEAR_USER_ERRORS:

@@ -15,6 +15,11 @@ export const userModalLoaderSelector = createSelector(
   errors => errors
 );
 
+export const userAvatarLoaderSelector = createSelector(
+  state => state.user.avatarLoading,
+  errors => errors
+);
+
 export const userDataSelector = createSelector(
   state => state.user.data.user,
   errors => errors

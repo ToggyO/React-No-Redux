@@ -33,7 +33,7 @@ const SetNewPasswordFormView = ({
   const validateCode = async () => {
     try {
       loaderStart();
-      await superaxios.get(`${API_URL.VALIDATE_LINK_CODE}?code=${queries.code}`);
+      await superaxios.get(`${API_URL.AUTH.VALIDATE_LINK_CODE}?code=${queries.code}`);
       loaderStop();
     } catch (error) {
       loaderStop();

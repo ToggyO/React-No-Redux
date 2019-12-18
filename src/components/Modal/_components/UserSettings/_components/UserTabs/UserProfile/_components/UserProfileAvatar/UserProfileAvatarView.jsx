@@ -12,7 +12,7 @@ const UserProfileAvatarView = ({
   //   avatar = {},
   // },
   userData,
-  modalLoading,
+  avatarLoading,
   modalOpen,
   showGlobalError,
   userLoaderStart,
@@ -70,7 +70,7 @@ const UserProfileAvatarView = ({
         >
           {userData.avatar && userData.avatar.formatUrls['360']
             ? <img
-              src={(!isImageLoaded || modalLoading)
+              src={(!isImageLoaded || avatarLoading)
                 ? spinner
                 : userData.avatar.formatUrls['360']
               } alt="ava-bomba" align="middle" onLoad={() => setImageLoaded(true)}/>
@@ -101,7 +101,7 @@ const UserProfileAvatarView = ({
 
 UserProfileAvatarView.propTypes = {
   userData: PT.object,
-  modalLoading: PT.bool,
+  avatarLoading: PT.bool,
   modalOpen: PT.func,
   showGlobalError: PT.func,
   userLoaderStart: PT.func,

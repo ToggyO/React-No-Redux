@@ -8,7 +8,7 @@ import * as userSelectors from '@ducks/user/selectors';
 import * as userActions from '@ducks/user/actions';
 
 const mapStateToProps = state => ({
-  modalLoading: userSelectors.userModalLoaderSelector(state),
+  avatarLoading: userSelectors.userAvatarLoaderSelector(state),
 });
 
 const mapDispatchToProps = dispatch => ({

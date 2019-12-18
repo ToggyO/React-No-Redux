@@ -55,3 +55,11 @@ export const userLoaderStart = () => ({
 export const userLoaderStop = () => ({
   type: types.USER_PRELOADER_STOP,
 });
+
+export const avatarLoaderStart = () => ({
+  type: types.AVATAR_PRELOADER_START,
+});
+
+export const avatarLoaderStop = () => ({
+  type: types.AVATAR_PRELOADER_STOP,
+});
