@@ -21,7 +21,7 @@ const UserProfileAvatarView = ({
   const [isImageLoaded, setImageLoaded] = useState(false);
   const fileInputRef = useRef(null);
 
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
     e.preventDefault();
 
     const reader = new FileReader();
@@ -32,34 +32,39 @@ const UserProfileAvatarView = ({
       const availableType = file.type === 'image/jpg' || file.type === 'image/jpeg' || file.type === 'image/png';
 
       if (!availableSize) {
-        showGlobalError('Profile picture is more than 10 Mb');
+        showGlobalError('Profile picture should be max 10 Mb');
         fileInputRef.current.value = null;
         return;
       }
       if (!availableType) {
-        showGlobalError('Invalid profile picture format');
+        showGlobalError('Profile picture should be jpeg, jpg or png');
         fileInputRef.current.value = null;
         return;
       }
-      reader.readAsDataURL(file);
-      reader.onloadstart = () => {
-        userLoaderStart();
+
+      const img = document.createElement('img');
+      img.onload = await function () {
+        // eslint-disable-next-line react/no-this-in-sfc
+        if (this.width < 100 || this.height < 100) {
+          showGlobalError('Profile picture should be at least 100x100 pixels');
+          fileInputRef.current.value = null;
+          return;
+        }
+        reader.readAsDataURL(file);
+        reader.onloadstart = () => {
+          userLoaderStart();
+        };
+        reader.onloadend = () => {
+          modalOpen('ModalCropperPreview', { loadedFile: reader.result });
+          userLoaderStop();
+        };
       };
-      reader.onloadend = () => {
-        modalOpen('ModalCropperPreview', { loadedFile: reader.result });
-        userLoaderStop();
-      };
+      const _URL = window.URL || window.webkitURL;
+      img.src = _URL.createObjectURL(file);
     } else {
       showGlobalError('Profile picture is more than 10 Mb');
     }
     fileInputRef.current.value = null;
-    // if (file && file.size < OTHER.AVATAR_MAX_SIZE) {
-    //   const fileToDataUrl = window.URL.createObjectURL(file);
-    //   modalOpen('ModalCropperPreview', { loadedFile: fileToDataUrl, setImageLoaded });
-    //   fileInputRef.current.value = null;
-    // } else {
-    //   showGlobalError('Profile picture is more than 10 Mb')
-    // }
   };
 
   return (

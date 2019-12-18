@@ -47,6 +47,8 @@ class AvatarCropper extends React.Component {
           autoCropArea={1}
           zoomable={false}
           viewMode={1}
+          minCanvasWidth={100}
+          minCanvasHeight={100}
           minCropBoxWidth={100}
           minCropBoxHeight={100}
           // preview=".img-preview"

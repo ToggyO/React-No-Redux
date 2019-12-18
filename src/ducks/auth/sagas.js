@@ -59,7 +59,8 @@ function* signUpWithGoogle(action) {
     const data = yield call(api.auth.loginWithGoogle, action.payload);
     yield put({ type: authTypes.SIGNUP_WITH_EMAIL_SUCCESS, payload: data });
     yield put({ type: authTypes.CLEAR_STORE_ERRORS });
-    yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.ENTER_NAME);
+    yield call(historyRedirect, ROUTES.ROOT);
+    // yield call(historyRedirect, ROUTES.AUTH.ROOT + ROUTES.AUTH.ENTER_NAME);
   } catch (error) {
     // {
     //   "message": "Forbidden",
