@@ -6,7 +6,9 @@ import s from './style.module.sass';
 export const SidebarTeamsProjectsHeadline = ({ isSidebarOpened, isOpen, color, teamName }) => (
   <>
     <div
-      className={`${s.circle} flex justify-content-center align-items-center`}
+      className={`${s.circle} ${
+        !isSidebarOpened ? s.align_center : ''
+      } flex justify-content-center align-items-center`}
       style={{ backgroundColor: color }}
     >
       <span className={`${s.team_name}`}>

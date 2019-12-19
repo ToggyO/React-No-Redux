@@ -22,7 +22,12 @@ const renderProjectSettings = () => (
   </>
 );
 
-export const SidebarTeamsProject = ({ isSidebarOpened, color = 'orange', teamName = '   Project' }) => {
+export const SidebarTeamsProject = ({
+  isSidebarOpened,
+  userProject: {
+    project: { name = '', colorHex = '#82ABFB' },
+  },
+}) => {
   const [isOpen, toggleOpen] = useState(false);
   const [showSettings, toggleShowSettings] = useState(false);
 
@@ -39,14 +44,14 @@ export const SidebarTeamsProject = ({ isSidebarOpened, color = 'orange', teamNam
           <div
             className={`${s.tittle_container} ${
               !isSidebarOpened ? s.float_left : ''
-            } flex justify-content-center align-items-center relative`}
+            } flex align-items-center relative`}
             onClick={() => toggleOpen(!isOpen)}
           >
             <SidebarTeamsProjectsHeadline
               isSidebarOpened={isSidebarOpened}
               isOpen={isOpen}
-              color={color}
-              teamName={teamName}
+              color={colorHex}
+              teamName={name}
             />
           </div>
           {isSidebarOpened && (
@@ -87,6 +92,7 @@ export const SidebarTeamsProject = ({ isSidebarOpened, color = 'orange', teamNam
 
 SidebarTeamsProject.propTypes = {
   isSidebarOpened: PT.bool,
-  color: PT.string,
-  teamName: PT.string,
+  userProject: PT.object,
+  colorHex: PT.string,
+  name: PT.string,
 };

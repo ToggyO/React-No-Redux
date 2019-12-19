@@ -1,4 +1,4 @@
-/* Test socket connection */
-export const SOCKET_CONNECT_REQUEST = 'socket/SOCKET_CONNECT_REQUEST';
-export const SOCKET_CONNECT_SUCCESS = 'socket/SOCKET_CONNECT_SUCCESS';
-export const SOCKET_CONNECT_ERROR = 'socket/SOCKET_CONNECT_ERROR';
+/* Get teams of user */
+// export const FETCH_USER_DATA_REQUEST = 'user/FETCH_USER_DATA_REQUEST';
+// export const FETCH_USER_DATA_SUCCESS = 'user/FETCH_USER_DATA_SUCCESS';
+// export const FETCH_USER_DATA_ERROR = 'user/FETCH_USER_DATA_ERROR';

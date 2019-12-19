@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PT from 'prop-types';
 
 import s from './style.module.sass';
@@ -10,6 +10,10 @@ import { LinkButton } from '@components/SidebarWrapper/_components/LinkButton';
 import { TeamsButtons } from '@components/SidebarWrapper/_components/TeamsButtons';
 import { SidebarTeamsProject } from '@components/SidebarWrapper/_components/SidebarTeamsProject';
 import CustomScrollbar from '@components/Scrollbar';
+import { getFromLocalState } from '@services/ls';
+import { getFromSessionState } from '@services/ss';
+import { LOCAL_STORAGE_KEYS } from '@config';
+import { API_URL } from '@config/apiUrl';
 
 
 const buttons = [
@@ -35,34 +39,25 @@ const buttons = [
 const SidebarWrapper = ({
   children,
   modalOpen,
-  // ...rest
+  fetchUserData,
+  userProjects = [],
+  ...rest
 }) => {
   const [isSidebarOpened, toggleSidebarOpen] = useState(true);
 
-  // const connection = new signalR.HubConnectionBuilder()
-  //   .withUrl('http://45.61.48.176:5005/api/ws/projects', {
-  //     skipNegotiation: true,
-  //     transport: signalR.HttpTransportType.WebSockets,
-  //     accessTokenFactory: () => 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl9pZCI6IjJiZTBiYzIxOTM3MzRmY2E4YWNmZTkzYTJkYTFjYzllIiwidXNlcl9pZCI6ImNhOTdiYTM2MzVlODQ0ZWY4NDc3NGZlMDYyM2E3YmFiIiwicm9sZV9pZCI6ImJmMjJhM2ZkZjdlYjQ4NzFiODRhNGQ4ZmY1MWQwZjdkIiwiZXhwIjoxNTc2MjQxNDQ4LCJpc3MiOiJTcXVhZCIsImF1ZCI6IklPIn0.M9Cved1ZSwMbL9muu95vgBq6q2UpfpFrtknJ2RNDOn4'
-  //   })
-  //   .withAutomaticReconnect([])
-  //   .configureLogging(signalR.LogLevel.Information)
-  //   .build();
-  //
-  //
-  // connection.on('BroadcastProjects', data => {
-  //   console.log(data);
-  // });
+  const connectAndSubscribe = async () => {
+    rest.socketConnect(API_URL.SOCKET.NOTIFICATIONS);
+    setTimeout(() => rest.subscribeOnNotificationsChannel('SidebarSubscribeTeam', 'SidebarBroadcast', {
+      TeamId: '3307dec8-99d0-46c4-9935-4421230d6599',
+      Token: getFromLocalState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN) ||
+      getFromSessionState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN),
+    }), 3000);
+  };
 
-  // connection.start().then(() => console.log('Connected'));
-
-  // connection.start()
-  //   .then(() => connection.invoke('BroadcastProjects', 'Hello'));
-
-  // const url = '/ws/projects';
-  // const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl9pZCI6IjJiZTBiYzIxOTM3MzRmY2E4YWNmZTkzYTJkYTFjYzllIiwidXNlcl9pZCI6ImNhOTdiYTM2MzVlODQ0ZWY4NDc3NGZlMDYyM2E3YmFiIiwicm9sZV9pZCI6ImJmMjJhM2ZkZjdlYjQ4NzFiODRhNGQ4ZmY1MWQwZjdkIiwiZXhwIjoxNTc2MjQxNDQ4LCJpc3MiOiJTcXVhZCIsImF1ZCI6IklPIn0.M9Cved1ZSwMbL9muu95vgBq6q2UpfpFrtknJ2RNDOn4';
-  // createSocketConnection(url, token);
-  // rest.socketConnectTest('3307dec8-99d0-46c4-9935-4421230d6599');
+  useEffect(() => {
+    fetchUserData('projects', 1, 9999);
+    connectAndSubscribe();
+  },[]);
 
   return (
     <div className={`${s.wrapper} flex`}>
@@ -98,11 +93,11 @@ const SidebarWrapper = ({
             borderRadius: 2,
           }}
         >
-          <SidebarTeamsProject isSidebarOpened={isSidebarOpened}/>
-          <SidebarTeamsProject isSidebarOpened={isSidebarOpened}/>
-          <SidebarTeamsProject isSidebarOpened={isSidebarOpened}/>
-          <SidebarTeamsProject isSidebarOpened={isSidebarOpened}/>
-          <SidebarTeamsProject isSidebarOpened={isSidebarOpened}/>
+          {userProjects.map(item => <SidebarTeamsProject
+            key={item.projectId}
+            userProject={item}
+            isSidebarOpened={isSidebarOpened}
+          />)}
         </CustomScrollbar>
         <div className={`${s.footer}`}>
           <TeamsButtons isOpen={isSidebarOpened} modalOpen={modalOpen}/>
@@ -115,6 +110,8 @@ const SidebarWrapper = ({
 
 SidebarWrapper.propTypes = {
   modalOpen: PT.func,
+  fetchUserData: PT.func,
+  userProjects: PT.arrayOf(PT.object),
   // modal: PT.arrayOf(PT.string),
 };
 

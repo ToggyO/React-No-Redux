@@ -1,10 +1,9 @@
 import sidebar from './reducer';
 
-import * as sidebarTypes from './types';
 import * as sidebarActions from './actions';
-import * as sidebarSagas from './sagas';
+import * as sidebarTypes from './types';
 import * as sidebarSelectors from './selectors';
-import * as sidebarSockets from './sockets';
+import * as sidebarSagas from './sagas';
 
-export { sidebarTypes, sidebarActions, sidebarSagas, sidebarSelectors, sidebarSockets };
+export { sidebarActions, sidebarTypes, sidebarSelectors, sidebarSagas };
 export default sidebar;

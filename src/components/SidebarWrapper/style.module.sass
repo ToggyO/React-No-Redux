@@ -3,14 +3,16 @@
   position: relative
 
 .sidebar
-  width: 88px
+  width: 100%
+  max-width: 88px
   background-color: $primary_color
   box-shadow: 0 2px 12px 0 rgba(0,0,0,0.44)
   z-index: 15
-  transition: width .1s ease-in-out
+  transition: max-width .1s ease-in-out
 
 .sidebar_shown
-  width: 270px
+  width: 100%
+  max-width: 270px
 
 .logo_container
   min-height: 80px
@@ -58,7 +60,7 @@
   min-height: 215px
 
 .children
-  width: 100%
+  width: 100vw
 
 
 

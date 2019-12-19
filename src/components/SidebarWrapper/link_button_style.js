@@ -2,7 +2,7 @@ export const style = {
   link: {
     display: 'flex',
     flexDirection: 'column',
-    width: 67,
+    width: 87,
     // width: '100%',
     minWidth: '67px',
     // maxWidth: '33%',
