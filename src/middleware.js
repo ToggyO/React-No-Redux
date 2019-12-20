@@ -13,6 +13,7 @@ import { modalTypes } from '@ducks/modal';
 import { SOCKET_METHODS } from '@config/socketMethods';
 import { updateUserProjects } from '@utils/index';
 
+// cr-20 switch(action.type) и погнали
 export const saveUserData = store => next => action => {
   if (
     action.type === authTypes.SIGNUP_WITH_EMAIL_SUCCESS ||
@@ -21,9 +22,9 @@ export const saveUserData = store => next => action => {
     action.type === authTypes.LOGIN_IN_WITH_GOOGLE_REMEMBER_ME_SUCCESS ||
     action.type === authTypes.SET_PASSWORD_INVITE_SUCCESS
   ) {
-    const { user, token, registrationStep } = action.payload.data;
+    const { user, token, registrationStep } = action.payload.data; // например remember: true false
     const { accessToken, refreshToken } = token;
-
+    // cr-20 надо абстрагировать в одну функцию, которая по флагу remember будет решать куда писать - в local или session (избавишься от экшенов REMEMBER_ME), и вызывать ее один раз, передавая объект свойств для записи пачкой (функция так же может принимать одно свойство, не оборачивая в объект). writeToState(properties, remember)
     writeToLocalState(LOCAL_STORAGE_KEYS.USER, user);
     writeToLocalState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN, accessToken);
     writeToLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN, refreshToken);
