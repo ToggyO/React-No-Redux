@@ -104,10 +104,18 @@ export const makeRequestString = obj => {
 export const firstLetterToUpperCase = text => `${text[0].toUpperCase()}${text.slice(1)}`;
 
 export const updateUserProjects = data => {
-  const { changesType, projectId } = data;
+  const { changesType, teamId, projectId } = data;
   switch (changesType) {
-    case 1 || 0:
-      return store.dispatch({ type: userTypes.UPDATE_USER_PROJECTS_REQUEST, payload: projectId });
+    case 1:
+      return store.dispatch({
+        type: userTypes.UPDATE_USER_PROJECTS_REQUEST,
+        payload: { dataType: 'projects', projectId, teamId },
+      });
+    case 0:
+      return store.dispatch({
+        type: userTypes.UPDATE_USER_PROJECTS_REQUEST,
+        payload: { dataType: 'projects', projectId, teamId },
+      });
     case -1:
       return store.dispatch({ type: userTypes.CUT_USER_PROJECT, payload: projectId });
     default:

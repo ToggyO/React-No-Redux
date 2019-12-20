@@ -58,30 +58,32 @@ export default function user(state = initialState, action) {
         },
       };
     case types.UPDATE_USER_PROJECTS_SUCCESS: {
-      const { id } = action.payload;
-      const filteredProjects = state.data.projects.items.filter(item => item !== id);
-      const updatedProjects = filteredProjects.unshift(action.payload);
+      const { items } = action.payload;
+      const filteredProjects = state.data.projects.items.filter(
+        item => item.projectId !== items[0].projectId
+      );
+      filteredProjects.push(items[0]);
       return {
         ...state,
         data: {
           ...state.data,
           projects: {
-            total: state.data.total + 1,
+            total: state.data.projects.total + 1,
             ...state.data.projects,
-            items: updatedProjects,
+            items: filteredProjects,
           },
         },
       };
     }
     case types.CUT_USER_PROJECT: {
-      const { projectId } = action.payload;
-      const filteredProjects = state.data.projects.items.filter(item => item !== projectId);
+      const projectId = action.payload;
+      const filteredProjects = state.data.projects.items.filter(item => item.projectId !== projectId);
       return {
         ...state,
         data: {
           ...state.data,
           projects: {
-            total: state.data.total - 1,
+            total: state.data.projects.total - 1,
             ...state.data.projects,
             items: filteredProjects,
           },

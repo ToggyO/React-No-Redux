@@ -3,6 +3,6 @@ export const SOCKET_METHODS = {
     SIDEBAR_SUBSCRIBE_TEAM: 'SidebarSubscribeTeam',
   },
   BROADCAST: {
-    SIDEBAR_BROADCAST: 'SidebarBroadcast',
+    SIDEBAR_BROADCAST: 'SidebarBroadcastProjectChanged',
   },
 };

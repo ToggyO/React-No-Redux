@@ -1,7 +1,7 @@
 import superaxios from '@services/superaxios';
 
 import { API_URL } from '@config';
-import { makeRequestString } from '@utils/index';
+// import { makeRequestString } from '@utils/index';
 
 export default {
   auth: {
@@ -64,10 +64,23 @@ export default {
   },
   user: {
     fetchUserData: async ({ dataType, ...rest }) => {
-      const URL = `${API_URL.USER.FETCH_USER_DATA}/${dataType || ''}${makeRequestString(rest)}`;
-      const response = await superaxios.get(URL);
+      const URL = `${API_URL.USER.FETCH_USER_DATA}/${dataType || ''}`;
+      const response = await superaxios.get(URL, {
+        params: {
+          Page: rest.page || '',
+          PageSize: rest.pageSize || '',
+          companyId: rest.companyId || '',
+          teamId: rest.teamId || '',
+          projectId: rest.projectId || '',
+        },
+      });
       return response.data;
     },
+    // fetchUserData: async ({ dataType, ...rest }) => {
+    //   const URL = `${API_URL.USER.FETCH_USER_DATA}/${dataType || ''}${makeRequestString(rest)}`;
+    //   const response = await superaxios.get(URL);
+    //   return response.data;
+    // },
     updateUserData: async data => {
       const response = await superaxios.put(API_URL.USER.FETCH_USER_DATA, data);
       return response.data;
@@ -92,10 +105,10 @@ export default {
       const response = await superaxios.post(API_URL.USER.CHANGE_USER_AVATAR, data);
       return response.data;
     },
-    getUserProjectById: async projectId => {
-      const response = await superaxios.get(`${API_URL.PROJECTS.ROOT}/${projectId}`);
-      return response.data;
-    },
+    // getUserProjectById: async projectId => {
+    //   const response = await superaxios.get(`${API_URL.PROJECTS.ROOT}/${projectId}`);
+    //   return response.data;
+    // },
   },
   other: {
     getTeamEmails: async () => {

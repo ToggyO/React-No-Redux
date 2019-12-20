@@ -60,8 +60,8 @@ superaxios.interceptors.response.use(
 
     if (response.status === 401) {
       const { data = {} } = response;
-      const { errors = [] } = data;
-      if (errors.filter(item => item.code === ERROR_CODES.ACCESS_TOKEN_EXPIRED)) {
+      const { errors } = data;
+      if (errors.filter(item => item.code === ERROR_CODES.ACCESS_TOKEN_EXPIRED).length > 0) {
         if (!isAlreadyFetchingAccessToken) {
           isAlreadyFetchingAccessToken = true;
           const oldRefreshToken = `${getFromLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN)}`;
@@ -92,7 +92,7 @@ superaxios.interceptors.response.use(
         return retryOriginalRequest;
       }
 
-      if (errors.filter(item => item.code === ERROR_CODES.REFRESH_TOKEN_EXPIRED)) userLogout();
+      if (errors.filter(item => item.code === ERROR_CODES.REFRESH_TOKEN_EXPIRED).length > 0) userLogout();
     }
 
     if (response.status === 500) {

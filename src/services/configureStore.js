@@ -3,7 +3,13 @@ import { combineReducers, createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import { saveUserData, updateUsersData, clearUserData, saveRegistrationStep } from '../middleware';
+import {
+  saveUserData,
+  updateUsersData,
+  clearUserData,
+  saveRegistrationStep,
+  watchNotificationUpdates,
+} from '../middleware';
 
 import auth from '@ducks/auth';
 import modal from '@ducks/modal';
@@ -26,7 +32,14 @@ export default function configureStore() {
     ...sidebarSagas,
   };
   const sagaMiddleware = createSagaMiddleware();
-  const middlewares = [sagaMiddleware, saveUserData, updateUsersData, clearUserData, saveRegistrationStep];
+  const middlewares = [
+    sagaMiddleware,
+    saveUserData,
+    updateUsersData,
+    clearUserData,
+    saveRegistrationStep,
+    watchNotificationUpdates,
+  ];
   const enhancer = composeWithDevTools(applyMiddleware(...middlewares));
   const store = createStore(reducer, enhancer);
   Object.values(sagas).forEach(saga => sagaMiddleware.run(saga));
