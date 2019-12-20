@@ -55,6 +55,8 @@ const UserSettings = ({
         return <div>Preferences</div>;
       case 'Notifications':
         return <div>Notifications</div>;
+      case 'Teams':
+        return <div>Team</div>
       default:
         return <div>Test</div>;
     }
