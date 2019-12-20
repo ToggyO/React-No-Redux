@@ -3,7 +3,7 @@ import { parse } from 'qs';
 
 import history from '@services/history';
 import { ROUTES } from '@config/routes';
-
+// cr-20 array.keys возвращает массив, его необязательно потом перебирать - .length. Плюс в текущей реализации эта функция не работает. И вроде как нигде не используется
 export const isEmptyObject = obj => {
   let flag = false;
   Object.keys(obj).forEach(key => {
@@ -38,7 +38,7 @@ export const responseFormikError = (errors, errorCodes) => {
 };
 
 export const historyRedirect = route => history.replace(route);
-
+// cr-20 когда что-то мапишь - ключи нельзя так получать, как и использовать индексы массива для ключей. https://reactjs.org/docs/lists-and-keys.html#keys
 export const getUniqueKey = () => Math.ceil(Math.random() * 100000000);
 
 export const redirectToStep = step => {
@@ -63,7 +63,7 @@ export const redirectToStep = step => {
 };
 
 export const parseQueryString = queries => parse(queries, { ignoreQueryPrefix: true });
-
+// cr-20 перепиши, используя array.reduce
 export const parseRouteString = location => {
   const routeString = location.slice(1).split('/');
   let routeElements = {};
@@ -85,7 +85,7 @@ export const setHeightProperty = (flag, containerRef, contentRef) => {
 
 // eslint-disable-next-line no-param-reassign
 export const getElementProperty = (ref, property) => window.getComputedStyle(ref.current)[property];
-
+// cr-20 у пакета qs есть метод stringify для такого. Плюс в axios можно передать params объектом и он сам все сделает за тебя. Т.е. вместо axios.get(`/users?$pageSize={pageSize}&name=${name}`) можно сделать axios.get('/users/, params), где params это {pageSize: 10, name: 'Vasya Pimshin'}
 export const makeRequestString = obj => {
   let reqString = '?';
   Object.keys(obj).forEach(key => {
@@ -114,7 +114,7 @@ export function useWindowDimensions() {
 
   return windowDimensions;
 }
-
+// cr-20 см. выше
 // export const isEmptyObject = obj => {
 //   for (let key in obj) {
 //     return false;
