@@ -19,10 +19,10 @@ export default function socket(state = initialState, action) {
         },
       };
     }
-    case types.SUBSCRIBE_ON_PROJECTS_SUCCESS:
+    case types.SUBSCRIBE_ON_NOTIFICATIONS_SUCCESS:
       return { ...state, data: action.payload };
     case types.SOCKET_CONNECT_ERROR:
-    case types.SUBSCRIBE_ON_PROJECTS_ERROR:
+    case types.SUBSCRIBE_ON_NOTIFICATIONS_ERROR:
       return { ...state, errors: action.payload };
     // case types.CLEAR_STORE_ERRORS:
     //   return { ...state, errors: [] };

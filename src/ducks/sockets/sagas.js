@@ -36,13 +36,13 @@ function* subscribeOnProjects(action) {
     });
     while (true) {
       const payload = yield take(channel);
-      yield put({ type: sidebarTypes.SUBSCRIBE_ON_PROJECTS_SUCCESS, payload });
+      yield put({ type: sidebarTypes.SUBSCRIBE_ON_NOTIFICATIONS_SUCCESS, payload });
     }
   } catch (error) {
-    yield put({ type: sidebarTypes.SUBSCRIBE_ON_PROJECTS_ERROR, payload: error });
+    yield put({ type: sidebarTypes.SUBSCRIBE_ON_NOTIFICATIONS_ERROR, payload: error });
   }
 }
 
 export function* subscribeOnProjectsSaga() {
-  yield takeLatest(sidebarTypes.SUBSCRIBE_ON_PROJECTS_REQUEST, subscribeOnProjects);
+  yield takeLatest(sidebarTypes.SUBSCRIBE_ON_NOTIFICATIONS_REQUEST, subscribeOnProjects);
 }

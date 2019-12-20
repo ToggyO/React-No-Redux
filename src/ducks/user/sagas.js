@@ -148,3 +148,19 @@ function* changeUserAvatar(action) {
 export function* changeUserAvatarSaga() {
   yield takeEvery(types.CHANGE_USER_AVATAR_REQUEST, changeUserAvatar);
 }
+
+function* updateUserProjects(action) {
+  try {
+    const data = yield call(api.user.getUserProjectById, action.payload);
+    yield put({ type: types.UPDATE_USER_PROJECTS_SUCCESS, payload: data.data });
+  } catch (error) {
+    const { response = {} } = error;
+    const { data = {} } = response;
+    const { errors = [] } = data;
+    yield put({ type: types.UPDATE_USER_PROJECTS_ERROR, payload: errors });
+  }
+}
+
+export function* updateUserProjectsSaga() {
+  yield takeEvery(types.UPDATE_USER_PROJECTS_REQUEST, updateUserProjects);
+}

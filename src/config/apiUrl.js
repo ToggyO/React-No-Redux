@@ -26,6 +26,9 @@ export const API_URL = {
     CHANGE_USER_PASSWORD: '/users/passwords/change',
     CHANGE_USER_AVATAR: '/users/avatar-from-body',
   },
+  PROJECTS: {
+    ROOT: '/projects',
+  },
   SOCKET: {
     NOTIFICATIONS: '/ws',
     CHAT: '/ws/chatAPI',

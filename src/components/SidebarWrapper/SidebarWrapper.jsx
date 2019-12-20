@@ -14,6 +14,7 @@ import { getFromLocalState } from '@services/ls';
 import { getFromSessionState } from '@services/ss';
 import { LOCAL_STORAGE_KEYS } from '@config';
 import { API_URL } from '@config/apiUrl';
+import { SOCKET_METHODS } from '@config/socketMethods';
 
 
 const buttons = [
@@ -47,11 +48,13 @@ const SidebarWrapper = ({
 
   const connectAndSubscribe = async () => {
     rest.socketConnect(API_URL.SOCKET.NOTIFICATIONS);
-    setTimeout(() => rest.subscribeOnNotificationsChannel('SidebarSubscribeTeam', 'SidebarBroadcast', {
-      TeamId: '3307dec8-99d0-46c4-9935-4421230d6599',
-      Token: getFromLocalState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN) ||
+    setTimeout(() => rest.subscribeOnNotificationsChannel(
+      SOCKET_METHODS.SUBSCRIBE.SIDEBAR_SUBSCRIBE_TEAM,
+      SOCKET_METHODS.BROADCAST.SIDEBAR_BROADCAST, {
+        TeamId: '3307dec8-99d0-46c4-9935-4421230d6599',
+        Token: getFromLocalState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN) ||
       getFromSessionState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN),
-    }), 3000);
+      }), 3000);
   };
 
   useEffect(() => {

@@ -39,6 +39,11 @@ export const changeUserAvatar = data => ({
   payload: data,
 });
 
+export const updateUserProjects = projectId => ({
+  type: types.CHANGE_USER_AVATAR_REQUEST,
+  payload: projectId,
+});
+
 export const clearUserErrors = () => ({
   type: types.CLEAR_USER_ERRORS,
 });

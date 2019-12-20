@@ -3,12 +3,15 @@ import { store as reduxStore } from './store';
 
 import { authTypes } from '@ducks/auth';
 import { userTypes } from '@ducks/user';
+import { socketTypes } from '@ducks/sockets';
 import { writeToLocalState } from '@services/ls';
 import { userLogout } from '@services/auth';
 import { LOCAL_STORAGE_KEYS } from '@config';
 import { writeToSessionState } from '@services/ss';
 import { modalOpen } from '@ducks/modal/actions';
 import { modalTypes } from '@ducks/modal';
+import { SOCKET_METHODS } from '@config/socketMethods';
+import { updateUserProjects } from '@utils/index';
 
 export const saveUserData = store => next => action => {
   if (
@@ -77,6 +80,19 @@ export const saveRegistrationStep = store => next => action => {
   ) {
     const { registrationStep } = action.payload.data;
     writeToLocalState(LOCAL_STORAGE_KEYS.REGISTER_STEP, registrationStep);
+  }
+  return next(action);
+};
+
+export const watchNotificationUpdates = store => next => action => {
+  if (action.type === socketTypes.SUBSCRIBE_ON_NOTIFICATIONS_SUCCESS) {
+    const { watchMethod, payload } = action.payload;
+    switch (watchMethod) {
+      case SOCKET_METHODS.BROADCAST.SIDEBAR_BROADCAST:
+        return updateUserProjects(payload);
+      default:
+        break;
+    }
   }
   return next(action);
 };

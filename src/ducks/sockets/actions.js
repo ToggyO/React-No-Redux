@@ -6,7 +6,7 @@ export const socketConnect = url => ({
 });
 
 export const subscribeOnNotificationsChannel = (subscribeMethod, watchMethod, data) => ({
-  type: types.SUBSCRIBE_ON_PROJECTS_REQUEST,
+  type: types.SUBSCRIBE_ON_NOTIFICATIONS_REQUEST,
   payload: {
     subscribeMethod,
     watchMethod,

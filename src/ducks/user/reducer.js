@@ -57,6 +57,37 @@ export default function user(state = initialState, action) {
           user: action.payload,
         },
       };
+    case types.UPDATE_USER_PROJECTS_SUCCESS: {
+      const { id } = action.payload;
+      const filteredProjects = state.data.projects.items.filter(item => item !== id);
+      const updatedProjects = filteredProjects.unshift(action.payload);
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          projects: {
+            total: state.data.total + 1,
+            ...state.data.projects,
+            items: updatedProjects,
+          },
+        },
+      };
+    }
+    case types.CUT_USER_PROJECT: {
+      const { projectId } = action.payload;
+      const filteredProjects = state.data.projects.items.filter(item => item !== projectId);
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          projects: {
+            total: state.data.total - 1,
+            ...state.data.projects,
+            items: filteredProjects,
+          },
+        },
+      };
+    }
     case types.USER_PRELOADER_STOP:
       return { ...state, loading: false };
     case types.SEND_NEW_CODE_TO_CHANGE_EMAIL_SUCCESS:
@@ -73,6 +104,7 @@ export default function user(state = initialState, action) {
     case types.SEND_NEW_CODE_TO_CHANGE_EMAIL_ERROR:
     case types.CHANGE_USER_PASSWORD_ERROR:
     case types.CHANGE_USER_AVATAR_ERROR:
+    case types.UPDATE_USER_PROJECTS_ERROR:
       return {
         ...state,
         loading: false,

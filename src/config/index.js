@@ -1,5 +1,6 @@
 export * from './apiUrl';
 export * from './common';
+export * from './errorCodes';
 export * from './environment';
 export * from './routes';
-export * from './errorCodes';
+export * from './socketMethods';

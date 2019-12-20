@@ -3,7 +3,10 @@ import { eventChannel, buffers } from 'redux-saga';
 export const createNotificationChannel = ({ socket, subscribeMethod, watchMethod, data }) =>
   eventChannel(emit => {
     const receiveProjects = payload => {
-      emit(payload);
+      emit({
+        watchMethod,
+        payload,
+      });
     };
 
     socket.invoke(subscribeMethod, data);
