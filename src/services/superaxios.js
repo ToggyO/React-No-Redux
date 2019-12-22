@@ -5,10 +5,12 @@ import { store } from '../store';
 
 import { authTypes } from '@ducks/auth';
 import { LOCAL_STORAGE_KEYS, API_DOMAIN, API_URL } from '@config';
-import { getFromLocalState, writeToLocalState } from '@services/ls';
+import { writeToLocalState } from '@services/ls';
 import { hideGlobalError, showGlobalError } from '@ducks/global/actions';
 import { userLogout } from '@services/auth';
 import { ERROR_CODES } from '@config/errorCodes';
+import { writeToSessionState } from '@services/ss';
+import { getFromState } from '@utils/index';
 
 let isAlreadyFetchingAccessToken = false;
 let subscribers = [];
@@ -26,7 +28,7 @@ const superaxios = axios.create({
 });
 
 superaxios.interceptors.request.use(config => {
-  const accessToken = getFromLocalState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN);
+  const accessToken = getFromState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN);
 
   const headers = {
     Accept: 'application/json',
@@ -64,7 +66,7 @@ superaxios.interceptors.response.use(
       if (errors.filter(item => item.code === ERROR_CODES.ACCESS_TOKEN_EXPIRED).length > 0) {
         if (!isAlreadyFetchingAccessToken) {
           isAlreadyFetchingAccessToken = true;
-          const oldRefreshToken = `${getFromLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN)}`;
+          const oldRefreshToken = `${getFromState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN)}`;
           store.dispatch({ type: authTypes.REFRESHING_TOKEN_REQUEST });
           superaxios
             .put(API_URL.AUTH.REFRESH_TOKEN, { refreshToken: oldRefreshToken })
@@ -72,8 +74,11 @@ superaxios.interceptors.response.use(
             .then(response => {
               store.dispatch({ type: authTypes.REFRESHING_TOKEN_SUCCESS });
               const { accessToken, refreshToken } = response.data.data;
+              // TODO write token after refreshing
               writeToLocalState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN, accessToken);
               writeToLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN, refreshToken);
+              writeToSessionState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN, accessToken);
+              writeToSessionState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN, refreshToken);
               isAlreadyFetchingAccessToken = false;
               onAccessTokenFetched(accessToken);
             })

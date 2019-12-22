@@ -1,45 +1,33 @@
 import jwtDecode from 'jwt-decode';
 
-import { clearSessionState, getFromSessionState } from '@services/ss';
-import { getFromLocalState, clearLocalState } from '@services/ls';
 import history from '@services/history';
 import { LOCAL_STORAGE_KEYS } from '@config';
-// cr-20 можно сделать просто localStorage.clear() и sessionStorage.clear(). Или, если будешь хранить в localStorage состояние сайдбара, то написать функцию, которая будет подчищать все, кроме определенного ключа
+import { getFromState } from '@utils/index';
+
+// cr-20-solved можно сделать просто localStorage.clear() и sessionStorage.clear().
+// Или, если будешь хранить в localStorage состояние сайдбара, то написать функцию, которая будет подчищать все,
+// кроме определенного ключа
 export const userLogout = () => {
   history.replace('/');
   window.location.reload();
   // Local storage
-  clearLocalState(LOCAL_STORAGE_KEYS.USER);
-  clearLocalState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN);
-  clearLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN);
-  clearLocalState(LOCAL_STORAGE_KEYS.REGISTER_STEP);
+  localStorage.clear();
   // Session storage
-  clearSessionState(LOCAL_STORAGE_KEYS.USER);
-  clearSessionState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN);
-  clearSessionState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN);
-  clearSessionState(LOCAL_STORAGE_KEYS.REGISTER_STEP);
+  sessionStorage.clear();
 };
 
 export const checkTokens = () => {
-  // cr-20 getFrom тоже абстрагировать в одну функцию, которая будет пытаться забрать сначала из sessionStorage и возвращать, либо, в случае неудачи - заберет из localStorage
-  const accessToken =
-    getFromLocalState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN) ||
-    getFromSessionState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN);
-  const refreshToken =
-    getFromLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN) ||
-    getFromSessionState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN);
+  // cr-20-solved getFrom тоже абстрагировать в одну функцию,
+  // которая будет пытаться забрать сначала из sessionStorage и возвращать,
+  // либо, в случае неудачи - заберет из localStorage
+  const accessToken = getFromState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN);
+  const refreshToken = getFromState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN);
 
   if (!accessToken || !refreshToken) {
     // Local storage
-    clearLocalState(LOCAL_STORAGE_KEYS.USER);
-    clearLocalState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN);
-    clearLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN);
-    clearLocalState(LOCAL_STORAGE_KEYS.REGISTER_STEP);
+    localStorage.clear();
     // Session storage
-    clearLocalState(LOCAL_STORAGE_KEYS.USER);
-    clearLocalState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN);
-    clearLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN);
-    clearLocalState(LOCAL_STORAGE_KEYS.REGISTER_STEP);
+    sessionStorage.clear();
     return false;
   }
 

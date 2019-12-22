@@ -56,6 +56,7 @@ function* signUpWithGoogle(action) {
     //   "isSuccess": true,
     //   "code": "success"
     // }
+
     const data = yield call(api.auth.loginWithGoogle, action.payload);
     yield put({ type: authTypes.SIGNUP_WITH_EMAIL_SUCCESS, payload: data });
     yield put({ type: authTypes.CLEAR_STORE_ERRORS });
@@ -90,10 +91,16 @@ function* LoginWithEmail(action) {
     //   "isSuccess": true,
     //   "code": "success"
     // }
+    const { dontRemember } = action.payload;
     const data = yield call(api.auth.loginWithEmail, action.payload);
-    yield action.payload.rememberMe
-      ? put({ type: authTypes.LOGIN_IN_WITH_EMAIL_REMEMBER_ME_SUCCESS, payload: data })
-      : put({ type: authTypes.LOGIN_IN_WITH_EMAIL_SUCCESS, payload: data });
+    yield put({
+      type: authTypes.LOGIN_IN_WITH_EMAIL_SUCCESS,
+      payload: { data: data.data, dontRemember },
+    });
+
+    // yield action.payload.rememberMe
+    //   ? put({ type: authTypes.LOGIN_IN_WITH_EMAIL_REMEMBER_ME_SUCCESS, payload: data })
+    //   : put({ type: authTypes.LOGIN_IN_WITH_EMAIL_SUCCESS, payload: data });
     yield call(historyRedirect, ROUTES.ROOT);
   } catch (error) {
     // {
@@ -124,10 +131,15 @@ function* LoginWithGoogle(action) {
     //   "isSuccess": true,
     //   "code": "success"
     // }
+    const { dontRemember } = action.payload;
     const data = yield call(api.auth.loginWithGoogle, action.payload);
-    yield action.payload.rememberMe
-      ? put({ type: authTypes.LOGIN_IN_WITH_GOOGLE_REMEMBER_ME_SUCCESS, payload: data })
-      : put({ type: authTypes.LOGIN_IN_WITH_GOOGLE_SUCCESS, payload: data });
+    yield put({
+      type: authTypes.LOGIN_IN_WITH_GOOGLE_SUCCESS,
+      payload: { data: data.data, dontRemember },
+    });
+    // yield action.payload.rememberMe
+    //   ? put({ type: authTypes.LOGIN_IN_WITH_GOOGLE_REMEMBER_ME_SUCCESS, payload: data })
+    //   : put({ type: authTypes.LOGIN_IN_WITH_GOOGLE_SUCCESS, payload: data });
     yield put({ type: authTypes.CLEAR_STORE_ERRORS });
     yield call(historyRedirect, ROUTES.ROOT);
   } catch (error) {
@@ -204,6 +216,7 @@ function* setUserName(action) {
     //   "isSuccess": true,
     //   "code": "success"
     // }
+
     const data = yield call(api.auth.setUserName, action.payload);
     yield put({ type: authTypes.SET_USER_NAME_SUCCESS, payload: data });
     const role = yield store.getState().auth.data.registrationStep.statusName;

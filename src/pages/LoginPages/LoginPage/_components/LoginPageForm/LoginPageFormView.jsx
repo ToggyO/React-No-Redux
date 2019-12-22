@@ -33,7 +33,7 @@ const LoginPageViewForm = ({
   return (
     <Formik
       ref={formikRef}
-      initialValues={{ email: '', password: '', rememberMe: true }}
+      initialValues={{ email: '', password: '', dontRemember: false }}
       onSubmit={values => {
         loginInWithEmailRequest(values);
         // console.log(values);
@@ -74,7 +74,7 @@ const LoginPageViewForm = ({
           {errors.password && touched.password &&
           <div className="formik-error error-label">{errors.password}</div>}
           <Field
-            name="rememberMe"
+            name="dontRemember"
             component={SwitchButton}
             style={SwitchButtonStyle}
           />

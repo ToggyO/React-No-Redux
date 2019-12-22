@@ -9,8 +9,8 @@ import  {UserProfileView } from './_components/UserTabs/UserProfile';
 import { Preloader } from '@components/Preloader';
 import CustomScrollbar from '@components/Scrollbar';
 import { UserProfileTabsWrapper } from '@components/Modal/_components/UserSettings/_components/UserTabs/UserProfileTabsWrapper';
-import { getFromLocalState } from '@services/ls';
-import { getFromSessionState } from '@services/ss';
+import { getFromState } from '@utils/index';
+import { LOCAL_STORAGE_KEYS } from '@config';
 
 
 const UserSettings = ({
@@ -25,7 +25,7 @@ const UserSettings = ({
 }) => {
   const [isDataFetched, setDataFetched] = useState(false);
   const [currentTab, setTab] = useState('Profile');
-  const userDataFromLocalState = getFromLocalState('USER') || getFromSessionState('USER');
+  const userDataFromLocalState = getFromState(LOCAL_STORAGE_KEYS.USER);
 
   useEffect(() => {
     fetchUserData('teams', 1, 9999);

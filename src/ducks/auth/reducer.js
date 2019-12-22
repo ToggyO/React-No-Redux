@@ -1,8 +1,7 @@
 import * as types from './types';
 
-import { getFromSessionState } from '@services/ss';
-
-import { getFromLocalState } from '@services/ls';
+import { LOCAL_STORAGE_KEYS } from '@config/common';
+import { getFromState } from '@utils/index';
 /* shape
 
 		data: {
@@ -25,13 +24,12 @@ import { getFromLocalState } from '@services/ls';
 
 const initialState = {
   data: {
-    user: getFromLocalState('USER') || getFromSessionState('USER'),
+    user: getFromState(LOCAL_STORAGE_KEYS.USER),
     token: {
-      accessToken: getFromLocalState('ACCESS_TOKEN') || getFromSessionState('ACCESS_TOKEN'),
-      refreshToken: getFromLocalState('REFRESH_TOKEN') || getFromSessionState('REFRESH_TOKEN'),
+      accessToken: getFromState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN),
+      refreshToken: getFromState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN),
     },
-    registrationStep: getFromLocalState('REGISTER_STEP') ||
-      getFromSessionState('REGISTER_STEP') || { step: 0, stepName: '' },
+    registrationStep: getFromState(LOCAL_STORAGE_KEYS.REGISTER_STEP) || { step: 0, stepName: '' },
   },
   loading: false,
   errors: [],

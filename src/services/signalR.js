@@ -1,6 +1,5 @@
-import { getFromLocalState } from '@services/ls';
 import { LOCAL_STORAGE_KEYS } from '@config';
-import { getFromSessionState } from '@services/ss';
+import { getFromState } from '@utils/index';
 
 const signalR = require('@microsoft/signalr');
 
@@ -23,9 +22,7 @@ class SocketConnection {
         .withUrl(finalURL, {
           skipNegotiation: true,
           transport: signalR.HttpTransportType.WebSockets,
-          accessTokenFactory: () =>
-            getFromLocalState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN) ||
-            getFromSessionState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN),
+          accessTokenFactory: () => getFromState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN),
         })
         .withAutomaticReconnect([])
         .configureLogging(signalR.LogLevel.Information)

@@ -6,16 +6,18 @@ import { store } from '../store';
 import history from '@services/history';
 import { ROUTES } from '@config/routes';
 import { userTypes } from '@ducks/user';
+import { getFromLocalState, writeToLocalState } from '@services/ls';
+import { getFromSessionState, writeToSessionState } from '@services/ss';
 
-// cr-20 array.keys возвращает массив, его необязательно потом перебирать - .length. Плюс в текущей реализации эта функция не работает. И вроде как нигде не используется
+// cr-20-solved array.keys возвращает массив, его необязательно потом перебирать - .length.
+// Плюс в текущей реализации эта функция не работает.
+// И вроде как нигде не используется
 export const isEmptyObject = obj => {
   let flag = false;
-  Object.keys(obj).forEach(key => {
-    if (key) {
-      flag = true;
-    }
-    return flag;
-  });
+  const keys = Object.keys(obj);
+  if (keys.length > 0) {
+    flag = true;
+  }
   return flag;
 };
 
@@ -89,7 +91,9 @@ export const setHeightProperty = (flag, containerRef, contentRef) => {
 
 // eslint-disable-next-line no-param-reassign
 export const getElementProperty = (ref, property) => window.getComputedStyle(ref.current)[property];
-// cr-20 у пакета qs есть метод stringify для такого. Плюс в axios можно передать params объектом и он сам все сделает за тебя. Т.е. вместо axios.get(`/users?$pageSize={pageSize}&name=${name}`) можно сделать axios.get('/users/, params), где params это {pageSize: 10, name: 'Vasya Pimshin'}
+// cr-20 у пакета qs есть метод stringify для такого. Плюс в axios можно передать params объектом и он сам все сделает за тебя.
+// Т.е. вместо axios.get(`/users?$pageSize={pageSize}&name=${name}`) можно сделать axios.get('/users/, params),
+// где params это {pageSize: 10, name: 'Vasya Pimshin'}
 export const makeRequestString = obj => {
   let reqString = '?';
   Object.keys(obj).forEach(key => {
@@ -123,6 +127,18 @@ export const updateUserProjects = data => {
   }
 };
 
+export const writeToState = (properties, dontRemember) => {
+  Object.keys(properties).forEach(key => {
+    if (!dontRemember) {
+      writeToLocalState(key, properties[key]);
+    } else {
+      writeToSessionState(key, properties[key]);
+    }
+  });
+};
+
+export const getFromState = key => getFromLocalState(key) || getFromSessionState(key);
+
 // Users hooks
 export function useWindowDimensions() {
   const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
@@ -138,10 +154,3 @@ export function useWindowDimensions() {
 
   return windowDimensions;
 }
-// cr-20 см. выше
-// export const isEmptyObject = obj => {
-//   for (let key in obj) {
-//     return false;
-//   }
-//   return true;
-// };
