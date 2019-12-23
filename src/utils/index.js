@@ -6,8 +6,10 @@ import { store } from '../store';
 import history from '@services/history';
 import { ROUTES } from '@config/routes';
 import { userTypes } from '@ducks/user';
-import { getFromLocalState, writeToLocalState } from '@services/ls';
-import { getFromSessionState, writeToSessionState } from '@services/ss';
+import { clearLocalState, getFromLocalState, writeToLocalState } from '@services/ls';
+import { clearSessionState, getFromSessionState, writeToSessionState } from '@services/ss';
+import { LOCAL_STORAGE_KEYS } from '@config/common';
+import { APP_PREFIX } from '@config';
 
 // cr-20-solved array.keys возвращает массив, его необязательно потом перебирать - .length.
 // Плюс в текущей реализации эта функция не работает.
@@ -69,12 +71,12 @@ export const redirectToStep = step => {
 };
 
 export const parseQueryString = queries => parse(queries, { ignoreQueryPrefix: true });
-// cr-20 перепиши, используя array.reduce
+// cr-20-solved перепиши, используя array.reduce
 export const parseRouteString = location => {
   const routeString = location.slice(1).split('/');
-  let routeElements = {};
+  const routeElements = {};
   // eslint-disable-next-line no-return-assign
-  routeString.map((item, i) => (routeElements = { ...routeElements, [i]: item }));
+  routeString.reduce((accumulator, currentValue, i) => (routeElements[i] = currentValue), routeElements);
   return routeElements;
 };
 
@@ -111,14 +113,10 @@ export const updateUserProjects = data => {
   const { changesType, teamId, projectId } = data;
   switch (changesType) {
     case 1:
-      return store.dispatch({
-        type: userTypes.UPDATE_USER_PROJECTS_REQUEST,
-        payload: { dataType: 'projects', projectId, teamId },
-      });
     case 0:
       return store.dispatch({
         type: userTypes.UPDATE_USER_PROJECTS_REQUEST,
-        payload: { dataType: 'projects', projectId, teamId },
+        payload: { dataType: 'projects', projectId, teamId, changesType },
       });
     case -1:
       return store.dispatch({ type: userTypes.CUT_USER_PROJECT, payload: projectId });
@@ -137,7 +135,21 @@ export const writeToState = (properties, dontRemember) => {
   });
 };
 
-export const getFromState = key => getFromLocalState(key) || getFromSessionState(key);
+export function getFromState(key) {
+  return getFromSessionState(key) || getFromLocalState(key);
+}
+
+export const clearBrowserState = properties =>
+  properties.forEach(key => {
+    clearLocalState(key);
+    clearSessionState(key);
+  });
+
+export const checkLocalStorage = () => {
+  const isAccess = Object.keys(localStorage).includes(`${APP_PREFIX}_${LOCAL_STORAGE_KEYS.ACCESS_TOKEN}`);
+  const isRefresh = Object.keys(localStorage).includes(`${APP_PREFIX}_${LOCAL_STORAGE_KEYS.ACCESS_TOKEN}`);
+  return isAccess && isRefresh;
+};
 
 // Users hooks
 export function useWindowDimensions() {

@@ -58,18 +58,19 @@ export default function user(state = initialState, action) {
         },
       };
     case types.UPDATE_USER_PROJECTS_SUCCESS: {
-      const { items } = action.payload;
+      const { data = {}, changesType } = action.payload;
+      const { items } = data;
       const filteredProjects = state.data.projects.items.filter(
         item => item.projectId !== items[0].projectId
       );
-      filteredProjects.push(items[0]);
+      filteredProjects.unshift(items[0]);
       return {
         ...state,
         data: {
           ...state.data,
           projects: {
-            total: state.data.projects.total + 1,
             ...state.data.projects,
+            total: state.data.projects.total + changesType,
             items: filteredProjects,
           },
         },
@@ -83,8 +84,8 @@ export default function user(state = initialState, action) {
         data: {
           ...state.data,
           projects: {
-            total: state.data.projects.total - 1,
             ...state.data.projects,
+            total: state.data.projects.total - 1,
             items: filteredProjects,
           },
         },

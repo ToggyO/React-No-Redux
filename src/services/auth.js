@@ -2,7 +2,7 @@ import jwtDecode from 'jwt-decode';
 
 import history from '@services/history';
 import { LOCAL_STORAGE_KEYS } from '@config';
-import { getFromState } from '@utils/index';
+import { clearBrowserState, getFromState } from '@utils/index';
 
 // cr-20-solved можно сделать просто localStorage.clear() и sessionStorage.clear().
 // Или, если будешь хранить в localStorage состояние сайдбара, то написать функцию, которая будет подчищать все,
@@ -10,10 +10,12 @@ import { getFromState } from '@utils/index';
 export const userLogout = () => {
   history.replace('/');
   window.location.reload();
-  // Local storage
-  localStorage.clear();
-  // Session storage
-  sessionStorage.clear();
+  clearBrowserState([
+    LOCAL_STORAGE_KEYS.USER,
+    LOCAL_STORAGE_KEYS.ACCESS_TOKEN,
+    LOCAL_STORAGE_KEYS.REFRESH_TOKEN,
+    LOCAL_STORAGE_KEYS.REGISTER_STEP,
+  ]);
 };
 
 export const checkTokens = () => {
@@ -24,10 +26,12 @@ export const checkTokens = () => {
   const refreshToken = getFromState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN);
 
   if (!accessToken || !refreshToken) {
-    // Local storage
-    localStorage.clear();
-    // Session storage
-    sessionStorage.clear();
+    clearBrowserState([
+      LOCAL_STORAGE_KEYS.USER,
+      LOCAL_STORAGE_KEYS.ACCESS_TOKEN,
+      LOCAL_STORAGE_KEYS.REFRESH_TOKEN,
+      LOCAL_STORAGE_KEYS.REGISTER_STEP,
+    ]);
     return false;
   }
 

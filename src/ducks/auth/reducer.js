@@ -1,7 +1,9 @@
 import * as types from './types';
 
 import { LOCAL_STORAGE_KEYS } from '@config/common';
-import { getFromState } from '@utils/index';
+// import { getFromState } from '@utils/index';
+import { getFromLocalState } from '@services/ls';
+import { getFromSessionState } from '@services/ss';
 /* shape
 
 		data: {
@@ -23,13 +25,26 @@ import { getFromState } from '@utils/index';
 */
 
 const initialState = {
+  // data: {
+  //   user: getFromState(LOCAL_STORAGE_KEYS.USER),
+  //   token: {
+  //     accessToken: getFromState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN),
+  //     refreshToken: getFromState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN),
+  //   },
+  //   registrationStep: getFromState(LOCAL_STORAGE_KEYS.REGISTER_STEP) || { step: 0, stepName: '' },
+  // },
   data: {
-    user: getFromState(LOCAL_STORAGE_KEYS.USER),
+    user: getFromLocalState(LOCAL_STORAGE_KEYS.USER) || getFromSessionState(LOCAL_STORAGE_KEYS.USER),
     token: {
-      accessToken: getFromState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN),
-      refreshToken: getFromState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN),
+      accessToken:
+        getFromLocalState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN) ||
+        getFromSessionState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN),
+      refreshToken:
+        getFromLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN) ||
+        getFromSessionState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN),
     },
-    registrationStep: getFromState(LOCAL_STORAGE_KEYS.REGISTER_STEP) || { step: 0, stepName: '' },
+    registrationStep: getFromLocalState(LOCAL_STORAGE_KEYS.REGISTER_STEP) ||
+      getFromSessionState(LOCAL_STORAGE_KEYS.REGISTER_STEP) || { step: 0, stepName: '' },
   },
   loading: false,
   errors: [],

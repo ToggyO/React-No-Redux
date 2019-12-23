@@ -151,8 +151,15 @@ export function* changeUserAvatarSaga() {
 
 function* updateUserProjects(action) {
   try {
+    const { changesType } = action.payload;
     const data = yield call(api.user.fetchUserData, action.payload);
-    yield put({ type: types.UPDATE_USER_PROJECTS_SUCCESS, payload: data.data });
+    yield put({
+      type: types.UPDATE_USER_PROJECTS_SUCCESS,
+      payload: {
+        data: data.data,
+        changesType,
+      },
+    });
   } catch (error) {
     const { response = {} } = error;
     const { data = {} } = response;

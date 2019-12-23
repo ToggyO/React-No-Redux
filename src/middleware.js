@@ -7,7 +7,7 @@ import { userLogout } from '@services/auth';
 import { LOCAL_STORAGE_KEYS } from '@config';
 import { writeToSessionState } from '@services/ss';
 import { SOCKET_METHODS } from '@config/socketMethods';
-import { updateUserProjects, writeToState } from '@utils/index';
+import { checkLocalStorage, updateUserProjects, writeToState } from '@utils/index';
 
 // cr-20-solved switch(action.type) и погнали
 export const saveUserData = store => next => action => {
@@ -44,15 +44,21 @@ export const updateUsersData = store => next => action => {
   switch (action.type) {
     case authTypes.SET_USER_NAME_SUCCESS: {
       const { data } = action.payload.data;
-      writeToLocalState(LOCAL_STORAGE_KEYS.USER, data);
-      writeToSessionState(LOCAL_STORAGE_KEYS.USER, data);
+      if (checkLocalStorage()) {
+        writeToLocalState(LOCAL_STORAGE_KEYS.USER, data);
+      } else {
+        writeToSessionState(LOCAL_STORAGE_KEYS.USER, data);
+      }
       break;
     }
     case userTypes.UPDATE_USER_DATA_SUCCESS:
     case userTypes.CONFIRM_NEW_USER_EMAIL_SUCCESS:
     case userTypes.CHANGE_USER_AVATAR_SUCCESS: {
-      writeToLocalState(LOCAL_STORAGE_KEYS.USER, action.payload);
-      writeToSessionState(LOCAL_STORAGE_KEYS.USER, action.payload);
+      if (checkLocalStorage()) {
+        writeToLocalState(LOCAL_STORAGE_KEYS.USER, action.payload);
+      } else {
+        writeToSessionState(LOCAL_STORAGE_KEYS.USER, action.payload);
+      }
       break;
     }
     default:

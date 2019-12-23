@@ -10,7 +10,7 @@ import { hideGlobalError, showGlobalError } from '@ducks/global/actions';
 import { userLogout } from '@services/auth';
 import { ERROR_CODES } from '@config/errorCodes';
 import { writeToSessionState } from '@services/ss';
-import { getFromState } from '@utils/index';
+import { checkLocalStorage, getFromState } from '@utils/index';
 
 let isAlreadyFetchingAccessToken = false;
 let subscribers = [];
@@ -74,11 +74,13 @@ superaxios.interceptors.response.use(
             .then(response => {
               store.dispatch({ type: authTypes.REFRESHING_TOKEN_SUCCESS });
               const { accessToken, refreshToken } = response.data.data;
-              // TODO write token after refreshing
-              writeToLocalState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN, accessToken);
-              writeToLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN, refreshToken);
-              writeToSessionState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN, accessToken);
-              writeToSessionState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN, refreshToken);
+              if (checkLocalStorage()) {
+                writeToLocalState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN, accessToken);
+                writeToLocalState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN, refreshToken);
+              } else {
+                writeToSessionState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN, accessToken);
+                writeToSessionState(LOCAL_STORAGE_KEYS.REFRESH_TOKEN, refreshToken);
+              }
               isAlreadyFetchingAccessToken = false;
               onAccessTokenFetched(accessToken);
             })
