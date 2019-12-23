@@ -3,6 +3,7 @@ import * as types from './types';
 const initialState = {
   data: {},
   connections: {},
+  isNotifyConnected: false,
   errors: [],
   extra: '',
 };
@@ -19,6 +20,8 @@ export default function socket(state = initialState, action) {
         },
       };
     }
+    case types.SOCKET_NOTIFY_CONNECTED:
+      return { ...state, isNotifyConnected: true };
     case types.SUBSCRIBE_ON_NOTIFICATIONS_SUCCESS:
       return { ...state, data: action.payload };
     case types.SOCKET_CONNECT_ERROR:

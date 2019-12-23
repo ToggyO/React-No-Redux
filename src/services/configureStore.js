@@ -9,6 +9,7 @@ import {
   clearUserData,
   saveRegistrationStep,
   watchNotificationUpdates,
+  allowSocketSubscription,
 } from '../middleware';
 
 import auth from '@ducks/auth';
@@ -39,6 +40,7 @@ export default function configureStore() {
     clearUserData,
     saveRegistrationStep,
     watchNotificationUpdates,
+    allowSocketSubscription,
   ];
   const enhancer = composeWithDevTools(applyMiddleware(...middlewares));
   const store = createStore(reducer, enhancer);

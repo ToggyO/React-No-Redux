@@ -73,10 +73,8 @@ export default function auth(state = initialState, action) {
     case types.SIGNUP_WITH_EMAIL_SUCCESS:
     case types.SIGNUP_WITH_GOOGLE_SUCCESS:
     case types.LOGIN_IN_WITH_EMAIL_SUCCESS:
-    case types.LOGIN_IN_WITH_EMAIL_REMEMBER_ME_SUCCESS:
     case types.LOGIN_IN_WITH_GOOGLE_SUCCESS:
-    case types.SET_PASSWORD_INVITE_SUCCESS:
-    case types.LOGIN_IN_WITH_GOOGLE_REMEMBER_ME_SUCCESS: {
+    case types.SET_PASSWORD_INVITE_SUCCESS: {
       const { data } = action.payload;
       return { ...state, data, loading: false };
     }

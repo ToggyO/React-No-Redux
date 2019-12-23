@@ -1,12 +1,19 @@
 import React from 'react';
 import TooltipTrigger from 'react-popper-tooltip';
-import PT, { oneOfType } from 'prop-types';
+import PT from 'prop-types';
 import './style.sass';
 
 
 export const Tooltip = ({children, tooltip, hideArrow, containerClass, arrowClass, ...props}) => (
   <TooltipTrigger
     {...props}
+    modifiers={{
+      preventOverflow: {
+        boundariesElement: 'viewport',
+        padding: 0,
+      },
+    }}
+    onVisibilityChange={props.onVisibilityChange}
     tooltip={({
       arrowRef,
       tooltipRef,
@@ -45,7 +52,7 @@ export const Tooltip = ({children, tooltip, hideArrow, containerClass, arrowClas
 );
 
 Tooltip.propTypes = {
-  children: oneOfType([
+  children: PT.oneOfType([
     PT.node,
     PT.element,
     PT.func,
@@ -54,6 +61,7 @@ Tooltip.propTypes = {
   hideArrow: PT.func,
   containerClass: PT.string,
   arrowClass: PT.string,
+  onVisibilityChange: PT.func,
 };
 
 

@@ -8,6 +8,7 @@ import { LOCAL_STORAGE_KEYS } from '@config';
 import { writeToSessionState } from '@services/ss';
 import { SOCKET_METHODS } from '@config/socketMethods';
 import { checkLocalStorage, updateUserProjects, writeToState } from '@utils/index';
+import { API_URL } from '@config/apiUrl';
 
 // cr-20-solved switch(action.type) и погнали
 export const saveUserData = store => next => action => {
@@ -96,7 +97,22 @@ export const watchNotificationUpdates = store => next => action => {
     const { watchMethod, payload } = action.payload;
     switch (watchMethod) {
       case SOCKET_METHODS.BROADCAST.SIDEBAR_BROADCAST:
-        return updateUserProjects(payload);
+        updateUserProjects(payload);
+        break;
+      default:
+        break;
+    }
+  }
+  return next(action);
+};
+
+export const allowSocketSubscription = store => next => action => {
+  if (action.type === socketTypes.SOCKET_CONNECT_SUCCESS) {
+    const { url } = action.payload;
+    switch (url) {
+      case API_URL.SOCKET.NOTIFICATIONS:
+        store.dispatch({ type: socketTypes.SOCKET_NOTIFY_CONNECTED });
+        break;
       default:
         break;
     }
