@@ -4,12 +4,15 @@ import SidebarWrapper from './SidebarWrapper';
 
 import { modalActions } from '@ducks/modal';
 import { socketActions, socketSelectors } from '@ducks/sockets';
+import { sidebarSelectors, sidebarActions } from '@ducks/sidebar';
 import * as userActions from '@ducks/user/actions';
 import * as userSelectors from '@ducks/user/selectors';
 
 const mapStateToProps = state => ({
   userProjects: userSelectors.userProjectsSelector(state),
+  userTeams: userSelectors.userTeamsSelector(state),
   isNotifyConnected: socketSelectors.isNotificationsConnectedSelector(state),
+  currentTeam: sidebarSelectors.currentTeamSelector(state),
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -24,6 +27,9 @@ const mapDispatchToProps = dispatch => ({
   },
   fetchUserData(...args) {
     dispatch(userActions.fetchUserData(...args));
+  },
+  changeCurrentTeam(currentTeam) {
+    dispatch(sidebarActions.changeCurrentTeam(currentTeam));
   },
 });
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import PT from 'prop-types';
 
 import { NavButtons } from '../NavButtons';
@@ -7,21 +7,7 @@ import s from './style.module.sass';
 
 import { SidebarTeamsProjectsBoard } from '@components/SidebarWrapper/_components/SidebarTeamsProject/_components/SidebarTeamsProjectsBoard';
 import { FolderHeadline } from '@components/SidebarWrapper/_components/SidebarTeamsProject/_components/SidebarTeamsProjectsFolder/_components/FolderHeadline';
-import { DropdownSettingsItem } from '@components/Form/Dropdown/SidebarProjectSettings/_components/DropdownSettingsItem';
 import { DropdownSettingsButton } from '@components/Form/Dropdown/SidebarProjectSettings/_components/DropdownSettingsButton';
-
-const renderProjectSettings = () => (
-  <>
-    <DropdownSettingsItem link="#" iconName="edit-project-settings" title="Edit project settings" />
-    <DropdownSettingsItem link="#" iconName="edit-project-statuses" title="Edit project statuses" />
-    <DropdownSettingsItem link="#" iconName="edit-project-statuses" title="Edit folder sharing" />
-    <DropdownSettingsButton
-      iconName="delete-project"
-      title="Delete projects"
-      onClick={() => console.log('clicked')}
-    />
-  </>
-);
 
 export const SidebarTeamsProjectsFolder = ({
   folderName = '   Folder',
@@ -30,6 +16,34 @@ export const SidebarTeamsProjectsFolder = ({
 }) => {
   const [isOpen, toggleOpen] = useState(false);
   const [showSettings, toggleShowSettings] = useState(false);
+  const teamTooltipRef = useRef(null);
+
+  const closeTooltipOnClick = () => teamTooltipRef.current.hideTooltip();
+
+  const renderProjectSettings = () => (
+    <>
+      <DropdownSettingsButton
+        iconName="edit-project-settings"
+        title="Edit project settings"
+        onClick={() => closeTooltipOnClick()}
+      />
+      <DropdownSettingsButton
+        iconName="edit-project-statuses"
+        title="Edit project statuses"
+        onClick={() => closeTooltipOnClick()}
+      />
+      <DropdownSettingsButton
+        iconName="edit-project-statuses"
+        title="Edit folder sharing"
+        onClick={() => closeTooltipOnClick()}
+      />
+      <DropdownSettingsButton
+        iconName="delete-project"
+        title="Delete projects"
+        onClick={() => closeTooltipOnClick()}
+      />
+    </>
+  );
 
   return (
     <div
@@ -52,6 +66,7 @@ export const SidebarTeamsProjectsFolder = ({
             placement: 'bottom-end',
             tooltip: renderProjectSettings(),
             trigger: 'click',
+            innerRef: teamTooltipRef,
             containerClass: 'sidebarProjectsSettingsTooltipContainer',
             arrowClass: 'sidebarProjectsSettingsTooltipArrow',
           }}

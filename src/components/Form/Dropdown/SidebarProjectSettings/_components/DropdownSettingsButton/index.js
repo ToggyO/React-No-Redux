@@ -9,7 +9,7 @@ export const DropdownSettingsButton = ({ iconName, iconClassName, title, onClick
   <button
     type="button"
     onClick={onClick}
-    className={`${s.delete_button} btn full_width mt-0 mb-0 flex align-items-center`}
+    className={`${s.delete_button} btn mt-0 mb-0 flex align-items-center`}
   >
     <div className={s.icon_container}>
       <Icon iconName={iconName} className={iconClassName} />

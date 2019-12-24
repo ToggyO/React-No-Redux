@@ -14,7 +14,7 @@ export const NavButtons = ({
   addContainerClass = '',
   addSettingsIconClass = '',
   addCreateButtonClass = '',
-  settingsTooltip: { placement, tooltip, trigger, containerClass = '', arrowClass = '' },
+  settingsTooltip: { placement, tooltip, trigger, innerRef, containerClass = '', arrowClass = '' },
 }) => (
   <div
     className={`${s.container} ${
@@ -25,6 +25,7 @@ export const NavButtons = ({
       placement={placement}
       tooltip={tooltip}
       trigger={trigger}
+      innerRef={innerRef}
       containerClass={containerClass}
       arrowClass={arrowClass}
     >

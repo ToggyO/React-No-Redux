@@ -1,15 +1,23 @@
-// import * as types from './types';
+import * as types from './types';
+
+import { LOCAL_STORAGE_KEYS } from '@config/common';
+import { getFromLocalState } from '@services/ls';
+import { getFromSessionState } from '@services/ss';
 
 const initialState = {
   data: {},
   loading: false,
+  currentTeam:
+    getFromLocalState(LOCAL_STORAGE_KEYS.SIDEBAR_CURRENT_TEAM) ||
+    getFromSessionState(LOCAL_STORAGE_KEYS.SIDEBAR_CURRENT_TEAM),
   errors: [],
   extra: '',
 };
 
 export default function sidebar(state = initialState, action) {
   switch (action.type) {
-    // case types.FETCH_USER_DATA_REQUEST:
+    case types.CHANGE_CURRENT_TEAM:
+      return { ...state, currentTeam: action.payload };
     // case types.USER_PRELOADER_START:
     //   return { ...state, loading: true };
     // case types.UPDATE_USER_DATA_REQUEST:

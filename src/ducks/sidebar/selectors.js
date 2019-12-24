@@ -1,6 +1,6 @@
-// import { createSelector } from 'reselect';
+import { createSelector } from 'reselect';
 
-// export const loaderSelector = createSelector(
-//   state => state.user.loading,
-//   errors => errors
-// );
+export const currentTeamSelector = createSelector(
+  state => state.sidebar.currentTeam,
+  errors => errors
+);

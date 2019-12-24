@@ -4,9 +4,20 @@ import PT from 'prop-types';
 import './style.sass';
 
 
-export const Tooltip = ({children, tooltip, hideArrow, containerClass, arrowClass, ...props}) => (
+export const Tooltip = ({
+  children,
+  tooltip,
+  hideArrow,
+  containerClass,
+  arrowClass,
+  tooltipShownState,
+  // eslint-disable-next-line react/prop-types
+  innerRef,
+  ...props
+}) => (
   <TooltipTrigger
     {...props}
+    ref={innerRef}
     modifiers={{
       preventOverflow: {
         boundariesElement: 'viewport',
@@ -38,7 +49,7 @@ export const Tooltip = ({children, tooltip, hideArrow, containerClass, arrowClas
       </div>
     )}
   >
-    {({getTriggerProps, triggerRef}) => (
+    {({getTriggerProps, triggerRef }) => (
       <span
         {...getTriggerProps({
           ref: triggerRef,
@@ -62,6 +73,7 @@ Tooltip.propTypes = {
   containerClass: PT.string,
   arrowClass: PT.string,
   onVisibilityChange: PT.func,
+  tooltipShownState: PT.bool,
 };
 
 

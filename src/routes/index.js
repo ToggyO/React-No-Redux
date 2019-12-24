@@ -4,7 +4,6 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import AuthRoute from './AuthRoute';
 import UnAuthRoute from './UnAuthRoute';
 
-import { SidebarWrapperContainer } from '@components/SidebarWrapper';
 import { ROUTES } from '@config';
 import { AuthScreenWrapperContainer } from '@components/AuthScreenWrapper';
 import { HomePageContainer } from '@pages/HomePage';
@@ -22,9 +21,7 @@ import { RestorePasswordContainer } from '@pages/LoginPages/RestorePassword';
 import { SetPasswordPageView } from '@pages/SignPages/Member/SetPasswordPage';
 import { TeamPageView } from '@pages/TeamPages';
 import { ProjectPageView } from '@pages/ProjectPages';
-// import { UserSettingsPageView } from '@pages/UserPages/UserSettingsPage';
-// import { UserProfileView } from '@pages/UserPages/UserSettingsPage/_components/UserTabs';
-// import { authSelectors } from '@ducks/auth';
+import { MainWrapper } from '@components/MainWrapper';
 
 // eslint-disable-next-line react/prop-types
 const Routes = () => (
@@ -99,15 +96,26 @@ const Routes = () => (
       <AuthRoute path={ROUTES.PROJECT.ROOT} component={ProjectPageView} />
       <AuthRoute
         path={ROUTES.ROOT}
-        component={props => (
-          <SidebarWrapperContainer {...props}>
+        component={() => (
+          <MainWrapper>
             <Switch>
               <Redirect exact from={ROUTES.ROOT} to={ROUTES.HOME_PAGE} />
               <Route path={ROUTES.HOME_PAGE} exact component={HomePageContainer} />
             </Switch>
-          </SidebarWrapperContainer>
+          </MainWrapper>
         )}
       />
+      {/* <AuthRoute */}
+      {/*  path={ROUTES.ROOT} */}
+      {/*  component={props => ( */}
+      {/*    <SidebarWrapperContainer {...props}> */}
+      {/*      <Switch> */}
+      {/*        <Redirect exact from={ROUTES.ROOT} to={ROUTES.HOME_PAGE} /> */}
+      {/*        <Route path={ROUTES.HOME_PAGE} exact component={HomePageContainer} /> */}
+      {/*      </Switch> */}
+      {/*    </SidebarWrapperContainer> */}
+      {/*  )} */}
+      {/* /> */}
 
       {/* REDIRECTS */}
       {/* /REDIRECTS */}

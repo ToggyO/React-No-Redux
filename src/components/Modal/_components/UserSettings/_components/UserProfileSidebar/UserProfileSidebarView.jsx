@@ -2,6 +2,7 @@ import React from 'react';
 import PT from 'prop-types';
 
 import s from './style.module.sass';
+import { style as teamsStyle } from './teams_style';
 
 import { UserProfileSidebarCompanyView } from './_components/UserProfileSidebarCompany';
 import { UserProfileSidebarUserView } from './_components/UserProfileSidebarUser';
@@ -65,6 +66,10 @@ const UserProfileSidebarView = ({
                       key={item.team.name}
                       color={item.team.colorHex}
                       teamName={item.team.name}
+                      addClassContainer="pl-10 pt-4 pb-4"
+                      addClassCircle="flex justify-content-center align-items-center"
+                      addClassHeadline="ml-3 flex justify-content-space-between align-items-center relative"
+                      style={teamsStyle}
                     />)
               )}
               <div className={`${s.add_button}`}>

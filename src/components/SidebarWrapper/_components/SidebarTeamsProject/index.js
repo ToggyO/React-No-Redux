@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import PT from 'prop-types';
 
 import s from './style.module.sass';
@@ -7,20 +7,7 @@ import { SidebarTeamsProjectsFolder } from './_components/SidebarTeamsProjectsFo
 import { SidebarTeamsProjectsHeadline } from './_components/SidebarTeamsProjectsHeadline';
 import { NavButtons } from './_components/NavButtons';
 
-import { DropdownSettingsItem } from '@components/Form/Dropdown/SidebarProjectSettings/_components/DropdownSettingsItem';
 import { DropdownSettingsButton } from '@components/Form/Dropdown/SidebarProjectSettings/_components/DropdownSettingsButton';
-
-const renderProjectSettings = () => (
-  <>
-    <DropdownSettingsItem link="#" iconName="edit-project-settings" title="Edit project settings" />
-    <DropdownSettingsItem link="#" iconName="edit-project-statuses" title="Edit project statuses" />
-    <DropdownSettingsButton
-      iconName="delete-project"
-      title="Delete projects"
-      onClick={() => console.log('clicked')}
-    />
-  </>
-);
 
 export const SidebarTeamsProject = ({
   isSidebarOpened,
@@ -30,6 +17,29 @@ export const SidebarTeamsProject = ({
 }) => {
   const [isOpen, toggleOpen] = useState(false);
   const [showSettings, toggleShowSettings] = useState(false);
+  const teamTooltipRef = useRef(null);
+
+  const closeTooltipOnClick = () => teamTooltipRef.current.hideTooltip();
+
+  const renderProjectSettings = () => (
+    <>
+      <DropdownSettingsButton
+        iconName="edit-project-settings"
+        title="Edit project settings"
+        onClick={() => closeTooltipOnClick()}
+      />
+      <DropdownSettingsButton
+        iconName="edit-project-statuses"
+        title="Edit project statuses"
+        onClick={() => closeTooltipOnClick()}
+      />
+      <DropdownSettingsButton
+        iconName="delete-project"
+        title="Delete projects"
+        onClick={() => closeTooltipOnClick()}
+      />
+    </>
+  );
 
   return (
     <div className={`${s.wrapper} relative`}>
@@ -66,6 +76,7 @@ export const SidebarTeamsProject = ({
                   placement: 'bottom-end',
                   tooltip: renderProjectSettings(),
                   trigger: 'click',
+                  innerRef: teamTooltipRef,
                   containerClass: 'sidebarProjectsSettingsTooltipContainer',
                   arrowClass: 'sidebarProjectsSettingsTooltipArrow',
                 }}
