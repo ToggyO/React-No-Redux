@@ -10,6 +10,7 @@ import * as userSelectors from '@ducks/user/selectors';
 
 const mapStateToProps = state => ({
   userProjects: userSelectors.userProjectsSelector(state),
+  projectsLoaded: userSelectors.userProjectsLoaderSelector(state),
   userTeams: userSelectors.userTeamsSelector(state),
   teamsLoaded: userSelectors.userTeamsLoaderSelector(state),
   isNotifyConnected: socketSelectors.isNotificationsConnectedSelector(state),

@@ -55,6 +55,11 @@ export const userProjectsSelector = createSelector(
   errors => errors
 );
 
+export const userProjectsLoaderSelector = createSelector(
+  state => state.user.data.projectsLoaded,
+  errors => errors
+);
+
 export const errorsSelector = createSelector(
   state => state.user.errors,
   errors => errors

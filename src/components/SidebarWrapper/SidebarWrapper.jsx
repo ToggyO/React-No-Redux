@@ -12,9 +12,11 @@ import CustomScrollbar from '@components/Scrollbar';
 import { LOCAL_STORAGE_KEYS } from '@config';
 import { API_URL } from '@config/apiUrl';
 import { SOCKET_METHODS } from '@config/socketMethods';
-import { getFromState } from '@utils/index';
+import { getFromState, getUniqueKey } from '@utils/index';
 import { Preloader } from '@components/Preloader';
+import { SidebarTeamsProjectPlaceholder } from '@components/SidebarWrapper/_components/SidebarTeamsProject/_components/SidebarTeamsProjectPlaceholder';
 
+const projectsPlaceholder = [...Array(6)];
 
 const SidebarWrapper = ({
   children,
@@ -82,11 +84,13 @@ const SidebarWrapper = ({
           addClassImage="w-33"
           addClassPreloader={rest.sidebarLoading ? 'flex justify-content-center align-items-center preloaderOverlay-dark' : 'display-none'}
         >
-          {userProjects.map(item => <SidebarTeamsProject
-            key={item.projectId}
-            userProject={item}
-            isSidebarOpened={isSidebarOpened}
-          />)}
+          {!rest.projectsLoaded
+            ? projectsPlaceholder.map(() => <SidebarTeamsProjectPlaceholder key={getUniqueKey()}/>)
+            : userProjects.map(item => <SidebarTeamsProject
+              key={item.projectId}
+              userProject={item}
+              isSidebarOpened={isSidebarOpened}
+            />)}
         </Preloader>
       </CustomScrollbar>
       <div className={`${s.footer}`}>

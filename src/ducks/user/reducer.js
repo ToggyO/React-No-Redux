@@ -9,6 +9,7 @@ const initialState = {
     companies: [],
     companiesLoaded: false,
     projects: [],
+    projectsLoaded: false,
   },
   spinner: false,
   loading: false,
