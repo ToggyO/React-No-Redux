@@ -30,6 +30,7 @@ export const saveUserData = store => next => action => {
           [LOCAL_STORAGE_KEYS.ACCESS_TOKEN]: accessToken,
           [LOCAL_STORAGE_KEYS.REFRESH_TOKEN]: refreshToken,
           [LOCAL_STORAGE_KEYS.REGISTER_STEP]: registrationStep,
+          [LOCAL_STORAGE_KEYS.SIDEBAR_STATE]: true,
         },
         dontRemember
       );

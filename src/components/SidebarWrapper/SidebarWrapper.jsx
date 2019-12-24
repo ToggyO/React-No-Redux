@@ -12,9 +12,11 @@ import CustomScrollbar from '@components/Scrollbar';
 import { LOCAL_STORAGE_KEYS } from '@config';
 import { API_URL } from '@config/apiUrl';
 import { SOCKET_METHODS } from '@config/socketMethods';
-import { getFromState, getUniqueKey } from '@utils/index';
+import { checkLocalStorage, getFromState, getUniqueKey } from '@utils/index';
 import { Preloader } from '@components/Preloader';
 import { SidebarTeamsProjectPlaceholder } from '@components/SidebarWrapper/_components/SidebarTeamsProject/_components/SidebarTeamsProjectPlaceholder';
+import { writeToLocalState } from '@services/ls';
+import { writeToSessionState } from '@services/ss';
 
 const projectsPlaceholder = [...Array(6)];
 
@@ -26,7 +28,14 @@ const SidebarWrapper = ({
   userTeams = [],
   ...rest
 }) => {
-  const [isSidebarOpened, toggleSidebarOpen] = useState(true);
+  const [isSidebarOpened, toggleSidebarOpen] = useState(getFromState(LOCAL_STORAGE_KEYS.SIDEBAR_STATE));
+
+  const rememberSidebarState = state => {
+    if (checkLocalStorage()) {
+      return writeToLocalState(LOCAL_STORAGE_KEYS.SIDEBAR_STATE, state);
+    }
+    return writeToSessionState(LOCAL_STORAGE_KEYS.SIDEBAR_STATE, state);
+  };
 
   useEffect(() => {
     fetchUserData('teams', 1, 9999);
@@ -59,7 +68,10 @@ const SidebarWrapper = ({
         <button
           type="button"
           className={`${s.toggle_button}`}
-          onClick={() => toggleSidebarOpen(!isSidebarOpened)}
+          onClick={() => {
+            rememberSidebarState(!isSidebarOpened);
+            toggleSidebarOpen(!isSidebarOpened);
+          }}
         >
           <Icon iconName="arrow-right" className={!isSidebarOpened ? 'rotate-180' : ''}/>
         </button>
@@ -85,7 +97,7 @@ const SidebarWrapper = ({
           addClassPreloader={rest.sidebarLoading ? 'flex justify-content-center align-items-center preloaderOverlay-dark' : 'display-none'}
         >
           {!rest.projectsLoaded
-            ? projectsPlaceholder.map(() => <SidebarTeamsProjectPlaceholder key={getUniqueKey()}/>)
+            ? projectsPlaceholder.map(() => <SidebarTeamsProjectPlaceholder key={getUniqueKey()} isSidebarOpened={isSidebarOpened}/>)
             : userProjects.map(item => <SidebarTeamsProject
               key={item.projectId}
               userProject={item}
