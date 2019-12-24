@@ -56,7 +56,7 @@ const UserSettings = ({
       case 'Notifications':
         return <div>Notifications</div>;
       case 'Teams':
-        return <div>Team</div>
+        return <div>Team</div>;
       default:
         return <div>Test</div>;
     }
@@ -64,9 +64,10 @@ const UserSettings = ({
 
   return (
     <Preloader
+      iconName="preloader-dark"
       style={preloaderStyle}
       addClassPreloader={loading || !isDataFetched
-        ? 'flex justify-content-center align-items-center'
+        ? 'flex justify-content-center align-items-center preloaderOverlay-light'
         : 'display-none'}
       // addClassPreloader='flex justify-content-center align-items-center'
       addClassChildren="flex justify-content-center align-items-center"

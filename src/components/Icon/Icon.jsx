@@ -5,12 +5,20 @@ import './iconsStyle.sass';
 /* eslint-disable */
 function Icon({ iconName, className, fill }) {
   switch (iconName) {
-    case 'preloader':
+    case 'preloader-dark':
       return (
         <svg
           className={className} width="200px" height="200px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
           <path ng-attr-d="{{config.pathCmd}}" ng-attr-fill="{{config.color}}" stroke="none" d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50" fill="#495570" transform="rotate(137.973 50 51)">
             <animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 51;360 50 51" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></path>
+        </svg>
+      );
+    case 'preloader-light':
+      return (
+        <svg className={className} xmlns="http://www.w3.org/2000/svg" style={{ margin: 'auto', display: 'block', shapeRendering: 'auto' }} width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+          <path d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50" fill="#d3d3d3" stroke="none" transform="rotate(193.182 50 51)">
+            <animateTransform attributeName="transform" type="rotate" dur="1s" repeatCount="indefinite" keyTimes="0;1" values="0 50 51;360 50 51"></animateTransform>
+          </path>
         </svg>
       );
     case 'google-logo':

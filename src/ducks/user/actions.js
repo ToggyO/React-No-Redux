@@ -1,6 +1,6 @@
 import * as types from './types';
 
-export const fetchUserData = (dataType, page, pageSize, companyId, teamId, projectId) => ({
+export const fetchUserData = (dataType, page, pageSize, companyId, teamId, projectId, sidebarLoader) => ({
   type: types.FETCH_USER_DATA_REQUEST,
   payload: {
     dataType,
@@ -9,6 +9,7 @@ export const fetchUserData = (dataType, page, pageSize, companyId, teamId, proje
     companyId,
     teamId,
     projectId,
+    sidebarLoader,
   },
 });
 

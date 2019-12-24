@@ -13,6 +13,7 @@ import { LOCAL_STORAGE_KEYS } from '@config';
 import { API_URL } from '@config/apiUrl';
 import { SOCKET_METHODS } from '@config/socketMethods';
 import { getFromState } from '@utils/index';
+import { Preloader } from '@components/Preloader';
 
 
 const SidebarWrapper = ({
@@ -37,7 +38,7 @@ const SidebarWrapper = ({
   useEffect(() => {
     const token = getFromState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN);
     if (rest.isNotifyConnected && rest.currentTeam) {
-      fetchUserData('projects', 1, 9999, null, rest.currentTeam);
+      fetchUserData('projects', 1, 9999, null, rest.currentTeam, null, true);
       rest.subscribeOnNotificationsChannel(
         SOCKET_METHODS.SUBSCRIBE.SIDEBAR_SUBSCRIBE_TEAM,
         SOCKET_METHODS.BROADCAST.SIDEBAR_BROADCAST, {
@@ -76,11 +77,17 @@ const SidebarWrapper = ({
           borderRadius: 2,
         }}
       >
-        {userProjects.map(item => <SidebarTeamsProject
-          key={item.projectId}
-          userProject={item}
-          isSidebarOpened={isSidebarOpened}
-        />)}
+        <Preloader
+          iconName="preloader-light"
+          addClassImage="w-33"
+          addClassPreloader={rest.sidebarLoading ? 'flex justify-content-center align-items-center preloaderOverlay-dark' : 'display-none'}
+        >
+          {userProjects.map(item => <SidebarTeamsProject
+            key={item.projectId}
+            userProject={item}
+            isSidebarOpened={isSidebarOpened}
+          />)}
+        </Preloader>
       </CustomScrollbar>
       <div className={`${s.footer}`}>
         <TeamsButtons isOpen={isSidebarOpened} modalOpen={modalOpen}/>

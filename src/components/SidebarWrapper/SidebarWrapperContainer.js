@@ -14,6 +14,7 @@ const mapStateToProps = state => ({
   teamsLoaded: userSelectors.userTeamsLoaderSelector(state),
   isNotifyConnected: socketSelectors.isNotificationsConnectedSelector(state),
   currentTeam: sidebarSelectors.currentTeamSelector(state),
+  sidebarLoading: sidebarSelectors.sidebarLoaderSelector(state),
 });
 
 const mapDispatchToProps = dispatch => ({

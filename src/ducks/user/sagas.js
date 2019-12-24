@@ -2,6 +2,7 @@ import { takeEvery, put, call } from 'redux-saga/effects';
 
 import * as types from './types';
 
+import { sidebarTypes } from '@ducks/sidebar';
 import { modalTypes } from '@ducks/modal';
 import { globalTypes } from '@ducks/global';
 
@@ -10,7 +11,8 @@ import api from '@services/api';
 
 function* fetchUserData(action) {
   try {
-    const { dataType } = action.payload;
+    const { dataType, sidebarLoader } = action.payload;
+    if (sidebarLoader) yield put({ type: sidebarTypes.SIDEBAR_PRELOADER_START });
     const data = yield call(api.user.fetchUserData, action.payload);
     yield put({
       type: types.FETCH_USER_DATA_SUCCESS,
@@ -19,6 +21,7 @@ function* fetchUserData(action) {
         data: data.data,
       },
     });
+    if (sidebarLoader) yield put({ type: sidebarTypes.SIDEBAR_PRELOADER_STOP });
   } catch (error) {
     const { response = {} } = error;
     const { data = {} } = response;

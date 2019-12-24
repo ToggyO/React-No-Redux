@@ -99,8 +99,9 @@ const FirstProjectFormView = ({ setFirstProjectRequest, ...rest }) => {
             addChildrenContainerClass="flex justify-content-space-between relative mb-4"
           >
             <Preloader
+              iconName="preloader-dark"
               addClassImage="h-66"
-              addClassPreloader={fetching ? 'flex justify-content-center align-items-center' : 'display-none'}
+              addClassPreloader={fetching ? 'flex justify-content-center align-items-center preloaderOverlay-light' : 'display-none'}
               addClassChildren="flex justify-content-space-between align-items-center"
             >
               <Field name="radioGroup" id="projectTeam" component={YourTeamRadioButton} style={style} />
