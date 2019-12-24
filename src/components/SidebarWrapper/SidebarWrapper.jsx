@@ -28,13 +28,16 @@ const SidebarWrapper = ({
   useEffect(() => {
     fetchUserData('teams', 1, 9999);
     rest.socketConnect(API_URL.SOCKET.NOTIFICATIONS);
-    // connectAndSubscribe();
   },[]);
 
   useEffect(() => {
+    if (rest.teamsLoaded && !rest.currentTeam) rest.changeCurrentTeam(userTeams[0].teamId);
+  },[rest.teamsLoaded]);
+
+  useEffect(() => {
     const token = getFromState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN);
-    fetchUserData('projects', 1, 9999, null, rest.currentTeam);
-    if (rest.isNotifyConnected) {
+    if (rest.isNotifyConnected && rest.currentTeam) {
+      fetchUserData('projects', 1, 9999, null, rest.currentTeam);
       rest.subscribeOnNotificationsChannel(
         SOCKET_METHODS.SUBSCRIBE.SIDEBAR_SUBSCRIBE_TEAM,
         SOCKET_METHODS.BROADCAST.SIDEBAR_BROADCAST, {
