@@ -57,19 +57,27 @@ class GlobalMessage extends React.Component {
     return ReactDOM.createPortal(
       <div
         className={`${s.container} ${isOpen ? s.shown : ''} flex justify-content-center align-items-center`}
-        style={{ backgroundColor: (globalSuccessMessage && '#53D0BA') || (globalErrorMessage && '#FF778C') }}
+        style={{ backgroundColor: (globalSuccessMessage && '#FFFFFF') || (globalErrorMessage && '#FF778C') }}
       >
         <div className={s.icon_container}>
           <Icon
-            iconName={(globalSuccessMessage && 'accept_white') || (globalErrorMessage && 'delete')}
-            className={`${s.icon} ${iconClassName}`}
+            iconName={(globalSuccessMessage && 'accept') || (globalErrorMessage && 'delete')}
+            className={`${s.icon} ${iconClassName} ${globalErrorMessage ? 'fill-white' : ''}`}
           />
         </div>
         <div className={s.text_container}>
-          <p className={s.text}>{globalSuccessMessage || globalErrorMessage}</p>
+          <p
+            className={s.text}
+            style={{ color: (globalSuccessMessage && '#53D0BA') || (globalErrorMessage && '#FFFFFF') }}
+          >
+            {globalSuccessMessage || globalErrorMessage}
+          </p>
         </div>
         <div className={s.hide_error} onClick={this.onCloseMessage}>
-          <Icon iconName="close-modal" className="fill-white" />
+          <Icon
+            iconName="close-modal"
+            className={(globalSuccessMessage && 'fill_green') || (globalErrorMessage && 'fill-white')}
+          />
         </div>
       </div>,
       this.el

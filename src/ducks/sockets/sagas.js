@@ -1,4 +1,4 @@
-import { takeLatest, takeEvery, put, call, take, select } from 'redux-saga/effects';
+import { takeEvery, put, call, take, select } from 'redux-saga/effects';
 
 import * as sidebarTypes from './types';
 
@@ -44,5 +44,5 @@ function* subscribeOnProjects(action) {
 }
 
 export function* subscribeOnProjectsSaga() {
-  yield takeLatest(sidebarTypes.SUBSCRIBE_ON_NOTIFICATIONS_REQUEST, subscribeOnProjects);
+  yield takeEvery(sidebarTypes.SUBSCRIBE_ON_NOTIFICATIONS_REQUEST, subscribeOnProjects);
 }

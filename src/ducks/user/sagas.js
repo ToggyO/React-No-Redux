@@ -152,6 +152,22 @@ export function* changeUserAvatarSaga() {
   yield takeEvery(types.CHANGE_USER_AVATAR_REQUEST, changeUserAvatar);
 }
 
+function* deleteUserAvatar() {
+  try {
+    const data = yield call(api.user.deleteUserAvatar);
+    yield put({ type: types.DELETE_USER_AVATAR_SUCCESS, payload: data.data });
+  } catch (error) {
+    const { response = {} } = error;
+    const { data = {} } = response;
+    const { errors = [] } = data;
+    yield put({ type: types.DELETE_USER_AVATAR_ERROR, payload: errors });
+  }
+}
+
+export function* deleteUserAvatarSaga() {
+  yield takeEvery(types.DELETE_USER_AVATAR_REQUEST, deleteUserAvatar);
+}
+
 function* updateUserProjects(action) {
   try {
     const { changesType } = action.payload;

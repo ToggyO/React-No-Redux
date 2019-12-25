@@ -105,6 +105,10 @@ export default {
       const response = await superaxios.post(API_URL.USER.CHANGE_USER_AVATAR, data);
       return response.data;
     },
+    deleteUserAvatar: async () => {
+      const response = await superaxios.delete(API_URL.USER.DELETE_USER_AVATAR);
+      return response.data;
+    },
     // getUserProjectById: async projectId => {
     //   const response = await superaxios.get(`${API_URL.PROJECTS.ROOT}/${projectId}`);
     //   return response.data;

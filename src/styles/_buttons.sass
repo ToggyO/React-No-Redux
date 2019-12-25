@@ -56,6 +56,25 @@ $className: btn
   background-color: $lightest-gray
   color: $primary-color
 
+.#{$className}.scarlet-outlined
+  border: 1px solid $scarlet
+  color: $scarlet
+
+.#{$className}.scarlet-outlined:disabled
+  border: 1px solid $scarlet
+  color: $scarlet
+  cursor: not-allowed
+
+.#{$className}.scarlet-outlined:hover:enabled
+  border: 1px solid $scarlet
+  background-color: $scarlet
+  color: $white
+
+.#{$className}.scarlet-outlined:active:enabled
+  border: 1px solid $scarlet
+  background-color: $scarlet
+  color: $scarlet
+
 //Shapes
 .#{$className}.full_width
   width: 100%

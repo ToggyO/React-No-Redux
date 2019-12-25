@@ -31,6 +31,9 @@ export default function user(state = initialState, action) {
     case types.SEND_NEW_CODE_TO_CHANGE_EMAIL_REQUEST:
     case types.CHANGE_USER_PASSWORD_REQUEST:
       return { ...state, modalLoading: true };
+    case types.AVATAR_PRELOADER_START:
+    case types.DELETE_USER_AVATAR_REQUEST:
+      return { ...state, avatarLoading: true };
     case types.CHANGE_USER_AVATAR_REQUEST:
       return { ...state, modalLoading: true, avatarLoading: true };
     case types.FETCH_USER_DATA_SUCCESS: {
@@ -48,6 +51,7 @@ export default function user(state = initialState, action) {
     case types.UPDATE_USER_DATA_SUCCESS:
     case types.CONFIRM_NEW_USER_EMAIL_SUCCESS:
     case types.CHANGE_USER_AVATAR_SUCCESS:
+    case types.DELETE_USER_AVATAR_SUCCESS:
       return {
         ...state,
         spinner: false,
@@ -108,6 +112,7 @@ export default function user(state = initialState, action) {
     case types.SEND_NEW_CODE_TO_CHANGE_EMAIL_ERROR:
     case types.CHANGE_USER_PASSWORD_ERROR:
     case types.CHANGE_USER_AVATAR_ERROR:
+    case types.DELETE_USER_AVATAR_ERROR:
     case types.UPDATE_USER_PROJECTS_ERROR:
       return {
         ...state,

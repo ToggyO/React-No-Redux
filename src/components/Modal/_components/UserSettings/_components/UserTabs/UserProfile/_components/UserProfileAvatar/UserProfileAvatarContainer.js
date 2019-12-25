@@ -24,6 +24,9 @@ const mapDispatchToProps = dispatch => ({
   userLoaderStop() {
     dispatch(userActions.userLoaderStop());
   },
+  deleteUserAvatar() {
+    dispatch(userActions.deleteUserAvatar());
+  },
 });
 
 export default connect(

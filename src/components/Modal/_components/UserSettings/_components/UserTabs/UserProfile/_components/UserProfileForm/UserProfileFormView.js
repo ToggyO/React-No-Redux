@@ -89,7 +89,7 @@ const UserProfileFormView = ({ userData, isUserUpdating, updateUserData, modalOp
           <div className={s.logout}>
             <button
               type="button"
-              className="btn primary-outlined rounded pt-2 pb-2"
+              className="btn scarlet-outlined rounded pt-2 pb-2"
               onClick={() => modalOpen('ModalLogoutConfirmation')}
             >
               Log out

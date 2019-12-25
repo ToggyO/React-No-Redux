@@ -43,6 +43,10 @@ export const changeUserAvatar = data => ({
   payload: data,
 });
 
+export const deleteUserAvatar = () => ({
+  type: types.DELETE_USER_AVATAR_REQUEST,
+});
+
 export const updateUserProjects = projectId => ({
   type: types.CHANGE_USER_AVATAR_REQUEST,
   payload: projectId,

@@ -6,17 +6,15 @@ import s from './style.module.sass';
 import spinner from '@assets/user_profile/spinner-png.png'
 import { OTHER } from '@config';
 
+
 const UserProfileAvatarView = ({
-  // userData: {
-  //   name = '',
-  //   avatar = {},
-  // },
   userData,
   avatarLoading,
   modalOpen,
   showGlobalError,
   userLoaderStart,
   userLoaderStop,
+  deleteUserAvatar,
 }) => {
   const [isImageLoaded, setImageLoaded] = useState(false);
   const fileInputRef = useRef(null);
@@ -69,7 +67,7 @@ const UserProfileAvatarView = ({
 
   return (
     <div className={s.container}>
-      <div className={`${s.avatar_container} flex justify-content-center align-items-center`}>
+      <div className={`${s.avatar_container} flex justify-content-center align-items-center relative`}>
         <div
           className={`${s.avatar} ${s.avatar_placeholder} flex justify-content-center align-items-center`}
         >
@@ -78,7 +76,7 @@ const UserProfileAvatarView = ({
               src={(!isImageLoaded || avatarLoading)
                 ? spinner
                 : userData.avatar.formatUrls['360']
-              } alt="ava-bomba" align="middle" onLoad={() => setImageLoaded(true)}/>
+              } alt="" align="middle" onLoad={() => setImageLoaded(true)}/>
             : userData.name
               .replace(/ /g, '')
               .slice(0, 1)
@@ -86,9 +84,9 @@ const UserProfileAvatarView = ({
           }
         </div>
       </div>
-      <div className={s.edit}>
+      <div className={`${s.edit} flex flex-column`}>
         <label
-          className={`${s.label} btn`}
+          className={`${s.label} btn mb-2`}
           htmlFor="user-profile-avatar-edit">
           Edit avatar
           <input
@@ -99,6 +97,13 @@ const UserProfileAvatarView = ({
             onChange={handleChange}
           />
         </label>
+        <button
+          type="button"
+          className={`${s.avatar_delete} btn mt-1`}
+          onClick={() => deleteUserAvatar()}
+        >
+          Delete
+        </button>
       </div>
     </div>
   );
@@ -111,6 +116,7 @@ UserProfileAvatarView.propTypes = {
   showGlobalError: PT.func,
   userLoaderStart: PT.func,
   userLoaderStop: PT.func,
+  deleteUserAvatar: PT.func,
 };
 
 export default UserProfileAvatarView;
