@@ -82,7 +82,7 @@ export default {
     //   return response.data;
     // },
     updateUserData: async data => {
-      const response = await superaxios.put(API_URL.USER.FETCH_USER_DATA, data);
+      const response = await superaxios.put(API_URL.USER.UPDATE_USER_DATA, data);
       return response.data;
     },
     changeUserEmailRequest: async data => {
