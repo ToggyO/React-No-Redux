@@ -79,32 +79,33 @@ const SidebarWrapper = ({
       <div className={`${s.links} ${isSidebarOpened ? s.links_horizontal : s.links_vertical} flex justify-content-center align-items-center flex-wrap-wrap`}>
         <LinkButtonsContainer userTeams={userTeams} changeCurrentTeam={rest.changeCurrentTeam}/>
       </div>
-      <CustomScrollbar
-        style={{ flexGrow: 1 }}
-        universal
-        autoHide
-        autoHideTimeout={1000}
-        autoHideDuration={200}
-        thumbStyleVertical={{
-          backgroundColor: '#6D768A',
-          width: 4,
-          borderRadius: 2,
-        }}
-      >
+      <div className={`${s.projects} relative`}>
         <Preloader
           iconName="preloader-light"
           addClassImage="w-33"
           addClassPreloader={rest.sidebarLoading ? 'flex justify-content-center align-items-center preloaderOverlay-dark' : 'display-none'}
         >
-          {!rest.projectsLoaded
-            ? projectsPlaceholder.map(() => <SidebarTeamsProjectPlaceholder key={getUniqueKey()} isSidebarOpened={isSidebarOpened}/>)
-            : userProjects.map(item => <SidebarTeamsProject
-              key={item.projectId}
-              userProject={item}
-              isSidebarOpened={isSidebarOpened}
-            />)}
+          <CustomScrollbar
+            universal
+            autoHide
+            autoHideTimeout={1000}
+            autoHideDuration={200}
+            thumbStyleVertical={{
+              backgroundColor: '#6D768A',
+              width: 4,
+              borderRadius: 2,
+            }}
+          >
+            {!rest.projectsLoaded
+              ? projectsPlaceholder.map(() => <SidebarTeamsProjectPlaceholder key={getUniqueKey()} isSidebarOpened={isSidebarOpened}/>)
+              : userProjects.map(item => <SidebarTeamsProject
+                key={item.projectId}
+                userProject={item}
+                isSidebarOpened={isSidebarOpened}
+              />)}
+          </CustomScrollbar>
         </Preloader>
-      </CustomScrollbar>
+      </div>
       <div className={`${s.footer}`}>
         <TeamsButtons isOpen={isSidebarOpened} modalOpen={modalOpen}/>
       </div>

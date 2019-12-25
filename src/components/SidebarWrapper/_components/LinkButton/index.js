@@ -5,11 +5,11 @@ import s from './style.module.sass';
 
 import { Icon } from '@components/Icon';
 
-export const LinkButton = ({ info = [], style = {} }) => (
+export const LinkButton = ({ info = [], style = {}, flag }) => (
   <>
     <div key={info.title} className={`${s.link} relative pt-2 pb-2`} style={style.link}>
       <div
-        className={`${s.iconContainer} flex justify-content-center align-items-center`}
+        className={`${s.icon_container} flex justify-content-center align-items-center`}
         style={style.iconContainer}
       >
         <Icon iconName={info.iconName} className={s.icon} />
@@ -19,7 +19,7 @@ export const LinkButton = ({ info = [], style = {} }) => (
           </div>
         </div>
       </div>
-      <div className={s.title} style={style.title}>
+      <div className={`${s.title} ${flag ? s.white_font : ''}`} style={style.title}>
         {info.title}
       </div>
     </div>
@@ -29,4 +29,5 @@ export const LinkButton = ({ info = [], style = {} }) => (
 LinkButton.propTypes = {
   info: PT.oneOfType([PT.array, PT.object]),
   style: PT.object,
+  flag: PT.bool,
 };

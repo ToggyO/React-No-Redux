@@ -13,6 +13,7 @@ import { writeToLocalState } from '@services/ls';
 import { checkLocalStorage } from '@utils/index';
 import { LOCAL_STORAGE_KEYS } from '@config/common';
 import { writeToSessionState } from '@services/ss';
+import CustomScrollbar from '@components/Scrollbar';
 
 const buttons = [
   {
@@ -46,26 +47,38 @@ export const LinkButtonsContainer = ({ userTeams = [], changeCurrentTeam }) => {
 
   const renderTeamsList = () => (
     <>
-      {userTeams.map(item => (
-        <UserProfileSidebarTeamsView
-          key={item.team.name}
-          color={item.team.colorHex}
-          teamName={item.team.name}
-          addClassContainer="pl-2 pt-2 pb-2"
-          addClassCircle="flex justify-content-center align-items-center"
-          addClassHeadline="ml-3 flex justify-content-space-between align-items-center relative"
-          style={teamsStyle}
-          onClick={() => {
-            changeTeam(item.teamId);
-            teamTooltipRef.current.hideTooltip();
-          }}
-        />
-      ))}
+      <CustomScrollbar
+        style={{ width: 162, borderRadius: 3 }}
+        universal
+        autoHeight
+        autoHeightMax={323}
+        thumbStyleVertical={{
+          backgroundColor: '#6D768A',
+          width: 4,
+          borderRadius: 2,
+        }}
+      >
+        {userTeams.map(item => (
+          <UserProfileSidebarTeamsView
+            key={item.team.name}
+            color={item.team.colorHex}
+            teamName={item.team.name}
+            addClassContainer="pl-2 pt-2 pb-2"
+            addClassCircle="flex justify-content-center align-items-center"
+            addClassHeadline="ml-3 flex justify-content-space-between align-items-center relative"
+            style={teamsStyle}
+            onClick={() => {
+              changeTeam(item.teamId);
+              teamTooltipRef.current.hideTooltip();
+            }}
+          />
+        ))}
+      </CustomScrollbar>
     </>
   );
 
   return (
-    <>
+    <div className="flex relative">
       <LinkButton info={buttons[0]} style={LinkButtonStyle} />
       <LinkButton info={buttons[1]} style={LinkButtonStyle} />
       <Tooltip
@@ -77,9 +90,9 @@ export const LinkButtonsContainer = ({ userTeams = [], changeCurrentTeam }) => {
         arrowClass="sidebarProjectsSettingsTooltipArrow"
         onVisibilityChange={() => toggleFlag(!flag)}
       >
-        <LinkButton info={buttons[2]} style={LinkButtonStyle} />
+        <LinkButton info={buttons[2]} style={LinkButtonStyle} flag={flag} />
       </Tooltip>
-    </>
+    </div>
   );
 };
 
