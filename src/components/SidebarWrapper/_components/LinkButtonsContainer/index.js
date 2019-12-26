@@ -33,7 +33,7 @@ const buttons = [
   },
 ];
 
-export const LinkButtonsContainer = ({ userTeams = [], changeCurrentTeam }) => {
+export const LinkButtonsContainer = ({ userTeams = [], changeCurrentTeam, isSidebarOpened }) => {
   const [flag, toggleFlag] = useState(false);
   const teamTooltipRef = useRef(null);
 
@@ -78,11 +78,11 @@ export const LinkButtonsContainer = ({ userTeams = [], changeCurrentTeam }) => {
   );
 
   return (
-    <div className="flex relative">
+    <>
       <LinkButton info={buttons[0]} style={LinkButtonStyle} />
       <LinkButton info={buttons[1]} style={LinkButtonStyle} />
       <Tooltip
-        placement="bottom-end"
+        placement={isSidebarOpened ? 'bottom-end' : 'right-start'}
         tooltip={renderTeamsList()}
         trigger="click"
         innerRef={teamTooltipRef}
@@ -92,11 +92,12 @@ export const LinkButtonsContainer = ({ userTeams = [], changeCurrentTeam }) => {
       >
         <LinkButton info={buttons[2]} style={LinkButtonStyle} flag={flag} />
       </Tooltip>
-    </div>
+    </>
   );
 };
 
 LinkButtonsContainer.propTypes = {
   userTeams: PT.arrayOf(PT.object),
   changeCurrentTeam: PT.func,
+  isSidebarOpened: PT.bool,
 };
