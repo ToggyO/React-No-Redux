@@ -61,8 +61,8 @@ $className: btn
   color: $scarlet
 
 .#{$className}.scarlet-outlined:disabled
-  border: 1px solid $scarlet
-  color: $scarlet
+  border: 1px solid lighten($scarlet, 12%)
+  color: lighten($scarlet, 12%)
   cursor: not-allowed
 
 .#{$className}.scarlet-outlined:hover:enabled
@@ -72,7 +72,7 @@ $className: btn
 
 .#{$className}.scarlet-outlined:active:enabled
   border: 1px solid $scarlet
-  background-color: $scarlet
+  background-color: lighten($scarlet, 27%)
   color: $scarlet
 
 //Shapes
