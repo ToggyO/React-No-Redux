@@ -4,6 +4,7 @@ import PT from 'prop-types';
 import s from './style.module.sass';
 
 import { Icon } from '@components/Icon';
+import { SecondaryColorHeadline } from '@components/StyledComponents/ColorBlocks';
 
 export const LinkButton = ({ info = [], style = {}, flag }) => (
   <>
@@ -19,9 +20,9 @@ export const LinkButton = ({ info = [], style = {}, flag }) => (
           </div>
         </div>
       </div>
-      <div className={`${s.title} ${flag ? s.white_font : ''}`} style={style.title}>
+      <SecondaryColorHeadline className={`${s.title}`} flag={flag} style={style.title}>
         {info.title}
-      </div>
+      </SecondaryColorHeadline>
     </div>
   </>
 );

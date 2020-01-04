@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import PT from 'prop-types';
-import styled from 'styled-components';
 
 import s from './style.module.sass';
 import { LinkButtonsContainer } from './_components/LinkButtonsContainer';
 
+import { ColorBlocks } from '@components/StyledComponents';
 import { Icon } from '@components/Icon';
 import { TeamsButtons } from '@components/SidebarWrapper/_components/TeamsButtons';
 import { SidebarTeamsProject } from '@components/SidebarWrapper/_components/SidebarTeamsProject';
@@ -21,9 +21,7 @@ import { writeToSessionState } from '@services/ss';
 
 const projectsPlaceholder = [...Array(6)];
 
-const TestDiv = styled.div`
-  background-color: ${props => props.theme.colors.primaryColor}
-`;
+
 
 const SidebarWrapper = ({
   children,
@@ -34,7 +32,7 @@ const SidebarWrapper = ({
   ...rest
 }) => {
   const [isSidebarOpened, toggleSidebarOpen] = useState(getFromState(LOCAL_STORAGE_KEYS.SIDEBAR_STATE));
-  console.log(rest);
+
   const rememberSidebarState = state => {
     if (checkLocalStorage()) {
       return writeToLocalState(LOCAL_STORAGE_KEYS.SIDEBAR_STATE, state);
@@ -65,7 +63,7 @@ const SidebarWrapper = ({
   },[rest.isNotifyConnected, rest.currentTeam]);
 
   return (
-    <TestDiv className={`${s.sidebar} ${isSidebarOpened ? s.sidebar_shown : ''} flex flex-column`}>
+    <ColorBlocks.PrimaryColorBlock className={`${s.sidebar} ${isSidebarOpened ? s.sidebar_shown : ''} flex flex-column`}>
       <div className={`${s.logo_container} flex justify-content-center align-items-center`}>
         <div className={`${s.logo} ${isSidebarOpened ? s.logo_large : s.logo_small}`}>
           <Icon iconName="squad-logo" className={s.image}/>
@@ -122,7 +120,7 @@ const SidebarWrapper = ({
       <div className={`${s.footer}`}>
         <TeamsButtons isOpen={isSidebarOpened} modalOpen={modalOpen}/>
       </div>
-    </TestDiv>
+    </ColorBlocks.PrimaryColorBlock>
   );
 };
 

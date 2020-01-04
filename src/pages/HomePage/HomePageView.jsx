@@ -5,6 +5,7 @@ import { detect } from 'detect-browser';
 
 import s from './style.module.sass';
 
+import { ColorBlocks } from '@components/StyledComponents';
 import { LogoutButton } from '@components/LogoutButton';
 import superaxios from '@services/superaxios';
 
@@ -18,7 +19,7 @@ const HomePageView = ({ modalOpen }) => {
   // if (browser && /android|iOS/i.test(browser.os)) return <div>HAHAHAHAH! LOL!</div>;
 
   return (
-    <div className={`${s.wrapper} flex align-items-center flex-column`} >
+    <ColorBlocks.PrimaryColorBlock className={`${s.wrapper} flex align-items-center flex-column`} >
       <Helmet defaultTitle="Squad.io - Home">
         {browser && /android|iOS/i.test(browser.os)
           && <meta name="viewport" content="width=990px, user-scalable=yes"/>}
@@ -59,7 +60,7 @@ const HomePageView = ({ modalOpen }) => {
         </button>
       </form>
       <LogoutButton addButtonClass="btn" />
-    </div>
+    </ColorBlocks.PrimaryColorBlock>
   )
 };
 

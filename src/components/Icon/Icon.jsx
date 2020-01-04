@@ -1,6 +1,8 @@
 import React from 'react';
 import PT from 'prop-types';
+
 import './iconsStyle.sass';
+import { ColorBlocks } from '@components/StyledComponents';
 
 /* eslint-disable */
 function Icon({ iconName, className, fill }) {
@@ -122,17 +124,19 @@ function Icon({ iconName, className, fill }) {
       );
     case 'arrow-right':
       return (
-        <svg className={className} width="8px" height="14px" viewBox="0 0 8 14" version="1.1">
-          <g id="Web" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-            <g id="01-" transform="translate(-250.000000, -30.000000)" fill="#9398A2">
-              <g id="Group-9" transform="translate(-0.000926, 0.000000)">
-                <g id="Icon/16/arrow" transform="translate(246.000926, 29.000000)">
-                  <path d="M1.98375706,12 L8.00918079,5.99172462 L8.65183616,6.63262611 L14.0014124,11.9676028 L15,10.9717405 C13.5204802,9.49625847 9.38983051,5.37688177 8.00918079,4 C6.98305085,5.02262523 7.98305085,4.02535434 1,10.9893477 L1.98375706,12 Z" id="arrow_up-[#340]-copy-5" transform="translate(8.000000, 8.000000) rotate(-90.000000) translate(-8.000000, -8.000000) "></path>
+        <ColorBlocks.FillContainer className={`${className}`} >
+          <svg width="8px" height="14px" viewBox="0 0 8 14" version="1.1">
+            <g id="Web" stroke="none" strokeWidth="1" fillRule="evenodd">
+              <g id="01-" transform="translate(-250.000000, -30.000000)">
+                <g id="Group-9" transform="translate(-0.000926, 0.000000)">
+                  <g id="Icon/16/arrow" transform="translate(246.000926, 29.000000)">
+                    <path d="M1.98375706,12 L8.00918079,5.99172462 L8.65183616,6.63262611 L14.0014124,11.9676028 L15,10.9717405 C13.5204802,9.49625847 9.38983051,5.37688177 8.00918079,4 C6.98305085,5.02262523 7.98305085,4.02535434 1,10.9893477 L1.98375706,12 Z" id="arrow_up-[#340]-copy-5" transform="translate(8.000000, 8.000000) rotate(-90.000000) translate(-8.000000, -8.000000) "></path>
+                  </g>
                 </g>
               </g>
             </g>
-          </g>
-        </svg>
+          </svg>
+        </ColorBlocks.FillContainer>
       );
     case 'sidebar-tasks':
       return (
@@ -152,11 +156,15 @@ function Icon({ iconName, className, fill }) {
       );
     case 'add-plus':
       return (
-        <svg className={className} width="11px" height="11px" viewBox="0 0 11 11" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="Web" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="01-" transform="translate(-225.000000, -191.000000)" fill="#9398A2"><g id="Group-9" transform="translate(-0.000926, 0.000000)"><g id="Icon/16/plus" transform="translate(222.000926, 189.000000)"><polygon id="plus-[#1512]" points="14 7 14 8 9 8 9 13 8 13 8 8 3 8 3 7 8 7 8 2 9 2 9 7"></polygon></g></g></g></g></svg>
+        <ColorBlocks.FillContainer className={`${className}`} >
+          <svg className={className} width="11px" height="11px" viewBox="0 0 11 11" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="Web" stroke="none" strokeWidth="1" fillRule="evenodd"><g id="01-" transform="translate(-225.000000, -191.000000)"><g id="Group-9" transform="translate(-0.000926, 0.000000)"><g id="Icon/16/plus" transform="translate(222.000926, 189.000000)"><polygon id="plus-[#1512]" points="14 7 14 8 9 8 9 13 8 13 8 8 3 8 3 7 8 7 8 2 9 2 9 7"></polygon></g></g></g></g></svg>
+        </ColorBlocks.FillContainer>
       );
     case 'settings_switch':
       return (
-        <svg className={className} width="11px" height="11px" viewBox="0 0 11 11" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="Web" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="01--Settings-menu-Copy" transform="translate(-201.000000, -192.000000)" fill="#9398A2"><g id="Group-9" transform="translate(-0.000926, 0.000000)"><g id="Icon/16/settings" transform="translate(198.000000, 189.000000)"><path d="M8.9988177,3 L7.99763539,3 L7.99763539,4.99854124 L7,4.99854124 L7,6 L7.99763539,6 L7.99763539,14 L8.9988177,14 L8.9988177,6 L10,6 L10,4.99854124 L8.9988177,4.99854124 L8.9988177,3 Z M5,8 L6,8 L6,9 L5,9 L5,14 L4,14 L4,9 L3,9 L3,8 L4,8 L4,3 L5,3 L5,8 Z M13,8 L14,8 L14,9 L13,9 L13,14 L12,14 L12,9 L11,9 L11,8 L12,8 L12,3 L13,3 L13,8 Z" id="option_bar_settings-[#1401]"></path></g></g></g></g></svg>
+        <ColorBlocks.FillContainer className={`${className}`} >
+          <svg className={className} width="11px" height="11px" viewBox="0 0 11 11" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="Web" stroke="none" strokeWidth="1" fillRule="evenodd"><g id="01--Settings-menu-Copy" transform="translate(-201.000000, -192.000000)"><g id="Group-9" transform="translate(-0.000926, 0.000000)"><g id="Icon/16/settings" transform="translate(198.000000, 189.000000)"><path d="M8.9988177,3 L7.99763539,3 L7.99763539,4.99854124 L7,4.99854124 L7,6 L7.99763539,6 L7.99763539,14 L8.9988177,14 L8.9988177,6 L10,6 L10,4.99854124 L8.9988177,4.99854124 L8.9988177,3 Z M5,8 L6,8 L6,9 L5,9 L5,14 L4,14 L4,9 L3,9 L3,8 L4,8 L4,3 L5,3 L5,8 Z M13,8 L14,8 L14,9 L13,9 L13,14 L12,14 L12,9 L11,9 L11,8 L12,8 L12,3 L13,3 L13,8 Z" id="option_bar_settings-[#1401]"></path></g></g></g></g></svg>
+        </ColorBlocks.FillContainer>
       );
     case 'folder':
       return (

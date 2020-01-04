@@ -5,33 +5,16 @@ import { ThemeProvider } from 'styled-components';
 import s from './style.module.sass';
 
 import SidebarWrapperContainer from '@components/SidebarWrapper/SidebarWrapperContainer';
-
-const origin = {
-  colors: {
-    primaryColor: '#495570',
-    secondaryColor: '#9398A2',
-    white: '#FFFFFF',
-    scarlet: '#E76A7D',
-  },
-};
-
-const alternative = {
-  colors: {
-    primaryColor: '#D3D3D3',
-    secondaryColor: '#F8F8F8',
-    white: '#FFFFFF',
-    scarlet: '#E76A7D',
-  },
-};
+import { appThemes } from '@components/StyledComponents';
 
 export class MainWrapper extends React.PureComponent {
   state = {
-    theme: origin,
+    theme: appThemes.origin,
   };
 
-  originTheme = () => this.setState({ theme: origin });
+  originTheme = () => this.setState({ theme: appThemes.origin });
 
-  alternativeTheme = () => this.setState({ theme: alternative });
+  alternativeTheme = () => this.setState({ theme: appThemes.alternative });
 
   render() {
     const { children } = this.props;
