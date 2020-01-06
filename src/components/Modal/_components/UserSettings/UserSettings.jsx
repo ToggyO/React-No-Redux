@@ -64,13 +64,14 @@ const UserSettings = ({
 
   return (
     <Preloader
-      iconName="preloader-dark"
+      iconName="preloader"
       style={preloaderStyle}
       addClassPreloader={loading || !isDataFetched
-        ? 'flex justify-content-center align-items-center preloaderOverlay-light'
+        ? 'flex justify-content-center align-items-center'
         : 'display-none'}
       // addClassPreloader='flex justify-content-center align-items-center'
       addClassChildren="flex justify-content-center align-items-center"
+      colorScheme="default"
     >
       <div className={`${s.container} relative`}>
         <CustomScrollbar

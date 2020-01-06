@@ -27,9 +27,10 @@ const AuthScreenWrapperView = ({ children, loading }) => {
       </div>
       <div className={`${style.form} ${style.children}`} id="test">
         <Preloader
-          iconName="preloader-dark"
-          addClassPreloader={loading ? 'flex justify-content-center align-items-center preloaderOverlay-light' : 'display-none'}
+          iconName="preloader"
+          addClassPreloader={loading ? 'flex justify-content-center align-items-center' : 'display-none'}
           addClassChildren="flex justify-content-center align-items-center"
+          colorScheme="default"
         >
           {children}
         </Preloader>

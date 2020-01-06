@@ -34,7 +34,7 @@ const initialState = {
   //   registrationStep: getFromState(LOCAL_STORAGE_KEYS.REGISTER_STEP) || { step: 0, stepName: '' },
   // },
   data: {
-    user: getFromLocalState(LOCAL_STORAGE_KEYS.USER) || getFromSessionState(LOCAL_STORAGE_KEYS.USER),
+    user: getFromLocalState(LOCAL_STORAGE_KEYS.USER) || getFromSessionState(LOCAL_STORAGE_KEYS.USER) || {},
     token: {
       accessToken:
         getFromLocalState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN) ||

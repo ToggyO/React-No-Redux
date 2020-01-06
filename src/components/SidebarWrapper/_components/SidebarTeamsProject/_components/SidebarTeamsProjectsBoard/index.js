@@ -3,6 +3,11 @@ import PT from 'prop-types';
 
 import s from './style.module.sass';
 
+import {
+  SecondaryColorBlockFlagged,
+  SecondaryColorHeadlineFlagged,
+} from '@components/StyledComponents/ColorBlocks';
+
 export const SidebarTeamsProjectsBoard = ({
   boardName,
   addContainerClass = '',
@@ -15,12 +20,12 @@ export const SidebarTeamsProjectsBoard = ({
   return (
     <div className={`${s.container} ${addContainerClass}`} onClick={() => setChecked(!checked)}>
       <div className={`${s.circle_container} ${addCircleClass}`}>
-        <div className={`${s.circle} ${checked ? s.checked_circle : ''}`} />
+        <SecondaryColorBlockFlagged className={`${s.circle}`} flag={checked} />
       </div>
       <div className={`${s.board} ${addBoardClass}`}>
-        <p className={`${addBoardTitleClass} ${checked ? s.checked_title : ''}`}>
+        <SecondaryColorHeadlineFlagged className={`${addBoardTitleClass} ${s.text}`} flag={checked}>
           {boardName.replace(/(^\s*)|(\s*)$/g, '')}
-        </p>
+        </SecondaryColorHeadlineFlagged>
       </div>
     </div>
   );

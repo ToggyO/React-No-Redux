@@ -49,6 +49,11 @@ export const USER_PRELOADER_STOP = 'user/USER_PRELOADER_STOP';
 export const AVATAR_PRELOADER_START = 'user/AVATAR_PRELOADER_START';
 export const AVATAR_PRELOADER_STOP = 'user/AVATAR_PRELOADER_STOP';
 
+/* Change UI theme */
+export const CHANGE_UI_THEME_REQUEST = 'user/CHANGE_UI_THEME_REQUEST';
+export const CHANGE_UI_THEME_SUCCESS = 'user/CHANGE_UI_THEME_SUCCESS';
+export const CHANGE_UI_THEME_ERROR = 'user/CHANGE_UI_THEME_ERROR';
+
 /* Clear store */
 export const CLEAR_USER_ERRORS = 'user/CLEAR_USER_ERRORS';
 export const CLEAR_USER_EXTRA = 'user/CLEAR_USER_EXTRA';

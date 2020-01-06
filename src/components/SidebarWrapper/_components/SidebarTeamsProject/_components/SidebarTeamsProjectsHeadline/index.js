@@ -3,7 +3,7 @@ import PT from 'prop-types';
 
 import s from './style.module.sass';
 
-import { SecondaryColorHeadline } from '@components/StyledComponents/ColorBlocks';
+import { SecondaryColorHeadlineFlagged } from '@components/StyledComponents/ColorBlocks';
 
 export const SidebarTeamsProjectsHeadline = ({ isSidebarOpened, isOpen, color, teamName }) => (
   <>
@@ -22,9 +22,9 @@ export const SidebarTeamsProjectsHeadline = ({ isSidebarOpened, isOpen, color, t
     </div>
     {isSidebarOpened && (
       <div className={`${s.headline} ml-2 flex justify-content-space-between align-items-center relative`}>
-        <SecondaryColorHeadline className={`${s.headline_text}`} flag={isOpen}>
+        <SecondaryColorHeadlineFlagged className={`${s.headline_text}`} flag={isOpen}>
           {teamName.replace(/(^\s*)|(\s*)$/g, '')}
-        </SecondaryColorHeadline>
+        </SecondaryColorHeadlineFlagged>
       </div>
     )}
   </>

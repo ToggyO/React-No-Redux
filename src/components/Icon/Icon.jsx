@@ -3,26 +3,35 @@ import PT from 'prop-types';
 
 import './iconsStyle.sass';
 import { ColorBlocks } from '@components/StyledComponents';
+import { StyledSvg } from '@components/StyledComponents/ColorBlocks';
 
 /* eslint-disable */
-function Icon({ iconName, className, fill }) {
+function Icon({ iconName, className, preloaderColorScheme }) {
   switch (iconName) {
-    case 'preloader-dark':
+    case 'preloader':
       return (
-        <svg
-          className={className} width="200px" height="200px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
-          <path ng-attr-d="{{config.pathCmd}}" ng-attr-fill="{{config.color}}" stroke="none" d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50" fill="#495570" transform="rotate(137.973 50 51)">
-            <animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 51;360 50 51" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></path>
-        </svg>
+          <StyledSvg className={className} colorScheme={preloaderColorScheme}
+            width="200px" height="200px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+            <path ng-attr-d="{{config.pathCmd}}" ng-attr-fill="{{config.color}}" stroke="none" d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50" transform="rotate(137.973 50 51)">
+              <animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 51;360 50 51" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></path>
+          </StyledSvg>
       );
-    case 'preloader-light':
-      return (
-        <svg className={className} xmlns="http://www.w3.org/2000/svg" style={{ margin: 'auto', display: 'block', shapeRendering: 'auto' }} width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
-          <path d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50" fill="#d3d3d3" stroke="none" transform="rotate(193.182 50 51)">
-            <animateTransform attributeName="transform" type="rotate" dur="1s" repeatCount="indefinite" keyTimes="0;1" values="0 50 51;360 50 51"></animateTransform>
-          </path>
-        </svg>
-      );
+    // case 'preloader-dark':
+    //   return (
+    //     <svg
+    //       className={className} width="200px" height="200px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+    //       <path ng-attr-d="{{config.pathCmd}}" ng-attr-fill="{{config.color}}" stroke="none" d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50" fill="#495570" transform="rotate(137.973 50 51)">
+    //         <animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 51;360 50 51" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></path>
+    //     </svg>
+    //   );
+    // case 'preloader-light':
+    //   return (
+    //     <svg className={className} xmlns="http://www.w3.org/2000/svg" style={{ margin: 'auto', display: 'block', shapeRendering: 'auto' }} width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+    //       <path d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50" fill="#d3d3d3" stroke="none" transform="rotate(193.182 50 51)">
+    //         <animateTransform attributeName="transform" type="rotate" dur="1s" repeatCount="indefinite" keyTimes="0;1" values="0 50 51;360 50 51"></animateTransform>
+    //       </path>
+    //     </svg>
+    //   );
     case 'google-logo':
       return (
         <div className="flex justify-content-center align-items-center">
@@ -124,7 +133,7 @@ function Icon({ iconName, className, fill }) {
       );
     case 'arrow-right':
       return (
-        <ColorBlocks.FillContainer className={`${className}`} >
+        <ColorBlocks.FillContainerSecondaryColor className={`${className}`} >
           <svg width="8px" height="14px" viewBox="0 0 8 14" version="1.1">
             <g id="Web" stroke="none" strokeWidth="1" fillRule="evenodd">
               <g id="01-" transform="translate(-250.000000, -30.000000)">
@@ -136,7 +145,7 @@ function Icon({ iconName, className, fill }) {
               </g>
             </g>
           </svg>
-        </ColorBlocks.FillContainer>
+        </ColorBlocks.FillContainerSecondaryColor>
       );
     case 'sidebar-tasks':
       return (
@@ -152,27 +161,33 @@ function Icon({ iconName, className, fill }) {
       );
     case 'add-circle-plus':
       return (
-        <svg className={className} width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="Web" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="02" transform="translate(-156.000000, -990.000000)" fill="#9398A2" fillRule="nonzero"><g id="Group-8" transform="translate(0.000000, 975.000000)"><g id="Icon/24/Add" transform="translate(154.000000, 13.000000)"><path d="M12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M12,2.95238095 C7.00313798,2.95238095 2.95238095,7.00313798 2.95238095,12 C2.95238095,16.996862 7.00313798,21.047619 12,21.047619 C16.996862,21.047619 21.047619,16.996862 21.047619,12 C21.047619,7.00313798 16.996862,2.95238095 12,2.95238095 Z M13,6 L12.999,10.999 L18,11 L18,13 L12.999,12.999 L13,18 L11,18 L10.999,12.999 L6,13 L6,11 L10.999,10.999 L11,6 L13,6 Z" id="Combined-Shape"></path></g></g></g></g></svg>
+        <ColorBlocks.FillContainerSecondaryColor className={`${className}`}>
+          <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="Web" stroke="none" strokeWidth="1" fillRule="evenodd"><g id="02" transform="translate(-156.000000, -990.000000)" fillRule="nonzero"><g id="Group-8" transform="translate(0.000000, 975.000000)"><g id="Icon/24/Add" transform="translate(154.000000, 13.000000)"><path d="M12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M12,2.95238095 C7.00313798,2.95238095 2.95238095,7.00313798 2.95238095,12 C2.95238095,16.996862 7.00313798,21.047619 12,21.047619 C16.996862,21.047619 21.047619,16.996862 21.047619,12 C21.047619,7.00313798 16.996862,2.95238095 12,2.95238095 Z M13,6 L12.999,10.999 L18,11 L18,13 L12.999,12.999 L13,18 L11,18 L10.999,12.999 L6,13 L6,11 L10.999,10.999 L11,6 L13,6 Z" id="Combined-Shape"></path></g></g></g></g></svg>
+        </ColorBlocks.FillContainerSecondaryColor>
       );
     case 'add-plus':
       return (
-        <ColorBlocks.FillContainer className={`${className}`} >
+        <ColorBlocks.FillContainerSecondaryColor className={`${className}`} >
           <svg className={className} width="11px" height="11px" viewBox="0 0 11 11" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="Web" stroke="none" strokeWidth="1" fillRule="evenodd"><g id="01-" transform="translate(-225.000000, -191.000000)"><g id="Group-9" transform="translate(-0.000926, 0.000000)"><g id="Icon/16/plus" transform="translate(222.000926, 189.000000)"><polygon id="plus-[#1512]" points="14 7 14 8 9 8 9 13 8 13 8 8 3 8 3 7 8 7 8 2 9 2 9 7"></polygon></g></g></g></g></svg>
-        </ColorBlocks.FillContainer>
+        </ColorBlocks.FillContainerSecondaryColor>
       );
     case 'settings_switch':
       return (
-        <ColorBlocks.FillContainer className={`${className}`} >
+        <ColorBlocks.FillContainerSecondaryColor className={`${className}`} >
           <svg className={className} width="11px" height="11px" viewBox="0 0 11 11" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="Web" stroke="none" strokeWidth="1" fillRule="evenodd"><g id="01--Settings-menu-Copy" transform="translate(-201.000000, -192.000000)"><g id="Group-9" transform="translate(-0.000926, 0.000000)"><g id="Icon/16/settings" transform="translate(198.000000, 189.000000)"><path d="M8.9988177,3 L7.99763539,3 L7.99763539,4.99854124 L7,4.99854124 L7,6 L7.99763539,6 L7.99763539,14 L8.9988177,14 L8.9988177,6 L10,6 L10,4.99854124 L8.9988177,4.99854124 L8.9988177,3 Z M5,8 L6,8 L6,9 L5,9 L5,14 L4,14 L4,9 L3,9 L3,8 L4,8 L4,3 L5,3 L5,8 Z M13,8 L14,8 L14,9 L13,9 L13,14 L12,14 L12,9 L11,9 L11,8 L12,8 L12,3 L13,3 L13,8 Z" id="option_bar_settings-[#1401]"></path></g></g></g></g></svg>
-        </ColorBlocks.FillContainer>
+        </ColorBlocks.FillContainerSecondaryColor>
       );
     case 'folder':
       return (
-        <svg className={className} width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="Web" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="01--Settings-menu" transform="translate(-42.000000, -428.000000)" fill="#9398A2"><g id="Group-9" transform="translate(-0.000926, 0.000000)"><g id="Icon/16/folder/-border-Copy-3-Icon/16/folder/-border-Copy" transform="translate(40.000926, 426.000000)"><polygon id="folder-[#1792]-copy" points="8 4 6.8 2 2 2 2 14 14 14 14 4"></polygon></g></g></g></g></svg>
+        <ColorBlocks.FillContainerSecondaryColor className={`${className}`} >
+          <svg className={className} width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="Web" stroke="none" strokeWidth="1" fillRule="evenodd"><g id="01--Settings-menu" transform="translate(-42.000000, -428.000000)"><g id="Group-9" transform="translate(-0.000926, 0.000000)"><g id="Icon/16/folder/-border-Copy-3-Icon/16/folder/-border-Copy" transform="translate(40.000926, 426.000000)"><polygon id="folder-[#1792]-copy" points="8 4 6.8 2 2 2 2 14 14 14 14 4"></polygon></g></g></g></g></svg>
+        </ColorBlocks.FillContainerSecondaryColor>
       );
     case 'folder-empty':
       return (
-        <svg className={className} width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="Web" stroke="none" strokeWidth="1" fill="#9398A2" fillRule="evenodd"><g id="01--Settings-menu" transform="translate(-42.000000, -231.000000)" fill="#9398A2"><g id="Group-9" transform="translate(-0.000926, 0.000000)"><g id="Icon/16/folder-Icon/16/folder/-border" transform="translate(40.000926, 229.000000)"><path d="M13,7 L3,7 L3,3 L6.1874,3 L7.3622,5 L13,5 L13,7 Z M3,13 L13,13 L13,8 L3,8 L3,13 Z M8,4 L6.8,2 L2,2 L2,14 L14,14 L14,4 L8,4 Z" id="folder-[#1792]-copy"></path></g></g></g></g></svg>
+        <ColorBlocks.FillContainerSecondaryColor className={`${className}`} >
+          <svg className={className} width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="Web" stroke="none" strokeWidth="1" fillRule="evenodd"><g id="01--Settings-menu" transform="translate(-42.000000, -231.000000)"><g id="Group-9" transform="translate(-0.000926, 0.000000)"><g id="Icon/16/folder-Icon/16/folder/-border" transform="translate(40.000926, 229.000000)"><path d="M13,7 L3,7 L3,3 L6.1874,3 L7.3622,5 L13,5 L13,7 Z M3,13 L13,13 L13,8 L3,8 L3,13 Z M8,4 L6.8,2 L2,2 L2,14 L14,14 L14,4 L8,4 Z" id="folder-[#1792]-copy"></path></g></g></g></g></svg>
+        </ColorBlocks.FillContainerSecondaryColor>
       );
     case 'edit-project-settings':
       return (

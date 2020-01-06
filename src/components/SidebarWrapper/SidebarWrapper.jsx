@@ -88,9 +88,10 @@ const SidebarWrapper = ({
       </div>
       <div className={`${s.projects} relative`}>
         <Preloader
-          iconName="preloader-light"
+          iconName="preloader"
           addClassImage="w-33"
-          addClassPreloader={rest.sidebarLoading ? 'flex justify-content-center align-items-center preloaderOverlay-dark' : 'display-none'}
+          addClassPreloader={rest.sidebarLoading ? 'flex justify-content-center align-items-center' : 'display-none'}
+          colorScheme="inverse"
         >
           <CustomScrollbar
             universal

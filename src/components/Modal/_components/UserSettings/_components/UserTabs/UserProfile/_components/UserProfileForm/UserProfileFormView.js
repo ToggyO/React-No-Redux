@@ -10,6 +10,7 @@ import { TextInput } from '@components/Form/TextInput';
 import { Icon } from '@components/Icon';
 import OverlayBlocker from '@components/OverlayBlocker';
 import { validateField } from '@components/Form/validations';
+import { DeleteButton } from '@components/StyledComponents/Buttons';
 
 const UserProfileFormView = ({ userData, isUserUpdating, updateUserData, modalOpen }) => {
   const formikRef = useRef(null);
@@ -87,13 +88,13 @@ const UserProfileFormView = ({ userData, isUserUpdating, updateUserData, modalOp
             disabled
           />
           <div className={s.logout}>
-            <button
+            <DeleteButton
               type="button"
-              className="btn scarlet-outlined rounded pt-2 pb-2"
+              className="btn rounded pt-2 pb-2"
               onClick={() => modalOpen('ModalLogoutConfirmation')}
             >
               Log out
-            </button>
+            </DeleteButton>
           </div>
         </Form>
       )}

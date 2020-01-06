@@ -5,16 +5,14 @@ import { Router } from 'react-router-dom';
 import Portals from './Portals';
 import { store } from './store';
 
-// import configureStore from './ducks/configureStore';
-
 import Routes from '@routes';
 import history from '@services/history';
 import { ErrorBoundary } from '@components/ErrorBoundary';
 import { ScrollToTop } from '@components/ScrollToTop';
 
-// import { getWindowDimensions } from '@utils/index';
 import './styles/index.sass';
 
+// eslint-disable-next-line react/prop-types
 const Root = () => {
   useEffect(() => {
     // document.getElementById('root').style.minHeight = `${getWindowDimensions().height}px`;

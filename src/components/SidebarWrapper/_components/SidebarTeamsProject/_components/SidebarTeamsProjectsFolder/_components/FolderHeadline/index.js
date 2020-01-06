@@ -4,6 +4,7 @@ import PT from 'prop-types';
 import s from './style.module.sass';
 
 import { Icon } from '@components/Icon';
+import { SecondaryColorHeadlineFlagged } from '@components/StyledComponents/ColorBlocks';
 
 export const FolderHeadline = ({ isOpen, folderName, addContainerClass = '' }) => (
   <div className={`${s.container} ${addContainerClass}`}>
@@ -11,9 +12,9 @@ export const FolderHeadline = ({ isOpen, folderName, addContainerClass = '' }) =
       <Icon iconName="folder-empty" className={`${s.folder_empty}`} />
       <Icon iconName="folder" className={`${s.folder} ${isOpen ? s.folder_closed : ''}`} />
     </div>
-    <div className={`${s.headline_text} ${isOpen ? s.color_white : ''}`}>
-      <p>{folderName.replace(/(^\s*)|(\s*)$/g, '')}</p>
-    </div>
+    <SecondaryColorHeadlineFlagged className={`${s.headline_text}`} flag={isOpen}>
+      {folderName.replace(/(^\s*)|(\s*)$/g, '')}
+    </SecondaryColorHeadlineFlagged>
   </div>
 );
 

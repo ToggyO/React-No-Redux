@@ -60,6 +60,11 @@ export const clearUserExtra = () => ({
   type: types.CLEAR_USER_EXTRA,
 });
 
+export const changeUiTheme = theme => ({
+  type: types.CHANGE_UI_THEME_REQUEST,
+  payload: theme,
+});
+
 // User loader
 export const userLoaderStart = () => ({
   type: types.USER_PRELOADER_START,

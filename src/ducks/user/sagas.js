@@ -1,4 +1,4 @@
-import { takeEvery, put, call } from 'redux-saga/effects';
+import { takeEvery, takeLatest, put, call } from 'redux-saga/effects';
 
 import * as types from './types';
 
@@ -48,7 +48,7 @@ function* updateUserData(action) {
 }
 
 export function* updateUserDataSaga() {
-  yield takeEvery(types.UPDATE_USER_DATA_REQUEST, updateUserData);
+  yield takeLatest(types.UPDATE_USER_DATA_REQUEST, updateUserData);
 }
 
 function* changeUserEmailRequest(action) {
@@ -76,7 +76,7 @@ function* changeUserEmailRequest(action) {
 }
 
 export function* changeUserEmailRequestSaga() {
-  yield takeEvery(types.CHANGE_USER_EMAIL_REQUEST, changeUserEmailRequest);
+  yield takeLatest(types.CHANGE_USER_EMAIL_REQUEST, changeUserEmailRequest);
 }
 
 function* confirmNewUserEmail(action) {
@@ -93,7 +93,7 @@ function* confirmNewUserEmail(action) {
 }
 
 export function* confirmNewUserEmailSaga() {
-  yield takeEvery(types.CONFIRM_NEW_USER_EMAIL_REQUEST, confirmNewUserEmail);
+  yield takeLatest(types.CONFIRM_NEW_USER_EMAIL_REQUEST, confirmNewUserEmail);
 }
 
 function* sendNewCodeToChangeEmail(action) {
@@ -113,7 +113,7 @@ function* sendNewCodeToChangeEmail(action) {
 }
 
 export function* sendNewCodeToChangeEmailSaga() {
-  yield takeEvery(types.SEND_NEW_CODE_TO_CHANGE_EMAIL_REQUEST, sendNewCodeToChangeEmail);
+  yield takeLatest(types.SEND_NEW_CODE_TO_CHANGE_EMAIL_REQUEST, sendNewCodeToChangeEmail);
 }
 
 function* changeUserPassword(action) {
@@ -131,7 +131,7 @@ function* changeUserPassword(action) {
 }
 
 export function* changeUserPasswordSaga() {
-  yield takeEvery(types.CHANGE_USER_PASSWORD_REQUEST, changeUserPassword);
+  yield takeLatest(types.CHANGE_USER_PASSWORD_REQUEST, changeUserPassword);
 }
 
 function* changeUserAvatar(action) {
@@ -149,7 +149,7 @@ function* changeUserAvatar(action) {
 }
 
 export function* changeUserAvatarSaga() {
-  yield takeEvery(types.CHANGE_USER_AVATAR_REQUEST, changeUserAvatar);
+  yield takeLatest(types.CHANGE_USER_AVATAR_REQUEST, changeUserAvatar);
 }
 
 function* deleteUserAvatar() {
@@ -165,7 +165,7 @@ function* deleteUserAvatar() {
 }
 
 export function* deleteUserAvatarSaga() {
-  yield takeEvery(types.DELETE_USER_AVATAR_REQUEST, deleteUserAvatar);
+  yield takeLatest(types.DELETE_USER_AVATAR_REQUEST, deleteUserAvatar);
 }
 
 function* updateUserProjects(action) {
@@ -188,5 +188,21 @@ function* updateUserProjects(action) {
 }
 
 export function* updateUserProjectsSaga() {
-  yield takeEvery(types.UPDATE_USER_PROJECTS_REQUEST, updateUserProjects);
+  yield takeLatest(types.UPDATE_USER_PROJECTS_REQUEST, updateUserProjects);
+}
+
+function* changeUiTheme(action) {
+  try {
+    const data = yield call(api.user.changeUiTheme, action.payload);
+    yield put({ type: types.CHANGE_UI_THEME_SUCCESS, payload: data.data });
+  } catch (error) {
+    const { response = {} } = error;
+    const { data = {} } = response;
+    const { errors = [] } = data;
+    yield put({ type: types.CHANGE_UI_THEME_ERROR, payload: errors });
+  }
+}
+
+export function* changeUiThemeSaga() {
+  yield takeEvery(types.CHANGE_UI_THEME_REQUEST, changeUiTheme);
 }

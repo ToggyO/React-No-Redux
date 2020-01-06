@@ -20,6 +20,11 @@ export const userRoleSelector = createSelector(
   errors => errors
 );
 
+export const uiThemeSelector = createSelector(
+  state => state.auth.data.user.uiTheme,
+  errors => errors
+);
+
 export const userInfoSelector = createSelector(
   state => state.auth.data.user,
   errors => errors

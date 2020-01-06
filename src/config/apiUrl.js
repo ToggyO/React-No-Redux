@@ -27,6 +27,7 @@ export const API_URL = {
     CHANGE_USER_PASSWORD: 'users/settings/password/set',
     CHANGE_USER_AVATAR: 'users/settings/avatar-from-body',
     DELETE_USER_AVATAR: 'users/settings/avatar',
+    CHANGE_UI_THEME: 'users/settings/ui-theme',
   },
   PROJECTS: {
     ROOT: '/projects',

@@ -4,7 +4,7 @@ import PT from 'prop-types';
 import s from './style.module.sass';
 
 import { Icon } from '@components/Icon';
-import { SecondaryColorHeadline } from '@components/StyledComponents/ColorBlocks';
+import { PrimaryColorBlock, SecondaryColorHeadlineFlagged } from '@components/StyledComponents/ColorBlocks';
 
 export const LinkButton = ({ info = [], style = {}, flag }) => (
   <>
@@ -14,15 +14,15 @@ export const LinkButton = ({ info = [], style = {}, flag }) => (
         style={style.iconContainer}
       >
         <Icon iconName={info.iconName} className={s.icon} />
-        <div className={s.notification} style={style.notification}>
+        <PrimaryColorBlock className={s.notification} style={style.notification}>
           <div className={s.circle} style={style.circle}>
             9
           </div>
-        </div>
+        </PrimaryColorBlock>
       </div>
-      <SecondaryColorHeadline className={`${s.title}`} flag={flag} style={style.title}>
+      <SecondaryColorHeadlineFlagged className={`${s.title}`} flag={flag} style={style.title}>
         {info.title}
-      </SecondaryColorHeadline>
+      </SecondaryColorHeadlineFlagged>
     </div>
   </>
 );

@@ -36,7 +36,8 @@ export default function user(state = initialState, action) {
       return { ...state, avatarLoading: true };
     case types.CHANGE_USER_AVATAR_REQUEST:
       return { ...state, modalLoading: true, avatarLoading: true };
-    case types.FETCH_USER_DATA_SUCCESS: {
+    case types.FETCH_USER_DATA_SUCCESS:
+    case types.CHANGE_UI_THEME_SUCCESS: {
       const { data, dataType } = action.payload;
       return {
         ...state,
@@ -114,6 +115,7 @@ export default function user(state = initialState, action) {
     case types.CHANGE_USER_AVATAR_ERROR:
     case types.DELETE_USER_AVATAR_ERROR:
     case types.UPDATE_USER_PROJECTS_ERROR:
+    case types.CHANGE_UI_THEME_ERROR:
       return {
         ...state,
         loading: false,

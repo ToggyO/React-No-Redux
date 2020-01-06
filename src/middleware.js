@@ -56,7 +56,8 @@ export const updateUsersData = store => next => action => {
     case userTypes.UPDATE_USER_DATA_SUCCESS:
     case userTypes.CONFIRM_NEW_USER_EMAIL_SUCCESS:
     case userTypes.CHANGE_USER_AVATAR_SUCCESS:
-    case userTypes.DELETE_USER_AVATAR_SUCCESS: {
+    case userTypes.DELETE_USER_AVATAR_SUCCESS:
+    case userTypes.CHANGE_UI_THEME_SUCCESS: {
       if (checkLocalStorage()) {
         writeToLocalState(LOCAL_STORAGE_KEYS.USER, action.payload);
       } else {

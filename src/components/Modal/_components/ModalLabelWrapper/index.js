@@ -10,14 +10,11 @@ import { Preloader } from '@components/Preloader';
 export const ModalLabelWrapper = ({ children, label, onClose, modalLoading, style = {} }) => (
   <div className={s.wrapper} style={style.wrapper}>
     <Preloader
-      iconName="preloader-dark"
+      iconName="preloader"
       style={preloaderStyle}
-      addClassPreloader={
-        modalLoading
-          ? 'flex justify-content-center align-items-center preloaderOverlay-light'
-          : 'display-none'
-      }
+      addClassPreloader={modalLoading ? 'flex justify-content-center align-items-center' : 'display-none'}
       addClassChildren="flex justify-content-center align-items-center"
+      colorScheme="default"
     />
     <div className={s.container} style={style.container}>
       <h3 className={s.label} style={style.label}>

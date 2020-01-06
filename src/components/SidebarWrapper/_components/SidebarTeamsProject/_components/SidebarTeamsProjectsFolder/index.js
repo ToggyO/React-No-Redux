@@ -39,7 +39,7 @@ export const SidebarTeamsProjectsFolder = ({
       />
       <DropdownSettingsButton
         iconName="delete-project"
-        title="Delete projects"
+        title="Delete project"
         onClick={() => closeTooltipOnClick()}
       />
     </>

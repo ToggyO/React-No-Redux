@@ -21,7 +21,7 @@ import { RestorePasswordContainer } from '@pages/LoginPages/RestorePassword';
 import { SetPasswordPageView } from '@pages/SignPages/Member/SetPasswordPage';
 import { TeamPageView } from '@pages/TeamPages';
 import { ProjectPageView } from '@pages/ProjectPages';
-import { MainWrapper } from '@components/MainWrapper';
+import MainWrapper from '@components/MainWrapper';
 
 // eslint-disable-next-line react/prop-types
 const Routes = () => (
@@ -127,4 +127,11 @@ const Routes = () => (
   </>
 );
 
+// const mapStateToProps = state => ({
+//   uiTheme: userSelectors.uiThemeSelector(state),
+// });
+
+// export default connect(
+//
+// )(Routes);
 export default Routes;

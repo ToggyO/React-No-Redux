@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import { ThemeProvider } from 'styled-components';
 
 import s from './Modal.module.sass';
 
@@ -16,15 +16,20 @@ import { ModalChangePasswordSuccess } from '@components/Modal/_components/ModalC
 import { ModalFillRequiredFields } from '@components/Modal/_components/ModalFillRequiredFields';
 import { ModalLogoutConfirmationView }
   from '@components/Modal/_components/ModalLogoutConfirmation';
+import { getFromState } from '@utils/index';
+import { LOCAL_STORAGE_KEYS } from '@config/common';
+import { appThemes } from '@components/StyledComponents';
 
 
 /* eslint-disable */
 class Modal extends React.Component {
   constructor(props) {
     super(props);
+    this.userData = getFromState(LOCAL_STORAGE_KEYS.USER);
     this.state = {
       isOpen: false,
       isConfirmModalOpen: false,
+      theme: this.userData[this.props.uiTheme] || appThemes.Default
     };
     this.el = document.createElement('div');
     this.modalRoot = document.getElementById('modal-root');
@@ -124,14 +129,14 @@ class Modal extends React.Component {
 
   render() {
     const { zIndex, modalState, itemKey, modalOpen } = this.props;
-    const { isConfirmModalOpen } = this.state;
+    const { isConfirmModalOpen, theme } = this.state;
     const filteredModalKey = modalState.filter(item => item === itemKey);
 
     if (filteredModalKey.length === 0) return null;
 
     return (
       ReactDOM.createPortal(
-        <>
+        <ThemeProvider theme={theme}>
           <div
             className={`${s.overlay} ${this.state.isOpen ? s.overlay_shown : ''}`}
             style={{ zIndex: 1000 + zIndex }}
@@ -157,7 +162,7 @@ class Modal extends React.Component {
             zIndex={zIndex}
             itemKey={itemKey}
           />
-        </>,
+        </ThemeProvider>,
         this.el,
       )
     );
