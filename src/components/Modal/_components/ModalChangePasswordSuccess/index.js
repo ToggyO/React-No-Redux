@@ -4,13 +4,16 @@ import PT from 'prop-types';
 import s from './style.module.sass';
 
 import { Icon } from '@components/Icon';
+import { ModalBaseColorBlock, ModalFontColorBlock } from '@components/StyledComponents/ColorBlocks';
 
 export const ModalChangePasswordSuccess = ({ onClose, itemKey }) => (
-  <div className={s.container}>
+  <ModalBaseColorBlock className={s.container}>
     <div className={`${s.icon_container} flex justify-content-center align-items-center mb-5`}>
       <Icon iconName="accept" className={s.icon} />
     </div>
-    <div className={`${s.text} pb-6 text-align-center`}>Password is updated</div>
+    <ModalFontColorBlock className={`${s.text} pb-6 text-align-center`}>
+      Password is updated
+    </ModalFontColorBlock>
     <div className={s.button_block}>
       <button
         type="button"
@@ -20,7 +23,7 @@ export const ModalChangePasswordSuccess = ({ onClose, itemKey }) => (
         Close
       </button>
     </div>
-  </div>
+  </ModalBaseColorBlock>
 );
 
 ModalChangePasswordSuccess.propTypes = {

@@ -3,18 +3,24 @@ import PT from 'prop-types';
 
 import s from './style.module.sass';
 
+import {
+  ModalBaseColorBlock,
+  ModalFontColorBlock,
+  PrimaryColorBlock,
+} from '@components/StyledComponents/ColorBlocks';
+
 const ModalCloseConfirm = ({ onClose, itemKey, isConfirmModalOpen, zIndex, onCloseConfirmModal }) => (
   <>
-    <div
+    <PrimaryColorBlock
       className={`${s.overlay} ${isConfirmModalOpen ? s.overlay_shown : ''}`}
       style={{ zIndex: isConfirmModalOpen ? 1002 + zIndex : -1 }}
     />
-    <div
+    <ModalBaseColorBlock
       className={`${s.wrapper} ${isConfirmModalOpen ? s.wrapper_shown : ''}`}
       style={{ zIndex: isConfirmModalOpen ? 1003 + zIndex : -1 }}
     >
       <div className={`${s.message} pb-4`}>
-        <p className="text-align-center">Close window?</p>
+        <ModalFontColorBlock className={`${s.text} text-align-center`}>Close window?</ModalFontColorBlock>
       </div>
       <div className={`${s.button} flex flex-column`}>
         <button
@@ -35,7 +41,7 @@ const ModalCloseConfirm = ({ onClose, itemKey, isConfirmModalOpen, zIndex, onClo
           Cancel
         </button>
       </div>
-    </div>
+    </ModalBaseColorBlock>
   </>
 );
 

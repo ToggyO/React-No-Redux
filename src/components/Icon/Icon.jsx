@@ -3,18 +3,18 @@ import PT from 'prop-types';
 
 import './iconsStyle.sass';
 import { ColorBlocks } from '@components/StyledComponents';
-import { StyledSvg } from '@components/StyledComponents/ColorBlocks';
+
 
 /* eslint-disable */
 function Icon({ iconName, className, preloaderColorScheme }) {
   switch (iconName) {
     case 'preloader':
       return (
-          <StyledSvg className={className} colorScheme={preloaderColorScheme}
+          <ColorBlocks.StyledSvg className={className} colorScheme={preloaderColorScheme}
             width="200px" height="200px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
             <path ng-attr-d="{{config.pathCmd}}" ng-attr-fill="{{config.color}}" stroke="none" d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50" transform="rotate(137.973 50 51)">
               <animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 51;360 50 51" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></path>
-          </StyledSvg>
+          </ColorBlocks.StyledSvg>
       );
     // case 'preloader-dark':
     //   return (
@@ -116,11 +116,13 @@ function Icon({ iconName, className, preloaderColorScheme }) {
       );
     case 'close-modal':
       return (
-        <svg className={className} width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
-          <g id="Icon-/-close" stroke="none" strokeWidth="1" fillRule="evenodd">
-            <polygon id="close-[#1511]" points="11.0122 10 17 15.9878 15.9871 17 10 11.0122 4.0122 17 3 15.9878 8.9871 10 3 4.0122 4.0122 3 10 8.9878 15.9871 3 17 4.0122"></polygon>
-          </g>
-        </svg>
+        <ColorBlocks.FillContainerPrimaryColor className={`${className}`} >
+          <svg className={className} width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <g id="Icon-/-close" stroke="none" strokeWidth="1" fillRule="evenodd">
+              <polygon id="close-[#1511]" points="11.0122 10 17 15.9878 15.9871 17 10 11.0122 4.0122 17 3 15.9878 8.9871 10 3 4.0122 4.0122 3 10 8.9878 15.9871 3 17 4.0122"></polygon>
+            </g>
+          </svg>
+        </ColorBlocks.FillContainerPrimaryColor>
       );
     case 'squad-logo':
       return (

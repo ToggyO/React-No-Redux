@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PT from 'prop-types';
 
 import s from './style.module.sass';
@@ -18,10 +18,10 @@ import { Preloader } from '@components/Preloader';
 import { SidebarTeamsProjectPlaceholder } from '@components/SidebarWrapper/_components/SidebarTeamsProject/_components/SidebarTeamsProjectPlaceholder';
 import { writeToLocalState } from '@services/ls';
 import { writeToSessionState } from '@services/ss';
+import { ToggleThemeContext } from '@components/ThemeProviderWrapper';
+
 
 const projectsPlaceholder = [...Array(6)];
-
-
 
 const SidebarWrapper = ({
   children,
@@ -61,6 +61,8 @@ const SidebarWrapper = ({
         })
     }
   },[rest.isNotifyConnected, rest.currentTeam]);
+
+  const toggleTheme = useContext(ToggleThemeContext);
 
   return (
     <ColorBlocks.PrimaryColorBlock className={`${s.sidebar} ${isSidebarOpened ? s.sidebar_shown : ''} flex flex-column`}>
@@ -115,8 +117,8 @@ const SidebarWrapper = ({
         </Preloader>
       </div>
       <div>
-        <button type="button" onClick={rest.originTheme}>Origin</button>
-        <button type="button" onClick={rest.alternativeTheme}>Alternative</button>
+        <button type="button" onClick={() => toggleTheme('Default')}>Origin</button>
+        <button type="button" onClick={() => toggleTheme('Dark')}>Alternative</button>
       </div>
       <div className={`${s.footer}`}>
         <TeamsButtons isOpen={isSidebarOpened} modalOpen={modalOpen}/>
@@ -130,7 +132,6 @@ SidebarWrapper.propTypes = {
   fetchUserData: PT.func,
   userProjects: PT.arrayOf(PT.object),
   userTeams: PT.arrayOf(PT.object),
-  // modal: PT.arrayOf(PT.string),
 };
 
 export default SidebarWrapper;

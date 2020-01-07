@@ -4,14 +4,15 @@ import PT from 'prop-types';
 import s from './style.module.sass';
 
 import { Icon } from '@components/Icon';
+import { ModalBaseColorBlock, ModalFontColorBlock } from '@components/StyledComponents/ColorBlocks';
 
 
 
 const Handler500 = ({ onClose, itemKey }) => (
-  <div className={s.wrapper}>
+  <ModalBaseColorBlock className={s.wrapper}>
     <div className={`${s.message} pt-4 pb-4`}>
-      <article className="pb-2 pt-2">Error</article>
-      <p className="pb-2 pt-2">Something went wrong.</p>
+      <ModalFontColorBlock className={`${s.article} pb-2 pt-2`}>Error</ModalFontColorBlock>
+      <ModalFontColorBlock className={`${s.text} pb-2 pt-2`}>Something went wrong.</ModalFontColorBlock>
     </div>
     <div className={s.button} onClick={() => onClose(itemKey)}>
       <button type="button" className="btn green full_width rounded p-4">Retry</button>
@@ -21,7 +22,7 @@ const Handler500 = ({ onClose, itemKey }) => (
         <Icon iconName="close-modal"/>
       </button>
     </div>
-  </div>
+  </ModalBaseColorBlock>
 );
 
 Handler500.propTypes = {

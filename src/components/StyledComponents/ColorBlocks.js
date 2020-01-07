@@ -22,8 +22,13 @@ export const SecondaryColorHeadlineFlagged = styled.h1`
   color: ${props => (props.flag ? props.theme.colors.sidebarCheckedFont : props.theme.colors.secondaryColor)};
 `;
 
+export const FillContainerPrimaryColor = styled.div`
+  transition: fill 0.2s ease-in-out, opacity 0.2s ease;
+  fill: ${props => props.theme.colors.primaryColor};
+`;
+
 export const FillContainerSecondaryColor = styled.div`
-  transition: fill 0.2s ease-in-out;
+  transition: fill 0.2s ease-in-out, opacity 0.2s ease;
   fill: ${props => props.theme.colors.secondaryColor};
 `;
 
@@ -33,4 +38,42 @@ export const PreloaderColorSchemeBlock = styled.div`
 
 export const StyledSvg = styled.svg`
   fill: ${props => props.theme.colors.preloader[props.colorScheme].image};
+`;
+
+export const ModalBaseColorBlock = styled.div`
+  background-color: ${props => props.theme.colors.modal.base};
+`;
+
+export const ModalSecondaryColorBlock = styled.div`
+  background-color: ${props => props.theme.colors.modal.secondary};
+`;
+
+export const ModalSecondaryColorBlockHover = styled.div`
+  transition: background-color 0.2s ease-out;
+  &:hover {
+    background-color: ${props => props.theme.colors.modal.secondaryHover};
+  }
+`;
+
+export const ModalFontColorBlock = styled.div`
+  color: ${props => props.theme.colors.modal.font};
+`;
+
+export const ModalColorButton = styled.button`
+  color: ${props => props.theme.colors.modal.font} !important;
+  &:hover {
+    background-color: ${props => props.theme.colors.modal.secondaryHover};
+  }
+`;
+
+export const ModalBorderColorBlock = styled.div`
+  border-color: ${props => props.theme.colors.modal.border} !important;
+`;
+
+export const PrimaryColorLabel = styled.label`
+  color: ${props => props.theme.colors.input.font};
+`;
+
+export const PrimaryColorLink = styled.div`
+  color: ${props => props.theme.colors.input.font};
 `;

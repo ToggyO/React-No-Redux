@@ -1,14 +1,12 @@
 import React from 'react';
 import PT from 'prop-types';
 import { connect } from 'react-redux';
-import { compose } from 'redux';
 
 import s from './style.module.sass';
 
 import SidebarWrapperContainer from '@components/SidebarWrapper/SidebarWrapperContainer';
 import { authSelectors } from '@ducks/auth';
 import { userActions } from '@ducks/user';
-import { withThemeProvider } from '@components/HOC/withThemeProvider';
 
 class MainWrapper extends React.PureComponent {
   render() {
@@ -39,12 +37,9 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
-  withThemeProvider
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
 )(MainWrapper);
 
 // TODO delete

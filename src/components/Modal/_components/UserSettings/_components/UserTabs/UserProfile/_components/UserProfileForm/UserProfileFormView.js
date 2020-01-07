@@ -95,6 +95,13 @@ const UserProfileFormView = ({ userData, isUserUpdating, updateUserData, modalOp
             >
               Log out
             </DeleteButton>
+            <DeleteButton
+              type="button"
+              className="btn rounded pt-2 pb-2"
+              onClick={() => modalOpen('ModalConfirmEmailChange')}
+            >
+              TEST
+            </DeleteButton>
           </div>
         </Form>
       )}

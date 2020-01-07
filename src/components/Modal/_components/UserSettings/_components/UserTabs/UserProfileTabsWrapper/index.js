@@ -4,24 +4,25 @@ import PT from 'prop-types';
 import s from './style.module.sass';
 
 import { Icon } from '@components/Icon';
+import { ModalBorderColorBlock, ModalFontColorBlock } from '@components/StyledComponents/ColorBlocks';
 
 export const UserProfileTabsWrapper = ({ children, currentTab, onClose }) => (
   <div className={s.container}>
-    <div className={`${s.tittle_container} flex pb-7 relative`}>
-      <h2 className={s.title}>
+    <ModalBorderColorBlock className={`${s.tittle_container} flex pb-7 relative`}>
+      <ModalFontColorBlock className={s.title}>
         {currentTab === 'Profile' || currentTab === 'Preferences' || currentTab === 'Notifications'
           ? 'User'
           : ''}
         {currentTab === 'Billing' || currentTab === 'Manage users' ? 'Company' : ''}
-      </h2>
-      <h2 className={s.title}>&nbsp;/&nbsp;</h2>
-      <h2 className={`${s.tab} ${s.title}`}>{currentTab}</h2>
+      </ModalFontColorBlock>
+      <ModalFontColorBlock className={s.title}>&nbsp;/&nbsp;</ModalFontColorBlock>
+      <ModalFontColorBlock className={`${s.tab} ${s.title}`}>{currentTab}</ModalFontColorBlock>
       <div className={`${s.close}`} onClick={onClose}>
         <button type="button" className="btn">
-          <Icon iconName="close-modal" className="fill-primary" />
+          <Icon iconName="close-modal" />
         </button>
       </div>
-    </div>
+    </ModalBorderColorBlock>
     <div className={s.children}>{children}</div>
   </div>
 );

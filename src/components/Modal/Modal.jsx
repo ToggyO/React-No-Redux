@@ -15,7 +15,7 @@ import { ModalChangePasswordSuccess } from '@components/Modal/_components/ModalC
 import { ModalFillRequiredFields } from '@components/Modal/_components/ModalFillRequiredFields';
 import { ModalLogoutConfirmationView }
   from '@components/Modal/_components/ModalLogoutConfirmation';
-import { withThemeProvider } from '@components/HOC/withThemeProvider';
+import { PrimaryColorBlock } from '@components/StyledComponents/ColorBlocks';
 
 
 /* eslint-disable */
@@ -132,7 +132,7 @@ class Modal extends React.Component {
     return (
       ReactDOM.createPortal(
         <>
-          <div
+          <PrimaryColorBlock
             className={`${s.overlay} ${this.state.isOpen ? s.overlay_shown : ''}`}
             style={{ zIndex: 1000 + zIndex }}
           />
@@ -164,4 +164,4 @@ class Modal extends React.Component {
   }
 }
 
-export default withThemeProvider(Modal);
+export default Modal;

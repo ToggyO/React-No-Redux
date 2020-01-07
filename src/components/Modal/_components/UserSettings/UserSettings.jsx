@@ -11,6 +11,7 @@ import CustomScrollbar from '@components/Scrollbar';
 import { UserProfileTabsWrapper } from '@components/Modal/_components/UserSettings/_components/UserTabs/UserProfileTabsWrapper';
 import { getFromState } from '@utils/index';
 import { LOCAL_STORAGE_KEYS } from '@config';
+import { ModalBaseColorBlock } from '@components/StyledComponents/ColorBlocks';
 
 
 const UserSettings = ({
@@ -73,7 +74,7 @@ const UserSettings = ({
       addClassChildren="flex justify-content-center align-items-center"
       colorScheme="default"
     >
-      <div className={`${s.container} relative`}>
+      <ModalBaseColorBlock className={`${s.container} relative`}>
         <CustomScrollbar
           style={{ width: '100%', maxWidth: 260, height: '100vh' }}
           autoHide
@@ -119,7 +120,7 @@ const UserSettings = ({
             </CustomScrollbar>
           </UserProfileTabsWrapper>
         </div>
-      </div>
+      </ModalBaseColorBlock>
     </Preloader>
   );
 };

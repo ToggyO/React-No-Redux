@@ -11,6 +11,7 @@ import { ErrorBoundary } from '@components/ErrorBoundary';
 import { ScrollToTop } from '@components/ScrollToTop';
 
 import './styles/index.sass';
+import ThemeProviderWrapper from '@components/ThemeProviderWrapper';
 
 // eslint-disable-next-line react/prop-types
 const Root = () => {
@@ -23,10 +24,12 @@ const Root = () => {
     <Provider store={store}>
       <ErrorBoundary>
         <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
-          <Portals />
-          <ScrollToTop>
-            <Routes />
-          </ScrollToTop>
+          <ThemeProviderWrapper>
+            <Portals />
+            <ScrollToTop>
+              <Routes />
+            </ScrollToTop>
+          </ThemeProviderWrapper>
         </Router>
       </ErrorBoundary>
     </Provider>

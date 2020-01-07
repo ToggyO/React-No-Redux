@@ -55,8 +55,16 @@ export const Default = {
       },
     },
     modal: {
-      overlay: 'rgba(73,85,112,0.85)',
+      base: '#FFFFFF',
+      secondary: '#F7F7F7',
+      secondaryHover: '#f1f2f3',
+      font: '#495570',
+      border: '#D7D7D7',
     },
+    input: {
+      font: '#495570',
+    },
+    links: {},
     sidebarCheckedFont: '#FFFFFF',
     scarlet: '#E76A7D',
   },
@@ -67,7 +75,7 @@ export const Dark = {
     primaryColor: '#D3D3D3',
     secondaryColor: '#F8F8F8',
     buttons: {
-      aapplyButton: {
+      applyButton: {
         buttonFontBase: '#FFFFFF',
         buttonFontDisabled: '#FFFFFF',
         buttonFontHover: '#FFFFFF',
@@ -117,6 +125,16 @@ export const Dark = {
         overlay: 'rgba(211, 211, 211, 0.6)',
         image: '#495570',
       },
+    },
+    modal: {
+      base: '#495570',
+      secondary: '#9398A2',
+      secondaryHover: '#a3a8b2',
+      font: '#FFFFFF',
+      border: '#D3D3D3',
+    },
+    input: {
+      font: '#FFFFFF',
     },
     sidebarCheckedFont: '#9398A2',
     scarlet: '#E76A7D',

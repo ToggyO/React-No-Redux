@@ -4,19 +4,20 @@ import PT from 'prop-types';
 import s from './style.module.sass';
 
 import { Icon } from '@components/Icon';
+import { ModalBaseColorBlock, ModalFontColorBlock } from '@components/StyledComponents/ColorBlocks';
 
 export const DeprecatedLinkMessage = ({ onClose, itemKey }) => (
-  <div className={s.wrapper}>
+  <ModalBaseColorBlock className={s.wrapper}>
     <div className={`${s.message} pt-4 pb-4`}>
-      <article className="pb-2 pt-2">Link is deprecated!</article>
-      <p>Please, sign in with your new password.</p>
+      <ModalFontColorBlock className={`${s.article} pb-2 pt-2`}>Link is deprecated!</ModalFontColorBlock>
+      <ModalFontColorBlock className={s.text}>Please, sign in with your new password.</ModalFontColorBlock>
     </div>
     <div className={`${s.close} pt-4 pr-4`} onClick={() => onClose(itemKey)}>
       <button type="button" className="btn">
         <Icon iconName="close-modal" />
       </button>
     </div>
-  </div>
+  </ModalBaseColorBlock>
 );
 
 DeprecatedLinkMessage.propTypes = {

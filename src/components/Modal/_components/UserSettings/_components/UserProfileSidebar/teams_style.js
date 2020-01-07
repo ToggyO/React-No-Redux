@@ -1,7 +1,9 @@
 export const style = {
+  wrapper: {
+    borderBottom: '1px solid',
+  },
   container: {
     display: 'flex',
-    borderBottom: '1px solid #d7d7d7',
     cursor: 'pointer',
   },
   square: {
@@ -13,7 +15,7 @@ export const style = {
     fontWight: 400,
     fontSize: 15,
     lineHeight: '26px',
-    color: '#495570',
+    // color: '#495570',
   },
   teamName: {
     fontWeight: 700,

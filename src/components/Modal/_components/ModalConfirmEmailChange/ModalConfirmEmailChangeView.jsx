@@ -7,6 +7,7 @@ import { responseFormikError } from '@utils/index';
 import { ERROR_CODES } from '@config/errorCodes';
 import ModalLabelWrapperContainer from '@components/Modal/_components/ModalLabelWrapper/ModalLabelWrapperContainer';
 import { ConfirmEmailInput } from '@components/Form/ConfirmEmailInput';
+import { ModalColorButton } from '@components/StyledComponents/ColorBlocks';
 
 
 const ModalConfirmEmailChangeView = ({
@@ -49,13 +50,13 @@ const ModalConfirmEmailChangeView = ({
       >
         <p>
           Didn’t receive a confirmation code?&nbsp;
-          <button
+          <ModalColorButton
             type="button"
             className="btn form_link"
             onClick={() => sendNewCodeToChangeEmail(withExtra)}
           >
             Click here
-          </button>
+          </ModalColorButton>
         </p>
       </div>
     </ModalLabelWrapperContainer>

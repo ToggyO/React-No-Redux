@@ -5,6 +5,7 @@ import s from './style.module.sass';
 
 import spinner from '@assets/user_profile/spinner-png.png'
 import { OTHER } from '@config';
+import { PrimaryColorLabel } from '@components/StyledComponents/ColorBlocks';
 
 
 const UserProfileAvatarView = ({
@@ -85,7 +86,7 @@ const UserProfileAvatarView = ({
         </div>
       </div>
       <div className={`${s.edit} flex flex-column`}>
-        <label
+        <PrimaryColorLabel
           className={`${s.label} btn mb-2`}
           htmlFor="user-profile-avatar-edit">
           Edit avatar
@@ -96,7 +97,7 @@ const UserProfileAvatarView = ({
             className={s.file_input}
             onChange={handleChange}
           />
-        </label>
+        </PrimaryColorLabel>
         <button
           type="button"
           className={`${s.avatar_delete} btn mt-1`}

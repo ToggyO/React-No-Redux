@@ -8,6 +8,7 @@ import { appThemes } from '@components/StyledComponents';
 import { authSelectors } from '@ducks/auth';
 import { userActions } from '@ducks/user';
 
+// TODO delete
 /* eslint-disable */
 export function withThemeProvider(WrappedComponent) {
   const mapStateToProps = state => ({

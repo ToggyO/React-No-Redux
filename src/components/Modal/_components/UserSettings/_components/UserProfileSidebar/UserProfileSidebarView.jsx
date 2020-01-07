@@ -13,6 +13,7 @@ import { UserTeamsPlaceholder } from './_components/UserProfileSidebarTeams/User
 
 import CustomScrollbar from '@components/Scrollbar';
 import { getUniqueKey } from '@utils/index';
+import { ModalColorButton, ModalSecondaryColorBlock } from '@components/StyledComponents/ColorBlocks';
 
 const teamsPlaceholder = [...Array(4)];
 
@@ -26,7 +27,7 @@ const UserProfileSidebarView = ({
   ...rest
 }) => (
   <>
-    <div className={`${s.wrapper} pr-6`}>
+    <ModalSecondaryColorBlock className={`${s.wrapper} pr-6`}>
       <div className={`${s.container}`}>
         <div className={`${s.logo_container} pt-8 pb-8 flex justify-content-center align-items-center`}>
           <UserProfileSidebarLogoView/>
@@ -73,19 +74,19 @@ const UserProfileSidebarView = ({
                     />)
               )}
               <div className={`${s.add_button}`}>
-                <button
+                <ModalColorButton
                   type="button"
                   className="btn mt-0 mb-0 pt-4 pb-4 pl-10 full_width text-align-left"
                   onClick={() => console.log('clicked')}
                 >
                   + Add project
-                </button>
+                </ModalColorButton>
               </div>
             </CustomScrollbar>
           </UserProfileSidebarHeadlinesWrapper>
         </div>
       </div>
-    </div>
+    </ModalSecondaryColorBlock>
   </>
 );
 

@@ -6,6 +6,8 @@ import s from './style.module.sass';
 import { UserProfileFormView } from './_components/UserProfileForm';
 import { UserProfileAvatarContainer } from './_components/UserProfileAvatar';
 
+import { ModalFontColorBlock } from '@components/StyledComponents/ColorBlocks';
+
 
 const UserProfileView = ({
   userData,
@@ -14,7 +16,7 @@ const UserProfileView = ({
   updateUserData,
   modalOpen,
 }) => (
-  <div className={s.container}>
+  <ModalFontColorBlock className={s.container}>
     <div className={`${s.headline} pt-8`}>
       <h4>Profile</h4>
     </div>
@@ -32,7 +34,7 @@ const UserProfileView = ({
         userData={userData}
       />
     </div>
-  </div>
+  </ModalFontColorBlock>
 );
 
 UserProfileView.propTypes = {
