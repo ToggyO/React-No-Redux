@@ -54,6 +54,9 @@ export const Default = {
         image: '#d3d3d3',
       },
     },
+    modal: {
+      overlay: 'rgba(73,85,112,0.85)',
+    },
     sidebarCheckedFont: '#FFFFFF',
     scarlet: '#E76A7D',
   },
@@ -107,12 +110,12 @@ export const Dark = {
     },
     preloader: {
       default: {
-        overlay: 'rgba(255, 255, 255, 0.6)',
-        image: '#495570',
+        overlay: 'rgba(73, 85, 112, 0.8)',
+        image: '#D3D3D3',
       },
       inverse: {
-        overlay: 'rgba(73, 85, 112, 0.8)',
-        image: '#d3d3d3',
+        overlay: 'rgba(211, 211, 211, 0.6)',
+        image: '#495570',
       },
     },
     sidebarCheckedFont: '#9398A2',

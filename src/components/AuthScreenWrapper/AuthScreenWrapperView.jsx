@@ -7,6 +7,7 @@ import { Preloader } from '@components/Preloader';
 import { getWindowDimensions } from '@utils/index';
 
 import logo from '@assets/login_page/logo_squad.png';
+import { withThemeProvider } from '@components/HOC/withThemeProvider';
 
 const AuthScreenWrapperView = ({ children, loading }) => {
   useEffect(() => {
@@ -39,4 +40,4 @@ const AuthScreenWrapperView = ({ children, loading }) => {
   );
 };
 
-export default AuthScreenWrapperView;
+export default withThemeProvider(AuthScreenWrapperView);
