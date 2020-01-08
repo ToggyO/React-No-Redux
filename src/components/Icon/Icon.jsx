@@ -6,7 +6,7 @@ import { ColorBlocks } from '@components/StyledComponents';
 
 
 /* eslint-disable */
-function Icon({ iconName, className, preloaderColorScheme }) {
+function Icon({ iconName, className, fill, preloaderColorScheme }) {
   switch (iconName) {
     case 'preloader':
       return (

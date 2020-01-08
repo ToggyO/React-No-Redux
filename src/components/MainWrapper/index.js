@@ -41,37 +41,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(MainWrapper);
-
-// TODO delete
-// class MainWrapper extends React.PureComponent {
-//   constructor(props) {
-//     super(props);
-//     this.userData = getFromState(LOCAL_STORAGE_KEYS.USER);
-//     this.state = {
-//       theme: appThemes[this.userData.uiTheme] || appThemes.Default,
-//     };
-//   }
-//
-//   originTheme = () => {
-//     this.props.changeUiTheme('Default');
-//     this.setState({ theme: appThemes.Default });
-//   };
-//
-//   alternativeTheme = () => {
-//     this.props.changeUiTheme('Dark');
-//     this.setState({ theme: appThemes.Dark });
-//   };
-//
-//   render() {
-//     const { children } = this.props;
-//
-//     return (
-//       <ThemeProvider theme={this.state.theme}>
-//         <div className={`${s.wrapper} flex`}>
-//           <SidebarWrapperContainer alternativeTheme={this.alternativeTheme} originTheme={this.originTheme} />
-//           <div className={s.children}>{children}</div>
-//         </div>
-//       </ThemeProvider>
-//     );
-//   }
-// }

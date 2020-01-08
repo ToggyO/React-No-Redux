@@ -9,4 +9,8 @@ export const LOCAL_STORAGE_KEYS = {
 
 export const OTHER = {
   AVATAR_MAX_SIZE: 10485760,
+  SIGN_UP_BY: {
+    EMAIL: 'Email',
+    GOOGLE: 'Google',
+  },
 };
