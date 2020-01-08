@@ -1,4 +1,4 @@
-import { LOCAL_STORAGE_KEYS, API_DOMAIN } from '@config';
+import { LOCAL_STORAGE_KEYS } from '@config';
 import { getFromState } from '@utils/index';
 
 const signalR = require('@microsoft/signalr');
@@ -7,8 +7,8 @@ const connectionsList = [];
 
 class SocketConnection {
   constructor({ url }) {
-    this._baseURL = `${API_DOMAIN}/api`;
-    // this._baseURL = 'http://45.61.48.176:5005/api';
+    // this._baseURL = `${API_DOMAIN}/api`;
+    this._baseURL = 'http://45.61.48.176:5005/api';
     this._url = url;
 
     this.connect = this.connect.bind(this);
