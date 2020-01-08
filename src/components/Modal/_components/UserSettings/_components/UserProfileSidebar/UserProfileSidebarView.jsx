@@ -79,7 +79,7 @@ const UserProfileSidebarView = ({
                   className="btn mt-0 mb-0 pt-4 pb-4 pl-10 full_width text-align-left"
                   onClick={() => console.log('clicked')}
                 >
-                  + Add project
+                  + Add team
                 </ModalColorButton>
               </div>
             </CustomScrollbar>
