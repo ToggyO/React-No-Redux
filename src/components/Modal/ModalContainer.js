@@ -13,8 +13,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    modalOpen(itemKey) {
-      dispatch(modalActions.modalOpen(itemKey));
+    modalOpen(itemKey, options) {
+      dispatch(modalActions.modalOpen(itemKey, options));
     },
     modalClose(itemKey) {
       dispatch(modalActions.modalClose(itemKey));

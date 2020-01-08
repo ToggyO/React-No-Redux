@@ -22,10 +22,12 @@ const UserSettings = ({
   isUserUpdating,
   fetchUserData,
   updateUserData,
+  options = {},
   ...rest
 }) => {
+  console.log(options.userProfileTab);
   const [isDataFetched, setDataFetched] = useState(false);
-  const [currentTab, setTab] = useState('Profile');
+  const [currentTab, setTab] = useState(options.userProfileTab);
   const userDataFromLocalState = getFromState(LOCAL_STORAGE_KEYS.USER);
 
   useEffect(() => {
@@ -135,6 +137,7 @@ UserSettings.propTypes = {
   fetchUserData: PT.func,
   updateUserData: PT.func,
   loading: PT.bool,
+  options: PT.object,
 };
 
 export default UserSettings;

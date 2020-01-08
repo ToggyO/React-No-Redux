@@ -1,4 +1,4 @@
-import { LOCAL_STORAGE_KEYS } from '@config';
+import { LOCAL_STORAGE_KEYS, API_DOMAIN } from '@config';
 import { getFromState } from '@utils/index';
 
 const signalR = require('@microsoft/signalr');
@@ -7,8 +7,7 @@ const connectionsList = [];
 
 class SocketConnection {
   constructor({ url }) {
-    // this._baseURL = `${API_DOMAIN}/api`;
-    this._baseURL = 'http://45.61.48.176:5005/api';
+    this._baseURL = `${API_DOMAIN}/api`;
     this._url = url;
 
     this.connect = this.connect.bind(this);
@@ -19,6 +18,7 @@ class SocketConnection {
       connectionsList.push(this._url);
 
       const finalURL = this._baseURL ? `${this._baseURL}${this._url}` : this._url;
+      console.log(`${this._baseURL}${this._url}`);
       const connection = await new signalR.HubConnectionBuilder()
         .withUrl(finalURL, {
           skipNegotiation: true,

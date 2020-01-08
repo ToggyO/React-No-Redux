@@ -6,8 +6,8 @@ import { modalActions } from '@ducks/modal';
 
 function mapDispatchToProps(dispatch) {
   return {
-    modalOpen(modalKey) {
-      dispatch(modalActions.modalOpen(modalKey));
+    modalOpen(modalKey, options) {
+      dispatch(modalActions.modalOpen(modalKey, options));
     },
   };
 }

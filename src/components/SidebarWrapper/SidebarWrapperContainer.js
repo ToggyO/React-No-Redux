@@ -19,8 +19,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  modalOpen(key) {
-    dispatch(modalActions.modalOpen(key));
+  modalOpen(key, options) {
+    dispatch(modalActions.modalOpen(key, options));
   },
   socketConnect(url) {
     dispatch(socketActions.socketConnect(url));

@@ -1,6 +1,6 @@
 import jwtDecode from 'jwt-decode';
 
-import history from '@services/history';
+// import history from '@services/history';
 import { LOCAL_STORAGE_KEYS } from '@config';
 import { clearBrowserState, getFromState } from '@utils/index';
 
@@ -8,7 +8,7 @@ import { clearBrowserState, getFromState } from '@utils/index';
 // Или, если будешь хранить в localStorage состояние сайдбара, то написать функцию, которая будет подчищать все,
 // кроме определенного ключа
 export const userLogout = () => {
-  history.replace('/');
+  // history.replace('/');
   window.location.reload();
   clearBrowserState([
     LOCAL_STORAGE_KEYS.USER,

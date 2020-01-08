@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet';
 
 import { detect } from 'detect-browser';
@@ -8,6 +8,7 @@ import s from './style.module.sass';
 import { ColorBlocks } from '@components/StyledComponents';
 import { LogoutButton } from '@components/LogoutButton';
 import superaxios from '@services/superaxios';
+import { ToggleThemeContext } from '@components/ThemeProviderWrapper';
 
 
 // eslint-disable-next-line react/prop-types
@@ -17,6 +18,7 @@ const HomePageView = ({ modalOpen }) => {
   const browser = detect();
   console.log(browser.os);
   // if (browser && /android|iOS/i.test(browser.os)) return <div>HAHAHAHAH! LOL!</div>;
+  const toggleTheme = useContext(ToggleThemeContext);
 
   return (
     <ColorBlocks.PrimaryColorBlock className={`${s.wrapper} flex align-items-center flex-column`} >
@@ -59,6 +61,13 @@ const HomePageView = ({ modalOpen }) => {
           AND TOGETHER!!!!
         </button>
       </form>
+      <div className="flex flex-column mt-4">
+        <div>Change theme</div>
+        <div>
+          <button type="button" onClick={() => toggleTheme('Default')}>Origin</button>
+          <button type="button" onClick={() => toggleTheme('Dark')}>Alternative</button>
+        </div>
+      </div>
       <LogoutButton addButtonClass="btn" />
     </ColorBlocks.PrimaryColorBlock>
   )

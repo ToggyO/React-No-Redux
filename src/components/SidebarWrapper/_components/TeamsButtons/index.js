@@ -13,7 +13,7 @@ export const TeamsButtons = ({ isOpen, modalOpen }) => (
       className={`${s.choose_team} ${
         isOpen ? s.shown : s.hidden
       } btn flex justify-content-center align-items-center pt-3 pb-3`}
-      onClick={() => modalOpen('UserSettings')}
+      onClick={() => modalOpen('UserSettings', { userProfileTab: 'Profile' })}
     >
       <Icon iconName="settings_switch" className={`${s.choose_team__icon} ${isOpen ? 'mr-2' : ''}`} />
       <p>Settings</p>

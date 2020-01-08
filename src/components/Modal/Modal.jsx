@@ -98,7 +98,7 @@ class Modal extends React.Component {
         return <DeprecatedLinkMessage onClose={this.onClickEnvironmentModalClose} itemKey={itemKey}
                                       withoutConfirmation="true"/>;
       case 'UserSettings':
-        return <UserSettingsContainer onClose={this.onOpenConfirmModal}/>;
+        return <UserSettingsContainer onClose={this.onOpenConfirmModal} options={options}/>;
       case 'ModalChangeEmail':
         return <ModalChangeEmailContainer onClose={this.onOpenConfirmModal}/>;
       case 'ModalConfirmEmailChange':
