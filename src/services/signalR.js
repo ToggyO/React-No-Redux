@@ -18,7 +18,6 @@ class SocketConnection {
       connectionsList.push(this._url);
 
       const finalURL = this._baseURL ? `${this._baseURL}${this._url}` : this._url;
-      console.log(`${this._baseURL}${this._url}`);
       const connection = await new signalR.HubConnectionBuilder()
         .withUrl(finalURL, {
           skipNegotiation: true,

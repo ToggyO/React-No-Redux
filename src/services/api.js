@@ -113,6 +113,11 @@ export default {
       const response = await superaxios.put(`${API_URL.USER.CHANGE_UI_THEME}/${theme}`);
       return response.data;
     },
+    updateSingleUserTeam: async data => {
+      const { teamId, ...rest } = data;
+      const response = await superaxios.put(`${API_URL.TEAMS.ROOT}/${teamId}`, rest);
+      return response.data;
+    },
     // getUserProjectById: async projectId => {
     //   const response = await superaxios.get(`${API_URL.PROJECTS.ROOT}/${projectId}`);
     //   return response.data;

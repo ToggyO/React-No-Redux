@@ -13,7 +13,10 @@ import { UserTeamsPlaceholder } from './_components/UserProfileSidebarTeams/User
 
 import CustomScrollbar from '@components/Scrollbar';
 import { getUniqueKey } from '@utils/index';
-import { ModalColorButton, ModalSecondaryColorBlock } from '@components/StyledComponents/ColorBlocks';
+import {
+  ModalColorButton,
+  ModalSecondaryColorBlock,
+} from '@components/StyledComponents/ColorBlocks';
 
 const teamsPlaceholder = [...Array(4)];
 
@@ -71,6 +74,10 @@ const UserProfileSidebarView = ({
                       addClassCircle="flex justify-content-center align-items-center"
                       addClassHeadline="ml-3 flex justify-content-space-between align-items-center relative"
                       style={teamsStyle}
+                      onClick={() => {
+                        rest.setTeam(item.teamId);
+                        setTab('Teams');
+                      }}
                     />)
               )}
               <div className={`${s.add_button}`}>

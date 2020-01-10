@@ -19,11 +19,10 @@ export const UserProfileSidebarTeamsView = ({
   onClick,
   style = {},
 }) => (
-  <ModalBorderColorBlock style={style.wrapper}>
+  <ModalBorderColorBlock style={style.wrapper} onClick={onClick}>
     <ModalSecondaryColorBlockHover
       className={`${styles.container} ${addClassContainer}`}
       style={style.container}
-      onClick={onClick}
     >
       <div
         className={`${styles.square} ${addClassCircle}`}

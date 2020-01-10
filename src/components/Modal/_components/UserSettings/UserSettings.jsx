@@ -5,6 +5,7 @@ import s from './style.module.sass';
 import { style as preloaderStyle } from './preloader_style';
 import { UserProfileSidebarView } from './_components/UserProfileSidebar';
 import  {UserProfileView } from './_components/UserTabs/UserProfile';
+import UserTeamsView from './_components/UserTabs/UserTeams/UserTeamsView';
 
 import { Preloader } from '@components/Preloader';
 import CustomScrollbar from '@components/Scrollbar';
@@ -25,13 +26,13 @@ const UserSettings = ({
   options = {},
   ...rest
 }) => {
-  console.log(options.userProfileTab);
   const [isDataFetched, setDataFetched] = useState(false);
   const [currentTab, setTab] = useState(options.userProfileTab);
+  const [currentTeamId, setTeam] = useState(options.checkedTeamFromSidebar || null);
   const userDataFromLocalState = getFromState(LOCAL_STORAGE_KEYS.USER);
 
   useEffect(() => {
-    fetchUserData('teams', 1, 9999);
+    // fetchUserData('teams', 1, 9999);
     fetchUserData(null, 1, 9999);
   }, []);
 
@@ -59,7 +60,12 @@ const UserSettings = ({
       case 'Notifications':
         return <div>Notifications</div>;
       case 'Teams':
-        return <div>Team</div>;
+        return <UserTeamsView
+          currentTeamId={currentTeamId}
+          teams={rest.userTeams}
+          isUserUpdating={isUserUpdating}
+          updateSingleUserTeam={rest.updateSingleUserTeam}
+        />;
       default:
         return <div>Test</div>;
     }
@@ -96,6 +102,7 @@ const UserSettings = ({
             teamsLoader={rest.teamsLoader}
             currentTab={currentTab}
             setTab={setTab}
+            setTeam={setTeam}
           />
         </CustomScrollbar>
         <div className={`${s.children} flex flex-column`}>
@@ -129,6 +136,10 @@ const UserSettings = ({
 UserSettings.propTypes = {
   location: PT.object,
   userData: PT.oneOfType([
+    PT.object,
+    PT.arrayOf(PT.object),
+  ]),
+  userTeams: PT.oneOfType([
     PT.object,
     PT.arrayOf(PT.object),
   ]),

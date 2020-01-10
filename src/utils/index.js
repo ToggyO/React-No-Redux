@@ -115,11 +115,11 @@ export const updateUserProjects = data => {
     case 1:
     case 0:
       return store.dispatch({
-        type: userTypes.UPDATE_USER_PROJECTS_REQUEST,
+        type: userTypes.UPDATE_USER_PROJECTS_LIST_REQUEST,
         payload: { dataType: 'projects', projectId, teamId, changesType },
       });
     case -1:
-      return store.dispatch({ type: userTypes.CUT_USER_PROJECT, payload: projectId });
+      return store.dispatch({ type: userTypes.CUT_USER_PROJECT_FROM_LIST, payload: projectId });
     default:
       return changesType;
   }

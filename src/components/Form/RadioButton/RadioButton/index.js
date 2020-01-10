@@ -7,8 +7,15 @@ import s from './style.module.sass';
 
 import { Icon } from '@components/Icon';
 
-export const RadioButton = ({ field: { name, value, onChange, onBlur }, style = {}, id, withExtra }) => (
-  <div style={style.container}>
+export const RadioButton = ({
+  field: { name, value, onChange, onBlur },
+  style = {},
+  id,
+  withExtra,
+  addClassContainer,
+  addClassInput,
+}) => (
+  <div style={style.container} className={addClassContainer || ''}>
     <input
       name={name}
       id={id}
@@ -17,7 +24,7 @@ export const RadioButton = ({ field: { name, value, onChange, onBlur }, style = 
       checked={id === value}
       onChange={onChange}
       onBlur={onBlur}
-      className={s.radio}
+      className={`${s.radio} ${addClassInput || ''}`}
       style={{ ...style.radioButton, ...(id === value && style.checked) }}
     />
     {withExtra && (
@@ -43,6 +50,8 @@ RadioButton.propTypes = {
   onBlur: PT.func,
   style: PT.object,
   id: PT.string,
+  addClassContainer: PT.string,
+  addClassInput: PT.string,
   withExtra: PT.shape({
     icon: PT.string,
     text: PT.string,

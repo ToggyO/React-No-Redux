@@ -25,6 +25,7 @@ export default function user(state = initialState, action) {
     case types.USER_PRELOADER_START:
       return { ...state, loading: true };
     case types.UPDATE_USER_DATA_REQUEST:
+    case types.UPDATE_SINGLE_USER_TEAM_REQUEST:
       return { ...state, spinner: true };
     case types.CHANGE_USER_EMAIL_REQUEST:
     case types.CONFIRM_NEW_USER_EMAIL_REQUEST:
@@ -63,7 +64,7 @@ export default function user(state = initialState, action) {
           user: action.payload,
         },
       };
-    case types.UPDATE_USER_PROJECTS_SUCCESS: {
+    case types.UPDATE_USER_PROJECTS_LIST_SUCCESS: {
       const { data = {}, changesType } = action.payload;
       const { items } = data;
       const filteredProjects = state.data.projects.items.filter(
@@ -82,7 +83,7 @@ export default function user(state = initialState, action) {
         },
       };
     }
-    case types.CUT_USER_PROJECT: {
+    case types.CUT_USER_PROJECT_FROM_LIST: {
       const projectId = action.payload;
       const filteredProjects = state.data.projects.items.filter(item => item.projectId !== projectId);
       return {
@@ -93,6 +94,24 @@ export default function user(state = initialState, action) {
             ...state.data.projects,
             total: state.data.projects.total - 1,
             items: filteredProjects,
+          },
+        },
+      };
+    }
+    case types.UPDATE_SINGLE_USER_TEAM_SUCCESS: {
+      const { data } = action.payload;
+      const findTeamById = state.data.teams.items.filter(item => item.teamId === data.id);
+      // findTeamById.forEach(item => (item.team = data));
+      // eslint-disable-next-line no-param-reassign,no-return-assign
+      findTeamById.reduce(accumulator => (accumulator.team = data), findTeamById[0]);
+      return {
+        ...state,
+        spinner: false,
+        data: {
+          ...state.data,
+          teams: {
+            ...state.data.teams,
+            items: [...state.data.teams.items],
           },
         },
       };
@@ -114,8 +133,9 @@ export default function user(state = initialState, action) {
     case types.CHANGE_USER_PASSWORD_ERROR:
     case types.CHANGE_USER_AVATAR_ERROR:
     case types.DELETE_USER_AVATAR_ERROR:
-    case types.UPDATE_USER_PROJECTS_ERROR:
+    case types.UPDATE_USER_PROJECTS_LIST_ERROR:
     case types.CHANGE_UI_THEME_ERROR:
+    case types.UPDATE_SINGLE_USER_TEAM_ERROR:
       return {
         ...state,
         loading: false,

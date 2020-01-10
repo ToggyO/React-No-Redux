@@ -6,6 +6,7 @@ import { Tooltip } from '@components/ReactTooltip/bin';
 
 import { style as teamsStyle } from './teams_style';
 
+import s from '@components/Form/Dropdown/SidebarProjectSettings/_components/DropdownSettingsButton/style.module.sass';
 import { LinkButton } from '@components/SidebarWrapper/_components/LinkButton';
 import { style as LinkButtonStyle } from '@components/SidebarWrapper/link_button_style';
 import { UserProfileSidebarTeamsView } from '@components/Modal/_components/UserSettings/_components/UserProfileSidebar/_components/UserProfileSidebarTeams';
@@ -33,7 +34,13 @@ const buttons = [
   },
 ];
 
-export const LinkButtonsContainer = ({ userTeams = [], changeCurrentTeam, isSidebarOpened }) => {
+export const LinkButtonsContainer = ({
+  userTeams = [],
+  currentTeam,
+  changeCurrentTeam,
+  isSidebarOpened,
+  modalOpen,
+}) => {
   const [flag, toggleFlag] = useState(false);
   const teamTooltipRef = useRef(null);
 
@@ -73,6 +80,16 @@ export const LinkButtonsContainer = ({ userTeams = [], changeCurrentTeam, isSide
             }}
           />
         ))}
+        <button
+          type="button"
+          className={`${s.delete_button} btn mt-0 mb-0`}
+          onClick={() => {
+            modalOpen('UserSettings', { userProfileTab: 'Teams', checkedTeamFromSidebar: currentTeam });
+            teamTooltipRef.current.hideTooltip();
+          }}
+        >
+          <p className={s.delete_title}>Manage teams</p>
+        </button>
       </CustomScrollbar>
     </>
   );
@@ -98,6 +115,8 @@ export const LinkButtonsContainer = ({ userTeams = [], changeCurrentTeam, isSide
 
 LinkButtonsContainer.propTypes = {
   userTeams: PT.arrayOf(PT.object),
+  currentTeam: PT.string,
   changeCurrentTeam: PT.func,
   isSidebarOpened: PT.bool,
+  modalOpen: PT.func,
 };

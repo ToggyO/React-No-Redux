@@ -81,8 +81,10 @@ const SidebarWrapper = ({
       <div className={`${s.links} ${isSidebarOpened ? s.links_horizontal : s.links_vertical} flex justify-content-center align-items-center flex-wrap-wrap`}>
         <LinkButtonsContainer
           userTeams={userTeams}
+          currentTeam={rest.currentTeam}
           changeCurrentTeam={rest.changeCurrentTeam}
           isSidebarOpened={isSidebarOpened}
+          modalOpen={modalOpen}
         />
       </div>
       <div className={`${s.projects} relative`}>

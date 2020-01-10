@@ -32,6 +32,9 @@ export const API_URL = {
   PROJECTS: {
     ROOT: '/projects',
   },
+  TEAMS: {
+    ROOT: '/teams',
+  },
   SOCKET: {
     NOTIFICATIONS: '/ws',
     CHAT: '/ws/chatAPI',

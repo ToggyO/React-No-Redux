@@ -65,6 +65,11 @@ export const changeUiTheme = theme => ({
   payload: theme,
 });
 
+export const updateSingleUserTeam = data => ({
+  type: types.UPDATE_SINGLE_USER_TEAM_REQUEST,
+  payload: data,
+});
+
 // User loader
 export const userLoaderStart = () => ({
   type: types.USER_PRELOADER_START,

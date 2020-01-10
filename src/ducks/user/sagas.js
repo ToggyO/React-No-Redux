@@ -173,7 +173,7 @@ function* updateUserProjects(action) {
     const { changesType } = action.payload;
     const data = yield call(api.user.fetchUserData, action.payload);
     yield put({
-      type: types.UPDATE_USER_PROJECTS_SUCCESS,
+      type: types.UPDATE_USER_PROJECTS_LIST_SUCCESS,
       payload: {
         data: data.data,
         changesType,
@@ -183,12 +183,12 @@ function* updateUserProjects(action) {
     const { response = {} } = error;
     const { data = {} } = response;
     const { errors = [] } = data;
-    yield put({ type: types.UPDATE_USER_PROJECTS_ERROR, payload: errors });
+    yield put({ type: types.UPDATE_USER_PROJECTS_LIST_ERROR, payload: errors });
   }
 }
 
 export function* updateUserProjectsSaga() {
-  yield takeLatest(types.UPDATE_USER_PROJECTS_REQUEST, updateUserProjects);
+  yield takeLatest(types.UPDATE_USER_PROJECTS_LIST_REQUEST, updateUserProjects);
 }
 
 function* changeUiTheme(action) {
@@ -205,4 +205,20 @@ function* changeUiTheme(action) {
 
 export function* changeUiThemeSaga() {
   yield takeEvery(types.CHANGE_UI_THEME_REQUEST, changeUiTheme);
+}
+
+function* updateSingleUserTeam(action) {
+  try {
+    const data = yield call(api.user.updateSingleUserTeam, action.payload);
+    yield put({ type: types.UPDATE_SINGLE_USER_TEAM_SUCCESS, payload: data });
+  } catch (error) {
+    const { response = {} } = error;
+    const { data = {} } = response;
+    const { errors = [] } = data;
+    yield put({ type: types.UPDATE_SINGLE_USER_TEAM_ERROR, payload: errors });
+  }
+}
+
+export function* updateSingleUserTeamSaga() {
+  yield takeLatest(types.UPDATE_SINGLE_USER_TEAM_REQUEST, updateSingleUserTeam);
 }

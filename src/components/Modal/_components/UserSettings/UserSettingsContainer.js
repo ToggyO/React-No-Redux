@@ -31,6 +31,9 @@ const mapDispatchToProps = dispatch => ({
   modalOpen(itemKey, options) {
     dispatch(modalActions.modalOpen(itemKey, options));
   },
+  updateSingleUserTeam(data) {
+    dispatch(userActions.updateSingleUserTeam(data));
+  },
 });
 
 export default compose(
