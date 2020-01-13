@@ -55,12 +55,16 @@ export const ModalSecondaryColorBlockHover = styled.div`
   }
 `;
 
-export const ModalFontColorBlock = styled.div`
-  color: ${props => props.theme.colors.modal.font};
+export const ModalFontPrimaryColorBlock = styled.div`
+  color: ${props => props.theme.colors.modal.primaryFont};
+`;
+
+export const ModalFontSecondaryColorBlock = styled.div`
+  color: ${props => props.theme.colors.modal.secondaryFont};
 `;
 
 export const ModalColorButton = styled.button`
-  color: ${props => props.theme.colors.modal.font} !important;
+  color: ${props => props.theme.colors.modal.primaryFont} !important;
   &:hover {
     background-color: ${props => props.theme.colors.modal.secondaryHover};
   }

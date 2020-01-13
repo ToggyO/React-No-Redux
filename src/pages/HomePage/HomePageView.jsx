@@ -9,6 +9,7 @@ import { ColorBlocks } from '@components/StyledComponents';
 import { LogoutButton } from '@components/LogoutButton';
 import superaxios from '@services/superaxios';
 import { ToggleThemeContext } from '@components/ThemeProviderWrapper';
+import { MODAL_KEYS } from '@config/common';
 
 
 // eslint-disable-next-line react/prop-types
@@ -49,13 +50,13 @@ const HomePageView = ({ modalOpen }) => {
         >
           Kill
         </button>
-        <button type="button" onClick={() => modalOpen('Handler500')}>Handler500</button>
-        <button type="button" onClick={() => modalOpen('DeprecatedLinkMessage')}>DeprecatedLinkMessage</button>
+        <button type="button" onClick={() => modalOpen(MODAL_KEYS.HANDLER_500)}>Handler500</button>
+        <button type="button" onClick={() => modalOpen(MODAL_KEYS.DEPRECATED_LINK_MESSAGE)}>DeprecatedLinkMessage</button>
         <button
           type="button"
           onClick={() =>{
-            modalOpen('Handler500');
-            setTimeout(() => modalOpen('DeprecatedLinkMessage'), 1000);
+            modalOpen(MODAL_KEYS.HANDLER_500);
+            setTimeout(() => modalOpen(MODAL_KEYS.DEPRECATED_LINK_MESSAGE), 1000);
           }}
         >
           AND TOGETHER!!!!

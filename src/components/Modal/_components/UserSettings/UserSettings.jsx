@@ -72,6 +72,7 @@ const UserSettings = ({
           updateSingleUserTeam={rest.updateSingleUserTeam}
           getListOfTeamUsers={rest.getListOfTeamUsers}
           teamsUsers={withExtra.items}
+          modalOpen={rest.modalOpen}
         />;
       default:
         return <div>Test</div>;

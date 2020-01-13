@@ -6,7 +6,7 @@ import { style as preloaderStyle } from './preloader_style';
 
 import { Icon } from '@components/Icon';
 import { Preloader } from '@components/Preloader';
-import { ModalBaseColorBlock, ModalFontColorBlock } from '@components/StyledComponents/ColorBlocks';
+import { ModalBaseColorBlock, ModalFontPrimaryColorBlock } from '@components/StyledComponents/ColorBlocks';
 
 export const ModalLabelWrapper = ({ children, label, onClose, modalLoading, style = {} }) => (
   <ModalBaseColorBlock className={s.wrapper} style={style.wrapper}>
@@ -18,9 +18,9 @@ export const ModalLabelWrapper = ({ children, label, onClose, modalLoading, styl
       colorScheme="default"
     />
     <div className={s.container} style={style.container}>
-      <ModalFontColorBlock className={s.label} style={style.label}>
+      <ModalFontPrimaryColorBlock className={s.label} style={style.label}>
         {label}
-      </ModalFontColorBlock>
+      </ModalFontPrimaryColorBlock>
       <div className={`${s.close}`} onClick={onClose}>
         <button type="button" className="btn fill-primary">
           <Icon iconName="close-modal" />

@@ -5,7 +5,7 @@ import s from './style.module.sass';
 
 import {
   ModalBaseColorBlock,
-  ModalFontColorBlock,
+  ModalFontPrimaryColorBlock,
   PrimaryColorBlock,
 } from '@components/StyledComponents/ColorBlocks';
 
@@ -20,7 +20,9 @@ const ModalCloseConfirm = ({ onClose, itemKey, isConfirmModalOpen, zIndex, onClo
       style={{ zIndex: isConfirmModalOpen ? 1003 + zIndex : -1 }}
     >
       <div className={`${s.message} pb-4`}>
-        <ModalFontColorBlock className={`${s.text} text-align-center`}>Close window?</ModalFontColorBlock>
+        <ModalFontPrimaryColorBlock className={`${s.text} text-align-center`}>
+          Close window?
+        </ModalFontPrimaryColorBlock>
       </div>
       <div className={`${s.button} flex flex-column`}>
         <button

@@ -3,12 +3,12 @@ import PT from 'prop-types';
 
 import s from './style.module.sass';
 
-import { ModalBorderColorBlock, ModalFontColorBlock } from '@components/StyledComponents/ColorBlocks';
+import { ModalBorderColorBlock, ModalFontPrimaryColorBlock } from '@components/StyledComponents/ColorBlocks';
 
 export const UserProfileSidebarHeadlinesWrapper = ({ children, title = '', addContainerClass = '' }) => (
   <div>
     <ModalBorderColorBlock className={`${s.headline} ${addContainerClass} pl-10 pb-4`}>
-      <ModalFontColorBlock>{title}</ModalFontColorBlock>
+      <ModalFontPrimaryColorBlock>{title}</ModalFontPrimaryColorBlock>
     </ModalBorderColorBlock>
     <div className={s.children}>{children}</div>
   </div>

@@ -7,6 +7,7 @@ import { modalTypes } from '@ducks/modal';
 import { globalTypes } from '@ducks/global';
 
 import api from '@services/api';
+import { MODAL_KEYS } from '@config/common';
 // import { modalClose } from '@ducks/modal/actions';
 
 function* fetchUserData(action) {
@@ -65,8 +66,8 @@ function* changeUserEmailRequest(action) {
       type: globalTypes.GLOBAL_SUCCESS_MESSAGE_SHOWN,
       payload: `Confirmation code is sent to ${action.payload.newEmail}`,
     });
-    yield put({ type: modalTypes.MODAL_CLOSE, payload: 'ModalChangeEmail' });
-    yield put({ type: modalTypes.MODAL_OPEN, payload: { modalKey: 'ModalConfirmEmailChange' } });
+    yield put({ type: modalTypes.MODAL_CLOSE, payload: MODAL_KEYS.MODAL_CHANGE_EMAIL });
+    yield put({ type: modalTypes.MODAL_OPEN, payload: { modalKey: MODAL_KEYS.MODAL_CONFIRM_EMAIL_CHANGE } });
   } catch (error) {
     const { response = {} } = error;
     const { data = {} } = response;
@@ -83,7 +84,7 @@ function* confirmNewUserEmail(action) {
   try {
     const data = yield call(api.user.confirmNewUserEmail, action.payload);
     yield put({ type: types.CONFIRM_NEW_USER_EMAIL_SUCCESS, payload: data.data });
-    yield put({ type: modalTypes.MODAL_CLOSE, payload: 'ModalConfirmEmailChange' });
+    yield put({ type: modalTypes.MODAL_CLOSE, payload: MODAL_KEYS.MODAL_CONFIRM_EMAIL_CHANGE });
   } catch (error) {
     const { response = {} } = error;
     const { data = {} } = response;
@@ -120,8 +121,11 @@ function* changeUserPassword(action) {
   try {
     const data = yield call(api.user.changeUserPassword, action.payload);
     yield put({ type: types.CHANGE_USER_PASSWORD_SUCCESS, payload: data.data });
-    yield put({ type: modalTypes.MODAL_CLOSE, payload: 'ModalChangePassword' });
-    yield put({ type: modalTypes.MODAL_OPEN, payload: { modalKey: 'ModalChangePasswordSuccess' } });
+    yield put({ type: modalTypes.MODAL_CLOSE, payload: MODAL_KEYS.MODAL_CHANGE_PASSWORD });
+    yield put({
+      type: modalTypes.MODAL_OPEN,
+      payload: { modalKey: MODAL_KEYS.MODAL_CHANGE_PASSWORD_SUCCESS },
+    });
   } catch (error) {
     const { response = {} } = error;
     const { data = {} } = response;
@@ -138,7 +142,7 @@ function* changeUserAvatar(action) {
   try {
     const data = yield call(api.user.changeUserAvatar, action.payload);
     yield put({ type: types.CHANGE_USER_AVATAR_SUCCESS, payload: data.data });
-    yield put({ type: modalTypes.MODAL_CLOSE, payload: 'ModalCropperPreview' });
+    yield put({ type: modalTypes.MODAL_CLOSE, payload: MODAL_KEYS.MODAL_CROPPER_PREVIEW });
   } catch (error) {
     const { response = {} } = error;
     const { data = {} } = response;

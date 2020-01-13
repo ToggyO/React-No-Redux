@@ -13,7 +13,7 @@ import { Icon } from '@components/Icon';
 import OverlayBlocker from '@components/OverlayBlocker';
 import { validateField } from '@components/Form/validations';
 import { DeleteButton } from '@components/StyledComponents/Buttons';
-import { LOCAL_STORAGE_KEYS, USER_COMMON } from '@config/common';
+import { LOCAL_STORAGE_KEYS, MODAL_KEYS, USER_COMMON } from '@config/common';
 import { getFromState } from '@utils/index';
 
 const UserProfileFormView = ({ userData, isUserUpdating, updateUserData, modalOpen }) => {
@@ -82,7 +82,7 @@ const UserProfileFormView = ({ userData, isUserUpdating, updateUserData, modalOp
             addClassInput="default_input input_settings pt-2 pb-2 pr-3"
             additionalElement={
               getSignUpMethod.signUpBy === USER_COMMON.SIGN_UP_BY.EMAIL && (
-                <UserProfileEditButton onClick={() => modalOpen('ModalChangeEmail')} />
+                <UserProfileEditButton onClick={() => modalOpen(MODAL_KEYS.MODAL_CHANGE_EMAIL)} />
               )
             }
             disabled
@@ -97,7 +97,9 @@ const UserProfileFormView = ({ userData, isUserUpdating, updateUserData, modalOp
               addClassWrapper="pt-3 pb-8"
               addClassInputContainer="form_border_bottom form_border_gray"
               addClassInput="default_input input_settings pt-2 pb-2 pr-3"
-              additionalElement={<UserProfileEditButton onClick={() => modalOpen('ModalChangePassword')} />}
+              additionalElement={
+                <UserProfileEditButton onClick={() => modalOpen(MODAL_KEYS.MODAL_CHANGE_PASSWORD)} />
+              }
               disabled
             />
           )}
@@ -105,18 +107,10 @@ const UserProfileFormView = ({ userData, isUserUpdating, updateUserData, modalOp
             <DeleteButton
               type="button"
               className="btn rounded pt-2 pb-2"
-              onClick={() => modalOpen('ModalLogoutConfirmation')}
+              onClick={() => modalOpen(MODAL_KEYS.MODAL_LOGOUT_CONFIRMATION)}
             >
               Log out
             </DeleteButton>
-            {/* TODO delete */}
-            {/* <DeleteButton */}
-            {/*  type="button" */}
-            {/*  className="btn rounded pt-2 pb-2" */}
-            {/*  onClick={() => modalOpen('ModalConfirmEmailChange')} */}
-            {/* > */}
-            {/*  TEST */}
-            {/* </DeleteButton> */}
           </div>
         </Form>
       )}

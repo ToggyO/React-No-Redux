@@ -4,11 +4,11 @@ import PT from 'prop-types';
 import s from './style.module.sass';
 
 import { userLogout } from '@services/auth';
-import { ModalBaseColorBlock, ModalFontColorBlock } from '@components/StyledComponents/ColorBlocks';
+import { ModalBaseColorBlock, ModalFontPrimaryColorBlock } from '@components/StyledComponents/ColorBlocks';
 
 const ModalLogoutConfirmationView = ({ onClose, itemKey }) => (
   <ModalBaseColorBlock className={s.container}>
-    <ModalFontColorBlock className={`${s.headline} pb-6`}>Are you sure you want to log out?</ModalFontColorBlock>
+    <ModalFontPrimaryColorBlock className={`${s.headline} pb-6`}>Are you sure you want to log out?</ModalFontPrimaryColorBlock>
     <div className={s.button_block}>
       <button
         type="button"

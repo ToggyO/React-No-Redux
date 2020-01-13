@@ -16,6 +16,8 @@ import { ModalFillRequiredFields } from '@components/Modal/_components/ModalFill
 import { ModalLogoutConfirmationView }
   from '@components/Modal/_components/ModalLogoutConfirmation';
 import { PrimaryColorBlock } from '@components/StyledComponents/ColorBlocks';
+import { ModalDeleteTeamWarning } from '@components/Modal/_components/ModalDeleteTeamWarning';
+import { MODAL_KEYS } from '@config/common';
 
 
 /* eslint-disable */
@@ -33,6 +35,7 @@ class Modal extends React.Component {
     this.onOpenConfirmModal = this.onOpenConfirmModal.bind(this);
     this.onCloseConfirmModal = this.onCloseConfirmModal.bind(this);
     this.onRenderModalContent = this.onRenderModalContent.bind(this);
+    this.onModalCloseConditions = this.onModalCloseConditions.bind(this);
 
     this.modalWindowRef = React.createRef();
   }
@@ -88,39 +91,53 @@ class Modal extends React.Component {
     this.setState(prevState => ({ ...prevState, isConfirmModalOpen: false }));
   }
 
+  onModalCloseConditions(e, itemKey) {
+    if (this.onRenderModalContent().props.withoutConfirmation) {
+      return this.onOverlayClickWithoutConfirmation(e, itemKey);
+    } else if (this.onRenderModalContent().props.withoutEnvironmentClose) {
+      return () => {};
+    }
+    return this.onOverlayClick(e);
+  }
+
   onRenderModalContent = () => {
     const { itemKey, options } = this.props;
 
     switch (itemKey) {
-      case 'Handler500':
+      case MODAL_KEYS.HANDLER_500:
         return <Handler500 onClose={this.onClickEnvironmentModalClose} itemKey={itemKey} withoutConfirmation="true"/>;
-      case 'DeprecatedLinkMessage':
+      case MODAL_KEYS.DEPRECATED_LINK_MESSAGE:
         return <DeprecatedLinkMessage onClose={this.onClickEnvironmentModalClose} itemKey={itemKey}
                                       withoutConfirmation="true"/>;
-      case 'UserSettings':
+      case MODAL_KEYS.USER_SETTINGS:
         return <UserSettingsContainer onClose={this.onOpenConfirmModal} options={options}/>;
-      case 'ModalChangeEmail':
+      case MODAL_KEYS.MODAL_CHANGE_EMAIL:
         return <ModalChangeEmailContainer onClose={this.onOpenConfirmModal}/>;
-      case 'ModalConfirmEmailChange':
+      case MODAL_KEYS.MODAL_CONFIRM_EMAIL_CHANGE:
         return <ModalConfirmEmailChangeContainer onClose={this.onOpenConfirmModal}/>;
-      case 'ModalChangePassword':
+      case MODAL_KEYS.MODAL_CHANGE_PASSWORD:
         return <ModalChangePasswordContainer onClose={this.onOpenConfirmModal}/>;
-      case 'ModalCropperPreview':
+      case MODAL_KEYS.MODAL_CROPPER_PREVIEW:
         return <ModalCropperPreviewContainer onClose={this.onOpenConfirmModal} options={options}/>;
-      case 'ModalChangePasswordSuccess':
+      case MODAL_KEYS.MODAL_CHANGE_PASSWORD_SUCCESS:
         return <ModalChangePasswordSuccess onClose={this.onClickEnvironmentModalClose} itemKey={itemKey}
                                            withoutConfirmation="true"/>;
-      case 'ModalFillRequiredFields':
+      case MODAL_KEYS.MODAL_FILL_REQUIRED_FIELDS:
         return <ModalFillRequiredFields onClose={this.onClickEnvironmentModalClose} itemKey={itemKey}
                                         withoutConfirmation="true"/>;
-      case 'ModalLogoutConfirmation':
+      case MODAL_KEYS.MODAL_LOGOUT_CONFIRMATION:
         return <ModalLogoutConfirmationView onClose={this.onClickEnvironmentModalClose} itemKey={itemKey}
                                                  withoutConfirmation="true"/>;
+      case MODAL_KEYS.MODAL_DELETE_TEAM_WARNING:
+        return <ModalDeleteTeamWarning onClose={this.onClickEnvironmentModalClose} itemKey={itemKey}
+                                       withoutEnvironmentClose="true"/>;
+      // case MODAL_KEYS.MODAL_DELETE_TEAM_CONFIRM:
+      //   return <ModalDeleteTeamWarning onClose={this.onClickEnvironmentModalClose} itemKey={itemKey}
+      //                                  withoutEnvironmentClose="true"/>;
       default:
         return null;
     }
   };
-
 
   render() {
     const { zIndex, modalState, itemKey, modalOpen } = this.props;
@@ -141,12 +158,14 @@ class Modal extends React.Component {
             id={`modal-window-${zIndex}`}
             className={`${s.modalWindow} ${this.state.isOpen ? s.modalWindow_shown : ''}`}
             style={{ zIndex: 1001 + zIndex }}
-            onMouseDown={e => this.onRenderModalContent().props.withoutConfirmation
-              ? this.onOverlayClickWithoutConfirmation(e, itemKey)
-              : this.onOverlayClick(e)}
-            onTouchStart={e => this.onRenderModalContent().props.withoutConfirmation
-              ? this.onOverlayClickWithoutConfirmation(e, itemKey)
-              : this.onOverlayClick(e)}
+            // onMouseDown={e => this.onRenderModalContent().props.withoutConfirmation
+            //   ? this.onOverlayClickWithoutConfirmation(e, itemKey)
+            //   : this.onOverlayClick(e)}
+            // onTouchStart={e => this.onRenderModalContent().props.withoutConfirmation
+            //   ? this.onOverlayClickWithoutConfirmation(e, itemKey)
+            //   : this.onOverlayClick(e)}
+            onMouseDown={e => this.onModalCloseConditions(e, itemKey)}
+            onTouchStart={e => this.onModalCloseConditions(e, itemKey)}
           >
             {this.onRenderModalContent()}
           </div>

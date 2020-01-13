@@ -15,6 +15,7 @@ const UserTeamsView = ({
   updateSingleUserTeam,
   getListOfTeamUsers,
   teamsUsers,
+  modalOpen,
 }) => {
   const filteredTeam = teams.filter(item => item.teamId === currentTeamId);
   const initialValues = {};
@@ -37,7 +38,7 @@ const UserTeamsView = ({
         updateSingleUserTeam={updateSingleUserTeam}
         initialValues={initialValues}
       />
-      <UserTeamsControlButton statusName={initialValues.statusName}/>
+      <UserTeamsControlButton statusName={initialValues.statusName} modalOpen={modalOpen}/>
       <UserTeamsLIstOfUsersView teamsUsers={teamsUsers}/>
     </div>
   )
@@ -50,6 +51,7 @@ UserTeamsView.propTypes = {
   updateSingleUserTeam: PT.func,
   getListOfTeamUsers: PT.func,
   teamsUsers: PT.arrayOf(PT.object),
+  modalOpen: PT.func,
 };
 
 export default UserTeamsView;

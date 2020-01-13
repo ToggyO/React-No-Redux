@@ -16,6 +16,7 @@ import { API_URL } from '@config/apiUrl';
 import { ROUTES } from '@config/routes';
 import { withAuthLoader } from '@components/HOC/withAuthLoader';
 import { withModal } from '@components/HOC/withModal';
+import { MODAL_KEYS } from '@config/common';
 
 
 const SetNewPasswordFormView = ({
@@ -38,7 +39,7 @@ const SetNewPasswordFormView = ({
     } catch (error) {
       loaderStop();
       history.push(ROUTES.AUTH.ROOT + ROUTES.AUTH.LOGIN_IN);
-      modalOpen('DeprecatedLinkMessage');
+      modalOpen(MODAL_KEYS.DEPRECATED_LINK_MESSAGE);
     }
   };
 

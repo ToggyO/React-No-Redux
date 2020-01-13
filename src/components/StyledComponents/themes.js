@@ -58,7 +58,8 @@ export const Default = {
       base: '#FFFFFF',
       secondary: '#F7F7F7',
       secondaryHover: '#f1f2f3',
-      font: '#495570',
+      primaryFont: '#495570',
+      secondaryFont: '#9398A2',
       border: '#D7D7D7',
     },
     input: {
@@ -130,7 +131,8 @@ export const Dark = {
       base: '#495570',
       secondary: '#9398A2',
       secondaryHover: '#a3a8b2',
-      font: '#FFFFFF',
+      primaryFont: '#FFFFFF',
+      secondaryFont: '#F8F8F8',
       border: '#D3D3D3',
     },
     input: {

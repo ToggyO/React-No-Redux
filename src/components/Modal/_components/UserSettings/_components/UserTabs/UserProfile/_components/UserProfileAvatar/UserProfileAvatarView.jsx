@@ -8,6 +8,7 @@ import { style as avatarStyle } from './avatar_style';
 import spinner from '@assets/user_profile/spinner-png.png'
 import { OTHER } from '@config';
 import { PrimaryColorLabel } from '@components/StyledComponents/ColorBlocks';
+import { MODAL_KEYS } from '@config/common';
 
 const UserProfileAvatarView = ({
   userData,
@@ -55,7 +56,7 @@ const UserProfileAvatarView = ({
           userLoaderStart();
         };
         reader.onloadend = () => {
-          modalOpen('ModalCropperPreview', { loadedFile: reader.result });
+          modalOpen(MODAL_KEYS.MODAL_CROPPER_PREVIEW, { loadedFile: reader.result });
           userLoaderStop();
         };
       };

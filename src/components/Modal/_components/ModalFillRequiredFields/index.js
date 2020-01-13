@@ -3,13 +3,13 @@ import PT from 'prop-types';
 
 import s from '../ModalChangePasswordSuccess/style.module.sass';
 
-import { ModalBaseColorBlock, ModalFontColorBlock } from '@components/StyledComponents/ColorBlocks';
+import { ModalBaseColorBlock, ModalFontPrimaryColorBlock } from '@components/StyledComponents/ColorBlocks';
 
 export const ModalFillRequiredFields = ({ onClose, itemKey }) => (
   <ModalBaseColorBlock className={s.container}>
-    <ModalFontColorBlock className={`${s.text} pb-6 text-align-center`}>
+    <ModalFontPrimaryColorBlock className={`${s.text} pb-6 text-align-center`}>
       Please enter required fields
-    </ModalFontColorBlock>
+    </ModalFontPrimaryColorBlock>
     <div className={s.button_block}>
       <button
         type="button"

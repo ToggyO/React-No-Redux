@@ -6,7 +6,7 @@ import styles from './style.module.sass';
 import s from '@components/SidebarWrapper/_components/SidebarTeamsProject/_components/SidebarTeamsProjectsHeadline/style.module.sass';
 import {
   ModalBorderColorBlock,
-  ModalFontColorBlock,
+  ModalFontPrimaryColorBlock,
   ModalSecondaryColorBlockHover,
 } from '@components/StyledComponents/ColorBlocks';
 
@@ -36,9 +36,9 @@ export const UserProfileSidebarTeamsView = ({
         </span>
       </div>
       <div className={`${s.headline} ${addClassHeadline}`} style={style.headline}>
-        <ModalFontColorBlock className={styles.headline_text} style={style.headlineText}>
+        <ModalFontPrimaryColorBlock className={styles.headline_text} style={style.headlineText}>
           {teamName.replace(/(^\s*)|(\s*)$/g, '')}
-        </ModalFontColorBlock>
+        </ModalFontPrimaryColorBlock>
       </div>
     </ModalSecondaryColorBlockHover>
   </ModalBorderColorBlock>
