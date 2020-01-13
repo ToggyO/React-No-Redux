@@ -23,6 +23,7 @@ export default function user(state = initialState, action) {
   switch (action.type) {
     case types.FETCH_USER_DATA_REQUEST:
     case types.USER_PRELOADER_START:
+    case types.GET_LIST_OF_TEAM_USERS_REQUEST:
       return { ...state, loading: true };
     case types.UPDATE_USER_DATA_REQUEST:
     case types.UPDATE_SINGLE_USER_TEAM_REQUEST:
@@ -101,7 +102,6 @@ export default function user(state = initialState, action) {
     case types.UPDATE_SINGLE_USER_TEAM_SUCCESS: {
       const { data } = action.payload;
       const findTeamById = state.data.teams.items.filter(item => item.teamId === data.id);
-      // findTeamById.forEach(item => (item.team = data));
       // eslint-disable-next-line no-param-reassign,no-return-assign
       findTeamById.reduce(accumulator => (accumulator.team = data), findTeamById[0]);
       return {
@@ -122,7 +122,16 @@ export default function user(state = initialState, action) {
     case types.CHANGE_USER_PASSWORD_SUCCESS:
       return { ...state, modalLoading: false };
     case types.CHANGE_USER_EMAIL_SUCCESS:
-      return { ...state, modalLoading: false, extra: action.payload };
+    case types.GET_LIST_OF_TEAM_USERS_SUCCESS: {
+      return {
+        ...state,
+        loading: false,
+        spinner: false,
+        modalLoading: false,
+        avatarLoading: false,
+        extra: action.payload,
+      };
+    }
     case types.AVATAR_PRELOADER_STOP:
       return { ...state, avatarLoading: false };
     case types.FETCH_USER_DATA_ERROR:
@@ -136,6 +145,7 @@ export default function user(state = initialState, action) {
     case types.UPDATE_USER_PROJECTS_LIST_ERROR:
     case types.CHANGE_UI_THEME_ERROR:
     case types.UPDATE_SINGLE_USER_TEAM_ERROR:
+    case types.GET_LIST_OF_TEAM_USERS_ERROR:
       return {
         ...state,
         loading: false,

@@ -52,14 +52,6 @@ export const updateUserProjects = projectId => ({
   payload: projectId,
 });
 
-export const clearUserErrors = () => ({
-  type: types.CLEAR_USER_ERRORS,
-});
-
-export const clearUserExtra = () => ({
-  type: types.CLEAR_USER_EXTRA,
-});
-
 export const changeUiTheme = theme => ({
   type: types.CHANGE_UI_THEME_REQUEST,
   payload: theme,
@@ -68,6 +60,15 @@ export const changeUiTheme = theme => ({
 export const updateSingleUserTeam = data => ({
   type: types.UPDATE_SINGLE_USER_TEAM_REQUEST,
   payload: data,
+});
+
+export const getListOfTeamUsers = (teamId, page, pageSize) => ({
+  type: types.GET_LIST_OF_TEAM_USERS_REQUEST,
+  payload: {
+    teamId,
+    page,
+    pageSize,
+  },
 });
 
 // User loader
@@ -85,4 +86,13 @@ export const avatarLoaderStart = () => ({
 
 export const avatarLoaderStop = () => ({
   type: types.AVATAR_PRELOADER_STOP,
+});
+
+// Clear state
+export const clearUserErrors = () => ({
+  type: types.CLEAR_USER_ERRORS,
+});
+
+export const clearUserExtra = () => ({
+  type: types.CLEAR_USER_EXTRA,
 });

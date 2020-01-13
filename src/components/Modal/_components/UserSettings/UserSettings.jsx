@@ -23,7 +23,9 @@ const UserSettings = ({
   isUserUpdating,
   fetchUserData,
   updateUserData,
+  clearUserExtra,
   options = {},
+  withExtra,
   ...rest
 }) => {
   const [isDataFetched, setDataFetched] = useState(false);
@@ -40,6 +42,8 @@ const UserSettings = ({
     const { teamsLoader, userDataLoader } = rest;
     if (teamsLoader && userDataLoader) setDataFetched(true);
   }, [rest.teamsLoader, rest.userDataLoader]);
+
+  useEffect(() => () => clearUserExtra(),[]);
 
   const onRenderSettingsPageTab = key => {
     switch (key) {
@@ -65,6 +69,8 @@ const UserSettings = ({
           teams={rest.userTeams}
           isUserUpdating={isUserUpdating}
           updateSingleUserTeam={rest.updateSingleUserTeam}
+          getListOfTeamUsers={rest.getListOfTeamUsers}
+          teamsUsers={withExtra.items}
         />;
       default:
         return <div>Test</div>;
@@ -148,7 +154,13 @@ UserSettings.propTypes = {
   fetchUserData: PT.func,
   updateUserData: PT.func,
   loading: PT.bool,
+  clearUserExtra: PT.func,
   options: PT.object,
+  withExtra: PT.oneOfType([
+    PT.object,
+    PT.string,
+    PT.arrayOf(PT.object),
+  ]),
 };
 
 export default UserSettings;

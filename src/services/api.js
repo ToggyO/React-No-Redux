@@ -118,10 +118,15 @@ export default {
       const response = await superaxios.put(`${API_URL.TEAMS.ROOT}/${teamId}`, rest);
       return response.data;
     },
-    // getUserProjectById: async projectId => {
-    //   const response = await superaxios.get(`${API_URL.PROJECTS.ROOT}/${projectId}`);
-    //   return response.data;
-    // },
+    getListOfTeamUsers: async ({ teamId, ...rest }) => {
+      const response = await superaxios.get(`${API_URL.TEAMS.ROOT}/${teamId}${API_URL.TEAMS.USERS}`, {
+        params: {
+          Page: rest.page || '',
+          PageSize: rest.pageSize || '',
+        },
+      });
+      return response.data;
+    },
   },
   other: {
     getTeamEmails: async () => {

@@ -3,10 +3,11 @@ import PT from 'prop-types';
 
 import s from './style.module.sass';
 
+import { style as avatarStyle } from './avatar_style';
+
 import spinner from '@assets/user_profile/spinner-png.png'
 import { OTHER } from '@config';
 import { PrimaryColorLabel } from '@components/StyledComponents/ColorBlocks';
-
 
 const UserProfileAvatarView = ({
   userData,
@@ -74,6 +75,7 @@ const UserProfileAvatarView = ({
         >
           {userData.avatar && userData.avatar.formatUrls['360']
             ? <img
+              style={avatarStyle.image}
               src={(!isImageLoaded || avatarLoading)
                 ? spinner
                 : userData.avatar.formatUrls['360']

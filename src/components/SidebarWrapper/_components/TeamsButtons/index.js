@@ -15,7 +15,10 @@ export const TeamsButtons = ({ isOpen, modalOpen }) => (
       } btn flex justify-content-center align-items-center pt-3 pb-3`}
       onClick={() => modalOpen('UserSettings', { userProfileTab: 'Profile' })}
     >
-      <Icon iconName="settings_switch" className={`${s.choose_team__icon} ${isOpen ? 'mr-2' : ''}`} />
+      <Icon
+        iconName="settings_switch_secondary"
+        className={`${s.choose_team__icon} ${isOpen ? 'mr-2' : ''}`}
+      />
       <p>Settings</p>
     </PrimaryColorFilledButton>
     <PrimaryColorFilledButton

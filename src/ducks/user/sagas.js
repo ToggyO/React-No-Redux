@@ -222,3 +222,19 @@ function* updateSingleUserTeam(action) {
 export function* updateSingleUserTeamSaga() {
   yield takeLatest(types.UPDATE_SINGLE_USER_TEAM_REQUEST, updateSingleUserTeam);
 }
+
+function* getListOfTeamUsers(action) {
+  try {
+    const data = yield call(api.user.getListOfTeamUsers, action.payload);
+    yield put({ type: types.GET_LIST_OF_TEAM_USERS_SUCCESS, payload: data.data });
+  } catch (error) {
+    const { response = {} } = error;
+    const { data = {} } = response;
+    const { errors = [] } = data;
+    yield put({ type: types.GET_LIST_OF_TEAM_USERS_ERROR, payload: errors });
+  }
+}
+
+export function* getListOfTeamUsersSaga() {
+  yield takeLatest(types.GET_LIST_OF_TEAM_USERS_REQUEST, getListOfTeamUsers);
+}

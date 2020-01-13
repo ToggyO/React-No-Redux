@@ -35,7 +35,7 @@ export const NavButtons = ({
           showSettings ? s.shown : s.hidden
         } ${addSettingsIconClass} flex justify-content-center align-items-center`}
       >
-        <Icon iconName="settings_switch" className={s.settings_icon} />
+        <Icon iconName="settings_switch_secondary" className={s.settings_icon} />
       </button>
     </Tooltip>
     <button type="button" className={`${s.headline_create} ${addCreateButtonClass}`}>

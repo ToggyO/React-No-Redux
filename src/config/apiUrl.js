@@ -34,6 +34,7 @@ export const API_URL = {
   },
   TEAMS: {
     ROOT: '/teams',
+    USERS: '/users',
   },
   SOCKET: {
     NOTIFICATIONS: '/ws',

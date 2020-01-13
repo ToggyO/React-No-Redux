@@ -19,6 +19,7 @@ const mapStateToProps = state => ({
   userTeams: userSelectors.userTeamsSelector(state),
   teamsLoader: userSelectors.userTeamsLoaderSelector(state),
   isUserUpdating: userSelectors.userSpinnerSelector(state),
+  withExtra: userSelectors.userExtraSelector(state),
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -33,6 +34,12 @@ const mapDispatchToProps = dispatch => ({
   },
   updateSingleUserTeam(data) {
     dispatch(userActions.updateSingleUserTeam(data));
+  },
+  getListOfTeamUsers(...args) {
+    dispatch(userActions.getListOfTeamUsers(...args));
+  },
+  clearUserExtra() {
+    dispatch(userActions.clearUserExtra());
   },
 });
 
