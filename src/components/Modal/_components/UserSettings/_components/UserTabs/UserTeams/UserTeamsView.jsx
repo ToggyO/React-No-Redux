@@ -16,6 +16,13 @@ const UserTeamsView = ({
   getListOfTeamUsers,
   teamsUsers,
 }) => {
+  const filteredTeam = teams.filter(item => item.teamId === currentTeamId);
+  const initialValues = {};
+  filteredTeam.forEach(item => {
+    initialValues.name = item.team.name;
+    initialValues.colorHex = item.team.colorHex;
+    initialValues.statusName = item.statusName;
+  });
 
   useEffect(() => {
     getListOfTeamUsers(currentTeamId, 1, 9999);
@@ -28,8 +35,9 @@ const UserTeamsView = ({
         currentTeamId={currentTeamId}
         isUserUpdating={isUserUpdating}
         updateSingleUserTeam={updateSingleUserTeam}
+        initialValues={initialValues}
       />
-      <UserTeamsControlButton/>
+      <UserTeamsControlButton statusName={initialValues.statusName}/>
       <UserTeamsLIstOfUsersView teamsUsers={teamsUsers}/>
     </div>
   )

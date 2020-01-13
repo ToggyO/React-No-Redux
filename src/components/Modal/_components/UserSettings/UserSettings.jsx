@@ -13,6 +13,7 @@ import { UserProfileTabsWrapper } from '@components/Modal/_components/UserSettin
 import { getFromState } from '@utils/index';
 import { LOCAL_STORAGE_KEYS } from '@config';
 import { ModalBaseColorBlock } from '@components/StyledComponents/ColorBlocks';
+import { USER_COMMON } from '@config/common';
 
 
 const UserSettings = ({
@@ -47,11 +48,11 @@ const UserSettings = ({
 
   const onRenderSettingsPageTab = key => {
     switch (key) {
-      case 'Billing':
+      case USER_COMMON.USER_SETTINGS_TABS.BILLING:
         return <div>Billing</div>;
-      case 'Manage users':
+      case USER_COMMON.USER_SETTINGS_TABS.MANAGE_USERS:
         return <div>Manage users</div>;
-      case 'Profile':
+      case USER_COMMON.USER_SETTINGS_TABS.PROFILE:
         return <UserProfileView
           userData={userDataFromLocalState || userData}
           isDataFetched={isDataFetched}
@@ -59,11 +60,11 @@ const UserSettings = ({
           updateUserData={updateUserData}
           modalOpen={rest.modalOpen}
         />;
-      case 'Preferences':
+      case USER_COMMON.USER_SETTINGS_TABS.PREFERENCES:
         return <div>Preferences</div>;
-      case 'Notifications':
+      case USER_COMMON.USER_SETTINGS_TABS.NOTIFICATIONS:
         return <div>Notifications</div>;
-      case 'Teams':
+      case USER_COMMON.USER_SETTINGS_TABS.TEAMS:
         return <UserTeamsView
           currentTeamId={currentTeamId}
           teams={rest.userTeams}

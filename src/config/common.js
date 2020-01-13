@@ -7,10 +7,27 @@ export const LOCAL_STORAGE_KEYS = {
   SIDEBAR_CURRENT_TEAM: 'SIDEBAR_CURRENT_TEAM',
 };
 
-export const OTHER = {
-  AVATAR_MAX_SIZE: 10485760,
+export const USER_COMMON = {
   SIGN_UP_BY: {
     EMAIL: 'Email',
     GOOGLE: 'Google',
   },
+  USER_ROLES: {
+    MEMBER: 'Member',
+    ADMIN: 'Admin',
+    SUPER_ADMIN: 'SuperAdmin',
+    PENDING: 'Pending',
+  },
+  USER_SETTINGS_TABS: {
+    BILLING: 'Billing',
+    MANAGE_USERS: 'Manage users',
+    PROFILE: 'Profile',
+    PREFERENCES: 'Preferences',
+    NOTIFICATIONS: 'Notifications',
+    TEAMS: 'Teams',
+  },
+};
+
+export const OTHER = {
+  AVATAR_MAX_SIZE: 10485760,
 };

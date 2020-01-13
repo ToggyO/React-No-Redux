@@ -7,6 +7,7 @@ import style from './style.module.sass';
 
 import Dropdown from '@components/Form/Dropdown/Dropdown';
 import checkMark from '@assets/login_page/done_mini.png';
+import { USER_COMMON } from '@config/common';
 
 const array = [
   '#82ABFB',
@@ -23,7 +24,7 @@ const array = [
   '#4B1EA6',
 ];
 
-export const ColorSelectFormik = ({ form, field, inlineStyle, customOnChange }) => {
+export const ColorSelectFormik = ({ form, field, inlineStyle, customOnChange, disabled, ...rest }) => {
   const getDropdownList = () =>
     array.map(item => (
       <div className={s.color_container}>
@@ -34,6 +35,7 @@ export const ColorSelectFormik = ({ form, field, inlineStyle, customOnChange }) 
           className={`${s.color}`}
           style={{ backgroundColor: item }}
           checked={item === field.value}
+          disabled={disabled}
           onChange={e => {
             form.setFieldValue('colorHex', e.target.value, false);
             customOnChange(item);
@@ -54,7 +56,11 @@ export const ColorSelectFormik = ({ form, field, inlineStyle, customOnChange }) 
       <button
         type="button"
         className={style.color}
-        style={{ ...inlineStyle.button, backgroundColor: field.value }}
+        style={{
+          ...inlineStyle.button,
+          backgroundColor: field.value,
+          visibility: rest.statusName === USER_COMMON.USER_ROLES.SUPER_ADMIN ? 'visible' : 'hidden',
+        }}
       >
         <p className={style.button_text} style={inlineStyle.buttonText}>
           Change color
@@ -72,4 +78,5 @@ ColorSelectFormik.propTypes = {
   value: PT.string,
   inlineStyle: PT.object,
   customOnChange: PT.func,
+  disabled: PT.bool,
 };

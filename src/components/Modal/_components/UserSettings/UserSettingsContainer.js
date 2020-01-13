@@ -19,6 +19,7 @@ const mapStateToProps = state => ({
   userTeams: userSelectors.userTeamsSelector(state),
   teamsLoader: userSelectors.userTeamsLoaderSelector(state),
   isUserUpdating: userSelectors.userSpinnerSelector(state),
+  userTeamStatusName: userSelectors.userTeamStatusNameSelector(state),
   withExtra: userSelectors.userExtraSelector(state),
 });
 

@@ -12,7 +12,7 @@ import { style as LinkButtonStyle } from '@components/SidebarWrapper/link_button
 import { UserProfileSidebarTeamsView } from '@components/Modal/_components/UserSettings/_components/UserProfileSidebar/_components/UserProfileSidebarTeams';
 import { writeToLocalState } from '@services/ls';
 import { checkLocalStorage } from '@utils/index';
-import { LOCAL_STORAGE_KEYS } from '@config/common';
+import { LOCAL_STORAGE_KEYS, USER_COMMON } from '@config/common';
 import { writeToSessionState } from '@services/ss';
 import CustomScrollbar from '@components/Scrollbar';
 
@@ -84,7 +84,10 @@ export const LinkButtonsContainer = ({
           type="button"
           className={`${s.delete_button} btn mt-0 mb-0`}
           onClick={() => {
-            modalOpen('UserSettings', { userProfileTab: 'Teams', checkedTeamFromSidebar: currentTeam });
+            modalOpen('UserSettings', {
+              userProfileTab: USER_COMMON.USER_SETTINGS_TABS.TEAMS,
+              checkedTeamFromSidebar: currentTeam,
+            });
             teamTooltipRef.current.hideTooltip();
           }}
         >

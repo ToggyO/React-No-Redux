@@ -5,6 +5,7 @@ import s from './style.module.sass';
 
 import { firstLetterToUpperCase } from '@utils/index';
 import { ModalColorButton } from '@components/StyledComponents/ColorBlocks';
+import { USER_COMMON } from '@config/common';
 
 export const UserProfileSidebarUserView = ({ setTab, currentTab }) => (
   <div className={`${s.container} pb-10`}>
@@ -13,7 +14,7 @@ export const UserProfileSidebarUserView = ({ setTab, currentTab }) => (
         name="profile"
         type="button"
         className={`${s.link} pl-10 btn mt-0 mb-0 text-align-left`}
-        style={{ fontWeight: currentTab === 'Profile' ? 500 : 400 }}
+        style={{ fontWeight: currentTab === USER_COMMON.USER_SETTINGS_TABS.PROFILE ? 500 : 400 }}
         onClick={e => setTab(firstLetterToUpperCase(e.target.name))}
       >
         Profile
@@ -22,7 +23,7 @@ export const UserProfileSidebarUserView = ({ setTab, currentTab }) => (
         name="preferences"
         type="button"
         className={`${s.link} pl-10 btn mt-0 mb-0 text-align-left`}
-        style={{ fontWeight: currentTab === 'Preferences' ? 500 : 400 }}
+        style={{ fontWeight: currentTab === USER_COMMON.USER_SETTINGS_TABS.PREFERENCES ? 500 : 400 }}
         onClick={e => setTab(firstLetterToUpperCase(e.target.name))}
       >
         Preferences
@@ -31,7 +32,7 @@ export const UserProfileSidebarUserView = ({ setTab, currentTab }) => (
         name="notifications"
         type="button"
         className={`${s.link} pl-10 btn mt-0 mb-0 text-align-left`}
-        style={{ fontWeight: currentTab === 'Notifications' ? 500 : 400 }}
+        style={{ fontWeight: currentTab === USER_COMMON.USER_SETTINGS_TABS.NOTIFICATIONS ? 500 : 400 }}
         onClick={e => setTab(firstLetterToUpperCase(e.target.name))}
       >
         Notifications

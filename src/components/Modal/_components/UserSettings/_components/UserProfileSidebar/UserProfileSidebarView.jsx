@@ -17,6 +17,7 @@ import {
   ModalColorButton,
   ModalSecondaryColorBlock,
 } from '@components/StyledComponents/ColorBlocks';
+import { USER_COMMON } from '@config/common';
 
 const teamsPlaceholder = [...Array(4)];
 
@@ -76,7 +77,7 @@ const UserProfileSidebarView = ({
                       style={teamsStyle}
                       onClick={() => {
                         rest.setTeam(item.teamId);
-                        setTab('Teams');
+                        setTab(USER_COMMON.USER_SETTINGS_TABS.TEAMS);
                       }}
                     />)
               )}

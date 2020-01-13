@@ -12,17 +12,18 @@ import { TextInput } from '@components/Form/TextInput';
 import { validateField } from '@components/Form/validations';
 import { Icon } from '@components/Icon';
 import { ColorSelectFormik } from '@components/Form/Dropdown/ColorSelectFormik';
+import { USER_COMMON } from '@config/common';
 
-export const UserTeamsFormView = ({ teams, currentTeamId, isUserUpdating, updateSingleUserTeam }) => {
+export const UserTeamsFormView = ({ initialValues, currentTeamId, isUserUpdating, updateSingleUserTeam }) => {
   const formikRef = useRef(null);
   const overlayzIndex = 2000;
 
-  const filteredTeam = teams.filter(item => item.teamId === currentTeamId);
-  const initialValues = {};
-  filteredTeam.forEach(item => {
-    initialValues.name = item.team.name;
-    initialValues.colorHex = item.team.colorHex;
-  });
+  // const filteredTeam = teams.filter(item => item.teamId === currentTeamId);
+  // const initialValues = {};
+  // filteredTeam.forEach(item => {
+  //   initialValues.name = item.team.name;
+  //   initialValues.colorHex = item.team.colorHex;
+  // });
 
   return (
     <Formik
@@ -53,6 +54,7 @@ export const UserTeamsFormView = ({ teams, currentTeamId, isUserUpdating, update
                 addClassFocusedInput="form_border_focus form_border_rounded"
                 addClassBlurredInput="form_border form_border_rounded"
                 maxLength={60}
+                disabled={initialValues.statusName !== USER_COMMON.USER_ROLES.SUPER_ADMIN}
                 customOnBlur={() =>
                   values.name !== initialValues.name &&
                   values.name.length !== 0 &&
@@ -75,22 +77,13 @@ export const UserTeamsFormView = ({ teams, currentTeamId, isUserUpdating, update
                 name="colorHex"
                 component={ColorSelectFormik}
                 inlineStyle={colorSelectStyle}
+                statusName={initialValues.statusName}
                 customOnChange={colorHex =>
                   updateSingleUserTeam({ name: values.name, teamId: currentTeamId, colorHex })
                 }
               />
             </div>
           </div>
-          {/* TODO delete */}
-          {/* <button */}
-          {/*  type="button" */}
-          {/*  onClick={e => { */}
-          {/*    e.preventDefault(); */}
-          {/*    console.log(values); */}
-          {/*  }} */}
-          {/* > */}
-          {/*  Test */}
-          {/* </button> */}
         </Form>
       )}
     />
@@ -98,7 +91,7 @@ export const UserTeamsFormView = ({ teams, currentTeamId, isUserUpdating, update
 };
 
 UserTeamsFormView.propTypes = {
-  teams: PT.arrayOf(PT.object),
+  initialValues: PT.object,
   currentTeamId: PT.string,
   isUserUpdating: PT.bool,
   updateSingleUserTeam: PT.func,

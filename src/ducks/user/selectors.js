@@ -60,6 +60,11 @@ export const userProjectsLoaderSelector = createSelector(
   errors => errors
 );
 
+export const userTeamStatusNameSelector = createSelector(
+  state => state.user.data.teams.statusName,
+  errors => errors
+);
+
 export const errorsSelector = createSelector(
   state => state.user.errors,
   errors => errors
