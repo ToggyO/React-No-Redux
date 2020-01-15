@@ -14,7 +14,7 @@ export const UserProfileSidebarCompanyView = ({ setTab, currentTab }) => (
         name="billing"
         type="button"
         className={`${s.link} pl-10 btn mt-0 mb-0 text-align-left`}
-        style={{ fontWeight: currentTab === USER_COMMON.USER_SETTINGS_TABS.BILLING ? 500 : 400 }}
+        style={{ fontWeight: currentTab === USER_COMMON.USER_SETTINGS_TABS.BILLING ? 700 : 400 }}
         onClick={e => setTab(firstLetterToUpperCase(e.target.name))}
       >
         Billing
@@ -23,7 +23,7 @@ export const UserProfileSidebarCompanyView = ({ setTab, currentTab }) => (
         name="manage users"
         type="button"
         className={`${s.link} pl-10 btn mt-0 mb-0 text-align-left`}
-        style={{ fontWeight: currentTab === USER_COMMON.USER_SETTINGS_TABS.MANAGE_USERS ? 500 : 400 }}
+        style={{ fontWeight: currentTab === USER_COMMON.USER_SETTINGS_TABS.MANAGE_USERS ? 700 : 400 }}
         onClick={e => setTab(firstLetterToUpperCase(e.target.name))}
       >
         Manage users

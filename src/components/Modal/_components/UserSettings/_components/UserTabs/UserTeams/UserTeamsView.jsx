@@ -38,6 +38,7 @@ const UserTeamsView = ({
     }
   },[teamsDeleting]);
 
+  // TODO change
   if (teams.length === 0) return <div>No teams</div>;
 
   return (
