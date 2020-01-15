@@ -3,7 +3,6 @@ import PT from 'prop-types';
 
 import s from './style.module.sass';
 
-import { firstLetterToUpperCase } from '@utils/index';
 import { ModalColorButton } from '@components/StyledComponents/ColorBlocks';
 import { USER_COMMON } from '@config/common';
 
@@ -15,7 +14,13 @@ export const UserProfileSidebarCompanyView = ({ setTab, currentTab }) => (
         type="button"
         className={`${s.link} pl-10 btn mt-0 mb-0 text-align-left`}
         style={{ fontWeight: currentTab === USER_COMMON.USER_SETTINGS_TABS.BILLING ? 700 : 400 }}
-        onClick={e => setTab(firstLetterToUpperCase(e.target.name))}
+        onClick={() =>
+          setTab(prevTab => ({
+            ...prevTab,
+            prefix: USER_COMMON.USER_SETTINGS_TABS_PREFIX.COMPANY,
+            tab: USER_COMMON.USER_SETTINGS_TABS.BILLING,
+          }))
+        }
       >
         Billing
       </ModalColorButton>
@@ -24,7 +29,13 @@ export const UserProfileSidebarCompanyView = ({ setTab, currentTab }) => (
         type="button"
         className={`${s.link} pl-10 btn mt-0 mb-0 text-align-left`}
         style={{ fontWeight: currentTab === USER_COMMON.USER_SETTINGS_TABS.MANAGE_USERS ? 700 : 400 }}
-        onClick={e => setTab(firstLetterToUpperCase(e.target.name))}
+        onClick={() =>
+          setTab(prevTab => ({
+            ...prevTab,
+            prefix: USER_COMMON.USER_SETTINGS_TABS_PREFIX.COMPANY,
+            tab: USER_COMMON.USER_SETTINGS_TABS.MANAGE_USERS,
+          }))
+        }
       >
         Manage users
       </ModalColorButton>

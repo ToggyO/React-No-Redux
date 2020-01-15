@@ -1,6 +1,6 @@
 .container
   display: flex
-  padding-top: 48px
+  padding-top: 32px
 
 .headline_container
   display: flex
@@ -13,11 +13,18 @@
   font-weight: 500
 
 .button
-  padding: 12px 0
+  display: flex
+  align-items: center
+  justify-content: flex-end
   width: 100%
   max-width: 208px
-  font-size: 14px
-  line-height: 16px
+  font-size: 15px
+  line-height: 18px
   font-weight: 400
+  text-align: right !important
+  color: $scarlet
   margin-top: 0 !important
   margin-bottom: 0 !important
+
+.button:hover
+  text-decoration: underline

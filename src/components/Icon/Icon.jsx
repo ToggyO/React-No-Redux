@@ -16,22 +16,6 @@ function Icon({ iconName, className, fill, preloaderColorScheme }) {
               <animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 51;360 50 51" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></path>
           </ColorBlocks.StyledSvg>
       );
-    // case 'preloader-dark':
-    //   return (
-    //     <svg
-    //       className={className} width="200px" height="200px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
-    //       <path ng-attr-d="{{config.pathCmd}}" ng-attr-fill="{{config.color}}" stroke="none" d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50" fill="#495570" transform="rotate(137.973 50 51)">
-    //         <animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 51;360 50 51" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></path>
-    //     </svg>
-    //   );
-    // case 'preloader-light':
-    //   return (
-    //     <svg className={className} xmlns="http://www.w3.org/2000/svg" style={{ margin: 'auto', display: 'block', shapeRendering: 'auto' }} width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
-    //       <path d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50" fill="#d3d3d3" stroke="none" transform="rotate(193.182 50 51)">
-    //         <animateTransform attributeName="transform" type="rotate" dur="1s" repeatCount="indefinite" keyTimes="0;1" values="0 50 51;360 50 51"></animateTransform>
-    //       </path>
-    //     </svg>
-    //   );
     case 'google-logo':
       return (
         <div className="flex justify-content-center align-items-center">
@@ -233,6 +217,10 @@ function Icon({ iconName, className, fill, preloaderColorScheme }) {
     case 'accept_white':
       return (
         <svg className={className} width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="Web" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="03-Change-email--Copy-2" transform="translate(-546.000000, -22.000000)"><g id="Group-4"><g id="Group-2" transform="translate(546.000000, 22.000000)"><circle id="Oval" fill="#FFFFFF" cx="14" cy="14" r="14"></circle><g id="Icon-/-check-Icon/12/check" transform="translate(8.000000, 8.000000)" fill="#53D0BA"><polygon id="done_mini-[#1484]" points="12 2.92 4.6164 10.6 4.6152 10.5988 4.6152 10.6 0 5.8 1.8456 3.88 4.6152 6.76 10.1544 1"></polygon></g></g></g></g></g></svg>
+      );
+    case 'trash_bin':
+      return (
+        <svg className={className} width="13px" height="13px" viewBox="0 0 13 13" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="Web" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="01-teams-copy" transform="translate(-1183.000000, -189.000000)" fill="#E76A7D"><g id="Group" transform="translate(110.000000, 70.000000)"><g id="Icon/16/delete" transform="translate(1071.000000, 117.000000)"><path d="M6,12 L7,12 L7,8 L6,8 L6,12 Z M10,12 L11,12 L11,8 L10,8 L10,12 Z M8,12 L9,12 L9,8 L8,8 L8,12 Z M5,14 L12,14 L12,6 L5,6 L5,14 Z M6,5 L11,5 L11,3 L6,3 L6,5 Z M12,5 L12,2 L5,2 L5,5 L2,5 L2,6 L4,6 L4,15 L13,15 L13,6 L15,6 L15,5 L12,5 Z" id="delete-[#1487]"></path></g></g></g></g></svg>
       );
     default:
       return null;

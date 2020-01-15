@@ -3,10 +3,11 @@ import PT from 'prop-types';
 
 // import s from './style.module.sass';
 
-import { UserTeamsFormView } from './_components/UserTeamsForm';
+import { UserTeamsEditForm } from './_components/UserTeamsEditForm';
 import { UserTeamsLIstOfUsersView } from './_components/UserTeamsLIstOfUsers';
+import { UserTeamsHeader } from './_components/UserTeamsHeader';
+import { UserTeamsInviteForm } from './_components/UserTeamsInviteForm';
 
-import { UserTeamsControlButton } from '@components/Modal/_components/UserSettings/_components/UserTabs/UserTeams/_components/UserTeamsControlButtons';
 
 const UserTeamsView = ({
   teams,
@@ -43,18 +44,19 @@ const UserTeamsView = ({
 
   return (
     <div>
-      <UserTeamsFormView
+      <UserTeamsHeader
+        statusName={initialValues.statusName}
+        modalOpen={modalOpen}
+        currentTeamId={currentTeamId}
+      />
+      <UserTeamsEditForm
         teams={teams}
         currentTeamId={currentTeamId}
         isUserUpdating={isUserUpdating}
         updateSingleUserTeam={updateSingleUserTeam}
         initialValues={initialValues}
       />
-      <UserTeamsControlButton
-        statusName={initialValues.statusName}
-        modalOpen={modalOpen}
-        currentTeamId={currentTeamId}
-      />
+      <UserTeamsInviteForm/>
       <UserTeamsLIstOfUsersView teamsUsers={teamsUsers}/>
     </div>
   )

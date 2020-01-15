@@ -30,12 +30,15 @@ const UserSettings = ({
   ...rest
 }) => {
   const [isDataFetched, setDataFetched] = useState(false);
-  const [currentTab, setTab] = useState(options.userProfileTab);
+  const [currentTab, setTab] = useState({
+    prefix: options.userProfileTabPrefix,
+    tab: options.userProfileTab,
+    teamName: options.userProfileTeamName || '',
+  });
   const [currentTeamId, setTeam] = useState(options.checkedTeamFromSidebar || null);
   const userDataFromLocalState = getFromState(LOCAL_STORAGE_KEYS.USER);
 
   useEffect(() => {
-    // fetchUserData(USER_COMMON.DATA_TYPES.TEAMS, 1, 9999);
     fetchUserData(null, 1, 9999);
   }, []);
 
@@ -66,8 +69,10 @@ const UserSettings = ({
         return <div>Notifications</div>;
       case USER_COMMON.USER_SETTINGS_TABS.TEAMS:
         return <UserTeamsView
+          currentTab={currentTab}
           currentTeamId={currentTeamId}
           setTeam={setTeam}
+          setTab={setTab}
           teams={rest.userTeams}
           isUserUpdating={isUserUpdating}
           updateSingleUserTeam={rest.updateSingleUserTeam}
@@ -110,7 +115,7 @@ const UserSettings = ({
           <UserProfileSidebarView
             teams={rest.userTeams}
             teamsLoader={rest.teamsLoader}
-            currentTab={currentTab}
+            currentTab={currentTab.tab}
             setTab={setTab}
             setTeam={setTeam}
           />
@@ -133,7 +138,7 @@ const UserSettings = ({
               }}
             >
               <div className={`${s.switch_pages} flex flex-column`}>
-                {onRenderSettingsPageTab(currentTab)}
+                {onRenderSettingsPageTab(currentTab.tab)}
               </div>
             </CustomScrollbar>
           </UserProfileTabsWrapper>

@@ -48,14 +48,14 @@ export const ColorSelectFormik = ({ form, field, inlineStyle, customOnChange, di
   return (
     <Dropdown
       list={getDropdownList()}
-      menuClassName={s.menu}
+      menuClassName={style.menu}
       outerListClassName={style.list}
       innerListClassName="flex flex-wrap-wrap"
       onVisibilityChanged
     >
       <button
         type="button"
-        className={style.color}
+        className={`${style.color} mr-0`}
         style={{
           ...inlineStyle.button,
           backgroundColor: field.value,

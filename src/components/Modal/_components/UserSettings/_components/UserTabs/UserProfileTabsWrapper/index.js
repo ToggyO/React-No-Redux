@@ -10,19 +10,11 @@ import { USER_COMMON } from '@config/common';
 export const UserProfileTabsWrapper = ({ children, currentTab, onClose }) => (
   <div className={s.container}>
     <ModalBorderColorBlock className={`${s.tittle_container} flex pb-7 relative`}>
-      <ModalFontPrimaryColorBlock className={s.title}>
-        {currentTab === USER_COMMON.USER_SETTINGS_TABS.PROFILE ||
-        currentTab === USER_COMMON.USER_SETTINGS_TABS.PREFERENCES ||
-        currentTab === USER_COMMON.USER_SETTINGS_TABS.NOTIFICATIONS
-          ? 'User'
-          : ''}
-        {currentTab === USER_COMMON.USER_SETTINGS_TABS.BILLING ||
-        currentTab === USER_COMMON.USER_SETTINGS_TABS.MANAGE_USERS
-          ? 'Company'
-          : ''}
-      </ModalFontPrimaryColorBlock>
+      <ModalFontPrimaryColorBlock className={s.title}>{currentTab.prefix}</ModalFontPrimaryColorBlock>
       <ModalFontPrimaryColorBlock className={s.title}>&nbsp;/&nbsp;</ModalFontPrimaryColorBlock>
-      <ModalFontPrimaryColorBlock className={`${s.tab} ${s.title}`}>{currentTab}</ModalFontPrimaryColorBlock>
+      <ModalFontPrimaryColorBlock className={`${s.tab} ${s.title}`}>
+        {currentTab.tab === USER_COMMON.USER_SETTINGS_TABS.TEAMS ? currentTab.teamName : currentTab.tab}
+      </ModalFontPrimaryColorBlock>
       <div className={`${s.close}`} onClick={onClose}>
         <button type="button" className="btn">
           <Icon iconName="close-modal" />
@@ -35,6 +27,6 @@ export const UserProfileTabsWrapper = ({ children, currentTab, onClose }) => (
 
 UserProfileTabsWrapper.propTypes = {
   children: PT.oneOfType([PT.element, PT.node, PT.func, PT.array]),
-  currentTab: PT.string,
+  currentTab: PT.object,
   onClose: PT.func,
 };

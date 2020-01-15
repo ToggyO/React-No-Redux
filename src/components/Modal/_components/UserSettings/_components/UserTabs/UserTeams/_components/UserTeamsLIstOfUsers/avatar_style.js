@@ -3,6 +3,7 @@ export const style = {
     width: 32,
     height: 32,
     marginRight: 12,
+    paddingLeft: 3,
   },
   placeholder: {
     color: '#fff',
@@ -11,8 +12,8 @@ export const style = {
   },
   image: {
     width: '100%',
-    minWidth: 36,
+    minWidth: 34,
     borderRadius: '50%',
-    border: '1.26px solid #E3E3E3',
+    border: '1px solid #E3E3E3',
   },
 };

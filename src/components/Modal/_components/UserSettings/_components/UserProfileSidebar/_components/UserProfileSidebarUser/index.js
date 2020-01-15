@@ -3,7 +3,6 @@ import PT from 'prop-types';
 
 import s from './style.module.sass';
 
-import { firstLetterToUpperCase } from '@utils/index';
 import { ModalColorButton } from '@components/StyledComponents/ColorBlocks';
 import { USER_COMMON } from '@config/common';
 
@@ -15,7 +14,14 @@ export const UserProfileSidebarUserView = ({ setTab, currentTab }) => (
         type="button"
         className={`${s.link} pl-10 btn mt-0 mb-0 text-align-left`}
         style={{ fontWeight: currentTab === USER_COMMON.USER_SETTINGS_TABS.PROFILE ? 700 : 400 }}
-        onClick={e => setTab(firstLetterToUpperCase(e.target.name))}
+        onClick={() =>
+          setTab(prevTab => ({
+            ...prevTab,
+            prefix: USER_COMMON.USER_SETTINGS_TABS_PREFIX.USER,
+            tab: USER_COMMON.USER_SETTINGS_TABS.PROFILE,
+          }))
+        }
+        // onClick={e => setTab(firstLetterToUpperCase(e.target.name))}
       >
         Profile
       </ModalColorButton>
@@ -24,7 +30,13 @@ export const UserProfileSidebarUserView = ({ setTab, currentTab }) => (
         type="button"
         className={`${s.link} pl-10 btn mt-0 mb-0 text-align-left`}
         style={{ fontWeight: currentTab === USER_COMMON.USER_SETTINGS_TABS.PREFERENCES ? 700 : 400 }}
-        onClick={e => setTab(firstLetterToUpperCase(e.target.name))}
+        onClick={() =>
+          setTab(prevTab => ({
+            ...prevTab,
+            prefix: USER_COMMON.USER_SETTINGS_TABS_PREFIX.USER,
+            tab: USER_COMMON.USER_SETTINGS_TABS.PREFERENCES,
+          }))
+        }
       >
         Preferences
       </ModalColorButton>
@@ -33,7 +45,13 @@ export const UserProfileSidebarUserView = ({ setTab, currentTab }) => (
         type="button"
         className={`${s.link} pl-10 btn mt-0 mb-0 text-align-left`}
         style={{ fontWeight: currentTab === USER_COMMON.USER_SETTINGS_TABS.NOTIFICATIONS ? 700 : 400 }}
-        onClick={e => setTab(firstLetterToUpperCase(e.target.name))}
+        onClick={() =>
+          setTab(prevTab => ({
+            ...prevTab,
+            prefix: USER_COMMON.USER_SETTINGS_TABS_PREFIX.USER,
+            tab: USER_COMMON.USER_SETTINGS_TABS.NOTIFICATIONS,
+          }))
+        }
       >
         Notifications
       </ModalColorButton>

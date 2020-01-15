@@ -1,6 +1,6 @@
 import * as types from './types';
 
-export const changeCurrentTeam = currentTeam => ({
+export const changeCurrentTeam = ({ id, name }) => ({
   type: types.CHANGE_CURRENT_TEAM,
-  payload: currentTeam,
+  payload: { id, name },
 });

@@ -15,7 +15,10 @@ export const TeamsButtons = ({ isOpen, modalOpen }) => (
         isOpen ? s.shown : s.hidden
       } btn flex justify-content-center align-items-center pt-3 pb-3`}
       onClick={() =>
-        modalOpen(MODAL_KEYS.USER_SETTINGS, { userProfileTab: USER_COMMON.USER_SETTINGS_TABS.PROFILE })
+        modalOpen(MODAL_KEYS.USER_SETTINGS, {
+          userProfileTabPrefix: USER_COMMON.USER_SETTINGS_TABS_PREFIX.USER,
+          userProfileTab: USER_COMMON.USER_SETTINGS_TABS.PROFILE,
+        })
       }
     >
       <Icon

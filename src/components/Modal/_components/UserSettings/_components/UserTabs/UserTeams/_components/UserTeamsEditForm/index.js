@@ -14,7 +14,7 @@ import { Icon } from '@components/Icon';
 import { ColorSelectFormik } from '@components/Form/Dropdown/ColorSelectFormik';
 import { USER_COMMON } from '@config/common';
 
-export const UserTeamsFormView = ({ initialValues, currentTeamId, isUserUpdating, updateSingleUserTeam }) => {
+export const UserTeamsEditForm = ({ initialValues, currentTeamId, isUserUpdating, updateSingleUserTeam }) => {
   const formikRef = useRef(null);
   const overlayzIndex = 2000;
 
@@ -27,7 +27,7 @@ export const UserTeamsFormView = ({ initialValues, currentTeamId, isUserUpdating
       render={({ errors, touched, values }) => (
         <Form>
           {values.name.length === 0 && <OverlayBlocker zIndex={overlayzIndex} />}
-          <div className="flex">
+          <div className="flex pt-5">
             <div className={s.text_input}>
               <Field
                 type="text"
@@ -41,7 +41,6 @@ export const UserTeamsFormView = ({ initialValues, currentTeamId, isUserUpdating
                   zIndex: values.name.length === 0 ? overlayzIndex + 1 : 'auto',
                 }}
                 addClassLabel="label_settings"
-                addClassWrapper="pt-8"
                 addClassInputContainer="form_background"
                 addClassInput="default_input input_settings pt-2 pb-2 pl-3 pr-3"
                 addClassFocusedInput="form_border_focus form_border_rounded"
@@ -83,7 +82,7 @@ export const UserTeamsFormView = ({ initialValues, currentTeamId, isUserUpdating
   );
 };
 
-UserTeamsFormView.propTypes = {
+UserTeamsEditForm.propTypes = {
   initialValues: PT.object,
   currentTeamId: PT.string,
   isUserUpdating: PT.bool,

@@ -36,7 +36,7 @@ const buttons = [
 
 export const LinkButtonsContainer = ({
   userTeams = [],
-  currentTeam,
+  currentTeam = {},
   changeCurrentTeam,
   isSidebarOpened,
   modalOpen,
@@ -44,12 +44,12 @@ export const LinkButtonsContainer = ({
   const [flag, toggleFlag] = useState(false);
   const teamTooltipRef = useRef(null);
 
-  const changeTeam = teamId => {
-    changeCurrentTeam(teamId);
+  const changeTeam = data => {
+    changeCurrentTeam(data);
     if (checkLocalStorage()) {
-      return writeToLocalState(LOCAL_STORAGE_KEYS.SIDEBAR_CURRENT_TEAM, teamId);
+      return writeToLocalState(LOCAL_STORAGE_KEYS.SIDEBAR_CURRENT_TEAM, data);
     }
-    return writeToSessionState(LOCAL_STORAGE_KEYS.SIDEBAR_CURRENT_TEAM, teamId);
+    return writeToSessionState(LOCAL_STORAGE_KEYS.SIDEBAR_CURRENT_TEAM, data);
   };
 
   const renderTeamsList = () => (
@@ -75,7 +75,10 @@ export const LinkButtonsContainer = ({
             addClassHeadline="ml-3 flex justify-content-space-between align-items-center relative"
             style={teamsStyle}
             onClick={() => {
-              changeTeam(item.teamId);
+              changeTeam({
+                id: item.teamId,
+                name: item.team.name,
+              });
               teamTooltipRef.current.hideTooltip();
             }}
           />
@@ -85,8 +88,10 @@ export const LinkButtonsContainer = ({
           className={`${s.delete_button} btn mt-0 mb-0`}
           onClick={() => {
             modalOpen(MODAL_KEYS.USER_SETTINGS, {
+              userProfileTabPrefix: USER_COMMON.USER_SETTINGS_TABS_PREFIX.TEAMS,
               userProfileTab: USER_COMMON.USER_SETTINGS_TABS.TEAMS,
-              checkedTeamFromSidebar: currentTeam,
+              userProfileTeamName: currentTeam.name,
+              checkedTeamFromSidebar: currentTeam.id,
             });
             teamTooltipRef.current.hideTooltip();
           }}
@@ -118,7 +123,7 @@ export const LinkButtonsContainer = ({
 
 LinkButtonsContainer.propTypes = {
   userTeams: PT.arrayOf(PT.object),
-  currentTeam: PT.string,
+  currentTeam: PT.object,
   changeCurrentTeam: PT.func,
   isSidebarOpened: PT.bool,
   modalOpen: PT.func,

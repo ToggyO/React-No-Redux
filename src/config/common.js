@@ -18,6 +18,11 @@ export const USER_COMMON = {
     SUPER_ADMIN: 'SuperAdmin',
     PENDING: 'Pending',
   },
+  USER_SETTINGS_TABS_PREFIX: {
+    COMPANY: 'Company',
+    USER: 'User',
+    TEAMS: 'Teams',
+  },
   USER_SETTINGS_TABS: {
     BILLING: 'Billing',
     MANAGE_USERS: 'Manage users',

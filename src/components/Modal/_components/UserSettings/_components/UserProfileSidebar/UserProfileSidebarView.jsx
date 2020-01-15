@@ -77,7 +77,12 @@ const UserProfileSidebarView = ({
                       style={teamsStyle}
                       onClick={() => {
                         rest.setTeam(item.teamId);
-                        setTab(USER_COMMON.USER_SETTINGS_TABS.TEAMS);
+                        setTab(prevTab => ({
+                          ...prevTab,
+                          prefix: USER_COMMON.USER_SETTINGS_TABS_PREFIX.TEAMS,
+                          tab: USER_COMMON.USER_SETTINGS_TABS.TEAMS,
+                          teamName: item.team.name,
+                        }));
                       }}
                     />)
               )}

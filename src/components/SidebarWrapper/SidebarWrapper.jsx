@@ -46,21 +46,24 @@ const SidebarWrapper = ({
   },[]);
 
   useEffect(() => {
-    if (rest.teamsLoaded && !rest.currentTeam) rest.changeCurrentTeam(userTeams[0].teamId);
+    if (rest.teamsLoaded && !rest.currentTeam) rest.changeCurrentTeam({
+      id: userTeams[0].teamId,
+      name: userTeams[0].team.name,
+    });
   },[rest.teamsLoaded]);
 
   useEffect(() => {
     const token = getFromState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN);
-    if (rest.isNotifyConnected && rest.currentTeam) {
-      fetchUserData(USER_COMMON.DATA_TYPES.PROJECTS, 1, 9999, null, rest.currentTeam, null, true);
+    if (rest.isNotifyConnected && rest.currentTeam.id) {
+      fetchUserData(USER_COMMON.DATA_TYPES.PROJECTS, 1, 9999, null, rest.currentTeam.id, null, true);
       rest.subscribeOnNotificationsChannel(
         SOCKET_METHODS.SUBSCRIBE.SIDEBAR_SUBSCRIBE_TEAM,
         SOCKET_METHODS.BROADCAST.SIDEBAR_BROADCAST, {
-          TeamId: rest.currentTeam,
+          TeamId: rest.currentTeam.id,
           Token: token,
         })
     }
-  },[rest.isNotifyConnected, rest.currentTeam]);
+  },[rest.isNotifyConnected, rest.currentTeam.id]);
 
   return (
     <ColorBlocks.PrimaryColorBlock className={`${s.sidebar} ${isSidebarOpened ? s.sidebar_shown : ''} flex flex-column`}>
