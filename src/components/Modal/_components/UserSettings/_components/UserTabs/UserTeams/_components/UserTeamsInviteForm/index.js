@@ -20,7 +20,7 @@ export const UserTeamsInviteForm = ({ isUserUpdating }) => {
       initialValues={{ email: '' }}
       onSubmit={values =>
         console.log({
-          emails: [values.email],
+          emails: [values.email.trim()],
         })
       }
     >

@@ -47,10 +47,18 @@ export const UserTeamsEditForm = ({ initialValues, currentTeamId, isUserUpdating
                 addClassBlurredInput="form_border form_border_rounded"
                 maxLength={60}
                 disabled={initialValues.statusName !== USER_COMMON.USER_ROLES.SUPER_ADMIN}
-                customOnBlur={() =>
-                  values.name !== initialValues.name &&
-                  values.name.length !== 0 &&
-                  updateSingleUserTeam({ ...values, teamId: currentTeamId })
+                customOnBlur={
+                  () =>
+                    values.name !== initialValues.name &&
+                    values.name.length !== 0 &&
+                    updateSingleUserTeam({
+                      name: values.name.trim(),
+                      colorHex: values.colorHex,
+                      teamId: currentTeamId,
+                    })
+                  // updateSingleUserTeam({ ...values, teamId: currentTeamId })
+                  // console.log(values.name);
+                  // console.log(values.name.replace(/(^\s*)|(\s*)$/g, ''))
                 }
                 additionalElement={
                   isUserUpdating ? (
@@ -71,7 +79,7 @@ export const UserTeamsEditForm = ({ initialValues, currentTeamId, isUserUpdating
                 inlineStyle={colorSelectStyle}
                 statusName={initialValues.statusName}
                 customOnChange={colorHex =>
-                  updateSingleUserTeam({ name: values.name, teamId: currentTeamId, colorHex })
+                  updateSingleUserTeam({ name: values.name.trim(), teamId: currentTeamId, colorHex })
                 }
               />
             </div>
