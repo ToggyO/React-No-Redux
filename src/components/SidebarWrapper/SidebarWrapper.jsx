@@ -18,6 +18,7 @@ import { Preloader } from '@components/Preloader';
 import { SidebarTeamsProjectPlaceholder } from '@components/SidebarWrapper/_components/SidebarTeamsProject/_components/SidebarTeamsProjectPlaceholder';
 import { writeToLocalState } from '@services/ls';
 import { writeToSessionState } from '@services/ss';
+import { USER_COMMON } from '@config/common';
 
 
 const projectsPlaceholder = [...Array(6)];
@@ -40,7 +41,7 @@ const SidebarWrapper = ({
   };
 
   useEffect(() => {
-    fetchUserData('teams', 1, 9999);
+    fetchUserData(USER_COMMON.DATA_TYPES.TEAMS, 1, 9999);
     rest.socketConnect(API_URL.SOCKET.NOTIFICATIONS);
   },[]);
 
@@ -51,7 +52,7 @@ const SidebarWrapper = ({
   useEffect(() => {
     const token = getFromState(LOCAL_STORAGE_KEYS.ACCESS_TOKEN);
     if (rest.isNotifyConnected && rest.currentTeam) {
-      fetchUserData('projects', 1, 9999, null, rest.currentTeam, null, true);
+      fetchUserData(USER_COMMON.DATA_TYPES.PROJECTS, 1, 9999, null, rest.currentTeam, null, true);
       rest.subscribeOnNotificationsChannel(
         SOCKET_METHODS.SUBSCRIBE.SIDEBAR_SUBSCRIBE_TEAM,
         SOCKET_METHODS.BROADCAST.SIDEBAR_BROADCAST, {

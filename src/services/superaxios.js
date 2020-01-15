@@ -4,7 +4,7 @@ import axios from 'axios';
 import { store } from '../store';
 
 import { authTypes } from '@ducks/auth';
-import { LOCAL_STORAGE_KEYS, API_DOMAIN, API_URL } from '@config';
+import { LOCAL_STORAGE_KEYS, API_DOMAIN, API_URL, API_VERSION } from '@config';
 import { writeToLocalState } from '@services/ls';
 import { hideGlobalError, showGlobalError } from '@ducks/global/actions';
 import { userLogout } from '@services/auth';
@@ -24,7 +24,7 @@ function addSubscriber(callback) {
 }
 
 const superaxios = axios.create({
-  baseURL: `${API_DOMAIN}/api`,
+  baseURL: `${API_DOMAIN}/api/${API_VERSION}`,
 });
 
 superaxios.interceptors.request.use(config => {

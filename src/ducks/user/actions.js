@@ -71,6 +71,14 @@ export const getListOfTeamUsers = (teamId, page, pageSize) => ({
   },
 });
 
+export const deleteTeam = (dataType, teamId) => ({
+  type: types.DELETE_TEAM_REQUEST,
+  payload: {
+    dataType,
+    id: teamId,
+  },
+});
+
 // User loader
 export const userLoaderStart = () => ({
   type: types.USER_PRELOADER_START,

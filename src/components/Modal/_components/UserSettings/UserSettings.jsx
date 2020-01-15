@@ -35,7 +35,7 @@ const UserSettings = ({
   const userDataFromLocalState = getFromState(LOCAL_STORAGE_KEYS.USER);
 
   useEffect(() => {
-    // fetchUserData('teams', 1, 9999);
+    // fetchUserData(USER_COMMON.DATA_TYPES.TEAMS, 1, 9999);
     fetchUserData(null, 1, 9999);
   }, []);
 
@@ -67,12 +67,14 @@ const UserSettings = ({
       case USER_COMMON.USER_SETTINGS_TABS.TEAMS:
         return <UserTeamsView
           currentTeamId={currentTeamId}
+          setTeam={setTeam}
           teams={rest.userTeams}
           isUserUpdating={isUserUpdating}
           updateSingleUserTeam={rest.updateSingleUserTeam}
           getListOfTeamUsers={rest.getListOfTeamUsers}
           teamsUsers={withExtra.items}
           modalOpen={rest.modalOpen}
+          teamsDeleting={rest.teamsDeleting}
         />;
       default:
         return <div>Test</div>;

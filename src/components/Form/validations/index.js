@@ -38,6 +38,13 @@ export const validateField = {
     }
     return error;
   },
+  keyWordDelete: value => {
+    let error;
+    if (!value || !/^delete$/i.test(value)) {
+      error = 'Invalid field value';
+    }
+    return error;
+  },
 };
 
 export const validateForm = {

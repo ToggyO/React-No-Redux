@@ -8,7 +8,7 @@ import { ROUTES } from '@config/routes';
 import { userTypes } from '@ducks/user';
 import { clearLocalState, getFromLocalState, writeToLocalState } from '@services/ls';
 import { clearSessionState, getFromSessionState, writeToSessionState } from '@services/ss';
-import { LOCAL_STORAGE_KEYS } from '@config/common';
+import { LOCAL_STORAGE_KEYS, USER_COMMON } from '@config/common';
 import { APP_PREFIX } from '@config';
 
 // cr-20-solved array.keys возвращает массив, его необязательно потом перебирать - .length.
@@ -116,10 +116,16 @@ export const updateUserProjects = data => {
     case 0:
       return store.dispatch({
         type: userTypes.UPDATE_USER_PROJECTS_LIST_REQUEST,
-        payload: { dataType: 'projects', projectId, teamId, changesType },
+        payload: { dataType: USER_COMMON.DATA_TYPES.PROJECTS, projectId, teamId, changesType },
       });
     case -1:
-      return store.dispatch({ type: userTypes.CUT_USER_PROJECT_FROM_LIST, payload: projectId });
+      return store.dispatch({
+        type: userTypes.CUT_USER_PROJECT_FROM_LIST,
+        payload: {
+          dataType: USER_COMMON.DATA_TYPES.PROJECTS,
+          id: projectId,
+        },
+      });
     default:
       return changesType;
   }
@@ -127,11 +133,10 @@ export const updateUserProjects = data => {
 
 export const writeToState = (properties, dontRemember) => {
   Object.keys(properties).forEach(key => {
-    if (!dontRemember) {
-      writeToLocalState(key, properties[key]);
-    } else {
-      writeToSessionState(key, properties[key]);
+    if (dontRemember) {
+      return writeToSessionState(key, properties[key]);
     }
+    return writeToLocalState(key, properties[key]);
   });
 };
 

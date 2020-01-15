@@ -242,3 +242,21 @@ function* getListOfTeamUsers(action) {
 export function* getListOfTeamUsersSaga() {
   yield takeLatest(types.GET_LIST_OF_TEAM_USERS_REQUEST, getListOfTeamUsers);
 }
+
+function* deleteTeam(action) {
+  try {
+    // const data = yield call(api.user.deleteUserAvatar);
+    const delay = ms => new Promise(res => setTimeout(res, ms));
+    yield delay(1500);
+    yield put({ type: types.DELETE_TEAM_SUCCESS, payload: action.payload });
+  } catch (error) {
+    const { response = {} } = error;
+    const { data = {} } = response;
+    const { errors = [] } = data;
+    yield put({ type: types.DELETE_TEAM_ERROR, payload: errors });
+  }
+}
+
+export function* deleteTeamSaga() {
+  yield takeLatest(types.DELETE_TEAM_REQUEST, deleteTeam);
+}

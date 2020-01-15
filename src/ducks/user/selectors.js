@@ -65,6 +65,11 @@ export const userTeamStatusNameSelector = createSelector(
   errors => errors
 );
 
+export const userTeamsDeletingSelector = createSelector(
+  state => state.user.data.teamsDeleting,
+  errors => errors
+);
+
 export const errorsSelector = createSelector(
   state => state.user.errors,
   errors => errors

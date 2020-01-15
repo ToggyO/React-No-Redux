@@ -1,8 +1,24 @@
 .container
   padding: 40px
   max-width: 518px
+  max-height: 295px
   width: 100%
   border-radius: 8px
+  transition: max-height 0.2s ease-out
+
+.containerHeight
+  max-height: 500px
+
+.input
+  max-height: 0
+  transition: max-height .2s ease-out, opacity .2s ease-out
+  opacity: 0
+  visibility: hidden
+
+.input_shown
+  max-height: 100px
+  opacity: 1
+  visibility: visible
 
 .primary_text
   font-size: 26px

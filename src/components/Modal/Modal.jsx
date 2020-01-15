@@ -16,7 +16,7 @@ import { ModalFillRequiredFields } from '@components/Modal/_components/ModalFill
 import { ModalLogoutConfirmationView }
   from '@components/Modal/_components/ModalLogoutConfirmation';
 import { PrimaryColorBlock } from '@components/StyledComponents/ColorBlocks';
-import { ModalDeleteTeamWarning } from '@components/Modal/_components/ModalDeleteTeamWarning';
+import { ModalDeleteTeamWarningContainer } from '@components/Modal/_components/ModalDeleteTeamWarning';
 import { MODAL_KEYS } from '@config/common';
 
 
@@ -129,11 +129,8 @@ class Modal extends React.Component {
         return <ModalLogoutConfirmationView onClose={this.onClickEnvironmentModalClose} itemKey={itemKey}
                                                  withoutConfirmation="true"/>;
       case MODAL_KEYS.MODAL_DELETE_TEAM_WARNING:
-        return <ModalDeleteTeamWarning onClose={this.onClickEnvironmentModalClose} itemKey={itemKey}
-                                       withoutEnvironmentClose="true"/>;
-      // case MODAL_KEYS.MODAL_DELETE_TEAM_CONFIRM:
-      //   return <ModalDeleteTeamWarning onClose={this.onClickEnvironmentModalClose} itemKey={itemKey}
-      //                                  withoutEnvironmentClose="true"/>;
+        return <ModalDeleteTeamWarningContainer onClose={this.onClickEnvironmentModalClose} itemKey={itemKey}
+                                       withoutEnvironmentClose="true" options={options}/>;
       default:
         return null;
     }

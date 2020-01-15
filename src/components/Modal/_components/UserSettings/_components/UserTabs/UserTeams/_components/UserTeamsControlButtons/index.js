@@ -7,7 +7,7 @@ import { DeleteButton, PrimaryColorFilledButton } from '@components/StyledCompon
 import { ModalFontPrimaryColorBlock } from '@components/StyledComponents/ColorBlocks';
 import { MODAL_KEYS, USER_COMMON } from '@config/common';
 
-export const UserTeamsControlButton = ({ statusName, modalOpen }) => (
+export const UserTeamsControlButton = ({ statusName, modalOpen, currentTeamId }) => (
   <div className={s.container}>
     <div className={s.headline_container}>
       <ModalFontPrimaryColorBlock className={s.headline}>Manage team members</ModalFontPrimaryColorBlock>
@@ -16,14 +16,14 @@ export const UserTeamsControlButton = ({ statusName, modalOpen }) => (
       type="button"
       className={`${s.button} btn rounded`}
       style={{ visibility: statusName === USER_COMMON.USER_ROLES.SUPER_ADMIN ? 'visible' : 'hidden' }}
-      onClick={() => modalOpen(MODAL_KEYS.MODAL_DELETE_TEAM_WARNING)}
+      onClick={() => modalOpen(MODAL_KEYS.MODAL_DELETE_TEAM_WARNING, { currentTeamId })}
     >
       Delete team
     </DeleteButton>
     <PrimaryColorFilledButton
       type="button"
       className={`${s.button} btn rounded ml-6 mr-3`}
-      onClick={() => modalOpen(MODAL_KEYS.MODAL_DELETE_TEAM_CONFIRM)}
+      onClick={() => {}}
     >
       Add user to team
     </PrimaryColorFilledButton>
@@ -33,4 +33,5 @@ export const UserTeamsControlButton = ({ statusName, modalOpen }) => (
 UserTeamsControlButton.propTypes = {
   statusName: PT.string,
   modalOpen: PT.func,
+  currentTeamId: PT.string,
 };

@@ -18,13 +18,6 @@ export const UserTeamsFormView = ({ initialValues, currentTeamId, isUserUpdating
   const formikRef = useRef(null);
   const overlayzIndex = 2000;
 
-  // const filteredTeam = teams.filter(item => item.teamId === currentTeamId);
-  // const initialValues = {};
-  // filteredTeam.forEach(item => {
-  //   initialValues.name = item.team.name;
-  //   initialValues.colorHex = item.team.colorHex;
-  // });
-
   return (
     <Formik
       ref={formikRef}

@@ -26,6 +26,11 @@ export const USER_COMMON = {
     NOTIFICATIONS: 'Notifications',
     TEAMS: 'Teams',
   },
+  DATA_TYPES: {
+    COMPANY: 'company',
+    TEAMS: 'teams',
+    PROJECTS: 'projects',
+  },
 };
 
 export const MODAL_KEYS = {

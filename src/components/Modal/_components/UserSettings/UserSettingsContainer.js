@@ -21,6 +21,7 @@ const mapStateToProps = state => ({
   isUserUpdating: userSelectors.userSpinnerSelector(state),
   userTeamStatusName: userSelectors.userTeamStatusNameSelector(state),
   withExtra: userSelectors.userExtraSelector(state),
+  teamsDeleting: userSelectors.userTeamsDeletingSelector(state),
 });
 
 const mapDispatchToProps = dispatch => ({

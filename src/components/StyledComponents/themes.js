@@ -24,14 +24,14 @@ export const Default = {
         activeEnabled: '#3B4661',
       },
       primaryColorOutlinedButton: {
-        buttonFontBase: '#FFFFFF',
-        buttonFontDisabled: '#FFFFFF',
+        buttonFontBase: '#495570',
+        buttonFontDisabled: '#A4AAB7',
         buttonFontHover: '#FFFFFF',
         buttonFontActive: '#FFFFFF',
         base: '#495570',
         disabled: '#A4AAB7',
         hoverEnabled: '#596785',
-        activeEnabled: '#3B4661',
+        activeEnabled: '#EBEEF4',
       },
       deleteButton: {
         buttonFontBase: '#E76A7D',

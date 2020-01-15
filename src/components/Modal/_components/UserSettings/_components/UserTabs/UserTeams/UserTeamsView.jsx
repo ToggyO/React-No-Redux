@@ -11,23 +11,34 @@ import { UserTeamsControlButton } from '@components/Modal/_components/UserSettin
 const UserTeamsView = ({
   teams,
   currentTeamId,
+  setTeam,
   isUserUpdating,
   updateSingleUserTeam,
   getListOfTeamUsers,
   teamsUsers,
   modalOpen,
+  teamsDeleting,
 }) => {
   const filteredTeam = teams.filter(item => item.teamId === currentTeamId);
   const initialValues = {};
-  filteredTeam.forEach(item => {
-    initialValues.name = item.team.name;
-    initialValues.colorHex = item.team.colorHex;
-    initialValues.statusName = item.statusName;
-  });
+  // eslint-disable-next-line array-callback-return
+  filteredTeam.reduce(accumulator => {
+    initialValues.name = accumulator.team.name;
+    initialValues.colorHex = accumulator.team.colorHex;
+    initialValues.statusName = accumulator.statusName;
+  }, filteredTeam[0]);
 
   useEffect(() => {
     getListOfTeamUsers(currentTeamId, 1, 9999);
   },[currentTeamId]);
+
+  useEffect(() => {
+    if (teamsDeleting) {
+      setTeam(teams[0].teamId)
+    }
+  },[teamsDeleting]);
+
+  if (teams.length === 0) return <div>No teams</div>;
 
   return (
     <div>
@@ -38,7 +49,11 @@ const UserTeamsView = ({
         updateSingleUserTeam={updateSingleUserTeam}
         initialValues={initialValues}
       />
-      <UserTeamsControlButton statusName={initialValues.statusName} modalOpen={modalOpen}/>
+      <UserTeamsControlButton
+        statusName={initialValues.statusName}
+        modalOpen={modalOpen}
+        currentTeamId={currentTeamId}
+      />
       <UserTeamsLIstOfUsersView teamsUsers={teamsUsers}/>
     </div>
   )
@@ -47,11 +62,13 @@ const UserTeamsView = ({
 UserTeamsView.propTypes = {
   teams: PT.arrayOf(PT.object),
   currentTeamId: PT.string,
+  setTeam: PT.func,
   isUserUpdating: PT.bool,
   updateSingleUserTeam: PT.func,
   getListOfTeamUsers: PT.func,
   teamsUsers: PT.arrayOf(PT.object),
   modalOpen: PT.func,
+  teamsDeleting: PT.bool,
 };
 
 export default UserTeamsView;

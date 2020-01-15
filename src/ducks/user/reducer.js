@@ -6,6 +6,7 @@ const initialState = {
     userLoaded: false,
     teams: [],
     teamsLoaded: false,
+    teamsDeleting: false,
     companies: [],
     companiesLoaded: false,
     projects: [],
@@ -38,6 +39,15 @@ export default function user(state = initialState, action) {
       return { ...state, avatarLoading: true };
     case types.CHANGE_USER_AVATAR_REQUEST:
       return { ...state, modalLoading: true, avatarLoading: true };
+    case types.DELETE_TEAM_REQUEST:
+      return {
+        ...state,
+        loading: true,
+        data: {
+          ...state.data,
+          teamsDeleting: true,
+        },
+      };
     case types.FETCH_USER_DATA_SUCCESS:
     case types.CHANGE_UI_THEME_SUCCESS: {
       const { data, dataType } = action.payload;
@@ -84,21 +94,42 @@ export default function user(state = initialState, action) {
         },
       };
     }
-    case types.CUT_USER_PROJECT_FROM_LIST: {
-      const projectId = action.payload;
-      const filteredProjects = state.data.projects.items.filter(item => item.projectId !== projectId);
+    // console.log(`${dataType.substring(0, dataType.length - 1)}Id`);
+    case types.CUT_USER_PROJECT_FROM_LIST:
+    case types.DELETE_TEAM_SUCCESS: {
+      const { dataType, id } = action.payload;
+      const filteredData = state.data[dataType].items.filter(
+        item => item[`${dataType.substring(0, dataType.length - 1)}Id`] !== id
+      );
       return {
         ...state,
         data: {
           ...state.data,
-          projects: {
-            ...state.data.projects,
-            total: state.data.projects.total - 1,
-            items: filteredProjects,
+          teamsDeleting: false,
+          [dataType]: {
+            ...state.data[dataType],
+            total: state.data[dataType].total - 1,
+            items: filteredData,
           },
         },
+        loading: false,
       };
     }
+    // case types.CUT_USER_PROJECT_FROM_LIST: {
+    //   const projectId = action.payload;
+    //   const filteredProjects = state.data.projects.items.filter(item => item.projectId !== projectId);
+    //   return {
+    //     ...state,
+    //     data: {
+    //       ...state.data,
+    //       projects: {
+    //         ...state.data.projects,
+    //         total: state.data.projects.total - 1,
+    //         items: filteredProjects,
+    //       },
+    //     },
+    //   };
+    // }
     case types.UPDATE_SINGLE_USER_TEAM_SUCCESS: {
       const { data } = action.payload;
       const findTeamById = state.data.teams.items.filter(item => item.teamId === data.id);
@@ -146,6 +177,7 @@ export default function user(state = initialState, action) {
     case types.CHANGE_UI_THEME_ERROR:
     case types.UPDATE_SINGLE_USER_TEAM_ERROR:
     case types.GET_LIST_OF_TEAM_USERS_ERROR:
+    case types.DELETE_TEAM_ERROR:
       return {
         ...state,
         loading: false,

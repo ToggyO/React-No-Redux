@@ -43,21 +43,27 @@ export const PrimaryColorFilledButton = styled.button`
 `;
 
 export const PrimaryColorOutlinedButton = styled.button`
-  background-color: ${props => props.theme.colors.buttons.primaryColorOutlinedButton.base} !important;
-  color: ${props => props.theme.colors.buttons.primaryColorOutlinedButton.buttonFontBase};
+  border: 1px solid ${props => props.theme.colors.buttons.primaryColorOutlinedButton.base} !important;
+  color: ${props => props.theme.colors.buttons.primaryColorOutlinedButton.buttonFontBase} !important;
 
   &:disabled {
-    background-color: ${props => props.theme.colors.buttons.primaryColorOutlinedButton.disabled} !important;
+    border: 1px solid ${props => props.theme.colors.buttons.primaryColorOutlinedButton.disabled} !important;
+    color: ${props => props.theme.colors.buttons.primaryColorOutlinedButton.buttonFontDisabled}; !important;
   }
 
   &:hover:enabled {
+    border: 1px solid ${props =>
+      props.theme.colors.buttons.primaryColorOutlinedButton.hoverEnabled} !important;
     background-color: ${props =>
       props.theme.colors.buttons.primaryColorOutlinedButton.hoverEnabled} !important;
+    color: ${props => props.theme.colors.buttons.primaryColorOutlinedButton.buttonFontHover} !important;
   }
 
   &:active:enabled {
+    border: 1px solid ${props => props.theme.colors.buttons.primaryColorOutlinedButton.base} !important;
     background-color: ${props =>
       props.theme.colors.buttons.primaryColorOutlinedButton.activeEnabled} !important;
+    color: ${props => props.theme.colors.buttons.primaryColorOutlinedButton.buttonFontBase} !important;
   }
 `;
 
