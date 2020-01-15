@@ -38,12 +38,12 @@ const UserProfileSidebarView = ({
         </div>
         <div className={s.company}>
           <UserProfileSidebarHeadlinesWrapper title="Company" addContainerClass="mb-2">
-            <UserProfileSidebarCompanyView setTab={setTab} currentTab={currentTab}/>
+            <UserProfileSidebarCompanyView setTab={setTab} currentTab={currentTab.tab}/>
           </UserProfileSidebarHeadlinesWrapper>
         </div>
         <div className={s.user}>
           <UserProfileSidebarHeadlinesWrapper title="User" addContainerClass="mb-2">
-            <UserProfileSidebarUserView setTab={setTab} currentTab={currentTab}/>
+            <UserProfileSidebarUserView setTab={setTab} currentTab={currentTab.tab}/>
           </UserProfileSidebarHeadlinesWrapper>
         </div>
         <div className={s.teams}>
@@ -75,6 +75,7 @@ const UserProfileSidebarView = ({
                       addClassCircle="flex justify-content-center align-items-center"
                       addClassHeadline="ml-3 flex justify-content-space-between align-items-center relative"
                       style={teamsStyle}
+                      currentTab={currentTab.teamName}
                       onClick={() => {
                         rest.setTeam(item.teamId);
                         setTab(prevTab => ({

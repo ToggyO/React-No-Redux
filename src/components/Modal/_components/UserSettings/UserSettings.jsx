@@ -115,7 +115,7 @@ const UserSettings = ({
           <UserProfileSidebarView
             teams={rest.userTeams}
             teamsLoader={rest.teamsLoader}
-            currentTab={currentTab.tab}
+            currentTab={currentTab}
             setTab={setTab}
             setTeam={setTeam}
           />
