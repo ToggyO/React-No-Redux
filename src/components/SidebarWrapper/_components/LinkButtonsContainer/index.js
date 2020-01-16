@@ -29,7 +29,7 @@ const buttons = [
   },
   {
     link: '#',
-    iconName: 'sidebar-settings',
+    iconName: 'sidebar-teams',
     title: 'Teams',
   },
 ];
