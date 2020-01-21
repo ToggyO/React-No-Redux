@@ -9,7 +9,8 @@ const initialState = {
   loading: true,
   currentTeam:
     getFromLocalState(LOCAL_STORAGE_KEYS.SIDEBAR_CURRENT_TEAM) ||
-    getFromSessionState(LOCAL_STORAGE_KEYS.SIDEBAR_CURRENT_TEAM),
+    getFromSessionState(LOCAL_STORAGE_KEYS.SIDEBAR_CURRENT_TEAM) ||
+    {},
   sidebarState:
     getFromLocalState(LOCAL_STORAGE_KEYS.SIDEBAR_STATE) ||
     getFromSessionState(LOCAL_STORAGE_KEYS.SIDEBAR_STATE),

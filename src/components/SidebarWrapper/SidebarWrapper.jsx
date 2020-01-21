@@ -45,11 +45,26 @@ const SidebarWrapper = ({
     rest.socketConnect(API_URL.SOCKET.NOTIFICATIONS);
   },[]);
 
+  // TODO костыль
+  // eslint-disable-next-line consistent-return
   useEffect(() => {
-    if (rest.teamsLoaded && !rest.currentTeam) rest.changeCurrentTeam({
-      id: userTeams[0].teamId,
-      name: userTeams[0].team.name,
-    });
+    if (rest.teamsLoaded && !rest.currentTeam.id) {
+      rest.changeCurrentTeam({
+        id: userTeams[0].teamId,
+        name: userTeams[0].team.name,
+      });
+      if (checkLocalStorage()) {
+        return writeToLocalState(LOCAL_STORAGE_KEYS.SIDEBAR_CURRENT_TEAM, {
+          id: userTeams[0].teamId,
+          name: userTeams[0].team.name,
+        });
+      }
+      return writeToSessionState(LOCAL_STORAGE_KEYS.SIDEBAR_CURRENT_TEAM, {
+        id: userTeams[0].teamId,
+        name: userTeams[0].team.name,
+      });
+    }
+
   },[rest.teamsLoaded]);
 
   useEffect(() => {
