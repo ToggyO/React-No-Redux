@@ -90,7 +90,8 @@ export const LinkButtonsContainer = ({
             modalOpen(MODAL_KEYS.USER_SETTINGS, {
               userProfileTabPrefix: USER_COMMON.USER_SETTINGS_TABS_PREFIX.TEAMS,
               userProfileTab: USER_COMMON.USER_SETTINGS_TABS.TEAMS,
-              userProfileTeamName: currentTeam.name,
+              userProfileTeamId: currentTeam.id,
+              // userProfileTeamName: currentTeam.name,
               checkedTeamFromSidebar: currentTeam.id,
             });
             teamTooltipRef.current.hideTooltip();

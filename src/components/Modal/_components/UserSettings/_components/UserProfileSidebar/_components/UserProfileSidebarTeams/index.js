@@ -16,7 +16,6 @@ export const UserProfileSidebarTeamsView = ({
   addClassContainer,
   addClassCircle,
   addClassHeadline,
-  currentTab,
   onClick,
   style = {},
 }) => (
@@ -37,13 +36,7 @@ export const UserProfileSidebarTeamsView = ({
         </span>
       </div>
       <div className={`${s.headline} ${addClassHeadline}`} style={style.headline}>
-        <ModalFontPrimaryColorBlock
-          className={styles.headline_text}
-          style={{
-            ...style.headlineText,
-            fontWeight: currentTab === teamName.replace(/(^\s*)|(\s*)$/g, '') ? 500 : 400,
-          }}
-        >
+        <ModalFontPrimaryColorBlock className={styles.headline_text} style={style.headlineText}>
           {teamName.replace(/(^\s*)|(\s*)$/g, '')}
         </ModalFontPrimaryColorBlock>
       </div>
@@ -57,7 +50,6 @@ UserProfileSidebarTeamsView.propTypes = {
   addClassContainer: PT.string,
   addClassCircle: PT.string,
   addClassHeadline: PT.string,
-  currentTab: PT.string,
   onClick: PT.func,
   style: PT.object,
 };

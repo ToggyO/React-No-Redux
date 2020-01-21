@@ -9,7 +9,6 @@ import UserTeamsView from './_components/UserTabs/UserTeams/UserTeamsView';
 
 import { Preloader } from '@components/Preloader';
 import CustomScrollbar from '@components/Scrollbar';
-import { UserProfileTabsWrapper } from '@components/Modal/_components/UserSettings/_components/UserTabs/UserProfileTabsWrapper';
 import { ModalBaseColorBlock } from '@components/StyledComponents/ColorBlocks';
 import { USER_COMMON } from '@config/common';
 
@@ -31,7 +30,8 @@ const UserSettings = ({
   const [currentTab, setTab] = useState({
     prefix: options.userProfileTabPrefix,
     tab: options.userProfileTab,
-    teamName: options.userProfileTeamName || '',
+    teamId: options.userProfileTeamId || '',
+    // teamName: options.userProfileTeamName || '',
   });
   const [currentTeamId, setTeam] = useState(options.checkedTeamFromSidebar || null);
 
@@ -59,6 +59,8 @@ const UserSettings = ({
           isUserUpdating={isUserUpdating}
           updateUserData={updateUserData}
           modalOpen={rest.modalOpen}
+          currentTab={currentTab}
+          onClose={onClose}
         />;
       case USER_COMMON.USER_SETTINGS_TABS.PREFERENCES:
         return <div>Preferences</div>;
@@ -76,6 +78,7 @@ const UserSettings = ({
           teamsUsers={withExtra.items}
           modalOpen={rest.modalOpen}
           teamsDeleting={rest.teamsDeleting}
+          onClose={onClose}
         />;
       default:
         return <div>Test</div>;
@@ -117,27 +120,25 @@ const UserSettings = ({
           />
         </CustomScrollbar>
         <div className={`${s.children} flex flex-column`}>
-          <UserProfileTabsWrapper currentTab={currentTab} onClose={onClose}>
-            <CustomScrollbar
-              style={{ height: '100%' }}
-              autoHide
-              universal
-              thumbStyleHorizontal={{
-                backgroundColor: '#6D768A',
-                height: 4,
-                borderRadius: 2,
-              }}
-              thumbStyleVertical={{
-                backgroundColor: '#6D768A',
-                width: 4,
-                borderRadius: 2,
-              }}
-            >
-              <div className={`${s.switch_pages} flex flex-column`}>
-                {onRenderSettingsPageTab(currentTab.tab)}
-              </div>
-            </CustomScrollbar>
-          </UserProfileTabsWrapper>
+          <CustomScrollbar
+            style={{ height: '100%' }}
+            autoHide
+            universal
+            thumbStyleHorizontal={{
+              backgroundColor: '#6D768A',
+              height: 4,
+              borderRadius: 2,
+            }}
+            thumbStyleVertical={{
+              backgroundColor: '#6D768A',
+              width: 4,
+              borderRadius: 2,
+            }}
+          >
+            <div className={`${s.switch_pages} flex flex-column`}>
+              {onRenderSettingsPageTab(currentTab.tab)}
+            </div>
+          </CustomScrollbar>
         </div>
       </ModalBaseColorBlock>
     </Preloader>

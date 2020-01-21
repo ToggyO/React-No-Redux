@@ -12,10 +12,8 @@ export const style = {
     borderRadius: 5,
   },
   headlineText: {
-    fontWight: 400,
     fontSize: 15,
     lineHeight: '26px',
-    // color: '#495570',
   },
   teamName: {
     fontWeight: 700,

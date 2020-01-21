@@ -74,15 +74,25 @@ const UserProfileSidebarView = ({
                       addClassContainer="pl-10 pt-4 pb-4"
                       addClassCircle="flex justify-content-center align-items-center"
                       addClassHeadline="ml-3 flex justify-content-space-between align-items-center relative"
-                      style={teamsStyle}
-                      currentTab={currentTab.teamName}
+                      style={{
+                        ...teamsStyle,
+                        headlineText: {
+                          ...teamsStyle.headlineText,
+                          fontWeight: currentTab.tab === USER_COMMON.USER_SETTINGS_TABS_PREFIX.TEAMS
+                          && currentTab.teamId === item.team.id
+                            ? 500
+                            : 400,
+                        }
+                      }}
+                      // currentTab={currentTab.teamId}
                       onClick={() => {
                         rest.setTeam(item.teamId);
                         setTab(prevTab => ({
                           ...prevTab,
                           prefix: USER_COMMON.USER_SETTINGS_TABS_PREFIX.TEAMS,
                           tab: USER_COMMON.USER_SETTINGS_TABS.TEAMS,
-                          teamName: item.team.name,
+                          teamId: item.team.id,
+                          // teamName: item.team.name,
                         }));
                       }}
                     />)

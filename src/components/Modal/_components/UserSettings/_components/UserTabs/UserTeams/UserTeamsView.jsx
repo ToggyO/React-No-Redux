@@ -8,8 +8,11 @@ import { UserTeamsLIstOfUsersView } from './_components/UserTeamsLIstOfUsers';
 import { UserTeamsHeader } from './_components/UserTeamsHeader';
 import { UserTeamsInviteForm } from './_components/UserTeamsInviteForm';
 
+import { UserProfileTabsWrapperView } from '@components/Modal/_components/UserSettings/_components/UserTabs/UserProfileTabsWrapper';
+
 
 const UserTeamsView = ({
+  currentTab,
   teams,
   currentTeamId,
   setTeam,
@@ -19,6 +22,7 @@ const UserTeamsView = ({
   teamsUsers,
   modalOpen,
   teamsDeleting,
+  onClose,
 }) => {
   const filteredTeam = teams.filter(item => item.teamId === currentTeamId);
   const initialValues = {};
@@ -43,7 +47,7 @@ const UserTeamsView = ({
   if (teams.length === 0) return <div>No teams</div>;
 
   return (
-    <div>
+    <UserProfileTabsWrapperView tabPrefix={currentTab.prefix} currentTab={initialValues.name} onClose={onClose}>
       <UserTeamsHeader
         statusName={initialValues.statusName}
         modalOpen={modalOpen}
@@ -58,11 +62,12 @@ const UserTeamsView = ({
       />
       <UserTeamsInviteForm/>
       <UserTeamsLIstOfUsersView teamsUsers={teamsUsers}/>
-    </div>
+    </UserProfileTabsWrapperView>
   )
 };
 
 UserTeamsView.propTypes = {
+  currentTab: PT.object,
   teams: PT.arrayOf(PT.object),
   currentTeamId: PT.string,
   setTeam: PT.func,
@@ -72,6 +77,7 @@ UserTeamsView.propTypes = {
   teamsUsers: PT.arrayOf(PT.object),
   modalOpen: PT.func,
   teamsDeleting: PT.bool,
+  onClose: PT.func,
 };
 
 export default UserTeamsView;
