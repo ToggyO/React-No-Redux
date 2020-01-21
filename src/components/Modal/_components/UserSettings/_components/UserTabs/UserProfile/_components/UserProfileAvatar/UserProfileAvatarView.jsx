@@ -62,28 +62,13 @@ const UserProfileAvatarView = ({
       };
       const _URL = window.URL || window.webkitURL;
       img.src = _URL.createObjectURL(file);
+      setImageLoaded(false);
     } else {
       showGlobalError('Profile picture is more than 10 Mb');
     }
     fileInputRef.current.value = null;
   };
 
-  const deleteAvatar = () => {
-    deleteUserAvatar();
-    setImageLoaded(false);
-  };
-
-  // useEffect(() => {
-  //   if (userData.avatar && userData.avatar.formatUrls['360']) {
-  //     debugger;
-  //   }
-  // },[userData.avatar]);
-  useEffect(() => {
-    if (isImageLoaded) {
-      console.log(isImageLoaded);
-    }
-  },[isImageLoaded]);
-  // TODO fix avatar spinner
   return (
     <div className={s.container}>
       <div className={`${s.avatar_container} flex justify-content-center align-items-center relative`}>
@@ -96,7 +81,7 @@ const UserProfileAvatarView = ({
           {userData.avatar && userData.avatar.formatUrls['360']
             ? <img
               style={avatarStyle.image}
-              src={!isImageLoaded
+              src={(!isImageLoaded || avatarLoading)
                 ? spinner
                 : userData.avatar.formatUrls['360']
               }
@@ -128,7 +113,7 @@ const UserProfileAvatarView = ({
         <button
           type="button"
           className={`${s.avatar_delete} btn mt-1`}
-          onClick={deleteAvatar}
+          onClick={deleteUserAvatar}
         >
           Delete
         </button>
