@@ -10,8 +10,6 @@ import UserTeamsView from './_components/UserTabs/UserTeams/UserTeamsView';
 import { Preloader } from '@components/Preloader';
 import CustomScrollbar from '@components/Scrollbar';
 import { UserProfileTabsWrapper } from '@components/Modal/_components/UserSettings/_components/UserTabs/UserProfileTabsWrapper';
-import { getFromState } from '@utils/index';
-import { LOCAL_STORAGE_KEYS } from '@config';
 import { ModalBaseColorBlock } from '@components/StyledComponents/ColorBlocks';
 import { USER_COMMON } from '@config/common';
 
@@ -36,7 +34,6 @@ const UserSettings = ({
     teamName: options.userProfileTeamName || '',
   });
   const [currentTeamId, setTeam] = useState(options.checkedTeamFromSidebar || null);
-  const userDataFromLocalState = getFromState(LOCAL_STORAGE_KEYS.USER);
 
   useEffect(() => {
     fetchUserData(null, 1, 9999);
@@ -57,7 +54,7 @@ const UserSettings = ({
         return <div>Manage users</div>;
       case USER_COMMON.USER_SETTINGS_TABS.PROFILE:
         return <UserProfileView
-          userData={userDataFromLocalState || userData}
+          userData={userData}
           isDataFetched={isDataFetched}
           isUserUpdating={isUserUpdating}
           updateUserData={updateUserData}
@@ -72,7 +69,6 @@ const UserSettings = ({
           currentTab={currentTab}
           currentTeamId={currentTeamId}
           setTeam={setTeam}
-          setTab={setTab}
           teams={rest.userTeams}
           isUserUpdating={isUserUpdating}
           updateSingleUserTeam={rest.updateSingleUserTeam}

@@ -3,7 +3,7 @@ export const style = {
     width: 32,
     height: 32,
     marginRight: 12,
-    paddingLeft: 3,
+    // paddingLeft: 3,
   },
   placeholder: {
     color: '#fff',

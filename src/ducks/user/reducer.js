@@ -1,8 +1,12 @@
 import * as types from './types';
 
+import { getFromLocalState } from '@services/ls';
+import { LOCAL_STORAGE_KEYS } from '@config/common';
+import { getFromSessionState } from '@services/ss';
+
 const initialState = {
   data: {
-    user: {},
+    user: getFromLocalState(LOCAL_STORAGE_KEYS.USER) || getFromSessionState(LOCAL_STORAGE_KEYS.USER) || {},
     userLoaded: false,
     teams: [],
     teamsLoaded: false,

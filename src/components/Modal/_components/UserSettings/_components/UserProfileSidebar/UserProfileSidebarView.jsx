@@ -68,7 +68,7 @@ const UserProfileSidebarView = ({
                 ? teamsPlaceholder.map(item => <UserTeamsPlaceholder key={getUniqueKey()}/>)
                 : teams.map(item => (
                     <UserProfileSidebarTeamsView
-                      key={item.team.name}
+                      key={item.team.id}
                       color={item.team.colorHex}
                       teamName={item.team.name}
                       addClassContainer="pl-10 pt-4 pb-4"

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PT from 'prop-types';
 
 import s from './style.module.sass';
@@ -68,19 +68,43 @@ const UserProfileAvatarView = ({
     fileInputRef.current.value = null;
   };
 
+  const deleteAvatar = () => {
+    deleteUserAvatar();
+    setImageLoaded(false);
+  };
+
+  // useEffect(() => {
+  //   if (userData.avatar && userData.avatar.formatUrls['360']) {
+  //     debugger;
+  //   }
+  // },[userData.avatar]);
+  useEffect(() => {
+    if (isImageLoaded) {
+      console.log(isImageLoaded);
+    }
+  },[isImageLoaded]);
+  // TODO fix avatar spinner
   return (
     <div className={s.container}>
       <div className={`${s.avatar_container} flex justify-content-center align-items-center relative`}>
         <div
           className={`${s.avatar} ${s.avatar_placeholder} flex justify-content-center align-items-center`}
         >
+
+          {avatarLoading
+          && <img src={spinner} alt="" className={s.spinner} style={avatarStyle.image}/>}
           {userData.avatar && userData.avatar.formatUrls['360']
             ? <img
               style={avatarStyle.image}
-              src={(!isImageLoaded || avatarLoading)
+              src={!isImageLoaded
                 ? spinner
                 : userData.avatar.formatUrls['360']
-              } alt="" align="middle" onLoad={() => setImageLoaded(true)}/>
+              }
+              // src={userData.avatar.formatUrls['360']}
+              alt=""
+              align="middle"
+              onLoad={() => setImageLoaded(true)}
+            />
             : userData.name
               .replace(/ /g, '')
               .slice(0, 1)
@@ -104,7 +128,7 @@ const UserProfileAvatarView = ({
         <button
           type="button"
           className={`${s.avatar_delete} btn mt-1`}
-          onClick={() => deleteUserAvatar()}
+          onClick={deleteAvatar}
         >
           Delete
         </button>
