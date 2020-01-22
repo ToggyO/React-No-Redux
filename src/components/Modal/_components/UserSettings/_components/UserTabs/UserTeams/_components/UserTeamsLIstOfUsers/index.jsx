@@ -22,7 +22,7 @@ export const UserTeamsLIstOfUsersView = ({ teamsUsers }) => (
     <ModalBorderColorBlock>
       {!teamsUsers
         ? teamUsersPlaceholder.map(() => <UserTeamsListOfUsersItemPlaceholder key={getUniqueKey()}/>)
-        : teamsUsers.map(item => <UserTeamsListOfUsersItem key={item} style={avatarStyle} userData={item}/>)}
+        : teamsUsers.map(item => <UserTeamsListOfUsersItem key={item.userId} style={avatarStyle} userData={item}/>)}
     </ModalBorderColorBlock>
   </div>
 );

@@ -28,8 +28,8 @@ const UserTeamsView = ({
   const initialValues = {};
   // eslint-disable-next-line array-callback-return
   filteredTeam.reduce(accumulator => {
-    initialValues.name = accumulator.team.name;
-    initialValues.colorHex = accumulator.team.colorHex;
+    initialValues.name = accumulator.team.name || 'Username';
+    initialValues.colorHex = accumulator.team.colorHex || '#82ABFB';
     initialValues.statusName = accumulator.statusName;
   }, filteredTeam[0]);
 
@@ -39,9 +39,12 @@ const UserTeamsView = ({
 
   useEffect(() => {
     if (teamsDeleting) {
-      setTeam(teams[0].teamId)
+      const test = teams.filter(item => item.teamId !== currentTeamId);
+      if (test.length > 0) {
+        setTeam(test[0].teamId);
+      }
     }
-  },[teamsDeleting]);
+  },[teamsDeleting, teams]);
 
   // TODO change
   if (teams.length === 0) return <div>No teams</div>;

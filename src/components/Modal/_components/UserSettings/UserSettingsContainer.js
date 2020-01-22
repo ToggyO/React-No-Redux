@@ -9,6 +9,7 @@ import UserSettings from './UserSettings';
 import * as userActions from '@ducks/user/actions';
 import * as userSelectors from '@ducks/user/selectors';
 import { modalActions } from '@ducks/modal';
+import { authSelectors } from '@ducks/auth';
 
 const mapStateToProps = state => ({
   // userCompanies: userSelectors.userCompaniesSelector(state),
@@ -22,6 +23,7 @@ const mapStateToProps = state => ({
   userTeamStatusName: userSelectors.userTeamStatusNameSelector(state),
   withExtra: userSelectors.userExtraSelector(state),
   teamsDeleting: userSelectors.userTeamsDeletingSelector(state),
+  authData: authSelectors.userInfoSelector(state),
 });
 
 const mapDispatchToProps = dispatch => ({

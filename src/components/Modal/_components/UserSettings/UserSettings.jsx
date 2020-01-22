@@ -11,12 +11,14 @@ import { Preloader } from '@components/Preloader';
 import CustomScrollbar from '@components/Scrollbar';
 import { ModalBaseColorBlock } from '@components/StyledComponents/ColorBlocks';
 import { USER_COMMON } from '@config/common';
+import { isEmptyObject } from '@utils/index';
 
 
 const UserSettings = ({
   location,
   onClose,
   loading,
+  authData,
   userData,
   isUserUpdating,
   fetchUserData,
@@ -54,7 +56,7 @@ const UserSettings = ({
         return <div>Manage users</div>;
       case USER_COMMON.USER_SETTINGS_TABS.PROFILE:
         return <UserProfileView
-          userData={userData}
+          userData={isEmptyObject(userData) ? userData : authData}
           isDataFetched={isDataFetched}
           isUserUpdating={isUserUpdating}
           updateUserData={updateUserData}
@@ -147,6 +149,10 @@ const UserSettings = ({
 
 UserSettings.propTypes = {
   location: PT.object,
+  authData: PT.oneOfType([
+    PT.object,
+    PT.arrayOf(PT.object),
+  ]),
   userData: PT.oneOfType([
     PT.object,
     PT.arrayOf(PT.object),

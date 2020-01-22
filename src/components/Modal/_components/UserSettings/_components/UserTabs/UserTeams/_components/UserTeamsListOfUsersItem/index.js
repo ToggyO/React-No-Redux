@@ -14,7 +14,9 @@ export const UserTeamsListOfUsersItem = ({ userData: { user }, style }) => (
     <ModalBorderColorBlock className={`${s.headlines} pb-2 pt-2`}>
       <div className={`${s.name} full_width flex`}>
         <AvatarContainer user={user} style={style} />
-        <ModalFontPrimaryColorBlock className={s.text_user}>{user.name || 'User'}</ModalFontPrimaryColorBlock>
+        <ModalFontPrimaryColorBlock className={s.text_user}>
+          {user.name || 'Username'}
+        </ModalFontPrimaryColorBlock>
       </div>
       <ModalFontPrimaryColorBlock className={`${s.email} ${s.text_user} full_width`}>
         {user.email}
