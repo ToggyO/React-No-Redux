@@ -23,13 +23,11 @@ export const AvatarContainer = ({ user: { name = 'User', avatar = {} }, style = 
             style={style.image}
             onLoad={() => setImageLoaded(true)}
           />
-        ) : name && true ? (
-          name
+        ) : (
+          (name !== null ? name : 'User')
             .replace(/ /g, '')
             .slice(0, 1)
             .toUpperCase()
-        ) : (
-          'User'
         )}
       </div>
     </div>
