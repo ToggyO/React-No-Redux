@@ -20,7 +20,7 @@ export const UserTeamsListOfUsersItem = ({ userData: { user }, style }) => (
         {user.email}
       </ModalFontPrimaryColorBlock>
       <ModalFontPrimaryColorBlock className={`${s.last_active} ${s.text_user} full_width`}>
-        02.28.1488
+        TBD
       </ModalFontPrimaryColorBlock>
       <button type="button" className={`${s.actions} btn full_width mt-0 mb-0`}>
         <Icon iconName="settings_switch_primary" />
