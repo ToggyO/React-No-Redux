@@ -6,13 +6,14 @@ import spinner from '@assets/user_profile/spinner-png.png';
 
 export const AvatarContainer = ({ user: { name = 'User', avatar = {} }, style = {} }) => {
   const [isImageLoaded, setImageLoaded] = useState(false);
-
+  // TODO change default values
   return (
     <div
       className={`${s.wrapper} flex justify-content-center align-items-center relative`}
       style={style.wrapper}
     >
       <div className={`${s.avatar} flex justify-content-center align-items-center`} style={style.placeholder}>
+        {/* eslint-disable-next-line no-nested-ternary */}
         {avatar && avatar.formatUrls['360'] ? (
           <img
             className={s.image}
@@ -22,11 +23,13 @@ export const AvatarContainer = ({ user: { name = 'User', avatar = {} }, style = 
             style={style.image}
             onLoad={() => setImageLoaded(true)}
           />
-        ) : (
+        ) : name && true ? (
           name
             .replace(/ /g, '')
             .slice(0, 1)
             .toUpperCase()
+        ) : (
+          'User'
         )}
       </div>
     </div>
