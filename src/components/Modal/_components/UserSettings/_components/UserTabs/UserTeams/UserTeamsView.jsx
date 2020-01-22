@@ -39,8 +39,8 @@ const UserTeamsView = ({
 
   useEffect(() => {
     if (teamsDeleting) {
-      const test = teams.filter(item => item.teamId !== currentTeamId);
-      if (test.length > 0) {
+      const restTeams = teams.filter(item => item.teamId !== currentTeamId);
+      if (restTeams.length > 0) {
         setTeam(test[0].teamId);
       }
     }
