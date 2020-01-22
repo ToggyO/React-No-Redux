@@ -4,7 +4,7 @@ import PT from 'prop-types';
 import s from '@components/Modal/_components/UserSettings/_components/UserTabs/UserProfile/_components/UserProfileAvatar/style.module.sass';
 import spinner from '@assets/user_profile/spinner-png.png';
 
-export const AvatarContainer = ({ user = {}, style = {} }) => {
+export const AvatarContainer = ({ user: { name = 'User', avatar = {} }, style = {} }) => {
   const [isImageLoaded, setImageLoaded] = useState(false);
 
   return (
@@ -13,17 +13,17 @@ export const AvatarContainer = ({ user = {}, style = {} }) => {
       style={style.wrapper}
     >
       <div className={`${s.avatar} flex justify-content-center align-items-center`} style={style.placeholder}>
-        {user.avatar && user.avatar.formatUrls['360'] ? (
+        {avatar && avatar.formatUrls['360'] ? (
           <img
             className={s.image}
-            src={!isImageLoaded ? spinner : user.avatar.formatUrls['360']}
+            src={!isImageLoaded ? spinner : avatar.formatUrls['360']}
             alt=""
             align="middle"
             style={style.image}
             onLoad={() => setImageLoaded(true)}
           />
         ) : (
-          user.name
+          name
             .replace(/ /g, '')
             .slice(0, 1)
             .toUpperCase()

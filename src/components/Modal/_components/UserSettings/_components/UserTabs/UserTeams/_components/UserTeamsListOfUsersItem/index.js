@@ -7,13 +7,14 @@ import { ModalBorderColorBlock, ModalFontPrimaryColorBlock } from '@components/S
 import { Icon } from '@components/Icon';
 import { AvatarContainer } from '@components/AvatarContainer';
 
+// TODO change default values
 // eslint-disable-next-line react/prop-types
 export const UserTeamsListOfUsersItem = ({ userData: { user }, style }) => (
   <div className={s.container}>
     <ModalBorderColorBlock className={`${s.headlines} pb-2 pt-2`}>
       <div className={`${s.name} full_width flex`}>
         <AvatarContainer user={user} style={style} />
-        <ModalFontPrimaryColorBlock className={s.text_user}>{user.name}</ModalFontPrimaryColorBlock>
+        <ModalFontPrimaryColorBlock className={s.text_user}>{user.name || 'User'}</ModalFontPrimaryColorBlock>
       </div>
       <ModalFontPrimaryColorBlock className={`${s.email} ${s.text_user} full_width`}>
         {user.email}

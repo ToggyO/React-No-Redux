@@ -4,9 +4,9 @@ Squad.io web application.
 Squad.io is a SaaS solution for project management and task tracking.
 
 Roles:
- * Company administrator (operates in web and mobile applications)
- * Company member (operates in web and mobile applications)
- * Administrator (operates in admin panel)
+- Company administrator (operates in web and mobile applications)
+- Company member (operates in web and mobile applications)
+- Administrator (operates in admin panel)
 
 Staging pshase <http://squad.magora.work>  
 API <http://squad.api.magora.work/swagger>
