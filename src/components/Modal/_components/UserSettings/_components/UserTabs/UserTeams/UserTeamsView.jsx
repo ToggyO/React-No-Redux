@@ -41,7 +41,7 @@ const UserTeamsView = ({
     if (teamsDeleting) {
       const restTeams = teams.filter(item => item.teamId !== currentTeamId);
       if (restTeams.length > 0) {
-        setTeam(test[0].teamId);
+        setTeam(restTeams[0].teamId);
       }
     }
   },[teamsDeleting, teams]);

@@ -13,13 +13,11 @@ import { Icon } from '@components/Icon';
 import OverlayBlocker from '@components/OverlayBlocker';
 import { validateField } from '@components/Form/validations';
 import { DeleteButton } from '@components/StyledComponents/Buttons';
-import { LOCAL_STORAGE_KEYS, MODAL_KEYS, USER_COMMON } from '@config/common';
-import { getFromState } from '@utils/index';
+import { MODAL_KEYS, USER_COMMON } from '@config/common';
 
 const UserProfileFormView = ({ userData, isUserUpdating, updateUserData, modalOpen }) => {
   const formikRef = useRef(null);
   const overlayzIndex = 2000;
-  const getSignUpMethod = getFromState(LOCAL_STORAGE_KEYS.USER);
 
   return (
     <Formik
@@ -68,26 +66,24 @@ const UserProfileFormView = ({ userData, isUserUpdating, updateUserData, modalOp
           <div style={{ height: 18 }} className="formik-error error-label pt-2">
             {errors.name && touched.name ? errors.name : ''}
           </div>
-          {getSignUpMethod.signUpBy === USER_COMMON.SIGN_UP_BY.GOOGLE && <SignUpByGoogleMessage />}
+          {userData.signUpBy === USER_COMMON.SIGN_UP_BY.GOOGLE && <SignUpByGoogleMessage />}
           <Field
             type="text"
             name="userEmail"
             component={TextInput}
             label="Email"
             addClassLabel="label_settings"
-            addClassWrapper={`${
-              getSignUpMethod.signUpBy === USER_COMMON.SIGN_UP_BY.EMAIL ? 'pt-9' : 'pt-2'
-            } pb-3`}
+            addClassWrapper={`${userData.signUpBy === USER_COMMON.SIGN_UP_BY.EMAIL ? 'pt-9' : 'pt-2'} pb-3`}
             addClassInputContainer="form_border_bottom form_border_gray"
             addClassInput="default_input input_settings pt-2 pb-2 pr-3"
             additionalElement={
-              getSignUpMethod.signUpBy === USER_COMMON.SIGN_UP_BY.EMAIL && (
+              userData.signUpBy === USER_COMMON.SIGN_UP_BY.EMAIL && (
                 <UserProfileEditButton onClick={() => modalOpen(MODAL_KEYS.MODAL_CHANGE_EMAIL)} />
               )
             }
             disabled
           />
-          {getSignUpMethod.signUpBy === USER_COMMON.SIGN_UP_BY.EMAIL && (
+          {userData.signUpBy === USER_COMMON.SIGN_UP_BY.EMAIL && (
             <Field
               type="text"
               name="userPassword"

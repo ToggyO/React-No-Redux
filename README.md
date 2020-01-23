@@ -8,9 +8,6 @@ Roles:
 - Company member (operates in web and mobile applications)
 - Administrator (operates in admin panel)
 
-Staging pshase <http://squad.magora.work>  
-API <http://squad.api.magora.work/swagger>
-
 #### Used technologies
 - [React](https://reactjs.org/)
 - [Redux](https://redux.js.org/)
