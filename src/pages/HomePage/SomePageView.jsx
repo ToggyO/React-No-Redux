@@ -1,16 +1,19 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+import React, { useContext } from 'react';
 
-import { LogoutButton } from '@components/LogoutButton';
+import { AppStoreContext } from '@ducks';
+import { _globalActions, _globalSelectors } from '@ducks/store';
 
-const SomePageView = () => (
-  <div>
-    <Helmet defaultTitle="Squad.io - Some page">
-      <meta name="description" content="Some page" />
-    </Helmet>
-    <h1>Protected Some Page</h1>
-    <LogoutButton addButtonClass="btn" />
-  </div>
-);
-
+const SomePageView = () => {
+  const { state, dispatch } = useContext(AppStoreContext);
+  console.log(state.global);
+  return (
+    <div>
+      <h1>Protected Some Page</h1>
+      <button type="button" onClick={() => dispatch(_globalActions.setGlobalLoading(!state.global.loading))}>
+        Toggle loader
+      </button>
+      {_globalSelectors.globalLoaderSelector(state) ? <div>loading</div> : null}
+    </div>
+  );
+}
 export default SomePageView;

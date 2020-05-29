@@ -13,6 +13,7 @@ module.exports = {
   },
   output: {
     filename: `[name]-[hash]${isPROD ? '.min' : ''}.js`,
+    chunkFilename: `[name]${isPROD ? '.min' : ''}.js`,
     path: paths.appBuild,
     publicPath: '/',
   },

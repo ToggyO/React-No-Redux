@@ -1,1 +1,1 @@
-export const { isPROD, isDEV, API_DOMAIN, API_VERSION, APP_PREFIX = '@SQUAD.IO' } = process.env || {};
+export const { isPROD, isDEV, API_DOMAIN, API_VERSION, APP_PREFIX = '@NO-REDUX' } = process.env || {};

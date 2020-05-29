@@ -2,7 +2,10 @@
 import React from 'react';
 
 export class ErrorBoundary extends React.Component {
-  state = { error: null, errorInfo: null };
+  state = {
+    error: null,
+    errorInfo: null,
+  };
 
   componentDidCatch(error, errorInfo) {
     this.setState({
@@ -12,19 +15,22 @@ export class ErrorBoundary extends React.Component {
   }
 
   render() {
+    const { children } = this.props;
+    const { error, errorInfo } = this.state;
+
     if (this.state.errorInfo) {
       return (
         <div>
           <h1>Something went wrong.</h1>
           <details style={{ whiteSpace: 'pre-wrap' }}>
-            {this.state.error && this.state.error.toString()}
+            {error && error.toString()}
             <br />
-            {this.state.errorInfo.componentStack}
+            {errorInfo.componentStack}
           </details>
         </div>
       );
     }
 
-    return this.props.children;
+    return children;
   }
 }

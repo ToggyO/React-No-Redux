@@ -25,6 +25,19 @@ module.exports = merge(common, {
       }),
       new OptimizeCSSAssetsPlugin({}),
     ],
+    splitChunks: {
+      cacheGroups: {
+        default: false,
+        commons: {
+          test: /\.jsx?$/,
+          chunks: 'all',
+          reuseExistingChunk: true,
+          minChunks: 2,
+          name: 'common',
+          enforce: true,
+        },
+      },
+    },
   },
   plugins: [
     new CleanWebpackPlugin(),

@@ -17,6 +17,21 @@ module.exports = merge(common, {
     host: HOST,
     port: PORT,
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        default: false,
+        common: {
+          test: /\.jsx?$/,
+          chunks: 'all',
+          minChunks: 2,
+          reuseExistingChunk: true,
+          name: 'common',
+          enforce: true,
+        },
+      },
+    },
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].css',
