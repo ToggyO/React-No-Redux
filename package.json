@@ -67,6 +67,7 @@
     "svg-url-loader": "^3.0.3",
     "terser-webpack-plugin": "^2.3.6",
     "url-loader": "^2.3.0",
+    "use-reducer-logger": "^1.0.2",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0",

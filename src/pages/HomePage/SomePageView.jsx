@@ -1,19 +1,89 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { PageHeader } from 'antd';
+import PropTypes from 'prop-types';
 
-import { AppStoreContext } from '@ducks';
+import { connect } from '@ducks/storeHelpers';
 import { _globalActions, _globalSelectors } from '@ducks/store';
+import { SpinnerWrapper } from '@components/SpinnerWrapper/index';
+import { authSelectors, authActions } from '@ducks/store/auth/index';
 
-const SomePageView = () => {
-  const { state, dispatch } = useContext(AppStoreContext);
-  console.log(state.global);
+const SomePageView = ({
+  toggleGlobalLoading,
+  globalLoading,
+  setAuthInfo,
+  clearAuthInfo,
+  authInfo,
+}) => {
+  const toggleLoader = () => {
+    toggleGlobalLoading(true);
+    setTimeout(() => toggleGlobalLoading(false), 3000);
+  };
+
   return (
-    <div>
-      <h1>Protected Some Page</h1>
-      <button type="button" onClick={() => dispatch(_globalActions.setGlobalLoading(!state.global.loading))}>
-        Toggle loader
-      </button>
-      {_globalSelectors.globalLoaderSelector(state) ? <div>loading</div> : null}
-    </div>
+    <PageHeader title="Some page">
+      <SpinnerWrapper loading={globalLoading}>
+        <button
+          type="button"
+          onClick={() => toggleLoader()}
+        >
+					Toggle loader
+        </button>
+        {globalLoading ? <div>loading</div> : null}
+      </SpinnerWrapper>
+      <div style={{ marginTop: 20 }}>
+        <button
+          type="button"
+          onClick={() => setAuthInfo({
+            accessToken: 'sdfsgdfghhgjghj',
+            accessTokenExpire: 12312,
+            refreshToken: 'sresdfsdfsdf',
+          })}
+        >
+					Set auth info
+        </button>
+        <button type="button" onClick={() => clearAuthInfo()}>
+					Clear auth info
+        </button>
+        <p>{authInfo.accessToken}</p>
+        <p>{authInfo.accessTokenExpire}</p>
+        <p>{authInfo.refreshToken}</p>
+      </div>
+    </PageHeader>
   );
-}
-export default SomePageView;
+};
+
+SomePageView.propTypes = {
+  toggleGlobalLoading: PropTypes.func,
+  globalLoading: PropTypes.bool,
+  setAuthInfo: PropTypes.func,
+  clearAuthInfo: PropTypes.func,
+  authInfo: PropTypes.shape({
+    accessToken: PropTypes.string,
+    accessTokenExpire: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    refreshToken: PropTypes.string,
+  }),
+};
+
+SomePageView.defaultProps = {
+  toggleGlobalLoading: Function.prototype,
+  globalLoading: false,
+};
+
+const mapStateToProps = state => ({
+  globalLoading: _globalSelectors.globalLoaderSelector(state),
+  authInfo: authSelectors.authInfoSelector(state),
+});
+
+const mapDispatchToProps = dispatch => ({
+  toggleGlobalLoading(newState) {
+    dispatch(_globalActions.setGlobalLoading(newState));
+  },
+  setAuthInfo(params) {
+    dispatch(authActions.setAuthInfo(params));
+  },
+  clearAuthInfo() {
+    dispatch(authActions.clearAuthInfo());
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SomePageView);
