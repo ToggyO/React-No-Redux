@@ -87,6 +87,14 @@ export function connect(mapStateToProps, mapDispatchToProps) {
 
       render() {
         const { state, dispatch } = this.context;
+        if (!mapStateToProps) {
+          mapStateToProps = () => null;
+        }
+
+        if (!mapDispatchToProps) {
+          mapDispatchToProps = () => null;
+        }
+
         return (
           <WrappedComponent
             {...this.props}

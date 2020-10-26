@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 import { connect } from '@ducks/storeHelpers';
 import { _globalActions, _globalSelectors } from '@ducks/store';
-import { SpinnerWrapper } from '@components/SpinnerWrapper/index';
-import { authSelectors, authActions } from '@ducks/store/auth/index';
+import { SpinnerWrapper } from '@components/SpinnerWrapper';
+import { authSelectors, authActions } from '@ducks/store/auth';
 
 const SomePageView = ({
   toggleGlobalLoading,
@@ -26,7 +26,7 @@ const SomePageView = ({
           type="button"
           onClick={() => toggleLoader()}
         >
-					Toggle loader
+          Toggle loader
         </button>
         {globalLoading ? <div>loading</div> : null}
       </SpinnerWrapper>
@@ -39,10 +39,10 @@ const SomePageView = ({
             refreshToken: 'sresdfsdfsdf',
           })}
         >
-					Set auth info
+          Set auth info
         </button>
         <button type="button" onClick={() => clearAuthInfo()}>
-					Clear auth info
+          Clear auth info
         </button>
         <p>{authInfo.accessToken}</p>
         <p>{authInfo.accessTokenExpire}</p>

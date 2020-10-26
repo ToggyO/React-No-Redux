@@ -1,12 +1,13 @@
 // gist https://gist.github.com/mkjiau/650013a99c341c9f23ca00ccb213db1c
 import axios from 'axios';
 
-import { LS_KEYS, API_DOMAIN, API_URL, API_VERSION } from '@config';
+import { LS_KEYS, API_DOMAIN, API_URL } from '@config';
 import { writeToLocalState } from '@services/ls';
 // import { userLogout } from '@services/auth';
 // import { ERROR_CODES } from '@config';
 import { writeToSessionState } from '@services/ss';
 import { checkLocalStorage, getFromState } from '@utils/index';
+// import api from '@services/api';
 
 let isAlreadyFetchingAccessToken = false;
 let subscribers = [];
@@ -20,7 +21,8 @@ function addSubscriber(callback) {
 }
 
 const superaxios = axios.create({
-  baseURL: `${API_DOMAIN}/api/${API_VERSION}`,
+  baseURL: `${API_DOMAIN}`,
+  // baseURL: `${API_DOMAIN}/api/${API_VERSION}`,
 });
 
 superaxios.interceptors.request.use(config => {
@@ -42,10 +44,14 @@ superaxios.interceptors.request.use(config => {
 
 superaxios.interceptors.response.use(
   response => response,
-  error => {
+  async error => {
     const { config, response } = error;
     // const { config, request, response } = error;
     const originalRequest = config;
+
+    // if (response.status === 401) {
+    //   await api.auth.logOut();
+    // }
 
     if (response.status === 401) {
       // const { data = {} } = response;

@@ -12,3 +12,7 @@ export const setAuthInfo = ({ accessToken, accessTokenExpire, refreshToken }) =>
 export const clearAuthInfo = () => ({
   type: types.CLEAR_AUTH_INFO,
 });
+
+export const logOut = () => ({
+  type: types.LOG_OUT,
+});

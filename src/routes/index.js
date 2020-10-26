@@ -1,18 +1,32 @@
 /* eslint-disable import/no-unresolved */
 import loadable from '@loadable/component';
 
-import App from '../App';
-
 import { ROUTES } from '@config';
+
+import App from '../App';
 
 export default [
   {
     component: App,
     routes: [
       {
-        path: ROUTES.HOME_PAGE,
+        path: ROUTES.LOGIN,
         component: loadable(() =>
-          import(/* webpackChunkName: 'basicLayout' */ '@components/Layouts/BasicLayout')
+          import(/* webpackChunkName: 'loginLayout' */ '@components/Layouts/LoginLayout/LoginLayout')
+        ),
+        routes: [
+          {
+            path: ROUTES.LOGIN,
+            component: loadable(() =>
+              import(/* webpackChunkName: 'loginLayout' */ '@pages/Login/LoginPageContainer')
+            ),
+          },
+        ],
+      },
+      {
+        path: ROUTES.ROOT,
+        component: loadable(() =>
+          import(/* webpackChunkName: 'basicLayout' */ '@components/Layouts/BasicLayout/BasicLayout')
         ),
         routes: [
           {

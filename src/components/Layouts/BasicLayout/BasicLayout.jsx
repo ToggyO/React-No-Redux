@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Helmet } from 'react-helmet';
 import { renderRoutes } from 'react-router-config';
 import { Breadcrumb, Layout, Menu } from 'antd';
 import PropTypes from 'prop-types';
 
-import s from './style.module.sass';
-
 import { name } from '@assets/manifest.json';
 import { getPageTitle, getMenuHeadlines } from '@utils';
 import { BreadcrumbItem } from '@components';
+import { authActions } from '@ducks/store/auth';
+import { connect } from '@ducks/storeHelpers'
+
+import s from './style.module.sass';
 
 const { Header, Content, Footer } = Layout;
 
-const BasicLayout = ({ history, location, route }) => {
+const BasicLayout = ({ history, location, route, logOutAction }) => {
   const { routes } = route;
   const { pathname } = location;
 
@@ -22,6 +24,9 @@ const BasicLayout = ({ history, location, route }) => {
 
   const splittedPathname = pathname.split('/');
   const defaultActiveKey = `/${splittedPathname[splittedPathname.length - 1]}`;
+
+  const logOut = () => logOutAction();
+  const memoizeOLogOut = useCallback(() => logOut(), []);
 
   const renderMenu = (links = []) => (
     <Menu theme="dark" mode="horizontal" defaultSelectedKeys={[defaultActiveKey]}>
@@ -33,6 +38,9 @@ const BasicLayout = ({ history, location, route }) => {
           {getMenuHeadlines(link.path)}
         </Menu.Item>
       ))}
+      <Menu.Item onClick={memoizeOLogOut}>
+        Log out
+      </Menu.Item>
     </Menu>
   );
 
@@ -97,9 +105,15 @@ const BasicLayout = ({ history, location, route }) => {
 };
 
 BasicLayout.propTypes = {
-  history: PropTypes.object,
-  location: PropTypes.object,
-  route: PropTypes.object,
+  history: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  route: PropTypes.object.isRequired,
 };
 
-export default BasicLayout;
+const mapDispatchToProps = dispatch => ({
+  logOutAction() {
+    dispatch(authActions.logOut())
+  },
+});
+
+export default connect(null, mapDispatchToProps)(BasicLayout);
